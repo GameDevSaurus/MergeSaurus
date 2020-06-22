@@ -9,6 +9,7 @@ public class UserDataController : MonoBehaviour
     public static UserData _currentUserData;
     public static string _fileName = "CurrentUserData.json";
     public static bool _checked;
+    public static int[] _levelProgression = new int[]{ 0, 50, 75, 150 };
 
     public static void Initialize()
     {
@@ -58,5 +59,15 @@ public class UserDataController : MonoBehaviour
     {
 
     }
-
+    public static int GetLevel()
+    {
+        int level = 0;
+        do
+        {
+            level++;
+            print(level);
+        }
+        while (_currentUserData._experience > _levelProgression[level]);
+        return level;
+    }
 }
