@@ -9,9 +9,17 @@ public class UserDataController : MonoBehaviour
     public static UserData _currentUserData;
     public static string _fileName = "CurrentUserData.json";
     public static bool _checked;
+
     public static void Initialize()
     {
         _currentUserData = new UserData();
+        SaveToFile();
+        _checked = true;
+    }
+
+    public static void InitializeUser(string lastUpdateTime)
+    {
+        _currentUserData = new UserData(lastUpdateTime);
         SaveToFile();
         _checked = true;
     }
@@ -50,6 +58,5 @@ public class UserDataController : MonoBehaviour
     {
 
     }
-
 
 }

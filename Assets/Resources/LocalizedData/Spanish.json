@@ -1,10 +1,14 @@
 [
   {
-    "key": "HELLO",
-    "value": "Hola"
+    "key": "LOADING",
+    "value": "Cargando..."
   },
   {
     "key": "GOODBYE",
     "value": "Adiós"
+  },
+  {
+    "key": "PLAY",
+    "value": "Jugar"
   }
 ]

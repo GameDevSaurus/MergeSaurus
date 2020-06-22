@@ -18,10 +18,10 @@ public class EditorTools : MonoBehaviour
         LoadScene("Configuration");
     }
 
-    [MenuItem("Scenes/MainMenu")]
-    public static void OpenMainMenu()
+    [MenuItem("Scenes/MainGame")]
+    public static void OpenMainGame()
     {
-        LoadScene("MainMenu");
+        LoadScene("MainGame");
     }
 
     [MenuItem("CustomTools/DeletePlayerPrefs")]
