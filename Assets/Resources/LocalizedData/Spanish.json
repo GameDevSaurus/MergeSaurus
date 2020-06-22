@@ -10,5 +10,28 @@
   {
     "key": "PLAY",
     "value": "Jugar"
+  },
+  {
+    "key": "CONV_0_0",
+    "value": [
+      "¡Bienvenido",
+      "te estaba esperando!\\nNecesito tu ayuda para mejorar mis robots."
+    ]
+  },
+  {
+    "key": "CONV_0_1",
+    "value": [
+      "Este es nuestro taller",
+      "el objetivo es conseguir los mejores robots y ganar mucho",
+      "mucho dinero."
+    ]
+  },
+  {
+    "key": null,
+    "value": null
+  },
+  {
+    "key": null,
+    "value": null
   }
 ]
