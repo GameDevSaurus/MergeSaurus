@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ConfigurationSceneController : MonoBehaviour
 {
+    public TimeController tController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!UserDataController.Exist())
+        {
+            UserDataController.InitializeUser(tController.GetTimeNow().ToBinary().ToString());
+            GameEvents.LoadScene.Invoke("Main");
+        }
+        else
+        {
+            UserDataController.LoadFromFile();
+            GameEvents.LoadScene.Invoke("Main");
+        }
     }
 }

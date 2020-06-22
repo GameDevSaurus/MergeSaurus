@@ -6,11 +6,16 @@ using System;
 public class UserData 
 {
     public int _ID;
-
+    public string _lastUpdatedTime;
 
     public UserData()
     {
         _ID = 0;
 
+    }
+
+    public UserData(string lastUpdTime)
+    {
+        _lastUpdatedTime = lastUpdTime;
     }
 }
