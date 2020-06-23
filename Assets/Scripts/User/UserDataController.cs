@@ -65,7 +65,6 @@ public class UserDataController : MonoBehaviour
         do
         {
             level++;
-            print(level);
         }
         while (_currentUserData._experience > _levelProgression[level]);
         return level;

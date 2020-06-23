@@ -4,34 +4,23 @@
     "value": "Cargando..."
   },
   {
-    "key": "GOODBYE",
-    "value": "Adiós"
+    "key": "CONTINUE",
+    "value": "- Continuar -"
   },
   {
-    "key": "PLAY",
-    "value": "Jugar"
+    "key": "CLOSE",
+    "value": "- Toca para cerrar -"
   },
   {
     "key": "CONV_0_0",
-    "value": [
-      "¡Bienvenido",
-      "te estaba esperando!\\nNecesito tu ayuda para mejorar mis robots."
-    ]
+    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis robots."
   },
   {
     "key": "CONV_0_1",
-    "value": [
-      "Este es nuestro taller",
-      "el objetivo es conseguir los mejores robots y ganar mucho",
-      "mucho dinero."
-    ]
+    "value": "Este es nuestro taller, el objetivo\nes conseguir los mejores robots\ny ganar mucho, mucho dinero."
   },
   {
-    "key": null,
-    "value": null
-  },
-  {
-    "key": null,
-    "value": null
+    "key": "CONV_1_0",
+    "value": "¡Coloca los robots en la pista! \nSe transformarán en vehículos y\ngenerarán dinero al pasar por\nmeta."
   }
 ]
