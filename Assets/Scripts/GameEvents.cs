@@ -55,6 +55,7 @@ public static class GameEvents
      * public static [[MyEventType]] [[EventName]] = new [[MyEventType]]();
      * 
      */
+    public static UnityEvent FastPurchase = new UnityEvent();
 
     public static StringEvent LoadScene = new StringEvent();
     public static StringEvent PlaySFX = new StringEvent();

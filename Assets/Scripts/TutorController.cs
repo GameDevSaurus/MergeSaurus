@@ -12,6 +12,9 @@ public class TutorController : MonoBehaviour
 
     public TextMeshProUGUI _textConversation, _textContinue;
 
+    [SerializeField]
+    Tutorial _tutorial;
+
     Image fadeImage;
     Color transparentWhite;
 
@@ -22,7 +25,7 @@ public class TutorController : MonoBehaviour
 
     bool canContinue = false;
 
-    private void Start()
+    private void Awake()
     {
         _conversations = new List<List<string>>();
         List<string> introConversation = new List<string>();
@@ -38,7 +41,6 @@ public class TutorController : MonoBehaviour
         transparentWhite = new Color(1, 1, 1, 0);
         fadeImage.color = transparentWhite;
         _initialPos = _rectTrTutor.anchoredPosition;
-        Speak(0);
     }
 
     public void Speak(int speakIndex)
@@ -162,5 +164,6 @@ public class TutorController : MonoBehaviour
         fadeImage.color = transparentWhite;
         _rectTrTutor.anchoredPosition = _initialPos;
         _rectTrFade.gameObject.SetActive(false);
+        _tutorial.EndSpeak();
     }
 }

@@ -11,7 +11,8 @@ public class UserData
     public int _softCoins;
     public int _hardCoins;
     public string _username;
-    
+    public int[] _dinosaurs;
+
     public UserData()
     {
         _ID = 0;
@@ -26,5 +27,6 @@ public class UserData
         _softCoins = 20000;
         _hardCoins = 0;
         _username = "Mechanic";
+        _dinosaurs = new int[15];
     }
 }
