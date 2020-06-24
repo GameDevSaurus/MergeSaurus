@@ -22,6 +22,14 @@ public class CellManager : MonoBehaviour
     float targetHeight;
     int ncells = 4;
 
+    private void Awake()
+    {
+        panelWidth = 5 + (4 * horizontalDist);
+        panelHeight = 5 + (4 * verticalDist);
+        targetWidth = padding + panelWidth;
+        targetHeight = panelHeight;
+        Camera.main.GetComponent<CameraAutoSize>().SetWidth(targetWidth);
+    }
     void Start()
     {
         _cellPositionList = new List<List<int>>();
@@ -38,11 +46,6 @@ public class CellManager : MonoBehaviour
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 2 });
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
 
-        panelWidth = 5 + (4 * horizontalDist);
-        panelHeight = 5 + (4 * verticalDist);
-        targetWidth = padding + panelWidth;
-        targetHeight = panelHeight;
-        Camera.main.GetComponent<CameraAutoSize>().SetWidth(targetWidth);
         SetCellNumber(4);
     }
 

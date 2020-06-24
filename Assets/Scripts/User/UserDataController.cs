@@ -69,4 +69,38 @@ public class UserDataController : MonoBehaviour
         while (_currentUserData._experience > _levelProgression[level]);
         return level;
     }
+
+    public static void SaveTutorial(int tutorialIndex)
+    {
+        _currentUserData._tutorialCompleted[tutorialIndex] = true;
+        SaveToFile();
+    }
+
+    public static void BuyRobot(int dinosaurIndex, int cost)
+    {
+
+    }
+
+    public static int GetEmptyCells()
+    {
+        int unlockedCells = 0;
+        for(int i = 0; i<_currentUserData._unlockedCells; i++)
+        {
+            if(_currentUserData._dinosaurs[i] == 0)
+            {
+                unlockedCells++;
+            }
+        }
+        return unlockedCells;
+    }
+
+    public static bool HaveMoney(int cost)
+    {
+        bool haveMoney = false;
+        if(_currentUserData._softCoins >= cost)
+        {
+            haveMoney = true;
+        }
+        return haveMoney;
+    }
 }

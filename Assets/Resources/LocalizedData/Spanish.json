@@ -22,5 +22,9 @@
   {
     "key": "CONV_1_0",
     "value": "¡Coloca los robots en la pista! \nSe transformarán en vehículos y\ngenerarán dinero al pasar por\nmeta."
+  },
+  {
+    "key": "ADVICE_NOEMPTYCELLS",
+    "value": "No tienes huecos\ndisponibles"
   }
 ]

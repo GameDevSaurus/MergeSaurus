@@ -19,13 +19,19 @@ public class Tutorial : MonoBehaviour
     AnimationCurve _animationCurve;
     [SerializeField]
     TutorController _tutorController;
-
+    [SerializeField]
+    AdviceController _adviceController;
     bool waitingPurchase = false;
     bool waitingSpeak = false;
+    Coroutine _adviceCr;
+    Coroutine _showTextCr;
+    Coroutine _moveTextCr;
+    Coroutine _hideTextCr;
 
     private void Awake()
     {
         GameEvents.FastPurchase.AddListener(FastPurchase);
+        GameEvents.ShowAdvice.AddListener(ShowAdvice);
     }
     private void Start()
     {
@@ -70,18 +76,28 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator Tutorial1()
     {
-        _tutorController.Speak(1);
-        waitingSpeak = true;
-        while (waitingSpeak)
+        if (!UserDataController._currentUserData._tutorialCompleted[0])
         {
-            yield return null;
+            _tutorController.Speak(0);
+            waitingSpeak = true;
+            while (waitingSpeak)
+            {
+                yield return null;
+            }
+            _circlePanelObject.SetActive(true);
+            _circlePanelTr.position = _fastPurchaseButtonTr.position;
+            yield return StartCoroutine(ZoomIn());
+            _handController.gameObject.SetActive(true);
+            waitingPurchase = true;
+            StartCoroutine(Tutorial1WaitForTouch());
         }
-        _circlePanelObject.SetActive(true);
-        _circlePanelTr.position = _fastPurchaseButtonTr.position;
-        yield return StartCoroutine(ZoomIn());
-        _handController.gameObject.SetActive(true);
-        waitingPurchase = true;
-        StartCoroutine(Tutorial1WaitForTouch());
+        else
+        {
+            if (UserDataController._currentUserData._tutorialCompleted[1])
+            {
+                //Tutorial 2
+            }
+        }
     }
 
     IEnumerator Tutorial1WaitForTouch()
@@ -98,6 +114,7 @@ public class Tutorial : MonoBehaviour
         {
             StartCoroutine(_handController.CrPointOut());
             StartCoroutine(ZoomOut());
+            UserDataController.SaveTutorial(0);
         }
     }
 
@@ -106,6 +123,46 @@ public class Tutorial : MonoBehaviour
         if (waitingPurchase)
         {
             waitingPurchase = false;
+        }
+    }
+
+    public void ShowAdvice(string adviceKey)
+    {
+        if (_adviceCr != null)
+        {
+            StopCoroutine(_adviceCr);
+
+            if (_showTextCr != null)
+            {
+                StopCoroutine(_showTextCr);
+            }
+            if (_hideTextCr != null)
+            {
+                StopCoroutine(_hideTextCr);
+            }
+            if (_moveTextCr != null)
+            {
+                StopCoroutine(_moveTextCr);
+            }
+        }
+        _adviceCr = StartCoroutine(CrShowAdvice(adviceKey));
+    }
+
+    IEnumerator CrShowAdvice(string adviceKey)
+    {
+        _adviceController.gameObject.SetActive(true);
+        _moveTextCr = StartCoroutine(_adviceController.CrMoveText());
+        yield return _showTextCr = StartCoroutine(_adviceController.CrShowText(adviceKey));
+        yield return new WaitForSeconds(_adviceController.moveDuration - (_adviceController.fadeDuration *2f));
+        yield return _hideTextCr = StartCoroutine(_adviceController.CrHideText());
+        _adviceController.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MainGameSceneController : MonoBehaviour
 {
-    public void FastPurchase()
+    public static void FastPurchase(int dinosaurIndex, int cost)
     {
+
         GameEvents.FastPurchase.Invoke();
     }
 }

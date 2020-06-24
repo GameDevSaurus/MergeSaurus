@@ -10,8 +10,10 @@ public class UserData
     public int _experience;
     public int _softCoins;
     public int _hardCoins;
+    public int _unlockedCells;
     public string _username;
     public int[] _dinosaurs;
+    public bool[] _tutorialCompleted;
 
     public UserData()
     {
@@ -26,7 +28,9 @@ public class UserData
         _experience = 0;
         _softCoins = 20000;
         _hardCoins = 0;
+        _unlockedCells = 4;
         _username = "Mechanic";
         _dinosaurs = new int[15];
-    }
+        _tutorialCompleted = new bool[6];
+}
 }
