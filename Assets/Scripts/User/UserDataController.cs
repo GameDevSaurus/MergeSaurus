@@ -112,4 +112,12 @@ public class UserDataController : MonoBehaviour
         }
         return haveMoney;
     }
+
+    public static void MoveDinosaur(int cellIndex1, int cellIndex2)
+    {
+        int aux = _currentUserData._dinosaurs[cellIndex2];
+        _currentUserData._dinosaurs[cellIndex2] = _currentUserData._dinosaurs[cellIndex1];
+        _currentUserData._dinosaurs[cellIndex1] = aux;
+        SaveToFile();
+    }
 }

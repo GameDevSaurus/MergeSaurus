@@ -69,10 +69,11 @@ public class CellManager : MonoBehaviour
             float horizontalCellDistance = panelWidth / ((float)cols + 1f);
             for (int j = 0; j < cols; j++)
             {
-                GameObject dinopanel = Instantiate(cellPrefab, new Vector2(((j + 1) * horizontalCellDistance) - panelWidth / 2f, panelHeight / 2f - ((i + 1) * verticalCellDistance)), Quaternion.identity);
-                dinopanel.transform.SetParent(transform);
-                dinopanel.name = i + " - " + j;
-                _cells.Add(dinopanel);
+                GameObject cell = Instantiate(cellPrefab, new Vector3(((j + 1) * horizontalCellDistance) - panelWidth / 2f, panelHeight / 2f - ((i + 1) * verticalCellDistance), 1f), Quaternion.identity);
+                cell.transform.SetParent(transform);
+                cell.name = i + " - " + j;
+                cell.GetComponent<CellInstance>().SetCell(_cells.Count);
+                _cells.Add(cell);
             }
         }
     }
@@ -86,5 +87,11 @@ public class CellManager : MonoBehaviour
     public Vector2 GetCellPosition(int nCell)
     {
         return _cells[nCell].transform.position;
+    }
+
+    public void SetDinosaurInCell(int dinosaur, int cell)
+    {
+        print(dinosaur + "   " + cell);
+        _cells[cell].GetComponent<CellInstance>().SetDinosaur(dinosaur);
     }
 }
