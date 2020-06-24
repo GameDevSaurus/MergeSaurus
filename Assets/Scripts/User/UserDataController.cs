@@ -120,4 +120,11 @@ public class UserDataController : MonoBehaviour
         _currentUserData._dinosaurs[cellIndex1] = aux;
         SaveToFile();
     }
+
+    public static void MergeDinosaurs(int originCell, int targetCell, int mergeDinoType)
+    {
+        _currentUserData._dinosaurs[originCell] = 0;
+        _currentUserData._dinosaurs[targetCell] = mergeDinoType;
+        SaveToFile();
+    }
 }

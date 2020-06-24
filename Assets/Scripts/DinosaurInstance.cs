@@ -67,7 +67,14 @@ public class DinosaurInstance : MonoBehaviour
                 _cellManager.SetDinosaurInCell(0 ,_cellIndex);
                 SetCell(collisionCell.GetCellNumber());
                 collisionCell.SetDinosaur(_dinoType);
-            }                   
+            }
+            else
+            {
+                if(collisionCell.GetDinosaur() == _dinoType)
+                {
+                    _mainGameSceneController.Merge(this, collisionCell.GetCellNumber());
+                }
+            }
         }
         _mainGameSceneController.UpdatePositions();
     }

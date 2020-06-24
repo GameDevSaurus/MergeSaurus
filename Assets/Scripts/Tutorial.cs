@@ -87,6 +87,7 @@ public class Tutorial : MonoBehaviour
             }
             _circlePanelObject.SetActive(true);
             _circlePanelTr.position = _fastPurchaseButtonTr.position;
+            _handController.GetComponent<RectTransform>().position = _fastPurchaseButtonTr.position; 
             yield return StartCoroutine(ZoomIn());
             _handController.gameObject.SetActive(true);
             waitingPurchase = true;
