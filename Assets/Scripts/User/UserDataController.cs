@@ -76,9 +76,18 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
-    public static void BuyRobot(int dinosaurIndex, int cost)
+    public static void BuyDinosaur(int dinosaurIndex, int cost)
     {
-
+        for(int i = 0; i< _currentUserData._unlockedCells; i++)
+        {
+            if (_currentUserData._dinosaurs[i] == 0)
+            {
+                _currentUserData._dinosaurs[i] = dinosaurIndex + 1;
+                break;
+            }
+        }
+        _currentUserData._softCoins -= cost;
+        SaveToFile();
     }
 
     public static int GetEmptyCells()

@@ -22,6 +22,8 @@ public class CellManager : MonoBehaviour
     float targetHeight;
     int ncells = 4;
 
+    List<GameObject> _cells;
+
     private void Awake()
     {
         panelWidth = 5 + (4 * horizontalDist);
@@ -29,11 +31,9 @@ public class CellManager : MonoBehaviour
         targetWidth = padding + panelWidth;
         targetHeight = panelHeight;
         Camera.main.GetComponent<CameraAutoSize>().SetWidth(targetWidth);
-    }
-    void Start()
-    {
+
         _cellPositionList = new List<List<int>>();
-        _cellPositionList.Add(new List<int>(){ 2, 2 });
+        _cellPositionList.Add(new List<int>() { 2, 2 });
         _cellPositionList.Add(new List<int>() { 2, 2, 1 });
         _cellPositionList.Add(new List<int>() { 2, 2, 2 });
         _cellPositionList.Add(new List<int>() { 2, 2, 2, 1 });
@@ -51,6 +51,7 @@ public class CellManager : MonoBehaviour
 
     public void SetCellNumber(int nCells)
     {
+        _cells = new List<GameObject>();
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -71,6 +72,7 @@ public class CellManager : MonoBehaviour
                 GameObject dinopanel = Instantiate(cellPrefab, new Vector2(((j + 1) * horizontalCellDistance) - panelWidth / 2f, panelHeight / 2f - ((i + 1) * verticalCellDistance)), Quaternion.identity);
                 dinopanel.transform.SetParent(transform);
                 dinopanel.name = i + " - " + j;
+                _cells.Add(dinopanel);
             }
         }
     }
@@ -79,5 +81,10 @@ public class CellManager : MonoBehaviour
     {
         ncells += n;
         SetCellNumber(ncells);
+    }
+
+    public Vector2 GetCellPosition(int nCell)
+    {
+        return _cells[nCell].transform.position;
     }
 }

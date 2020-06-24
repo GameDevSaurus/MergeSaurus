@@ -2694,6 +2694,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  moveDuration: 2.5
+  fadeDuration: 0.25
 --- !u!1 &752001370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,6 +2805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9caf36e97aa943b243e2301d82d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dinoPrefabs:
+  - {fileID: 5357118317913399881, guid: c7311d6f74b2f784081b76aeb51deee9, type: 3}
+  _dinoIngame: []
+  _cellManager: {fileID: 1650402420}
 --- !u!1 &820097773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5522,6 +5528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fastPurchaseButton: {fileID: 1873822494}
+  _mainGameSceneController: {fileID: 807927618}
 --- !u!1 &2025029041
 GameObject:
   m_ObjectHideFlags: 0

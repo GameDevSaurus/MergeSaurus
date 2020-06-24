@@ -18,7 +18,6 @@ public class UserData
     public UserData()
     {
         _ID = 0;
-
     }
 
     public UserData(string lastUpdTime)

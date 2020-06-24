@@ -7,12 +7,17 @@ public class FastPurchaseButton : MonoBehaviour
 {
     [SerializeField]
     Button _fastPurchaseButton;
-
+    [SerializeField]
+    MainGameSceneController _mainGameSceneController;
     public void Purchase()
     {
         if(UserDataController.GetEmptyCells() > 0)
         {
-            MainGameSceneController.FastPurchase(0, 10);
+            _mainGameSceneController.FastPurchase(0, 10);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
     }
 

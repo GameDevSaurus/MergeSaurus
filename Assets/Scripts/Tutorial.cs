@@ -78,6 +78,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!UserDataController._currentUserData._tutorialCompleted[0])
         {
+            _tutorController.gameObject.SetActive(true);
             _tutorController.Speak(0);
             waitingSpeak = true;
             while (waitingSpeak)
@@ -158,11 +159,4 @@ public class Tutorial : MonoBehaviour
         _adviceController.gameObject.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
-        }
-    }
 }
