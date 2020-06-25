@@ -13,10 +13,21 @@ public class HandController : MonoBehaviour
     [SerializeField]
     AnimationCurve _animationCurve;
     [SerializeField]
+    AnimationCurve _dragAnimationCurve;
+    [SerializeField]
     Image _touchCircleImage;
+
+    Coroutine _crTouchManager;
+    Coroutine _crDragManager;
+    Coroutine _crAppear;
+    Coroutine _crDisappear;
+    Coroutine _crPointIn;
+    Coroutine _crPointOut;
+    Coroutine _crDrag;
 
     float animDuration = 0.25f;
     float pointDuration = 0.5f;
+    float dragDuration = 0.75f;
     Color transparentWhite = new Color(1,1,1,0);
     // Start is called before the first frame update
     void Start()
@@ -37,8 +48,87 @@ public class HandController : MonoBehaviour
     public void ResetHand()
     {
         _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        _touchCircleImage.rectTransform.localScale = Vector3.zero;
     }
 
+    public void StartTouchMode()
+    {
+        _crTouchManager = StartCoroutine(TouchCr());
+    }
+
+    public void StartDragMode(Vector2 positionA, Vector2 positionB)
+    {
+        _crDragManager = StartCoroutine(DragCr(positionA, positionB));
+    }
+
+    public IEnumerator DragCr(Vector2 positionA, Vector2 positionB)
+    {
+        ResetHand();
+        _selfTransform.position = positionA;
+        yield return _crAppear = StartCoroutine(CrAppear());
+        yield return _crPointIn = StartCoroutine(CrPointIn());
+        yield return _crDrag = StartCoroutine(CrDrag(positionA, positionB));
+        yield return new WaitForSeconds(0.5f);
+        yield return _crPointOut = StartCoroutine(CrPointOut());
+        StartCoroutine(DragCr(positionA, positionB));
+    }
+
+    public IEnumerator TouchCr() 
+    {
+        ResetHand();
+        yield return _crAppear =  StartCoroutine(CrAppear());
+        yield return _crPointIn = StartCoroutine(CrPointIn());
+        yield return _crDisappear = StartCoroutine(CrDisappear());
+        StartCoroutine(TouchCr());
+    }
+
+    public void StopTouchCoroutines()
+    {
+        if (_crAppear != null)
+        {
+            StopCoroutine(_crAppear);
+        }
+        if (_crPointIn != null)
+        {
+            StopCoroutine(_crPointIn);
+        }
+        if (_crDisappear != null)
+        {
+            StopCoroutine(_crDisappear);
+        }       
+        if (_crTouchManager != null)
+        {
+            StopCoroutine(_crTouchManager);
+        }
+    }
+
+    public void StopDragCoroutines()
+    {
+        if (_crAppear != null)
+        {
+            StopCoroutine(_crAppear);
+        }
+        if (_crDisappear != null)
+        {
+            StopCoroutine(_crDisappear);
+        }
+        if (_crPointIn != null)
+        {
+            StopCoroutine(_crPointIn);
+        }
+        if (_crPointOut != null)
+        {
+            StopCoroutine(_crPointOut);
+        }
+        if (_crDrag != null)
+        {
+            StopCoroutine(_crDrag);
+        }
+        if (_crDragManager != null)
+        {
+            StopCoroutine(_crDragManager);
+        }
+    }
     public IEnumerator CrAppear()
     {
         _handImage.gameObject.SetActive(true);
@@ -83,9 +173,18 @@ public class HandController : MonoBehaviour
     {
         for (float i = 0; i < pointDuration; i += Time.deltaTime)
         {
-            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 - (40 * _animationCurve.Evaluate(i / pointDuration))));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (40 * _animationCurve.Evaluate(i / pointDuration))));
             yield return null;
         }
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, -40));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+    }
+    public IEnumerator CrDrag(Vector2 pointA, Vector2 pointB)
+    {
+        for (float i = 0; i < dragDuration; i += Time.deltaTime)
+        {
+            _selfTransform.position = Vector2.Lerp(pointA, pointB, _dragAnimationCurve.Evaluate(i / dragDuration));
+            yield return null;
+        }
+        _selfTransform.position = pointB;
     }
 }

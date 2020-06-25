@@ -18,7 +18,7 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void FastPurchase(int dinosaurIndex, int cost)
     {
-        if (_tutorial.CanPurchase())
+        if (CurrentSceneManager._canPurchase)
         {
             for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
             {
@@ -78,6 +78,7 @@ public class MainGameSceneController : MonoBehaviour
         _cellManager.SetDinosaurInCell(dinoInstance1.GetDinosaur() + 1, dinoInstance2.GetCellNumber());
         Destroy(dinoInstance1.gameObject);
         Destroy(dinoInstance2.gameObject);
+        GameEvents.MergeDino.Invoke();
     }
 
     DinosaurInstance GetDinoInstanceByCell(int cell)
@@ -96,5 +97,10 @@ public class MainGameSceneController : MonoBehaviour
     {
         UserDataController.DeleteFile();
         GameEvents.LoadScene.Invoke("Splash");
+    }
+
+    public Vector3 GetDinoPositionsUIByCell(int cellIndex)
+    {
+        return Camera.main.WorldToScreenPoint(_cellManager.GetCellPosition(cellIndex));
     }
 }

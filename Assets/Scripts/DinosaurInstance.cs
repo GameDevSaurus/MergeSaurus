@@ -52,8 +52,11 @@ public class DinosaurInstance : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        _dragging = true;
-        _otherCell = null;
+        if (CurrentSceneManager._canPickDinosaur)
+        {
+            _dragging = true;
+            _otherCell = null;
+        }
     }
     private void OnMouseUp()
     {
@@ -63,16 +66,22 @@ public class DinosaurInstance : MonoBehaviour
             CellInstance collisionCell = _otherCell.GetComponent<CellInstance>();
             if (collisionCell.GetDinosaur() == 0)
             {
-                UserDataController.MoveDinosaur(_cellIndex, collisionCell.GetCellNumber());
-                _cellManager.SetDinosaurInCell(0 ,_cellIndex);
-                SetCell(collisionCell.GetCellNumber());
-                collisionCell.SetDinosaur(_dinoType);
+                if (CurrentSceneManager._canMoveDinosaur)
+                {
+                    UserDataController.MoveDinosaur(_cellIndex, collisionCell.GetCellNumber());
+                    _cellManager.SetDinosaurInCell(0, _cellIndex);
+                    SetCell(collisionCell.GetCellNumber());
+                    collisionCell.SetDinosaur(_dinoType);
+                }
             }
             else
             {
                 if(collisionCell.GetDinosaur() == _dinoType)
                 {
-                    _mainGameSceneController.Merge(this, collisionCell.GetCellNumber());
+                    if (CurrentSceneManager._canMergeDinosaur)
+                    {
+                        _mainGameSceneController.Merge(this, collisionCell.GetCellNumber());
+                    }
                 }
             }
         }
