@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 259401228}
   - component: {fileID: -6963439890628360644}
   m_Layer: 0
-  m_Name: dinosaur_4
+  m_Name: dinosaur_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 626291c1469ff484aa51873e5a4a550d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe2b186694fa1724aae6eb932931fb1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
