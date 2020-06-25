@@ -40,6 +40,10 @@ public class UserDataController : MonoBehaviour
         _checked = true;
 
     }
+    public static void DeleteFile()
+    {
+        File.Delete(Application.persistentDataPath + "/" + _fileName);
+    }
 
     public static void SaveToFile()
     {

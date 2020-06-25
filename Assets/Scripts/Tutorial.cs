@@ -14,15 +14,18 @@ public class Tutorial : MonoBehaviour
     GameObject _circlePanelObject;
     Camera _camera;
     [SerializeField]
-    HandController _handController;
+    HandController _handController;  //Referenciar sus Corutinas y detenerlas antes de desactivar el objeto
+    List<Coroutine> _handCoroutines;
     [SerializeField]
     AnimationCurve _animationCurve;
     [SerializeField]
     TutorController _tutorController;
     [SerializeField]
     AdviceController _adviceController;
-    bool waitingPurchase = false;
+    bool waitingPurchaseTutorial0 = false;
+    bool waitingPurchaseTutorial1 = false;
     bool waitingSpeak = false;
+    bool _canPurchase = false;
     Coroutine _adviceCr;
     Coroutine _showTextCr;
     Coroutine _moveTextCr;
@@ -35,8 +38,19 @@ public class Tutorial : MonoBehaviour
     }
     private void Start()
     {
+        _handCoroutines = new List<Coroutine>();
         _camera = Camera.main;
-        StartTutorial(0);
+        if (!UserDataController._currentUserData._tutorialCompleted[0])
+        {
+            StartTutorial(0);
+        }
+        else
+        {
+            if (!UserDataController._currentUserData._tutorialCompleted[1])
+            {
+                StartTutorial(1);
+            }
+        }
     }
 
     public void StartTutorial(int tutorialIndex)
@@ -44,6 +58,9 @@ public class Tutorial : MonoBehaviour
         switch (tutorialIndex)
         {
             case 0:
+                StartCoroutine(Tutorial0());
+                break;
+            case 1:
                 StartCoroutine(Tutorial1());
                 break;
         }
@@ -74,57 +91,76 @@ public class Tutorial : MonoBehaviour
         _circlePanelObject.SetActive(false);
     }
 
-    IEnumerator Tutorial1()
+    IEnumerator Tutorial0()
     {
-        if (!UserDataController._currentUserData._tutorialCompleted[0])
+        _tutorController.gameObject.SetActive(true);
+        _tutorController.Speak(0);
+        waitingSpeak = true;
+        while (waitingSpeak)
         {
-            _tutorController.gameObject.SetActive(true);
-            _tutorController.Speak(0);
-            waitingSpeak = true;
-            while (waitingSpeak)
-            {
-                yield return null;
-            }
-            _circlePanelObject.SetActive(true);
-            _circlePanelTr.position = _fastPurchaseButtonTr.position;
-            _handController.GetComponent<RectTransform>().position = _fastPurchaseButtonTr.position; 
-            yield return StartCoroutine(ZoomIn());
-            _handController.gameObject.SetActive(true);
-            waitingPurchase = true;
-            StartCoroutine(Tutorial1WaitForTouch());
+            yield return null;
         }
-        else
-        {
-            if (UserDataController._currentUserData._tutorialCompleted[1])
-            {
-                //Tutorial 2
-            }
-        }
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = _fastPurchaseButtonTr.position;
+        _handController.GetComponent<RectTransform>().position = _fastPurchaseButtonTr.position;
+        yield return StartCoroutine(ZoomIn());
+        _handController.gameObject.SetActive(true);
+        waitingPurchaseTutorial0 = true;
+        StartCoroutine(TutorialWaitForTouch());
+        yield return new WaitForSeconds(0.5f);
+        _canPurchase = true;
     }
 
-    IEnumerator Tutorial1WaitForTouch()
+    IEnumerator Tutorial1()
     {
-        yield return StartCoroutine(_handController.CrAppear());
-        yield return StartCoroutine(_handController.CrPointIn());
-        yield return StartCoroutine(_handController.CrDisappear());
-        _handController.ResetHand();
-        if (waitingPurchase)
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = _fastPurchaseButtonTr.position;
+        _handController.GetComponent<RectTransform>().position = _fastPurchaseButtonTr.position;
+        yield return StartCoroutine(ZoomIn());
+        _handController.gameObject.SetActive(true);
+        waitingPurchaseTutorial1 = true;
+        StartCoroutine(TutorialWaitForTouch());
+        yield return new WaitForSeconds(0.5f);
+        _canPurchase = true;
+    }
+
+    IEnumerator TutorialWaitForTouch()
+    {
+        if(_handCoroutines.Count == 0)
         {
-            StartCoroutine(Tutorial1WaitForTouch());
+            yield return StartCoroutine(_handController.CrAppear());
+            //_handCoroutines.Add(_handController.CrAppear()));
+            yield return StartCoroutine(_handController.CrPointIn());
+            yield return StartCoroutine(_handController.CrDisappear());
         }
-        else
+
+        _handController.ResetHand();
+        if (waitingPurchaseTutorial0)
         {
-            StartCoroutine(_handController.CrPointOut());
-            StartCoroutine(ZoomOut());
-            UserDataController.SaveTutorial(0);
+            StartCoroutine(TutorialWaitForTouch());
         }
     }
 
     public void FastPurchase()
     {
-        if (waitingPurchase)
+        if (waitingPurchaseTutorial0)
         {
-            waitingPurchase = false;
+            waitingPurchaseTutorial0 = false;
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(0);
+            _canPurchase = false;
+            StartTutorial(1);
+        }
+
+        if (waitingPurchaseTutorial1)
+        {
+            waitingPurchaseTutorial0 = false;
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(1);
+            _canPurchase = false;
+            //StartTutorial(2);
         }
     }
 
@@ -160,4 +196,8 @@ public class Tutorial : MonoBehaviour
         _adviceController.gameObject.SetActive(false);
     }
 
+    public bool CanPurchase()
+    {
+        return _canPurchase;
+    }
 }

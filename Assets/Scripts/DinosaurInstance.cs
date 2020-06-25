@@ -33,7 +33,7 @@ public class DinosaurInstance : MonoBehaviour
     {
         if (_dragging)
         {
-            if (col.CompareTag("Cell"))
+            if (col.CompareTag("Cell") && col.gameObject.GetComponent<CellInstance>().GetCellNumber() != _cellIndex)
             {
                 _otherCell = col.gameObject;
             }

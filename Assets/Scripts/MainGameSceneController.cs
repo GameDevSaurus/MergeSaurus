@@ -9,6 +9,8 @@ public class MainGameSceneController : MonoBehaviour
     List<DinosaurInstance> _dinoIngame;
     [SerializeField]
     CellManager _cellManager;
+    [SerializeField]
+    Tutorial _tutorial;
 
     private void Start()
     {
@@ -16,21 +18,24 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void FastPurchase(int dinosaurIndex, int cost)
     {
-        for(int i = 0; i<UserDataController._currentUserData._unlockedCells; i++)
+        if (_tutorial.CanPurchase())
         {
-            if(UserDataController._currentUserData._dinosaurs[i] == 0)
+            for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
             {
-                GameObject dino = Instantiate(_dinoPrefabs[dinosaurIndex], _cellManager.GetCellPosition(i), Quaternion.identity);
-                DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
-                dinoInst.SetCell(i);
-                dinoInst.SetDino(dinosaurIndex + 1);
-                _cellManager.SetDinosaurInCell(dinosaurIndex + 1, i);
-                _dinoIngame.Add(dinoInst);
-                break;
+                if (UserDataController._currentUserData._dinosaurs[i] == 0)
+                {
+                    GameObject dino = Instantiate(_dinoPrefabs[dinosaurIndex], _cellManager.GetCellPosition(i), Quaternion.identity);
+                    DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
+                    dinoInst.SetCell(i);
+                    dinoInst.SetDino(dinosaurIndex + 1);
+                    _cellManager.SetDinosaurInCell(dinosaurIndex + 1, i);
+                    _dinoIngame.Add(dinoInst);
+                    break;
+                }
             }
+            UserDataController.BuyDinosaur(dinosaurIndex, cost);
+            GameEvents.FastPurchase.Invoke();
         }
-        UserDataController.BuyDinosaur(dinosaurIndex, cost);
-        GameEvents.FastPurchase.Invoke();
     }
 
     public void CreateStartingDinosaurs()
@@ -85,5 +90,11 @@ public class MainGameSceneController : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void DeleteGameData()
+    {
+        UserDataController.DeleteFile();
+        GameEvents.LoadScene.Invoke("Splash");
     }
 }

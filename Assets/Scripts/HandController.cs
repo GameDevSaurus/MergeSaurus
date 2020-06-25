@@ -36,7 +36,7 @@ public class HandController : MonoBehaviour
 
     public void ResetHand()
     {
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, -40));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     public IEnumerator CrAppear()
@@ -68,7 +68,7 @@ public class HandController : MonoBehaviour
             _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 + (40 * _animationCurve.Evaluate(i / pointDuration))));
             yield return null;
         }
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40));
 
         for (float i = 0; i < pointDuration; i += Time.deltaTime)
         {
@@ -86,6 +86,6 @@ public class HandController : MonoBehaviour
             _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 - (40 * _animationCurve.Evaluate(i / pointDuration))));
             yield return null;
         }
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, -40));
     }
 }

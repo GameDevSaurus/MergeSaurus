@@ -91,7 +91,6 @@ public class CellManager : MonoBehaviour
 
     public void SetDinosaurInCell(int dinosaur, int cell)
     {
-        print(dinosaur + "   " + cell);
         _cells[cell].GetComponent<CellInstance>().SetDinosaur(dinosaur);
     }
 }
