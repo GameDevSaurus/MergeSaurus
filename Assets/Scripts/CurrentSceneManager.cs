@@ -9,39 +9,33 @@ public class CurrentSceneManager : MonoBehaviour
     public static bool _canMoveDinosaur;
     public static bool _canMergeDinosaur;
     public static bool _canDestroyDinosaur;
+    public static bool _canWorkDinosaur;
 
     private void Start()
     {
-        _canPurchase = true;
-        _canPickDinosaur = true;
-        _canDestroyDinosaur = true;
-        _canMoveDinosaur = true;
-        _canMergeDinosaur = true;
+        UnlockEverything();
     }
 
     public static void OnlyCanPurchase()
     {
+        LockEverything();
         _canPurchase = true;
-        _canPickDinosaur = false;
-        _canDestroyDinosaur = false;
-        _canMoveDinosaur = false;
-        _canMergeDinosaur = false;
     }
     public static void OnlyCanPick()
     {
-        _canPurchase = false;
+        LockEverything();
         _canPickDinosaur = true;
-        _canDestroyDinosaur = false;
-        _canMoveDinosaur = false;
-        _canMergeDinosaur = false;
     }
     public static void OnlyCanMerge()
     {
-        _canPurchase = false;
+        LockEverything();
         _canPickDinosaur = true;
-        _canDestroyDinosaur = false;
-        _canMoveDinosaur = false;
         _canMergeDinosaur = true;
+    }
+    public static void OnlyCanWork()
+    {
+        LockEverything();
+        _canWorkDinosaur = true;
     }
     public static void UnlockEverything()
     {
@@ -50,6 +44,7 @@ public class CurrentSceneManager : MonoBehaviour
         _canDestroyDinosaur = true;
         _canMoveDinosaur = true;
         _canMergeDinosaur = true;
+        _canWorkDinosaur = true;
     }
     public static void LockEverything()
     {
@@ -58,5 +53,6 @@ public class CurrentSceneManager : MonoBehaviour
         _canDestroyDinosaur = false;
         _canMoveDinosaur = false;
         _canMergeDinosaur = false;
+        _canWorkDinosaur = false;
     }
 }

@@ -24,6 +24,7 @@ public class Tutorial : MonoBehaviour
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
     bool waitingMergeTutorial2 = false;
+    bool waitingWorkDinosaurTutorial3 = false;
     bool waitingSpeak = false;
     Coroutine _adviceCr;
     Coroutine _showTextCr;
@@ -35,6 +36,7 @@ public class Tutorial : MonoBehaviour
         GameEvents.FastPurchase.AddListener(FastPurchase);
         GameEvents.ShowAdvice.AddListener(ShowAdvice);
         GameEvents.MergeDino.AddListener(Merge);
+        GameEvents.WorkDino.AddListener(Work);
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
     }
     private void Start()
@@ -49,6 +51,20 @@ public class Tutorial : MonoBehaviour
             if (!UserDataController._currentUserData._tutorialCompleted[1])
             {
                 StartTutorial(1);
+            }
+            else
+            {
+                if (!UserDataController._currentUserData._tutorialCompleted[2])
+                {
+                    StartTutorial(2);
+                }
+                else
+                {
+                    if (!UserDataController._currentUserData._tutorialCompleted[3])
+                    {
+                        StartTutorial(3);
+                    }
+                }
             }
         }
     }
@@ -66,25 +82,15 @@ public class Tutorial : MonoBehaviour
             case 2:
                 StartCoroutine(Tutorial2());
                 break;
+            case 3:
+                StartCoroutine(Tutorial3());
+                break;
         }
     }
 
     public void EndSpeak()
     {
         waitingSpeak = false;
-    }
-    public void Merge()
-    {
-        if (waitingMergeTutorial2)
-        {
-            waitingMergeTutorial2 = false;
-            _handController.StopDragCoroutines();
-            _handController.gameObject.SetActive(false);
-            _circlePanelObject.SetActive(false);
-            UserDataController.SaveTutorial(2);
-            CurrentSceneManager.UnlockEverything();
-            //StartTutorial(3);
-        }
     }
 
     IEnumerator ZoomIn(float targetScale)
@@ -129,6 +135,7 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         CurrentSceneManager.OnlyCanPurchase();
     }
+
     IEnumerator Tutorial1()
     {
         CurrentSceneManager.LockEverything();
@@ -157,7 +164,27 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         CurrentSceneManager.OnlyCanMerge();
     }
-
+    IEnumerator Tutorial3()
+    {
+        _tutorController.gameObject.SetActive(true);
+        _tutorController.Speak(1);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = _camera.WorldToScreenPoint(_mainGameSceneController.GetFirstDinoPosition());
+        _handController.GetComponent<RectTransform>().position = _circlePanelTr.position;
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.gameObject.SetActive(true);
+        waitingWorkDinosaurTutorial3 = true;
+        _handController.StartDubleClickMode();
+        yield return new WaitForSeconds(0.5f);
+        CurrentSceneManager.OnlyCanWork();
+    }
+    #region EventsCallbacks
     public void FastPurchase()
     {
         if (waitingPurchaseTutorial0)
@@ -182,7 +209,34 @@ public class Tutorial : MonoBehaviour
             StartTutorial(2);
         }
     }
+    public void Merge()
+    {
+        if (waitingMergeTutorial2)
+        {
+            waitingMergeTutorial2 = false;
+            _handController.StopDragCoroutines();
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(2);
+            CurrentSceneManager.UnlockEverything();
+            StartTutorial(3);
+        }
+    }
+    public void Work()
+    {
+        if (waitingWorkDinosaurTutorial3)
+        {
+            waitingWorkDinosaurTutorial3 = false;
+            _handController.StopDoubleClick();
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(3);
+            CurrentSceneManager.UnlockEverything();
+            //StartTutorial(4);
+        }
+    }
 
+    #endregion
     public void ShowAdvice(string adviceKey)
     {
         if (_adviceCr != null)

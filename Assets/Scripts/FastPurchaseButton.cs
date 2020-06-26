@@ -13,7 +13,7 @@ public class FastPurchaseButton : MonoBehaviour
     {
         if(UserDataController.GetEmptyCells() > 0)
         {
-            _mainGameSceneController.FastPurchase(0, 10);
+            _mainGameSceneController.FastPurchase(0, 100);
         }
         else
         {
@@ -23,7 +23,7 @@ public class FastPurchaseButton : MonoBehaviour
 
     private void Update()
     {
-        if(UserDataController.HaveMoney(10))
+        if(UserDataController.HaveMoney(100))
         {
             _fastPurchaseButton.interactable = true;
         }

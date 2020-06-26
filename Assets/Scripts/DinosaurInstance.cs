@@ -12,6 +12,10 @@ public class DinosaurInstance : MonoBehaviour
     GameObject _otherCell;
     MainGameSceneController _mainGameSceneController;
     CellManager _cellManager;
+    bool _clicking;
+    int _nClicks;
+    bool _working;
+    Coroutine _clickCr;
 
     void Start()
     {
@@ -27,6 +31,13 @@ public class DinosaurInstance : MonoBehaviour
         {
             transform.position = mousePos;
         }
+    }
+
+    IEnumerator DisableClickingState()
+    {
+        yield return new WaitForSeconds(0.25f);
+        _clicking = false;
+        _nClicks = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -52,14 +63,58 @@ public class DinosaurInstance : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (CurrentSceneManager._canPickDinosaur)
+        if (CurrentSceneManager._canPickDinosaur  && !_working)
         {
             _dragging = true;
             _otherCell = null;
         }
+
+        if(_clickCr != null)
+        {
+            StopCoroutine(_clickCr);
+        }
+        _clicking = true;
+        _clickCr = StartCoroutine(DisableClickingState());
+
+    }
+
+    public void StartWorking()
+    {
+        if (CurrentSceneManager._canWorkDinosaur)
+        {
+            _working = true;
+            GameEvents.WorkDino.Invoke();
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+    }
+    public void StopWorking()
+    {
+        _working = false;
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
     private void OnMouseUp()
     {
+        if (_clicking)
+        {
+            if ((transform.position - (Vector3)_cellManager.GetCellPosition(_cellIndex)).magnitude < 1f)
+            {
+                if (_working)
+                {
+                    StopWorking();
+                }
+                else
+                {
+                    _nClicks++;
+                    if(_nClicks == 2)
+                    {
+                        _nClicks = 0;
+                        StartWorking();
+                    }
+                }
+            }
+        }
+        _clicking = false;
+
         _dragging = false;
         if(_otherCell != null)
         {

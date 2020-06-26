@@ -93,6 +93,10 @@ public class MainGameSceneController : MonoBehaviour
         return null;
     }
 
+    public Vector2 GetFirstDinoPosition()
+    {
+        return _dinoIngame[0].transform.position;
+    }
     public void DeleteGameData()
     {
         UserDataController.DeleteFile();

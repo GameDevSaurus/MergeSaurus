@@ -24,9 +24,12 @@ public class HandController : MonoBehaviour
     Coroutine _crPointIn;
     Coroutine _crPointOut;
     Coroutine _crDrag;
+    Coroutine _crDoubleClick;
+    Coroutine _crDoubleClickManager;
 
     float animDuration = 0.25f;
     float pointDuration = 0.5f;
+    float doubleClickDuration = 0.1f;
     float dragDuration = 0.75f;
     Color transparentWhite = new Color(1,1,1,0);
     // Start is called before the first frame update
@@ -55,6 +58,10 @@ public class HandController : MonoBehaviour
     {
         _crTouchManager = StartCoroutine(TouchCr());
     }
+    public void StartDubleClickMode()
+    {
+        _crDoubleClickManager = StartCoroutine(DoubleClickCr());
+    }
 
     public void StartDragMode(Vector2 positionA, Vector2 positionB)
     {
@@ -80,6 +87,35 @@ public class HandController : MonoBehaviour
         yield return _crPointIn = StartCoroutine(CrPointIn());
         yield return _crDisappear = StartCoroutine(CrDisappear());
         StartCoroutine(TouchCr());
+    }
+    public IEnumerator DoubleClickCr()
+    {
+        ResetHand();
+        yield return _crAppear = StartCoroutine(CrAppear());
+        yield return _crDoubleClick = StartCoroutine(CrDoubleClick());
+        yield return _crDisappear = StartCoroutine(CrDisappear());
+        StartCoroutine(DoubleClickCr());
+    }
+
+    public void StopDoubleClick()
+    {
+        if (_crAppear != null)
+        {
+            StopCoroutine(_crAppear);
+        }
+        if (_crDoubleClick != null)
+        {
+            StopCoroutine(_crDoubleClick);
+        }
+        if (_crDisappear != null)
+        {
+            StopCoroutine(_crDisappear);
+        }        
+        if (_crDoubleClickManager != null)
+        {
+            StopCoroutine(_crDoubleClickManager);
+        }
+
     }
 
     public void StopTouchCoroutines()
@@ -186,5 +222,41 @@ public class HandController : MonoBehaviour
             yield return null;
         }
         _selfTransform.position = pointB;
+    }
+    public IEnumerator CrDoubleClick()
+    {
+        for (float i = 0; i < pointDuration; i += Time.deltaTime)
+        {
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 + (40 * _animationCurve.Evaluate(i / pointDuration))));
+            yield return null;
+        }
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40));
+
+        for (float i = 0; i < doubleClickDuration; i += Time.deltaTime)
+        {
+            _touchCircleImage.rectTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, _animationCurve.Evaluate(i / doubleClickDuration));
+            _touchCircleImage.color = Color.Lerp(Color.white, transparentWhite, _animationCurve.Evaluate(i / doubleClickDuration));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            yield return null;
+        }
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30));
+
+        for (float i = 0; i < doubleClickDuration; i += Time.deltaTime)
+        {
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30 + (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            yield return null;
+        }
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40));
+
+        for (float i = 0; i < doubleClickDuration; i += Time.deltaTime)
+        {
+            _touchCircleImage.rectTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, _animationCurve.Evaluate(i / doubleClickDuration));
+            _touchCircleImage.color = Color.Lerp(Color.white, transparentWhite, _animationCurve.Evaluate(i / doubleClickDuration));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            yield return null;
+        }
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30));
+        _touchCircleImage.rectTransform.localScale = Vector3.one;
+        _touchCircleImage.color = transparentWhite;
     }
 }
