@@ -13,15 +13,19 @@
   },
   {
     "key": "CONV_0_0",
-    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis robots."
+    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis dinosaurios."
   },
   {
     "key": "CONV_0_1",
-    "value": "Este es nuestro taller, el objetivo\nes conseguir los mejores robots\ny ganar mucho, mucho dinero."
+    "value": "Este es nuestro parque, el objetivo\nes conseguir los mejores dinosaurios\ny ganar mucho, mucho dinero."
   },
   {
     "key": "CONV_1_0",
-    "value": "¡Coloca los robots en la pista! \nSe transformarán en vehículos y\ngenerarán dinero al pasar por\nmeta."
+    "value": "¡Coloca los dinosaurios en la pista! \nSe transformarán en vehículos y\ngenerarán dinero al pasar por\nmeta."
+  },
+  {
+    "key": "CONV_2_0",
+    "value": "¡Genial, ahora ya estás preparado para cuidar dinozaurios!"
   },
   {
     "key": "ADVICE_NOEMPTYCELLS",

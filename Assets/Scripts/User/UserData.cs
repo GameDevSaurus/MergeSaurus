@@ -14,6 +14,7 @@ public class UserData
     public string _username;
     public int[] _dinosaurs;
     public bool[] _tutorialCompleted;
+    public int[] _purchasedTimes;
 
     public UserData()
     {
@@ -27,9 +28,14 @@ public class UserData
         _experience = 0;
         _softCoins = 20000;
         _hardCoins = 0;
-        _unlockedCells = 4;
+        _unlockedCells = 15;
         _username = "Mechanic";
         _dinosaurs = new int[15];
+        for (int i = 0; i<_dinosaurs.Length; i++)
+        {
+            _dinosaurs[i] = -1;
+        }
+        _purchasedTimes = new int[15]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[6];
-}
+    }
 }

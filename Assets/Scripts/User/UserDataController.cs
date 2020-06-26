@@ -84,12 +84,13 @@ public class UserDataController : MonoBehaviour
     {
         for(int i = 0; i< _currentUserData._unlockedCells; i++)
         {
-            if (_currentUserData._dinosaurs[i] == 0)
+            if (_currentUserData._dinosaurs[i] == -1)
             {
-                _currentUserData._dinosaurs[i] = dinosaurIndex + 1;
+                _currentUserData._dinosaurs[i] = dinosaurIndex;
                 break;
             }
         }
+        _currentUserData._purchasedTimes[dinosaurIndex]++;
         _currentUserData._softCoins -= cost;
         SaveToFile();
     }
@@ -99,7 +100,7 @@ public class UserDataController : MonoBehaviour
         int unlockedCells = 0;
         for(int i = 0; i<_currentUserData._unlockedCells; i++)
         {
-            if(_currentUserData._dinosaurs[i] == 0)
+            if(_currentUserData._dinosaurs[i] == -1)
             {
                 unlockedCells++;
             }
@@ -127,8 +128,8 @@ public class UserDataController : MonoBehaviour
 
     public static void MergeDinosaurs(int originCell, int targetCell, int mergeDinoType)
     {
-        _currentUserData._dinosaurs[originCell] = 0;
-        _currentUserData._dinosaurs[targetCell] = mergeDinoType;
+        _currentUserData._dinosaurs[originCell] = -1;
+        _currentUserData._dinosaurs[targetCell] = mergeDinoType +1;
         SaveToFile();
     }
 }

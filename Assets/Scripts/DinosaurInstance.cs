@@ -119,12 +119,12 @@ public class DinosaurInstance : MonoBehaviour
         if(_otherCell != null)
         {
             CellInstance collisionCell = _otherCell.GetComponent<CellInstance>();
-            if (collisionCell.GetDinosaur() == 0)
+            if (collisionCell.GetDinosaur() == -1)
             {
                 if (CurrentSceneManager._canMoveDinosaur)
                 {
                     UserDataController.MoveDinosaur(_cellIndex, collisionCell.GetCellNumber());
-                    _cellManager.SetDinosaurInCell(0, _cellIndex);
+                    _cellManager.SetDinosaurInCell(-1, _cellIndex);
                     SetCell(collisionCell.GetCellNumber());
                     collisionCell.SetDinosaur(_dinoType);
                 }

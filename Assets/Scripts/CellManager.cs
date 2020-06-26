@@ -5,7 +5,13 @@ using UnityEngine;
 public class CellManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject cellPrefab;
+    GameObject cellPrefab;    
+    [SerializeField]
+    GameObject expoPanelPrefab;    
+    [SerializeField]
+    GameObject expoPrefab;
+    [SerializeField]
+    GameObject panelPrefab;
     int rows, cols;
     [SerializeField]
     int cellCount;
@@ -18,19 +24,20 @@ public class CellManager : MonoBehaviour
 
     float panelWidth;
     float panelHeight;
-    float targetWidth;
-    float targetHeight;
+    float expoSize = 1.5f;
+    float expoPanelWidth;
+    float expoPanelHeight;
     int ncells = 4;
 
     List<GameObject> _cells;
 
     private void Awake()
     {
-        panelWidth = 5 + (4 * horizontalDist);
-        panelHeight = 5 + (4 * verticalDist);
-        targetWidth = padding + panelWidth;
-        targetHeight = panelHeight;
-        Camera.main.GetComponent<CameraAutoSize>().SetWidth(targetWidth);
+        panelWidth = 3 + (4f * horizontalDist);
+        panelHeight = 5 + (6f * verticalDist);
+        expoPanelWidth = panelWidth + (4f * padding) + (2f * expoSize);
+        expoPanelHeight = panelHeight + (4f * padding) + (2f * expoSize);
+        Camera.main.orthographicSize = (expoPanelHeight/6f)* 5f;
 
         _cellPositionList = new List<List<int>>();
         _cellPositionList.Add(new List<int>() { 2, 2 });
@@ -46,7 +53,7 @@ public class CellManager : MonoBehaviour
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 2 });
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
 
-        SetCellNumber(4);
+        SetCellNumber(15);
     }
 
     public void SetCellNumber(int nCells)
@@ -59,23 +66,51 @@ public class CellManager : MonoBehaviour
 
         cellCount = nCells;
         rows = _cellPositionList[cellCount - 4].Count;
-        Vector2 centerOfCells = new Vector2((panelWidth / 2f), (panelHeight / 2f));
 
-        float verticalCellDistance = panelHeight / ((float)rows + 1f);
+        float verticalOrigin = panelHeight / 2f;
+        float totalVerticalSpace = panelHeight - (float)rows;
+        float verticalCellDistance = totalVerticalSpace / ((float)rows + 1f);
 
         for (int i = 0; i < rows; i++)
         {
             cols = _cellPositionList[cellCount - 4][i];
-            float horizontalCellDistance = panelWidth / ((float)cols + 1f);
+
+            float horizontalOrigin = -panelWidth / 2f;
+            float totalHorizontalSpace = panelWidth - (float)cols;
+            float horizontalCellDistance = totalHorizontalSpace / ((float)cols + 1f);
+
             for (int j = 0; j < cols; j++)
             {
-                GameObject cell = Instantiate(cellPrefab, new Vector3(((j + 1) * horizontalCellDistance) - panelWidth / 2f, panelHeight / 2f - ((i + 1) * verticalCellDistance), 1f), Quaternion.identity);
+                GameObject cell = Instantiate(cellPrefab, new Vector3(horizontalOrigin + horizontalCellDistance + 0.5f + ((horizontalCellDistance + 1f)*j), verticalOrigin - verticalCellDistance - 0.5f - ((verticalCellDistance + 1f) * i), 0.9f), Quaternion.identity);
                 cell.transform.SetParent(transform);
                 cell.name = i + " - " + j;
                 cell.GetComponent<CellInstance>().SetCell(_cells.Count);
                 _cells.Add(cell);
             }
         }
+        GameObject panel = Instantiate(panelPrefab, new Vector3(0,0,1), Quaternion.identity);
+        panel.transform.localScale = new Vector2(panelWidth, panelHeight);
+        panel.name = "DinoPanel";
+        GameObject expoPanel = Instantiate(expoPanelPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+        expoPanel.transform.localScale = new Vector2(expoPanelWidth, expoPanelHeight);
+        expoPanel.name = "ExpoPanel";
+
+        float xExpoPosition = (panelWidth / 2) + (((expoPanelWidth / 2) - (panelWidth / 2)) / 2);
+        float yExpoPosition = (panelHeight/2) + (((expoPanelHeight / 2) - (panelHeight / 2)) / 2);
+
+        GameObject expositorUp = Instantiate(expoPrefab, new Vector3(0, yExpoPosition, 2), Quaternion.identity);
+        GameObject expositorDown = Instantiate(expoPrefab, new Vector3(0, -yExpoPosition, 2), Quaternion.identity);
+
+        GameObject expositorUpRightCorner = Instantiate(expoPrefab, new Vector3(xExpoPosition, yExpoPosition, 2), Quaternion.identity);
+        GameObject expositorDownRightCorner = Instantiate(expoPrefab, new Vector3(xExpoPosition, -yExpoPosition, 2), Quaternion.identity);
+        GameObject expositorUpLeftCorner = Instantiate(expoPrefab, new Vector3(-xExpoPosition, yExpoPosition, 2), Quaternion.identity);
+        GameObject expositorDownLeftCorner = Instantiate(expoPrefab, new Vector3(-xExpoPosition, -yExpoPosition, 2), Quaternion.identity);
+
+        GameObject expositorUpLeftMiddle = Instantiate(expoPrefab, new Vector3(-xExpoPosition, (yExpoPosition*2f/3f)/2f, 2), Quaternion.identity);
+        GameObject expositorDownLeftMiddle = Instantiate(expoPrefab, new Vector3(-xExpoPosition, -(yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
+
+        GameObject expositorUpRightMiddle = Instantiate(expoPrefab, new Vector3(xExpoPosition, (yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
+        GameObject expositorDownRightMiddle = Instantiate(expoPrefab, new Vector3(xExpoPosition, -(yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
     }
 
     public void SetCells(int n)

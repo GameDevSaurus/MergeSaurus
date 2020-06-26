@@ -232,7 +232,7 @@ public class Tutorial : MonoBehaviour
             _circlePanelObject.SetActive(false);
             UserDataController.SaveTutorial(3);
             CurrentSceneManager.UnlockEverything();
-            //StartTutorial(4);
+            _tutorController.Speak(2);
         }
     }
 

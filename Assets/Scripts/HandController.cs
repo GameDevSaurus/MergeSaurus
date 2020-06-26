@@ -225,9 +225,9 @@ public class HandController : MonoBehaviour
     }
     public IEnumerator CrDoubleClick()
     {
-        for (float i = 0; i < pointDuration; i += Time.deltaTime)
+        for (float i = 0; i < pointDuration/1.5f; i += Time.deltaTime)
         {
-            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 + (40 * _animationCurve.Evaluate(i / pointDuration))));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 0 + (40 * (i / (pointDuration / 1.5f)))));
             yield return null;
         }
         _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40));
@@ -236,14 +236,14 @@ public class HandController : MonoBehaviour
         {
             _touchCircleImage.rectTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, _animationCurve.Evaluate(i / doubleClickDuration));
             _touchCircleImage.color = Color.Lerp(Color.white, transparentWhite, _animationCurve.Evaluate(i / doubleClickDuration));
-            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (20 * _animationCurve.Evaluate(i / doubleClickDuration))));
             yield return null;
         }
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 20));
 
         for (float i = 0; i < doubleClickDuration; i += Time.deltaTime)
         {
-            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30 + (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 20 + (20 * _animationCurve.Evaluate(i / doubleClickDuration))));
             yield return null;
         }
         _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40));
@@ -252,10 +252,10 @@ public class HandController : MonoBehaviour
         {
             _touchCircleImage.rectTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, _animationCurve.Evaluate(i / doubleClickDuration));
             _touchCircleImage.color = Color.Lerp(Color.white, transparentWhite, _animationCurve.Evaluate(i / doubleClickDuration));
-            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (10 * _animationCurve.Evaluate(i / doubleClickDuration))));
+            _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 40 - (20 * _animationCurve.Evaluate(i / doubleClickDuration))));
             yield return null;
         }
-        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 30));
+        _pivotRotation.localRotation = Quaternion.Euler(new Vector3(0, 0, 20));
         _touchCircleImage.rectTransform.localScale = Vector3.one;
         _touchCircleImage.color = transparentWhite;
     }

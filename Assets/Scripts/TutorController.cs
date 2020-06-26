@@ -37,6 +37,10 @@ public class TutorController : MonoBehaviour
         secondConversation.Add("CONV_1_0");
         _conversations.Add(secondConversation);
 
+        List<string> thirdConversation = new List<string>();
+        thirdConversation.Add("CONV_2_0");
+        _conversations.Add(thirdConversation);
+
         fadeImage = _rectTrFade.GetComponent<Image>();
         transparentWhite = new Color(1, 1, 1, 0);
         fadeImage.color = transparentWhite;
@@ -76,6 +80,7 @@ public class TutorController : MonoBehaviour
         _rectTrFade.gameObject.SetActive(true);
         float appearAnimationTime = 0.5f;
         float bouncedAnimationTime = 0.25f;
+        print(_speakIndex + "  -  " + _currentSpeakIndex);
         _textConversation.text = LocalizationController._localizedData[_conversations[_speakIndex][_currentSpeakIndex]];
 
         _textContinue.text = (_currentSpeakIndex == _conversations[_speakIndex].Count - 1) ?LocalizationController._localizedData["CLOSE"] : _textContinue.text = LocalizationController._localizedData["CONTINUE"];

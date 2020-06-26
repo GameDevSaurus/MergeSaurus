@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CellInstance : MonoBehaviour
 {
-    int _dinosaur = 0;
+    int _dinosaur = -1;
     int _cellNumber;
 
     public void SetDinosaur(int dinosaur)
