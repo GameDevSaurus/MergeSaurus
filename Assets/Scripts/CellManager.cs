@@ -30,6 +30,7 @@ public class CellManager : MonoBehaviour
     int ncells = 4;
 
     List<GameObject> _cells;
+    List<ExpositorInstance> _expositors;
 
     private void Awake()
     {
@@ -37,7 +38,18 @@ public class CellManager : MonoBehaviour
         panelHeight = 5 + (6f * verticalDist);
         expoPanelWidth = panelWidth + (4f * padding) + (2f * expoSize);
         expoPanelHeight = panelHeight + (4f * padding) + (2f * expoSize);
-        Camera.main.orthographicSize = (expoPanelHeight/6f)* 5f;
+
+        float cameraHeight = (expoPanelHeight / 7f) * 10;
+        float cameraWidth = Camera.main.aspect * cameraHeight;
+        if(cameraWidth > 9)
+        {
+            Camera.main.orthographicSize = (expoPanelHeight / 7f) * 5f;
+        }
+        else
+        {
+            Camera.main.orthographicSize = (9f / Camera.main.aspect)/2f;
+        }
+
 
         _cellPositionList = new List<List<int>>();
         _cellPositionList.Add(new List<int>() { 2, 2 });
@@ -59,6 +71,7 @@ public class CellManager : MonoBehaviour
     public void SetCellNumber(int nCells)
     {
         _cells = new List<GameObject>();
+        _expositors = new List<ExpositorInstance>();
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -99,18 +112,40 @@ public class CellManager : MonoBehaviour
         float yExpoPosition = (panelHeight/2) + (((expoPanelHeight / 2) - (panelHeight / 2)) / 2);
 
         GameObject expositorUp = Instantiate(expoPrefab, new Vector3(0, yExpoPosition, 2), Quaternion.identity);
+
         GameObject expositorDown = Instantiate(expoPrefab, new Vector3(0, -yExpoPosition, 2), Quaternion.identity);
 
         GameObject expositorUpRightCorner = Instantiate(expoPrefab, new Vector3(xExpoPosition, yExpoPosition, 2), Quaternion.identity);
+
         GameObject expositorDownRightCorner = Instantiate(expoPrefab, new Vector3(xExpoPosition, -yExpoPosition, 2), Quaternion.identity);
+
         GameObject expositorUpLeftCorner = Instantiate(expoPrefab, new Vector3(-xExpoPosition, yExpoPosition, 2), Quaternion.identity);
+
         GameObject expositorDownLeftCorner = Instantiate(expoPrefab, new Vector3(-xExpoPosition, -yExpoPosition, 2), Quaternion.identity);
 
         GameObject expositorUpLeftMiddle = Instantiate(expoPrefab, new Vector3(-xExpoPosition, (yExpoPosition*2f/3f)/2f, 2), Quaternion.identity);
+
         GameObject expositorDownLeftMiddle = Instantiate(expoPrefab, new Vector3(-xExpoPosition, -(yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
 
         GameObject expositorUpRightMiddle = Instantiate(expoPrefab, new Vector3(xExpoPosition, (yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
+
         GameObject expositorDownRightMiddle = Instantiate(expoPrefab, new Vector3(xExpoPosition, -(yExpoPosition * 2f / 3f) / 2f, 2), Quaternion.identity);
+
+        _expositors.Add(expositorUpLeftMiddle.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorUpRightMiddle.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownLeftMiddle.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownRightMiddle.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorUp.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDown.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorUpLeftCorner.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorUpRightCorner.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownLeftCorner.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownRightCorner.GetComponent<ExpositorInstance>());
+        for (int i = 0; i < _expositors.Count; i++)
+        {
+            _expositors[i].SetExpositor(i);
+        }
+
     }
 
     public void SetCells(int n)
@@ -123,8 +158,16 @@ public class CellManager : MonoBehaviour
     {
         return _cells[nCell].transform.position;
     }
+    public CellInstance GetCellInstanceByIndex(int index)
+    {
+        return _cells[index].GetComponent<CellInstance>();
+    }
+    public ExpositorInstance GetExpoInstanceByIndex(int index)
+    {
+        return _expositors[index];
+    }
 
-    public void SetDinosaurInCell(int dinosaur, int cell)
+    public void SetDinosaurInCell(DinosaurInstance dinosaur, int cell)
     {
         _cells[cell].GetComponent<CellInstance>().SetDinosaur(dinosaur);
     }

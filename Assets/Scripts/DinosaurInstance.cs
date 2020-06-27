@@ -7,7 +7,6 @@ public class DinosaurInstance : MonoBehaviour
     int _dinoType;
     int _cellIndex;
     bool _dragging;
-    Camera _camera;
     [SerializeField]
     GameObject _otherCell;
     MainGameSceneController _mainGameSceneController;
@@ -19,18 +18,8 @@ public class DinosaurInstance : MonoBehaviour
 
     void Start()
     {
-        _camera = Camera.main;
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         _cellManager = FindObjectOfType<CellManager>();
-    }
-
-    void Update()
-    {
-        Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        if (_dragging)
-        {
-            transform.position = mousePos;
-        }
     }
 
     IEnumerator DisableClickingState()
@@ -65,7 +54,6 @@ public class DinosaurInstance : MonoBehaviour
     {
         if (CurrentSceneManager._canPickDinosaur  && !_working)
         {
-            _dragging = true;
             _otherCell = null;
         }
 
@@ -114,33 +102,6 @@ public class DinosaurInstance : MonoBehaviour
             }
         }
         _clicking = false;
-
-        _dragging = false;
-        if(_otherCell != null)
-        {
-            CellInstance collisionCell = _otherCell.GetComponent<CellInstance>();
-            if (collisionCell.GetDinosaur() == -1)
-            {
-                if (CurrentSceneManager._canMoveDinosaur)
-                {
-                    UserDataController.MoveDinosaur(_cellIndex, collisionCell.GetCellNumber());
-                    _cellManager.SetDinosaurInCell(-1, _cellIndex);
-                    SetCell(collisionCell.GetCellNumber());
-                    collisionCell.SetDinosaur(_dinoType);
-                }
-            }
-            else
-            {
-                if(collisionCell.GetDinosaur() == _dinoType)
-                {
-                    if (CurrentSceneManager._canMergeDinosaur)
-                    {
-                        _mainGameSceneController.Merge(this, collisionCell.GetCellNumber());
-                    }
-                }
-            }
-        }
-        _mainGameSceneController.UpdatePositions();
     }
     public void SetCell(int nCell)
     {
@@ -157,5 +118,9 @@ public class DinosaurInstance : MonoBehaviour
     public int GetCellNumber()
     {
         return _cellIndex;
+    }
+    public bool IsWorking()
+    {
+        return _working;
     }
 }

@@ -13,6 +13,7 @@ public class UserData
     public int _unlockedCells;
     public string _username;
     public int[] _dinosaurs;
+    public int[] _workingCellsByExpositor;
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
 
@@ -31,9 +32,14 @@ public class UserData
         _unlockedCells = 15;
         _username = "Mechanic";
         _dinosaurs = new int[15];
+        _workingCellsByExpositor = new int[15];
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;
+        }
+        for (int i = 0; i < _workingCellsByExpositor.Length; i++)
+        {
+            _workingCellsByExpositor[i] = -1;
         }
         _purchasedTimes = new int[15]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[6];

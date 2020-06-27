@@ -80,7 +80,6 @@ public class TutorController : MonoBehaviour
         _rectTrFade.gameObject.SetActive(true);
         float appearAnimationTime = 0.5f;
         float bouncedAnimationTime = 0.25f;
-        print(_speakIndex + "  -  " + _currentSpeakIndex);
         _textConversation.text = LocalizationController._localizedData[_conversations[_speakIndex][_currentSpeakIndex]];
 
         _textContinue.text = (_currentSpeakIndex == _conversations[_speakIndex].Count - 1) ?LocalizationController._localizedData["CLOSE"] : _textContinue.text = LocalizationController._localizedData["CONTINUE"];

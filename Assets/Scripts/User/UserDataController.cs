@@ -132,4 +132,9 @@ public class UserDataController : MonoBehaviour
         _currentUserData._dinosaurs[targetCell] = mergeDinoType +1;
         SaveToFile();
     }
+    public static void ShowCell(int cell, int expositor)
+    {
+        _currentUserData._workingCellsByExpositor[cell] = expositor;
+        SaveToFile();
+    }
 }
