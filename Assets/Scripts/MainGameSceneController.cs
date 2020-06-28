@@ -8,7 +8,7 @@ public class MainGameSceneController : MonoBehaviour
     GameObject[] _dinoPrefabs;
     [SerializeField]
     GameObject[] _boxPrefabs;
-    List<DinosaurInstance> _dinoIngame;
+    List<DinosaurInstance> _dinosIngame;
     [SerializeField]
     CellManager _cellManager;
     [SerializeField]
@@ -18,7 +18,12 @@ public class MainGameSceneController : MonoBehaviour
     ExpositorInstance _currentExpositor;
     bool _isPicking;
     Camera _camera;
+    EconomyManager _economyManager;
 
+    private void Awake()
+    {
+        _economyManager = FindObjectOfType<EconomyManager>();
+    }
     private void Start()
     {
         CreateStartingDinosaurs();
@@ -37,7 +42,7 @@ public class MainGameSceneController : MonoBehaviour
                     dinoInst.SetCell(i);
                     dinoInst.SetDino(dinosaurIndex);
                     _cellManager.SetDinosaurInCell(dinoInst, i);
-                    _dinoIngame.Add(dinoInst);
+                    _dinosIngame.Add(dinoInst);
                     break;
                 }
             }
@@ -47,7 +52,7 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void CreateStartingDinosaurs()
     {
-        _dinoIngame = new List<DinosaurInstance>();
+        _dinosIngame = new List<DinosaurInstance>();
         for(int i = 0; i<UserDataController._currentUserData._unlockedCells; i++)
         {
             int dinoType = UserDataController._currentUserData._dinosaurs[i];
@@ -68,6 +73,7 @@ public class MainGameSceneController : MonoBehaviour
                 }
             }
         }
+        _economyManager.SetDinosInGame(_dinosIngame);
     }
 
     public void CreateDinosaur(int cellIndex, int dinoType)
@@ -77,7 +83,7 @@ public class MainGameSceneController : MonoBehaviour
         dinoInst.SetCell(cellIndex);
         dinoInst.SetDino(dinoType);
         _cellManager.SetDinosaurInCell(dinoInst, cellIndex);
-        _dinoIngame.Add(dinoInst);
+        _dinosIngame.Add(dinoInst);
         UserDataController.CreateDinosaur(cellIndex, dinoType);
     }
     public void CreateBox(int cellIndex, int dinoType)
@@ -89,7 +95,7 @@ public class MainGameSceneController : MonoBehaviour
 
     public void UpdatePositions() 
     {
-        foreach (DinosaurInstance d in _dinoIngame)
+        foreach (DinosaurInstance d in _dinosIngame)
         {
             d.transform.position = _cellManager.GetCellPosition(d.GetCellNumber());
         }
@@ -102,9 +108,9 @@ public class MainGameSceneController : MonoBehaviour
         DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
         dinoInst.SetDino(dinoInstance1.GetDinosaur()+1);
         dinoInst.SetCell(targetCellIndex);
-        _dinoIngame.Add(dinoInst);
-        _dinoIngame.Remove(dinoInstance1);
-        _dinoIngame.Remove(dinoInstance2);
+        _dinosIngame.Add(dinoInst);
+        _dinosIngame.Remove(dinoInstance1);
+        _dinosIngame.Remove(dinoInstance2);
         UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur());
         _cellManager.SetDinosaurInCell(null, dinoInstance1.GetCellNumber());
         _cellManager.SetDinosaurInCell(dinoInst, dinoInstance2.GetCellNumber());
@@ -115,7 +121,7 @@ public class MainGameSceneController : MonoBehaviour
 
     DinosaurInstance GetDinoInstanceByCell(int cell)
     {
-        foreach(DinosaurInstance d in _dinoIngame)
+        foreach(DinosaurInstance d in _dinosIngame)
         {
             if(d.GetCellNumber() == cell)
             {
@@ -127,7 +133,7 @@ public class MainGameSceneController : MonoBehaviour
 
     public Vector2 GetFirstDinoPosition()
     {
-        return _dinoIngame[0].transform.position;
+        return _dinosIngame[0].transform.position;
     }
     public void DeleteGameData()
     {

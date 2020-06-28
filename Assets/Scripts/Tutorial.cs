@@ -251,9 +251,9 @@ public class Tutorial : MonoBehaviour
     }
     IEnumerator Tutorial5()
     {
+        CurrentSceneManager.LockEverything();
         _tutorController.gameObject.SetActive(true);
         _tutorController.Speak(2);
-        CurrentSceneManager.LockEverything();
         waitingSpeak = true;
         while (waitingSpeak)
         {

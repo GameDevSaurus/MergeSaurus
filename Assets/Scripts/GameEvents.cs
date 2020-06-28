@@ -62,10 +62,25 @@ public static class GameEvents
     public static UnityEvent TakeBack = new UnityEvent();
     public static StringEvent ShowAdvice = new StringEvent();
 
+    public static MoneyEvent EarnMoney = new MoneyEvent();
     public static StringEvent LoadScene = new StringEvent();
     public static StringEvent PlaySFX = new StringEvent();
 
     public class StringEvent : UnityEvent<string> { };
+    public class MoneyEvent : UnityEvent<MoneyEventData> { };
 
+
+    public class MoneyEventData
+    {
+
+        public Vector3 _position;
+        public int _money;
+
+        public MoneyEventData(Vector3 pos, int money)
+        {
+            _position = pos;
+            _money = money;
+        }
+    }
 
 }

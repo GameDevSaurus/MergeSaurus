@@ -179,4 +179,9 @@ public class UserDataController : MonoBehaviour
         }
         return foundedExpositor;
     }
+    public static void AddSoftCoins(int softCoins)
+    {
+        _currentUserData._softCoins += softCoins;
+        SaveToFile();
+    }
 }

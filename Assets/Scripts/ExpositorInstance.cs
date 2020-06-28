@@ -10,7 +10,14 @@ public class ExpositorInstance : MonoBehaviour
     [SerializeField]
     SpriteRenderer dinoImage;
     bool _clicking;
+    EconomyManager _economyManager;
+    List<int> _earningsTime = new List<int>() { 5, 4, 4, 3, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+    Coroutine _workingCr;
 
+    private void Awake()
+    {
+        _economyManager = FindObjectOfType<EconomyManager>();
+    }
     private void Start()
     {
         _mainSceneController = FindObjectOfType<MainGameSceneController>();
@@ -19,11 +26,17 @@ public class ExpositorInstance : MonoBehaviour
     {
         _referencedCell = cellInstance;
         dinoImage.sprite = cellInstance.GetDinoInstance().GetComponent<SpriteRenderer>().sprite;
+        if (_workingCr != null)
+        {
+            StopCoroutine(WorkingCr());
+        }
+        _workingCr = StartCoroutine(WorkingCr());
     }
     public void HideDinosaur()
     {
         _referencedCell = null;
         dinoImage.sprite = null;
+        StopCoroutine(_workingCr);
     }
     public void SetExpositor(int expoNumber)
     {
@@ -76,5 +89,13 @@ public class ExpositorInstance : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         _clicking = false;
+    }
+    public IEnumerator WorkingCr()
+    {
+        int dinoType = _referencedCell.GetDinoInstance().GetDinosaur();
+        yield return new WaitForSeconds(_earningsTime[dinoType]);
+        GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, _earningsTime[dinoType] * _economyManager.GetEarningsByType(dinoType)));
+        _economyManager.EarnSoftCoins(_earningsTime[dinoType] * _economyManager.GetEarningsByType(dinoType));
+        _workingCr = StartCoroutine(WorkingCr());
     }
 }

@@ -10,6 +10,7 @@ public class DinosaurInstance : MonoBehaviour
     GameObject _otherCell;
     bool _working;
 
+
     public void StartWorking()
     {
         _working = true;
