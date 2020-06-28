@@ -41,6 +41,14 @@ public class TutorController : MonoBehaviour
         thirdConversation.Add("CONV_2_0");
         _conversations.Add(thirdConversation);
 
+        List<string> fourthConversation = new List<string>();
+        fourthConversation.Add("CONV_3_0");
+        _conversations.Add(fourthConversation);
+
+        List<string> fifthConversation = new List<string>();
+        fifthConversation.Add("CONV_4_0");
+        _conversations.Add(fifthConversation);
+
         fadeImage = _rectTrFade.GetComponent<Image>();
         transparentWhite = new Color(1, 1, 1, 0);
         fadeImage.color = transparentWhite;

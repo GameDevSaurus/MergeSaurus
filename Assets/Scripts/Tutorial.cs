@@ -27,6 +27,10 @@ public class Tutorial : MonoBehaviour
     bool waitingPurchaseTutorial1 = false;
     bool waitingMergeTutorial2 = false;
     bool waitingWorkDinosaurTutorial3 = false;
+    bool waitingOpenBoxTutorial4 = false;
+    bool waitingTakeBackTutorial5 = false;
+    bool waitingMergeTutorial6 = false;
+    bool waitingWorkTutorial7 = false;
     bool waitingSpeak = false;
     Coroutine _adviceCr;
     Coroutine _showTextCr;
@@ -39,6 +43,8 @@ public class Tutorial : MonoBehaviour
         GameEvents.ShowAdvice.AddListener(ShowAdvice);
         GameEvents.MergeDino.AddListener(Merge);
         GameEvents.WorkDino.AddListener(Work);
+        GameEvents.OpenBox.AddListener(OpenBox);
+        GameEvents.TakeBack.AddListener(TakeDinoBack);
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
     }
     private void Start()
@@ -66,6 +72,34 @@ public class Tutorial : MonoBehaviour
                     {
                         StartTutorial(3);
                     }
+                    else
+                    {
+                        if (!UserDataController._currentUserData._tutorialCompleted[4])
+                        {
+                            StartTutorial(4);
+                        }
+                        else
+                        {
+                            if (!UserDataController._currentUserData._tutorialCompleted[5])
+                            {
+                                StartTutorial(5);
+                            }
+                            else
+                            {
+                                if (!UserDataController._currentUserData._tutorialCompleted[6])
+                                {
+                                    StartTutorial(6);
+                                }
+                                else
+                                {
+                                    if (!UserDataController._currentUserData._tutorialCompleted[7])
+                                    {
+                                        StartTutorial(7);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -86,6 +120,18 @@ public class Tutorial : MonoBehaviour
                 break;
             case 3:
                 StartCoroutine(Tutorial3());
+                break;
+            case 4:
+                StartCoroutine(Tutorial4());
+                break;
+            case 5:
+                StartCoroutine(Tutorial5());
+                break;
+            case 6:
+                StartCoroutine(Tutorial6());
+                break;
+            case 7:
+                StartCoroutine(Tutorial7());
                 break;
         }
     }
@@ -188,6 +234,81 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         CurrentSceneManager.OnlyCanShowByDrag();
     }
+    IEnumerator Tutorial4()
+    {
+        CurrentSceneManager.LockEverything();
+        _circlePanelObject.SetActive(true);
+        Vector3 emptyCellPosition = Camera.main.WorldToScreenPoint(_cellManager.GetCellPosition(_mainGameSceneController.GetFirstEmptyCell()));
+        _circlePanelTr.position = emptyCellPosition;
+        _mainGameSceneController.DropBox(1);
+        _handController.GetComponent<RectTransform>().position = emptyCellPosition;
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.gameObject.SetActive(true);
+        waitingOpenBoxTutorial4 = true;
+        _handController.StartTouchMode();
+        yield return new WaitForSeconds(0.5f);
+        CurrentSceneManager.OnlyCanOpenBox();
+    }
+    IEnumerator Tutorial5()
+    {
+        _tutorController.gameObject.SetActive(true);
+        _tutorController.Speak(2);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(true);
+        Vector3 workerCellPosition = Camera.main.WorldToScreenPoint(_cellManager.GetCellPosition(_mainGameSceneController.GetFirstWorkerCell()));
+        _circlePanelTr.position = workerCellPosition;
+        _handController.GetComponent<RectTransform>().position = workerCellPosition;
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.gameObject.SetActive(true);
+        waitingTakeBackTutorial5 = true;
+        _handController.StartTouchMode();
+        yield return new WaitForSeconds(0.5f);
+        CurrentSceneManager.OnlyCanTakeBackByCell();
+    }
+    IEnumerator Tutorial6()
+    {
+        List<int> mergeableCells = _mainGameSceneController.GetMergeableDinosCellIndex();
+        Vector2 dino1WorldPosition = _cellManager.GetCellPosition(mergeableCells[0]);
+        Vector2 dino2WorldPosition = _cellManager.GetCellPosition(mergeableCells[1]);
+        Vector2 dino1PositionUI = _camera.WorldToScreenPoint(dino1WorldPosition);
+        Vector2 dino2PositionUI = _camera.WorldToScreenPoint(dino2WorldPosition);
+        Vector2 dinosSeparation = dino1WorldPosition - dino2WorldPosition;
+        Vector2 middleUIPosition = dino1PositionUI + (dinosSeparation / 2f);
+        CurrentSceneManager.LockEverything();
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = middleUIPosition;
+        yield return StartCoroutine(ZoomIn(Mathf.Abs(dinosSeparation.magnitude)));
+        _handController.gameObject.SetActive(true);
+        waitingMergeTutorial6 = true;
+        _handController.StartDragMode(dino1PositionUI, dino2PositionUI);
+        yield return new WaitForSeconds(0.5f);
+        CurrentSceneManager.OnlyCanMerge();
+    }
+    IEnumerator Tutorial7()
+    {
+        _tutorController.gameObject.SetActive(true);
+        _tutorController.Speak(3);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = _camera.WorldToScreenPoint(_mainGameSceneController.GetFirstDinoPosition());
+        _handController.GetComponent<RectTransform>().position = _camera.WorldToScreenPoint(_mainGameSceneController.GetFirstDinoPosition());
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.gameObject.SetActive(true);
+        waitingWorkTutorial7 = true;
+        _handController.StartDoubleClickMode();
+        yield return new WaitForSeconds(0.5f);
+        CurrentSceneManager.OnlyCanShowByTouch();
+    }
     #region EventsCallbacks
     public void FastPurchase()
     {
@@ -225,6 +346,19 @@ public class Tutorial : MonoBehaviour
             CurrentSceneManager.UnlockEverything();
             StartTutorial(3);
         }
+        else
+        {
+            if (waitingMergeTutorial6)
+            {
+                waitingMergeTutorial6 = false;
+                _handController.StopDragCoroutines();
+                _handController.gameObject.SetActive(false);
+                _circlePanelObject.SetActive(false);
+                UserDataController.SaveTutorial(6);
+                CurrentSceneManager.UnlockEverything();
+                StartTutorial(7);
+            }
+        }
     }
     public void Work()
     {
@@ -236,10 +370,59 @@ public class Tutorial : MonoBehaviour
             _circlePanelObject.SetActive(false);
             UserDataController.SaveTutorial(3);
             CurrentSceneManager.UnlockEverything();
-            _tutorController.Speak(2);
+            StartTutorial(4);
+        }
+        else
+        {
+            if (waitingWorkTutorial7)
+            {
+                waitingWorkTutorial7 = false;
+                _handController.StopDoubleClick();
+                _handController.gameObject.SetActive(false);
+                _circlePanelObject.SetActive(false);
+                StartCoroutine(Tutorial7End());
+            }
         }
     }
-
+    IEnumerator Tutorial7End()
+    {
+        _tutorController.Speak(4);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        UserDataController.SaveTutorial(7);
+        CurrentSceneManager.UnlockEverything();
+    }
+    public void OpenBox()
+    {
+        if (waitingOpenBoxTutorial4)
+        {
+            waitingOpenBoxTutorial4 = false;
+            _handController.StopTouchCoroutines();
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(4);
+            CurrentSceneManager.UnlockEverything();
+            StartCoroutine(ZoomOut(1f));
+            StartTutorial(5);
+        }
+    }
+    public void TakeDinoBack()
+    {
+        if (waitingTakeBackTutorial5)
+        {
+            waitingTakeBackTutorial5 = false;
+            _handController.StopTouchCoroutines();
+            _handController.gameObject.SetActive(false);
+            _circlePanelObject.SetActive(false);
+            UserDataController.SaveTutorial(5);
+            CurrentSceneManager.UnlockEverything();
+            StartTutorial(6);
+        }
+    }
     #endregion
     public void ShowAdvice(string adviceKey)
     {

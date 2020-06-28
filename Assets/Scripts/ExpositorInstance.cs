@@ -64,10 +64,13 @@ public class ExpositorInstance : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        if (_referencedCell != null && _clicking)
-        {
-            _mainSceneController.StopShowDino(_referencedCell.GetCellNumber());
-        }
+        //if (_referencedCell != null && _clicking)
+        //{
+        //    if (CurrentSceneManager._canTakeBackByExpositor)
+        //    {
+        //        _mainSceneController.StopShowDino(_referencedCell.GetCellNumber());
+        //    }
+        //}
     }
     IEnumerator DisableClickingState()
     {

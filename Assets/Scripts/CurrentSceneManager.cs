@@ -11,6 +11,9 @@ public class CurrentSceneManager : MonoBehaviour
     public static bool _canDestroyDinosaur;
     public static bool _canShowDinosaurByTouch;
     public static bool _canShowDinosaurByDrag;
+    public static bool _canOpenBox;
+    public static bool _canTakeBackByCell;
+    public static bool _canTakeBackByExpositor;
 
     private void Start()
     {
@@ -44,6 +47,21 @@ public class CurrentSceneManager : MonoBehaviour
         LockEverything();
         _canShowDinosaurByTouch = true;
     }
+    public static void OnlyCanOpenBox()
+    {
+        LockEverything();
+        _canOpenBox = true;
+    }
+    public static void OnlyCanTakeBackByCell()
+    {
+        LockEverything();
+        _canTakeBackByCell = true;
+    }
+    public static void OnlyCanTakeBackByExpositor()
+    {
+        LockEverything();
+        _canTakeBackByExpositor = true;
+    }
     public static void UnlockEverything()
     {
         _canPurchase = true;
@@ -53,6 +71,9 @@ public class CurrentSceneManager : MonoBehaviour
         _canMergeDinosaur = true;
         _canShowDinosaurByDrag = true;
         _canShowDinosaurByTouch = true;
+        _canOpenBox = true;
+        _canTakeBackByCell = true;
+        _canTakeBackByExpositor = true;
     }
     public static void LockEverything()
     {
@@ -63,5 +84,8 @@ public class CurrentSceneManager : MonoBehaviour
         _canMergeDinosaur = false;
         _canShowDinosaurByDrag = false;
         _canShowDinosaurByTouch = false;
+        _canOpenBox = false;
+        _canTakeBackByCell = false;
+        _canTakeBackByExpositor = false;
     }
 }

@@ -44,6 +44,6 @@ public class UserData
             _workingCellsByExpositor[i] = -1;
         }
         _purchasedTimes = new int[15]; //Numero de indices igual al de tipos de dinosaurio #x
-        _tutorialCompleted = new bool[6];
+        _tutorialCompleted = new bool[10];
     }
 }

@@ -13,26 +13,34 @@
   },
   {
     "key": "CONV_0_0",
-    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis dinosaurios."
+    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis dinos."
   },
   {
     "key": "CONV_0_1",
-    "value": "Este es nuestro parque, el objetivo\nes conseguir los mejores dinosaurios\ny ganar mucho, mucho dinero."
+    "value": "Este es nuestro parque, el objetivo\nes conseguir los mejores dinos\ny ganar mucho, mucho dinero."
   },
   {
     "key": "CONV_1_0",
-    "value": "¡Coloca los dinosaurios en los\nexpositores! Así generarán dinero\ncuando las personas pasen\npor su lado"
+    "value": "¡Coloca los dinos en los\nexpositores! Así generarán dinero\ncuando las personas pasen\npor su lado."
   },
   {
     "key": "CONV_2_0",
-    "value": "¡Genial, ahora ya estás preparado para cuidar dinosaurios!"
+    "value": "Toca sobre ellos para traerlos de\nvuelta."
+  },
+  {
+    "key": "CONV_3_0",
+    "value": "También puedes colocar los\ndinos en la pista tocando dos\nveces sobre ellos. ¡Pruébalo!"
+  },
+  {
+    "key": "CONV_4_0",
+    "value": "¡Genial! Ya sabes lo esencial, lo\ndejo todo en tus manos."
   },
   {
     "key": "ADVICE_NOEMPTYCELLS",
     "value": "No tienes huecos\ndisponibles"
   },
   {
-    "key": "ADVICE_NOEMPTYEXPOSITORS",
+    "key": "ADVICE_NOEXPOSITORS",
     "value": "No tienes expositores\ndisponibles"
   }
 ]

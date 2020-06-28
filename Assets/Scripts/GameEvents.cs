@@ -58,6 +58,8 @@ public static class GameEvents
     public static UnityEvent FastPurchase = new UnityEvent();
     public static UnityEvent MergeDino = new UnityEvent();
     public static UnityEvent WorkDino = new UnityEvent();
+    public static UnityEvent OpenBox = new UnityEvent();
+    public static UnityEvent TakeBack = new UnityEvent();
     public static StringEvent ShowAdvice = new StringEvent();
 
     public static StringEvent LoadScene = new StringEvent();

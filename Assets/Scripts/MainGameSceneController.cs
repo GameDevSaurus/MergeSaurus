@@ -237,12 +237,9 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void ShowDinosaur(int cell, int expo)
     {
-        if (CurrentSceneManager._canShowDinosaurByDrag)
-        {
-            _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
-            _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
-            UserDataController.ShowCell(cell, expo);
-        }
+        _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
+        _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
+        UserDataController.ShowCell(cell, expo);
     }
     public void ShowDinosaurInFirstExpo(int cell)
     {
@@ -264,6 +261,7 @@ public class MainGameSceneController : MonoBehaviour
         UserDataController.StopShowCell(_cellManager.GetCellInstanceByIndex(cell).GetTargetExpositor().GetExpositorNumber());
         _cellManager.GetCellInstanceByIndex(cell).StopExpose();
         _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StopWorking();
+        GameEvents.TakeBack.Invoke();
     }
     
     public int GetFirstEmptyExpositor()
@@ -292,13 +290,68 @@ public class MainGameSceneController : MonoBehaviour
         }
         return selectedCell;
     }
-
+    public int GetFirstWorkerCell()
+    {
+        int selectedCell = -1;
+        for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
+        {
+            int expositor = UserDataController.GetExpositorIndexByCell(i);
+            if (expositor  >= 0)
+            {
+                selectedCell = i;
+                break;
+            }
+        }
+        return selectedCell;
+    }
+    public void DropBox(int dinotype)
+    {
+        int firstEmptyCell = GetFirstEmptyCell();
+        if (firstEmptyCell >= 0)
+        {
+            CreateBox(firstEmptyCell, dinotype);
+        }
+    }
     public void DropBox()
     {
         int firstEmptyCell = GetFirstEmptyCell();
         if(firstEmptyCell >= 0)
         {
             CreateBox(firstEmptyCell, 0);
+        }
+    }
+    public List<int> GetMergeableDinosCellIndex()
+    {
+        int selectedDino1;
+        int selectedDino2;
+        int selectedCell1 = -1;
+        int selectedCell2 = -1;
+        bool founded = false;
+
+        for (int i = 0; i < UserDataController._currentUserData._unlockedCells && !founded; i++)
+        {
+            selectedDino1 = UserDataController._currentUserData._dinosaurs[i];
+            if (selectedDino1 >= 0 && selectedDino1 < 100)
+            {
+                for (int j = i+1; j < UserDataController._currentUserData._unlockedCells && !founded; j++)
+                {
+                    selectedDino2 = UserDataController._currentUserData._dinosaurs[j];
+                    if (selectedDino1 == selectedDino2)
+                    {
+                        selectedCell1 = i;
+                        selectedCell2 = j;
+                        founded = true;
+                    }
+                }
+            }
+        }
+        if (founded)
+        {
+            return new List<int>() {selectedCell1, selectedCell2};
+        }
+        else
+        {
+            return null;
         }
     }
 }

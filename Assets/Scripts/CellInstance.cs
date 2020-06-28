@@ -69,20 +69,14 @@ public class CellInstance : MonoBehaviour
                 {
                     _mainSceneController.PickDinosaur(_placedDino);
                 }
-
-                if (_clickCr != null)
-                {
-                    StopCoroutine(_clickCr);
-                }
-                _clicking = true;
-                _clickCr = StartCoroutine(DisableClickingState());
             }
         }
-        else
+        if (_clickCr != null)
         {
-            _clicking = true;
-            _clickCr = StartCoroutine(DisableClickingState());
+            StopCoroutine(_clickCr);
         }
+        _clicking = true;
+        _clickCr = StartCoroutine(DisableClickingState());
     }
     private void OnMouseEnter()
     {
@@ -108,7 +102,10 @@ public class CellInstance : MonoBehaviour
             {
                 if (_placedDino.IsWorking())
                 {
-                    _mainSceneController.StopShowDino(_cellNumber);
+                    if (CurrentSceneManager._canTakeBackByCell)
+                    {
+                        _mainSceneController.StopShowDino(_cellNumber);
+                    }
                 }
                 else
                 {
@@ -138,9 +135,13 @@ public class CellInstance : MonoBehaviour
 
     public void OpenBox()
     {
-        Destroy(_currentBox);
-        _currentBox = null;       
-        _mainSceneController.CreateDinosaur(_cellNumber, _boxNumber);
-        _boxNumber = -1;
+        if (CurrentSceneManager._canOpenBox)
+        {
+            Destroy(_currentBox);
+            _currentBox = null;
+            _mainSceneController.CreateDinosaur(_cellNumber, _boxNumber);
+            _boxNumber = -1;
+            GameEvents.OpenBox.Invoke();
+        }
     }
 }
