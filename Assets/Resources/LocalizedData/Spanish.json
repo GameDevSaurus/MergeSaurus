@@ -21,14 +21,18 @@
   },
   {
     "key": "CONV_1_0",
-    "value": "¡Coloca los dinosaurios en la pista! \nSe transformarán en vehículos y\ngenerarán dinero al pasar por\nmeta."
+    "value": "¡Coloca los dinosaurios en los\nexpositores! Así generarán dinero\ncuando las personas pasen\npor su lado"
   },
   {
     "key": "CONV_2_0",
-    "value": "¡Genial, ahora ya estás preparado para cuidar dinozaurios!"
+    "value": "¡Genial, ahora ya estás preparado para cuidar dinosaurios!"
   },
   {
     "key": "ADVICE_NOEMPTYCELLS",
     "value": "No tienes huecos\ndisponibles"
+  },
+  {
+    "key": "ADVICE_NOEMPTYEXPOSITORS",
+    "value": "No tienes expositores\ndisponibles"
   }
 ]

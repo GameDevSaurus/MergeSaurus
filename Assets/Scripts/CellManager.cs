@@ -65,7 +65,7 @@ public class CellManager : MonoBehaviour
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 2 });
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
 
-        SetCellNumber(15);
+        SetCellNumber(UserDataController._currentUserData._unlockedCells);
     }
 
     public void SetCellNumber(int nCells)
@@ -145,7 +145,13 @@ public class CellManager : MonoBehaviour
         {
             _expositors[i].SetExpositor(i);
         }
-
+        for (int i = 0; i < _expositors.Count; i++)
+        {
+            if(i >= UserDataController._currentUserData._unlockedExpositors)
+            {
+                _expositors[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void SetCells(int n)

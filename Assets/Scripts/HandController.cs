@@ -33,7 +33,7 @@ public class HandController : MonoBehaviour
     float dragDuration = 0.75f;
     Color transparentWhite = new Color(1,1,1,0);
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _selfTransform = GetComponent<RectTransform>();
     }
@@ -58,7 +58,7 @@ public class HandController : MonoBehaviour
     {
         _crTouchManager = StartCoroutine(TouchCr());
     }
-    public void StartDubleClickMode()
+    public void StartDoubleClickMode()
     {
         _crDoubleClickManager = StartCoroutine(DoubleClickCr());
     }

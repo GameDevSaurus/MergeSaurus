@@ -11,6 +11,7 @@ public class UserData
     public int _softCoins;
     public int _hardCoins;
     public int _unlockedCells;
+    public int _unlockedExpositors;
     public string _username;
     public int[] _dinosaurs;
     public int[] _workingCellsByExpositor;
@@ -29,10 +30,11 @@ public class UserData
         _experience = 0;
         _softCoins = 20000;
         _hardCoins = 0;
-        _unlockedCells = 15;
+        _unlockedCells = 15; //Estamos iniciando al maximo
+        _unlockedExpositors = 10;
         _username = "Mechanic";
         _dinosaurs = new int[15];
-        _workingCellsByExpositor = new int[15];
+        _workingCellsByExpositor = new int[10];
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;

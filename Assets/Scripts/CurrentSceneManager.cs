@@ -9,7 +9,8 @@ public class CurrentSceneManager : MonoBehaviour
     public static bool _canMoveDinosaur;
     public static bool _canMergeDinosaur;
     public static bool _canDestroyDinosaur;
-    public static bool _canWorkDinosaur;
+    public static bool _canShowDinosaurByTouch;
+    public static bool _canShowDinosaurByDrag;
 
     private void Start()
     {
@@ -32,10 +33,16 @@ public class CurrentSceneManager : MonoBehaviour
         _canPickDinosaur = true;
         _canMergeDinosaur = true;
     }
-    public static void OnlyCanWork()
+    public static void OnlyCanShowByDrag()
     {
         LockEverything();
-        _canWorkDinosaur = true;
+        _canPickDinosaur = true;
+        _canShowDinosaurByDrag = true;
+    }
+    public static void OnlyCanShowByTouch()
+    {
+        LockEverything();
+        _canShowDinosaurByTouch = true;
     }
     public static void UnlockEverything()
     {
@@ -44,7 +51,8 @@ public class CurrentSceneManager : MonoBehaviour
         _canDestroyDinosaur = true;
         _canMoveDinosaur = true;
         _canMergeDinosaur = true;
-        _canWorkDinosaur = true;
+        _canShowDinosaurByDrag = true;
+        _canShowDinosaurByTouch = true;
     }
     public static void LockEverything()
     {
@@ -53,6 +61,7 @@ public class CurrentSceneManager : MonoBehaviour
         _canDestroyDinosaur = false;
         _canMoveDinosaur = false;
         _canMergeDinosaur = false;
-        _canWorkDinosaur = false;
+        _canShowDinosaurByDrag = false;
+        _canShowDinosaurByTouch = false;
     }
 }

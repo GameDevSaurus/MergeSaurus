@@ -8,7 +8,16 @@ public class CellInstance : MonoBehaviour
     DinosaurInstance _placedDino;
     MainGameSceneController _mainSceneController;
     ExpositorInstance _targetExpositor;
+    bool _clicking;
+    int _nClicks;
+    Coroutine _clickCr;
+    int _boxNumber;
+    GameObject _currentBox;
 
+    private void Awake()
+    {
+        _boxNumber = -1;
+    }
     private void Start()
     {
         _mainSceneController = FindObjectOfType<MainGameSceneController>();    
@@ -22,9 +31,20 @@ public class CellInstance : MonoBehaviour
         _targetExpositor = targetExpositor;
         _targetExpositor.ShowDinosaur(this);
     }
+    public void StopExpose()
+    {
+        _targetExpositor.HideDinosaur();
+        _targetExpositor = null;
+        _placedDino.StopWorking();
+    }
     public void SetCell(int cellNumber)
     {
         _cellNumber = cellNumber;
+    }
+    public void SetBox(int boxNumber, GameObject box)
+    {
+        _boxNumber = boxNumber;
+        _currentBox = box;
     }
     public DinosaurInstance GetDinoInstance()
     {
@@ -34,15 +54,34 @@ public class CellInstance : MonoBehaviour
     {
         return _cellNumber;
     }
+    public int GetBoxNumber()
+    {
+        return _boxNumber;
+    }
 
     private void OnMouseDown()
     {
         if(_placedDino != null) 
         {
-            if (!_placedDino.IsWorking())
+            if (CurrentSceneManager._canPickDinosaur)
             {
-                _mainSceneController.PickDinosaur(_placedDino);
+                if (!_placedDino.IsWorking())
+                {
+                    _mainSceneController.PickDinosaur(_placedDino);
+                }
+
+                if (_clickCr != null)
+                {
+                    StopCoroutine(_clickCr);
+                }
+                _clicking = true;
+                _clickCr = StartCoroutine(DisableClickingState());
             }
+        }
+        else
+        {
+            _clicking = true;
+            _clickCr = StartCoroutine(DisableClickingState());
         }
     }
     private void OnMouseEnter()
@@ -52,5 +91,56 @@ public class CellInstance : MonoBehaviour
     private void OnMouseExit()
     {
         _mainSceneController.ExitCell();
+        _clicking = false;
+        _nClicks = 0;
+    }
+    IEnumerator DisableClickingState()
+    {
+        yield return new WaitForSeconds(0.25f);
+        _clicking = false;
+        _nClicks = 0;
+    }
+    private void OnMouseUp()
+    {
+        if (_clicking)
+        {
+            if(_placedDino != null)
+            {
+                if (_placedDino.IsWorking())
+                {
+                    _mainSceneController.StopShowDino(_cellNumber);
+                }
+                else
+                {
+                    _nClicks++;
+                    if (_nClicks == 2)
+                    {
+                        _nClicks = 0;
+                        _mainSceneController.ShowDinosaurInFirstExpo(_cellNumber);
+                    }
+                }
+            }
+            else
+            {
+                if (_boxNumber >= 0)
+                {
+                    OpenBox();
+                }
+            }
+        }
+        _clicking = false;
+    }
+
+    public ExpositorInstance GetTargetExpositor()
+    {
+        return _targetExpositor;
+    }
+
+    public void OpenBox()
+    {
+        Destroy(_currentBox);
+        _currentBox = null;       
+        _mainSceneController.CreateDinosaur(_cellNumber, _boxNumber);
+        _boxNumber = -1;
     }
 }

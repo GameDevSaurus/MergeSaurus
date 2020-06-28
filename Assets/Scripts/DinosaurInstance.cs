@@ -6,103 +6,22 @@ public class DinosaurInstance : MonoBehaviour
 {
     int _dinoType;
     int _cellIndex;
-    bool _dragging;
     [SerializeField]
     GameObject _otherCell;
-    MainGameSceneController _mainGameSceneController;
-    CellManager _cellManager;
-    bool _clicking;
-    int _nClicks;
     bool _working;
-    Coroutine _clickCr;
-
-    void Start()
-    {
-        _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
-        _cellManager = FindObjectOfType<CellManager>();
-    }
-
-    IEnumerator DisableClickingState()
-    {
-        yield return new WaitForSeconds(0.25f);
-        _clicking = false;
-        _nClicks = 0;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (_dragging)
-        {
-            if (col.CompareTag("Cell") && col.gameObject.GetComponent<CellInstance>().GetCellNumber() != _cellIndex)
-            {
-                _otherCell = col.gameObject;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (_dragging)
-        {
-            if (col.CompareTag("Cell"))
-            {
-                _otherCell = null;
-            }
-        }
-    }
-    private void OnMouseDown()
-    {
-        if (CurrentSceneManager._canPickDinosaur  && !_working)
-        {
-            _otherCell = null;
-        }
-
-        if(_clickCr != null)
-        {
-            StopCoroutine(_clickCr);
-        }
-        _clicking = true;
-        _clickCr = StartCoroutine(DisableClickingState());
-
-    }
 
     public void StartWorking()
     {
-        if (CurrentSceneManager._canWorkDinosaur)
-        {
-            _working = true;
-            GameEvents.WorkDino.Invoke();
-            GetComponent<SpriteRenderer>().color = Color.green;
-        }
+        _working = true;
+        GameEvents.WorkDino.Invoke();
+        GetComponent<SpriteRenderer>().color = Color.green;
     }
     public void StopWorking()
     {
         _working = false;
         GetComponent<SpriteRenderer>().color = Color.white;
     }
-    private void OnMouseUp()
-    {
-        if (_clicking)
-        {
-            if ((transform.position - (Vector3)_cellManager.GetCellPosition(_cellIndex)).magnitude < 1f)
-            {
-                if (_working)
-                {
-                    StopWorking();
-                }
-                else
-                {
-                    _nClicks++;
-                    if(_nClicks == 2)
-                    {
-                        _nClicks = 0;
-                        StartWorking();
-                    }
-                }
-            }
-        }
-        _clicking = false;
-    }
+
     public void SetCell(int nCell)
     {
         _cellIndex = nCell;

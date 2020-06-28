@@ -20,7 +20,9 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     TutorController _tutorController;
     [SerializeField]
-    AdviceController _adviceController;
+    AdviceController _adviceController;    
+    [SerializeField]
+    CellManager _cellManager;
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
     bool waitingMergeTutorial2 = false;
@@ -166,6 +168,8 @@ public class Tutorial : MonoBehaviour
     }
     IEnumerator Tutorial3()
     {
+        Vector3 firstDinoPositionUI = _camera.WorldToScreenPoint(_mainGameSceneController.GetFirstDinoPosition());
+        Vector3 targetExpositorPosition = Camera.main.WorldToScreenPoint(_cellManager.GetExpoInstanceByIndex(0).transform.position);
         _tutorController.gameObject.SetActive(true);
         _tutorController.Speak(1);
         CurrentSceneManager.LockEverything();
@@ -175,14 +179,14 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         _circlePanelObject.SetActive(true);
-        _circlePanelTr.position = _camera.WorldToScreenPoint(_mainGameSceneController.GetFirstDinoPosition());
+        _circlePanelTr.position = (firstDinoPositionUI + targetExpositorPosition)/2;
         _handController.GetComponent<RectTransform>().position = _circlePanelTr.position;
-        yield return StartCoroutine(ZoomIn(1f));
+        yield return StartCoroutine(ZoomIn(1.75f));
         _handController.gameObject.SetActive(true);
         waitingWorkDinosaurTutorial3 = true;
-        _handController.StartDubleClickMode();
+        _handController.StartDragMode(firstDinoPositionUI, targetExpositorPosition);
         yield return new WaitForSeconds(0.5f);
-        CurrentSceneManager.OnlyCanWork();
+        CurrentSceneManager.OnlyCanShowByDrag();
     }
     #region EventsCallbacks
     public void FastPurchase()

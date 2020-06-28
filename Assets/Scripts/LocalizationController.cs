@@ -39,6 +39,13 @@ public class LocalizationController : MonoBehaviour
     {
         public string key;
         public string value;
+    }
+    public static void PrintDictionary()
+    {
+        foreach (KeyValuePair<string, string> kv in _localizedData)
+        {
+            Debug.Log("KEY: " + kv.Key + " ==> " + kv.Value);
+        }
 
     }
 }

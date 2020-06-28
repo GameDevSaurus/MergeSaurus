@@ -95,6 +95,17 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
+    public static void CreateDinosaur(int targetCell, int dinosaurIndex) 
+    {
+        _currentUserData._dinosaurs[targetCell] = dinosaurIndex;
+        SaveToFile();
+    }
+    public static void CreateBox(int targetCell, int boxIndex)
+    {
+        _currentUserData._dinosaurs[targetCell] = boxIndex + 100;
+        SaveToFile();
+    }
+
     public static int GetEmptyCells()
     {
         int unlockedCells = 0;
@@ -106,6 +117,18 @@ public class UserDataController : MonoBehaviour
             }
         }
         return unlockedCells;
+    }
+    public static int GetEmptyExpositors()
+    {
+        int unlockedExpositors = 0;
+        for (int i = 0; i < _currentUserData._unlockedExpositors; i++)
+        {
+            if (_currentUserData._workingCellsByExpositor[i] == -1)
+            {
+                unlockedExpositors++;
+            }
+        }
+        return unlockedExpositors;
     }
 
     public static bool HaveMoney(int cost)
@@ -134,7 +157,26 @@ public class UserDataController : MonoBehaviour
     }
     public static void ShowCell(int cell, int expositor)
     {
-        _currentUserData._workingCellsByExpositor[cell] = expositor;
+        _currentUserData._workingCellsByExpositor[expositor] = cell;
         SaveToFile();
+    }
+    public static void StopShowCell(int expositor)
+    {
+        _currentUserData._workingCellsByExpositor[expositor] = -1;
+        SaveToFile();
+    }
+
+    public static int GetExpositorIndexByCell(int cell)
+    {
+        int foundedExpositor = -1;
+        for (int i = 0; i < _currentUserData._workingCellsByExpositor.Length; i++)
+        {
+            if(_currentUserData._workingCellsByExpositor[i] == cell)
+            {
+                foundedExpositor = i;
+                break;
+            }
+        }
+        return foundedExpositor;
     }
 }

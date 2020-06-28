@@ -9,6 +9,7 @@ public class ExpositorInstance : MonoBehaviour
     CellInstance _referencedCell;
     [SerializeField]
     SpriteRenderer dinoImage;
+    bool _clicking;
 
     private void Start()
     {
@@ -19,13 +20,25 @@ public class ExpositorInstance : MonoBehaviour
         _referencedCell = cellInstance;
         dinoImage.sprite = cellInstance.GetDinoInstance().GetComponent<SpriteRenderer>().sprite;
     }
+    public void HideDinosaur()
+    {
+        _referencedCell = null;
+        dinoImage.sprite = null;
+    }
     public void SetExpositor(int expoNumber)
     {
         _expositorNumber = expoNumber;
     }
     public DinosaurInstance GetDinoInstance()
     {
-        return _referencedCell.GetDinoInstance();
+        if(_referencedCell != null)
+        {
+            return _referencedCell.GetDinoInstance();
+        }
+        else
+        {
+            return null;
+        }
     }
     public int GetExpositorNumber()
     {
@@ -38,5 +51,27 @@ public class ExpositorInstance : MonoBehaviour
     private void OnMouseExit()
     {
         _mainSceneController.ExitExpositor();
+        _clicking = false;
+    }
+
+    private void OnMouseDown()
+    {
+        if (_referencedCell != null)
+        {
+            _clicking = true;
+            StartCoroutine(DisableClickingState());
+        }
+    }
+    private void OnMouseUp()
+    {
+        if (_referencedCell != null && _clicking)
+        {
+            _mainSceneController.StopShowDino(_referencedCell.GetCellNumber());
+        }
+    }
+    IEnumerator DisableClickingState()
+    {
+        yield return new WaitForSeconds(0.25f);
+        _clicking = false;
     }
 }

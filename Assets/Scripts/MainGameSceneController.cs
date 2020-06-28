@@ -6,6 +6,8 @@ public class MainGameSceneController : MonoBehaviour
 {
     [SerializeField]
     GameObject[] _dinoPrefabs;
+    [SerializeField]
+    GameObject[] _boxPrefabs;
     List<DinosaurInstance> _dinoIngame;
     [SerializeField]
     CellManager _cellManager;
@@ -49,21 +51,42 @@ public class MainGameSceneController : MonoBehaviour
         for(int i = 0; i<UserDataController._currentUserData._unlockedCells; i++)
         {
             int dinoType = UserDataController._currentUserData._dinosaurs[i];
-            if (dinoType >= 0)
+            if (dinoType >= 0 && dinoType < 100)
             {
-                GameObject dino = Instantiate(_dinoPrefabs[dinoType], _cellManager.GetCellPosition(i), Quaternion.identity);
-                DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
-                dinoInst.SetCell(i);
-                dinoInst.SetDino(dinoType);
-                _cellManager.SetDinosaurInCell(dinoInst, i);
-                _dinoIngame.Add(dinoInst);
-                if (UserDataController._currentUserData._workingCellsByExpositor[i] >= 0)
+                CreateDinosaur(i , dinoType);
+                int expositor = UserDataController.GetExpositorIndexByCell(i);
+                if (expositor >= 0)
                 {
-                    ShowDinosaur(i, UserDataController._currentUserData._workingCellsByExpositor[i]);
+                    ShowDinosaur(i, expositor);
+                }
+            }
+            else
+            {
+                if(dinoType >= 100)
+                {
+                    CreateBox(i, dinoType-100);
                 }
             }
         }
     }
+
+    public void CreateDinosaur(int cellIndex, int dinoType)
+    {
+        GameObject dino = Instantiate(_dinoPrefabs[dinoType], _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
+        DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
+        dinoInst.SetCell(cellIndex);
+        dinoInst.SetDino(dinoType);
+        _cellManager.SetDinosaurInCell(dinoInst, cellIndex);
+        _dinoIngame.Add(dinoInst);
+        UserDataController.CreateDinosaur(cellIndex, dinoType);
+    }
+    public void CreateBox(int cellIndex, int dinoType)
+    {
+        GameObject box = Instantiate(_boxPrefabs[0], _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
+        _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(dinoType, box);
+        UserDataController.CreateBox(cellIndex, dinoType);
+    }
+
     public void UpdatePositions() 
     {
         foreach (DinosaurInstance d in _dinoIngame)
@@ -119,6 +142,10 @@ public class MainGameSceneController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            DropBox();
+        }
         Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (_isPicking)
         {
@@ -130,29 +157,49 @@ public class MainGameSceneController : MonoBehaviour
                 {
                     if (_currentExpositor != null)
                     {
-                        ShowDinosaur(_pickedDinosaur.GetCellNumber(), _currentExpositor.GetExpositorNumber());
+                        if(_currentExpositor.GetDinoInstance() == null)
+                        {
+                            ShowDinosaur(_pickedDinosaur.GetCellNumber(), _currentExpositor.GetExpositorNumber());
+                        }
                     }
                 }
                 else
                 {
-                    if(_currentCell.GetDinoInstance() != null)
+                    if(_currentCell.GetCellNumber() != _pickedDinosaur.GetCellNumber())
                     {
-                        if (_currentCell.GetDinoInstance().GetDinosaur() == _pickedDinosaur.GetDinosaur())
+                        if (_currentCell.GetDinoInstance() != null)
                         {
-                            if (CurrentSceneManager._canMergeDinosaur)
+                            if (_currentCell.GetDinoInstance().GetDinosaur() == _pickedDinosaur.GetDinosaur())
                             {
-                                Merge(_pickedDinosaur, _currentCell.GetCellNumber());
+                                if (_currentCell.GetDinoInstance().IsWorking())
+                                {
+                                    StopShowDino(_currentCell.GetCellNumber());
+                                    if (CurrentSceneManager._canMergeDinosaur)
+                                    {
+                                        Merge(_pickedDinosaur, _currentCell.GetCellNumber());
+                                    }
+                                }
+                                else
+                                {
+                                    if (CurrentSceneManager._canMergeDinosaur)
+                                    {
+                                        Merge(_pickedDinosaur, _currentCell.GetCellNumber());
+                                    }
+                                }                        
                             }
                         }
-                    }
-                    else
-                    {
-                        if (CurrentSceneManager._canMoveDinosaur)
+                        else
                         {
-                            UserDataController.MoveDinosaur(_pickedDinosaur.GetCellNumber(), _currentCell.GetCellNumber());
-                            _cellManager.SetDinosaurInCell(null, _pickedDinosaur.GetCellNumber());
-                            _pickedDinosaur.SetCell(_currentCell.GetCellNumber());
-                            _currentCell.SetDinosaur(_pickedDinosaur);
+                            if(_currentCell.GetBoxNumber() < 0)
+                            {
+                                if (CurrentSceneManager._canMoveDinosaur)
+                                {
+                                    UserDataController.MoveDinosaur(_pickedDinosaur.GetCellNumber(), _currentCell.GetCellNumber());
+                                    _cellManager.SetDinosaurInCell(null, _pickedDinosaur.GetCellNumber());
+                                    _pickedDinosaur.SetCell(_currentCell.GetCellNumber());
+                                    _currentCell.SetDinosaur(_pickedDinosaur);
+                                }
+                            }
                         }
                     }
                 }
@@ -190,8 +237,68 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void ShowDinosaur(int cell, int expo)
     {
-        _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_currentExpositor);
-        _pickedDinosaur.StartWorking();
-        UserDataController.ShowCell(cell, expo);
+        if (CurrentSceneManager._canShowDinosaurByDrag)
+        {
+            _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
+            _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
+            UserDataController.ShowCell(cell, expo);
+        }
+    }
+    public void ShowDinosaurInFirstExpo(int cell)
+    {
+        if(UserDataController.GetEmptyExpositors() > 0)
+        {
+            if (CurrentSceneManager._canShowDinosaurByTouch)
+            {
+                ShowDinosaur(cell, GetFirstEmptyExpositor());
+            }
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYEXPOSITORS");
+        }
+    }
+
+    public void StopShowDino(int cell)
+    {
+        UserDataController.StopShowCell(_cellManager.GetCellInstanceByIndex(cell).GetTargetExpositor().GetExpositorNumber());
+        _cellManager.GetCellInstanceByIndex(cell).StopExpose();
+        _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StopWorking();
+    }
+    
+    public int GetFirstEmptyExpositor()
+    {
+        int selectedExpo = -1;
+        for (int i = 0; i < UserDataController._currentUserData._unlockedExpositors; i++)
+        {
+            if (UserDataController._currentUserData._workingCellsByExpositor[i] == -1)
+            {
+                selectedExpo = i;
+                break;
+            }
+        }
+        return selectedExpo;
+    }
+    public int GetFirstEmptyCell()
+    {
+        int selectedCell = -1;
+        for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
+        {
+            if (UserDataController._currentUserData._dinosaurs[i] < 0)
+            {
+                selectedCell = i;
+                break;
+            }
+        }
+        return selectedCell;
+    }
+
+    public void DropBox()
+    {
+        int firstEmptyCell = GetFirstEmptyCell();
+        if(firstEmptyCell >= 0)
+        {
+            CreateBox(firstEmptyCell, 0);
+        }
     }
 }
