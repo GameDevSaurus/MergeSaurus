@@ -14,6 +14,6 @@ public class EarningsObserver : MonoBehaviour
     }
     void Update()
     {
-        _earningText.text = _economyManager.GetEarningsPerSecond().ToString() + "/sec";
+        _earningText.text = _economyManager.GetEarningsPerSecond().GetCurrentMoney() + "/sec";
     }
 }

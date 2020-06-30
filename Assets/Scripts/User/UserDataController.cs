@@ -80,7 +80,7 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
-    public static void BuyDinosaur(int dinosaurIndex, int cost)
+    public static void BuyDinosaur(int dinosaurIndex, GameCurrency cost)
     {
         for(int i = 0; i< _currentUserData._unlockedCells; i++)
         {
@@ -91,7 +91,9 @@ public class UserDataController : MonoBehaviour
             }
         }
         _currentUserData._purchasedTimes[dinosaurIndex]++;
-        _currentUserData._softCoins -= cost;
+        GameCurrency gCToSubstract = new GameCurrency((_currentUserData._softCoins));
+        gCToSubstract.SubstractCurrency(cost);
+        _currentUserData._softCoins = gCToSubstract.GetAmount();
         SaveToFile();
     }
 
@@ -131,10 +133,10 @@ public class UserDataController : MonoBehaviour
         return unlockedExpositors;
     }
 
-    public static bool HaveMoney(int cost)
+    public static bool HaveMoney(GameCurrency cost)
     {
         bool haveMoney = false;
-        if(_currentUserData._softCoins >= cost)
+        if(new GameCurrency(_currentUserData._softCoins).CompareCurrencies(cost))
         {
             haveMoney = true;
         }
@@ -179,9 +181,16 @@ public class UserDataController : MonoBehaviour
         }
         return foundedExpositor;
     }
-    public static void AddSoftCoins(int softCoins)
+    public static void AddSoftCoins(GameCurrency softCoins)
     {
-        _currentUserData._softCoins += softCoins;
+        GameCurrency gCToAdd = new GameCurrency((_currentUserData._softCoins));
+        gCToAdd.AddCurrency(softCoins);
+        _currentUserData._softCoins = gCToAdd.GetAmount();
         SaveToFile();
+    }
+
+    public static int GetOwnedDinosByDinoType(int dinoType)
+    {
+        return _currentUserData._purchasedTimes[dinoType];
     }
 }

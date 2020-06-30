@@ -55,7 +55,7 @@ public static class GameEvents
      * public static [[MyEventType]] [[EventName]] = new [[MyEventType]]();
      * 
      */
-    public static UnityEvent FastPurchase = new UnityEvent();
+    public static IntEvent Purchase = new IntEvent();
     public static UnityEvent MergeDino = new UnityEvent();
     public static UnityEvent WorkDino = new UnityEvent();
     public static UnityEvent OpenBox = new UnityEvent();
@@ -67,6 +67,7 @@ public static class GameEvents
     public static StringEvent PlaySFX = new StringEvent();
 
     public class StringEvent : UnityEvent<string> { };
+    public class IntEvent : UnityEvent<int> { };
     public class MoneyEvent : UnityEvent<MoneyEventData> { };
 
 
@@ -74,9 +75,9 @@ public static class GameEvents
     {
 
         public Vector3 _position;
-        public int _money;
+        public GameCurrency _money;
 
-        public MoneyEventData(Vector3 pos, int money)
+        public MoneyEventData(Vector3 pos, GameCurrency money)
         {
             _position = pos;
             _money = money;

@@ -29,7 +29,7 @@ public class MainGameSceneController : MonoBehaviour
         CreateStartingDinosaurs();
         _camera = Camera.main;
     }
-    public void FastPurchase(int dinosaurIndex, int cost)
+    public void Purchase(int dinosaurIndex, GameCurrency cost)
     {
         if (CurrentSceneManager._canPurchase)
         {
@@ -47,7 +47,7 @@ public class MainGameSceneController : MonoBehaviour
                 }
             }
             UserDataController.BuyDinosaur(dinosaurIndex, cost);
-            GameEvents.FastPurchase.Invoke();
+            GameEvents.Purchase.Invoke(dinosaurIndex);
         }
     }
     public void CreateStartingDinosaurs()

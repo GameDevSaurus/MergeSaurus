@@ -6,6 +6,7 @@ using TMPro;
 public class SoftCoinsObserver : MonoBehaviour
 {
     TextMeshProUGUI _softCoinText;
+
     private void Start()
     {
         _softCoinText = GetComponent<TextMeshProUGUI>();
@@ -14,7 +15,7 @@ public class SoftCoinsObserver : MonoBehaviour
     {
         if (UserDataController._checked)
         {
-            _softCoinText.text = UserDataController._currentUserData._softCoins.ToString();
+            _softCoinText.text = new GameCurrency(UserDataController._currentUserData._softCoins).GetCurrentMoney();
         }
     }
 }

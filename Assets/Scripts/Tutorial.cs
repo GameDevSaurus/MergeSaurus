@@ -39,7 +39,7 @@ public class Tutorial : MonoBehaviour
 
     private void Awake()
     {
-        GameEvents.FastPurchase.AddListener(FastPurchase);
+        GameEvents.Purchase.AddListener(FastPurchase);
         GameEvents.ShowAdvice.AddListener(ShowAdvice);
         GameEvents.MergeDino.AddListener(Merge);
         GameEvents.WorkDino.AddListener(Work);
@@ -310,7 +310,7 @@ public class Tutorial : MonoBehaviour
         CurrentSceneManager.OnlyCanShowByTouch();
     }
     #region EventsCallbacks
-    public void FastPurchase()
+    public void FastPurchase(int n)
     {
         if (waitingPurchaseTutorial0)
         {

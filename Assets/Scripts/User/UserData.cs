@@ -8,7 +8,7 @@ public class UserData
     public int _ID;
     public string _lastUpdatedTime;
     public int _experience;
-    public int _softCoins;
+    public int[] _softCoins;
     public int _hardCoins;
     public int _unlockedCells;
     public int _unlockedExpositors;
@@ -28,7 +28,8 @@ public class UserData
         _lastUpdatedTime = lastUpdTime;
         _ID = 0;
         _experience = 0;
-        _softCoins = 20000;
+        _softCoins = new int[31];
+        _softCoins[0] = 20000;
         _hardCoins = 0;
         _unlockedCells = 15; //Estamos iniciando al maximo
         _unlockedExpositors = 10;

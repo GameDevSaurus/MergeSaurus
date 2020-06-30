@@ -19,24 +19,24 @@ public class CoinAdvice : MonoBehaviour
         _adviceText = transform.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void Play(Vector3 targetPos, int earnedCoins)
+    public void Play(Vector3 targetPos, GameCurrency earnedCoins)
     {
         GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(targetPos);
         StartCoroutine(AdviceManage(earnedCoins));
     }
 
-    IEnumerator AdviceManage(int nCoins)
+    IEnumerator AdviceManage(GameCurrency nCoins)
     {
         _adviceText.rectTransform.anchoredPosition = new Vector2(0, 50);
-        yield return  StartCoroutine(CrShowText(nCoins));
+        yield return  StartCoroutine(CrShowText(nCoins.GetCurrentMoney()));
         StartCoroutine(CrMoveText());
         yield return new WaitForSeconds(moveDuration - fadeDuration * 2f);
         yield return StartCoroutine(CrHideText());
     }
 
-    public IEnumerator CrShowText(int earnedCoins)
+    public IEnumerator CrShowText(string earnedCoins)
     {
-        _adviceText.text = earnedCoins.ToString();
+        _adviceText.text = earnedCoins;
         for (float i = 0; i < fadeDuration; i += Time.deltaTime)
         {
             _adviceText.color = Color.Lerp(transParentWhite, Color.white, _animCurve.Evaluate(i / fadeDuration));
