@@ -932,7 +932,7 @@ RectTransform:
   m_Children:
   - {fileID: 1159544412}
   m_Father: {fileID: 8449143570580953971}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -7203,7 +7203,7 @@ RectTransform:
   m_Children:
   - {fileID: 1231451463}
   m_Father: {fileID: 8449143570580953971}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7233,6 +7233,7 @@ MonoBehaviour:
   - {fileID: 2014973472}
   - {fileID: 1435582584}
   - {fileID: 775205220}
+  _fastPurchaseButton: {fileID: 1873822494}
   _txProfitsPerSec:
   - {fileID: 3507048501184102737}
   - {fileID: 566263366}
@@ -7278,6 +7279,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05ff9db215c5eae42b211d4d7b5a67b0, type: 3}
   - {fileID: 21300000, guid: 5c9728f8169292b47b7fbc725deb4610, type: 3}
   _shopPanel: {fileID: 1231451462}
+  txPurchaseCost: {fileID: 1533547468}
 --- !u!1 &970141905
 GameObject:
   m_ObjectHideFlags: 0
@@ -7558,7 +7560,7 @@ RectTransform:
   - {fileID: 703401284}
   - {fileID: 1353912784}
   m_Father: {fileID: 8449143570580953971}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12183,7 +12185,6 @@ GameObject:
   - component: {fileID: 1873822496}
   - component: {fileID: 1873822495}
   - component: {fileID: 1873822494}
-  - component: {fileID: 1873822497}
   m_Layer: 5
   m_Name: FastPurchase
   m_TagString: Untagged
@@ -12258,9 +12259,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1873822497}
+      - m_Target: {fileID: 968505080}
         m_MethodName: Purchase
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12306,22 +12307,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873822492}
   m_CullTransparentMesh: 0
---- !u!114 &1873822497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873822492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a105c26ff784324fa712f0609081f92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fastPurchaseButton: {fileID: 1873822494}
-  _mainGameSceneController: {fileID: 807927618}
-  _purchaseType: 0
-  txPurchaseCost: {fileID: 1533547468}
 --- !u!1001 &1890047583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14009,9 +13994,9 @@ RectTransform:
   - {fileID: 970141906}
   - {fileID: 194407060}
   - {fileID: 85033858}
-  - {fileID: 999184967}
   - {fileID: 127856717}
   - {fileID: 968505079}
+  - {fileID: 999184967}
   m_Father: {fileID: 1725101417}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

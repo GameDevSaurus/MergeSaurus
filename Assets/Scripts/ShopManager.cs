@@ -10,6 +10,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     Button[] _dinoShopButtons;
     [SerializeField]
+    Button _fastPurchaseButton;
+    [SerializeField]
     TextMeshProUGUI[] _txProfitsPerSec;
     [SerializeField]
     TextMeshProUGUI[] _txCurrentCost;
@@ -21,6 +23,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     GameObject _shopPanel;
     MainGameSceneController _mainGameSceneController;
+    [SerializeField]
+    TextMeshProUGUI txPurchaseCost;
+    int _fastPurchaseDinoType = 0;
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
@@ -51,19 +56,29 @@ public class ShopManager : MonoBehaviour
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
-        for (int i = 0; i < _txCurrentCost.Length; i++)
-        {
-            _txCurrentCost[i].text = _economyManager.GetDinoCost(i).GetCurrentMoney();
-        }
         for (int i = 0; i < _dinoShopButtons.Length; i++)
         {
             bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+            _txCurrentCost[i].text = _economyManager.GetDinoCost(i).GetCurrentMoney();
+
+            if (i == 0)
+            {
+                txPurchaseCost.text = _economyManager.GetDinoCost(0).GetCurrentMoney();
+            }
             if (canPurchase)
             {
+                if (i == 0) //Cambiar indice del fastPurchase
+                {
+                    _fastPurchaseButton.interactable = true;
+                }
                 _dinoShopButtons[i].interactable = true;
             }
             else
             {
+                if (i == 0)
+                {
+                    _fastPurchaseButton.interactable = false;
+                }
                 _dinoShopButtons[i].interactable = false;
             }
         }
@@ -79,5 +94,10 @@ public class ShopManager : MonoBehaviour
         {
             GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
+    }
+
+    public void FastPurchase()
+    {
+        Purchase(_fastPurchaseDinoType);
     }
 }

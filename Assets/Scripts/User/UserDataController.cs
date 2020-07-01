@@ -93,7 +93,7 @@ public class UserDataController : MonoBehaviour
         _currentUserData._purchasedTimes[dinosaurIndex]++;
         GameCurrency gCToSubstract = new GameCurrency((_currentUserData._softCoins));
         gCToSubstract.SubstractCurrency(cost);
-        _currentUserData._softCoins = gCToSubstract.GetAmount();
+        _currentUserData._softCoins = gCToSubstract.GetIntList();
         SaveToFile();
     }
 
@@ -185,7 +185,7 @@ public class UserDataController : MonoBehaviour
     {
         GameCurrency gCToAdd = new GameCurrency((_currentUserData._softCoins));
         gCToAdd.AddCurrency(softCoins);
-        _currentUserData._softCoins = gCToAdd.GetAmount();
+        _currentUserData._softCoins = gCToAdd.GetIntList();
         SaveToFile();
     }
 

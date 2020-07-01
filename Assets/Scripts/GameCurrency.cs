@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -25,7 +26,7 @@ public class GameCurrency
         _currencyUnits[0] = units;
         ConvertUnits();
     }
-    public int[] GetAmount()
+    public int[] GetIntList()
     {
         return _currencyUnits;
     }
@@ -37,7 +38,7 @@ public class GameCurrency
     {
         for (int i = 0; i < _currencyUnits.Length; i++)
         {
-            _currencyUnits[i] += currency.GetAmount()[i];
+            _currencyUnits[i] += currency.GetIntList()[i];
         }
         ConvertUnits();
     }
@@ -49,7 +50,7 @@ public class GameCurrency
         //Paso 2: Resta normal
         for (int i = 0; i < _currencyUnits.Length; i++)
         {
-            _currencyUnits[i] -= currency.GetAmount()[i];
+            _currencyUnits[i] -= currency.GetIntList()[i];
         }
 
         //Paso 3 sustituir negativos por el indice mayor
@@ -72,17 +73,25 @@ public class GameCurrency
 
     public bool CompareCurrencies(GameCurrency currency)
     {
-        bool moreThanSubstractor = true;
-        for (int i = _currencyUnits.Length; i < 0; i--)
+        bool canSubstract = true;
+
+        for (int i = _currencyUnits.Length -1; i >= 0; i--)
         {
-            if (currency.GetAmount()[i] > _currencyUnits[i])
+            if (_currencyUnits[i] > currency.GetIntList()[i])
             {
-                Debug.Log("El numero que resta es mayor!!");
-                moreThanSubstractor = false;
+                canSubstract = true;
                 break;
             }
+            else
+            {
+                if (_currencyUnits[i] < currency.GetIntList()[i])
+                {
+                    canSubstract = false;
+                    break;
+                }
+            }
         }
-        return moreThanSubstractor;
+        return canSubstract;
     }
 
 
@@ -142,5 +151,19 @@ public class GameCurrency
             _currencyUnits[i] = (int)(_currencyUnits[i] * multiplier);
         }
         ConvertUnits();
+    }
+
+    public void Print()
+    {
+        string s = "";
+        for (int i = 0; i<_currencyUnits.Length; i++)
+        {
+            if (i != 0) {
+                s += ",";
+            }
+            s += _currencyUnits[i];
+            s += _currencyNames[i];
+        }
+        Debug.Log(s);
     }
 }

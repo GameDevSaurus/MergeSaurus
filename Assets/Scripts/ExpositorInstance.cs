@@ -94,11 +94,9 @@ public class ExpositorInstance : MonoBehaviour
     {
         int dinoType = _referencedCell.GetDinoInstance().GetDinosaur();
         yield return new WaitForSeconds(_earningsTime[dinoType]);
-        GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetAmount());
-        print(currentDinoEarnings.GetCurrentMoney() + "  " + _earningsTime[dinoType]);
+        GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetIntList());
         currentDinoEarnings.MultiplyCurrency(_earningsTime[dinoType]);
         _economyManager.EarnSoftCoins(currentDinoEarnings);
-        print(currentDinoEarnings.GetCurrentMoney() + "  " + _earningsTime[dinoType]);
         GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, currentDinoEarnings));
         _workingCr = StartCoroutine(WorkingCr());
     }
