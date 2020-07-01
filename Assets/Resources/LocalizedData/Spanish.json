@@ -42,5 +42,13 @@
   {
     "key": "ADVICE_NOEXPOSITORS",
     "value": "No tienes expositores\ndisponibles"
+  },
+  {
+    "key": "LEVEL_UP_PANEL",
+    "value": "¡SUBIDA DE NIVEL!"
+  },
+  {
+    "key": "REWARDS",
+    "value": "Recompensas:"
   }
 ]

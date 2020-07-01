@@ -45,36 +45,36 @@ public class GameCurrency
     public void SubstractCurrency(GameCurrency currency)
     {
         //Paso 1: Comprobar si el último número es negativo
-        CompareCurrencies(currency);
-
-        //Paso 2: Resta normal
-        for (int i = 0; i < _currencyUnits.Length; i++)
+        if (CompareCurrencies(currency))
         {
-            _currencyUnits[i] -= currency.GetIntList()[i];
-        }
-
-        //Paso 3 sustituir negativos por el indice mayor
-        bool hasNegative;
-        do
-        {
-            hasNegative = false;
-            for (int i = _currencyUnits.Length; i < 0; i--)
+            //Paso 2: Resta normal
+            for (int i = 0; i < _currencyUnits.Length; i++)
             {
-                if (_currencyUnits[i] < 0)
-                {
-                    _currencyUnits[i] += 1000;
-                    _currencyUnits[i + 1]--;
-                    hasNegative = true;
-                }
+                _currencyUnits[i] -= currency.GetIntList()[i];
             }
-        }while (hasNegative);
-        ConvertUnits();
+
+            //Paso 3 sustituir negativos por el indice mayor
+            bool hasNegative;
+            do
+            {
+                hasNegative = false;
+                for (int i = _currencyUnits.Length-1; i >= 0; i--)
+                {
+                    if (_currencyUnits[i] < 0)
+                    {
+                        _currencyUnits[i] += 1000;
+                        _currencyUnits[i + 1]--;
+                        hasNegative = true;
+                    }
+                }
+            } while (hasNegative);
+            ConvertUnits();
+        }
     }
 
     public bool CompareCurrencies(GameCurrency currency)
     {
         bool canSubstract = true;
-
         for (int i = _currencyUnits.Length -1; i >= 0; i--)
         {
             if (_currencyUnits[i] > currency.GetIntList()[i])
@@ -91,6 +91,13 @@ public class GameCurrency
                 }
             }
         }
+        if (canSubstract)
+        {
+            Print();
+            currency.Print();
+        }
+
+
         return canSubstract;
     }
 
@@ -164,6 +171,5 @@ public class GameCurrency
             s += _currencyUnits[i];
             s += _currencyNames[i];
         }
-        Debug.Log(s);
     }
 }

@@ -278,11 +278,12 @@ public class Tutorial : MonoBehaviour
         Vector2 dino1PositionUI = _camera.WorldToScreenPoint(dino1WorldPosition);
         Vector2 dino2PositionUI = _camera.WorldToScreenPoint(dino2WorldPosition);
         Vector2 dinosSeparation = dino1WorldPosition - dino2WorldPosition;
-        Vector2 middleUIPosition = dino1PositionUI + (dinosSeparation / 2f);
+        Vector2 dinosUISeparation = dino1PositionUI - dino2PositionUI;
+        Vector2 middleUIPosition = dino1PositionUI - (dinosUISeparation / 2f);
         CurrentSceneManager.LockEverything();
         _circlePanelObject.SetActive(true);
         _circlePanelTr.position = middleUIPosition;
-        yield return StartCoroutine(ZoomIn(Mathf.Abs(dinosSeparation.magnitude)));
+        yield return StartCoroutine(ZoomIn(Mathf.Abs(1)));
         _handController.gameObject.SetActive(true);
         waitingMergeTutorial6 = true;
         _handController.StartDragMode(dino1PositionUI, dino2PositionUI);
@@ -334,7 +335,7 @@ public class Tutorial : MonoBehaviour
             StartTutorial(2);
         }
     }
-    public void Merge()
+    public void Merge(int dinoType)
     {
         if (waitingMergeTutorial2)
         {

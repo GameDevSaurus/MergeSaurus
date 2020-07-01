@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.Analytics;
+
 public class UserDataController : MonoBehaviour
 {
 
     public static UserData _currentUserData;
     public static string _fileName = "CurrentUserData.json";
     public static bool _checked;
-    public static int[] _levelProgression = new int[]{ 0, 50, 75, 150 };
 
     public static void Initialize()
     {
@@ -63,15 +64,46 @@ public class UserDataController : MonoBehaviour
     {
 
     }
-    public static int GetLevel()
+
+    public static float GetExperienceAmount()
+    {
+        CalculateLevel();
+        float amount;
+        float baseExp = ExperienceManager.experienceCost[UserDataController.GetLevel() - 1];
+        float targetExp = ExperienceManager.experienceCost[UserDataController.GetLevel()];
+        float currentExp = _currentUserData._experience;
+        float diff = targetExp - baseExp;
+        float currentDiff = currentExp - baseExp;
+        amount = currentDiff / diff;
+        return amount;
+    }
+
+    public static void AddExperiencePoints(int expAmount)
+    {
+        CalculateLevel();
+        int preLevel = _currentUserData._level;
+        _currentUserData._experience += expAmount;
+        CalculateLevel();
+        int postLevel = _currentUserData._level;
+        if(preLevel < postLevel)
+        {
+            GameEvents.LevelUp.Invoke(postLevel);
+        }
+    }
+    public static void CalculateLevel()
     {
         int level = 0;
         do
         {
             level++;
         }
-        while (_currentUserData._experience > _levelProgression[level]);
-        return level;
+        while (_currentUserData._experience >= ExperienceManager.experienceCost[level]);
+        _currentUserData._level = level;
+        SaveToFile();
+    }
+    public static int GetLevel()
+    {
+        return _currentUserData._level;
     }
 
     public static void SaveTutorial(int tutorialIndex)

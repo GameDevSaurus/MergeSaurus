@@ -116,7 +116,7 @@ public class MainGameSceneController : MonoBehaviour
         _cellManager.SetDinosaurInCell(dinoInst, dinoInstance2.GetCellNumber());
         Destroy(dinoInstance1.gameObject);
         Destroy(dinoInstance2.gameObject);
-        GameEvents.MergeDino.Invoke();
+        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur()+1);
     }
 
     DinosaurInstance GetDinoInstanceByCell(int cell)
