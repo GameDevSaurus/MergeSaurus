@@ -5,9 +5,9 @@ using UnityEngine;
 public class CellManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject cellPrefab;    
+    GameObject cellPrefab;
     [SerializeField]
-    GameObject expoPanelPrefab;    
+    GameObject expoPanelPrefab;
     [SerializeField]
     GameObject expoPrefab;
     [SerializeField]
@@ -19,7 +19,8 @@ public class CellManager : MonoBehaviour
     float verticalDist, horizontalDist;
     [SerializeField]
     float padding;
-
+    [SerializeField]
+    StreetManager _streetManager;
     List<List<int>> _cellPositionList;
 
     float panelWidth;
@@ -152,6 +153,7 @@ public class CellManager : MonoBehaviour
                 _expositors[i].gameObject.SetActive(false);
             }
         }
+        _streetManager.Init(_expositors);
     }
 
     public void SetCells(int n)

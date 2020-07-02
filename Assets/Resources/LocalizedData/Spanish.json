@@ -50,5 +50,21 @@
   {
     "key": "REWARDS",
     "value": "Recompensas:"
+  },
+  {
+    "key": "UNLOCK",
+    "value": "¡DESBLOQUEADO!"
+  },
+  {
+    "key": "UNLOCK_DINO_QUALITY",
+    "value": "Velocidad"
+  },
+  {
+    "key": "SHOP",
+    "value": "TIENDA"
+  },
+  {
+    "key": "UPGRADES",
+    "value": "VELOCIDAD"
   }
 ]

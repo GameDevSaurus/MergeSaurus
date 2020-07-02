@@ -25,6 +25,11 @@ public class ShopManager : MonoBehaviour
     MainGameSceneController _mainGameSceneController;
     [SerializeField]
     TextMeshProUGUI txPurchaseCost;
+    [SerializeField]
+    GameObject _shopButton;
+    [SerializeField]
+    GameObject _upgradeButton;
+
     int _fastPurchaseDinoType = 0;
     private void Awake()
     {
@@ -32,6 +37,12 @@ public class ShopManager : MonoBehaviour
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         _shopPanel.SetActive(false);
         GameEvents.EarnMoney.AddListener(RefreshButtons);
+        GameEvents.MergeDino.AddListener(CheckDinoMergeType);
+        if (UserDataController.GetBiggestDino() < 3)
+        {
+            _shopButton.SetActive(false);
+            _upgradeButton.SetActive(false);
+        }
     }
     void Start()
     {
@@ -43,6 +54,12 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < _dinoImages.Length; i++)
         {
             _dinoImages[i].sprite = _dinoSprites[i];
+            if(i > UserDataController.GetBiggestDino())
+            {
+                _dinoImages[i].color = Color.black;
+                _dinoShopButtons[i].interactable = false;
+                _dinoShopButtons[i].GetComponent<Image>().color = Color.black;
+            }
         }
         RefreshButtons(null);
     }
@@ -52,6 +69,7 @@ public class ShopManager : MonoBehaviour
     }
     public void Open()
     {
+
         _shopPanel.SetActive(true);
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
@@ -99,5 +117,24 @@ public class ShopManager : MonoBehaviour
     public void FastPurchase()
     {
         Purchase(_fastPurchaseDinoType);
+    }
+
+    public void CheckDinoMergeType(int nLevel)
+    {
+        if (nLevel >= 3)
+        {
+            _shopButton.SetActive(true);
+            _upgradeButton.SetActive(true);
+        }
+        UnlockDinoButtonsTillBiggest();
+    }
+
+    public void UnlockDinoButtonsTillBiggest()
+    {
+        for(int i = 0; i<UserDataController.GetBiggestDino(); i++)
+        {
+            _dinoShopButtons[i].GetComponent<Image>().color = Color.white;
+            _dinoImages[i].color = Color.white;
+        }
     }
 }

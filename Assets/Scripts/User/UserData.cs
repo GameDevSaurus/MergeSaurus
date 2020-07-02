@@ -33,8 +33,8 @@ public class UserData
         _softCoins = new int[31];
         _softCoins[0] = 20000;
         _hardCoins = 0;
-        _unlockedCells = 15; //Estamos iniciando al maximo
-        _unlockedExpositors = 10;
+        _unlockedCells = 4;
+        _unlockedExpositors = 4;
         _username = "Mechanic";
         _dinosaurs = new int[15];
         _workingCellsByExpositor = new int[10];

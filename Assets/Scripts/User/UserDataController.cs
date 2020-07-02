@@ -185,6 +185,10 @@ public class UserDataController : MonoBehaviour
 
     public static void MergeDinosaurs(int originCell, int targetCell, int mergeDinoType)
     {
+        if((mergeDinoType + 1) > GetBiggestDino())
+        {
+            GameEvents.DinoUp.Invoke(mergeDinoType + 1);
+        }
         _currentUserData._dinosaurs[originCell] = -1;
         _currentUserData._dinosaurs[targetCell] = mergeDinoType +1;
         SaveToFile();
@@ -224,5 +228,18 @@ public class UserDataController : MonoBehaviour
     public static int GetOwnedDinosByDinoType(int dinoType)
     {
         return _currentUserData._purchasedTimes[dinoType];
+    }
+
+    public static int GetBiggestDino()
+    {
+        int biggestDino = 0;
+        for (int i = 0; i <_currentUserData._dinosaurs.Length; i++)
+        {
+            if(_currentUserData._dinosaurs[i] > biggestDino)
+            {
+                biggestDino = _currentUserData._dinosaurs[i];
+            }
+        }
+        return biggestDino;
     }
 }

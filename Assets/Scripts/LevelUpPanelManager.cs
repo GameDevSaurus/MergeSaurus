@@ -14,7 +14,6 @@ public class LevelUpPanelManager : MonoBehaviour
 
     public void LevelUp()
     {
-        print("Entro");
         StartCoroutine(ShowNewLevelInfo());
     }
 

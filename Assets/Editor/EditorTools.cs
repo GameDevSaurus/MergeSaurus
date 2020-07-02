@@ -44,6 +44,7 @@ public class EditorTools : MonoBehaviour
         File.Delete(Application.persistentDataPath + "/CurrentUserData.json");
     }
 
+
     public static void LoadScene(string name)
     {
         if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) //Si el usuario quiere guardar la escena, guardar
