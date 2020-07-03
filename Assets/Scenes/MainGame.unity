@@ -2512,6 +2512,8 @@ MonoBehaviour:
   _streetCellDistance: 0.85
   _streetPointPrefab: {fileID: 4302566578616816058, guid: dd0b5c7167a1d0a46b93226806887d2d,
     type: 3}
+  _touristPrefab: {fileID: 2574468929611165206, guid: de33d6a8e7e9cd14c9cdeb87950eb0fd,
+    type: 3}
 --- !u!1 &311818106
 GameObject:
   m_ObjectHideFlags: 0
