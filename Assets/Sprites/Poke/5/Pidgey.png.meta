@@ -1,7 +1,70 @@
 fileFormatVersion: 2
 guid: 519fd8f295851e44e85bb7f0dc637ff5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1781181029423644380
+    second: Pidgey_0
+  - first:
+      213: 5125679152656595511
+    second: Pidgey_1
+  - first:
+      213: -4645240461532040165
+    second: Pidgey_2
+  - first:
+      213: -181468419207748289
+    second: Pidgey_3
+  - first:
+      213: 6696213342809958793
+    second: Pidgey_4
+  - first:
+      213: -579376595652106741
+    second: Pidgey_5
+  - first:
+      213: -2282778986916683429
+    second: Pidgey_6
+  - first:
+      213: 5583853609747186993
+    second: Pidgey_7
+  - first:
+      213: -5223228704799856322
+    second: Pidgey_8
+  - first:
+      213: -3188461424015826069
+    second: Pidgey_9
+  - first:
+      213: -8773460392564695587
+    second: Pidgey_10
+  - first:
+      213: 5166818431216074076
+    second: Pidgey_11
+  - first:
+      213: -2274737005115283115
+    second: Pidgey_12
+  - first:
+      213: -4559793270706525629
+    second: Pidgey_13
+  - first:
+      213: 1761699867020109504
+    second: Pidgey_14
+  - first:
+      213: 2414312267496221148
+    second: Pidgey_15
+  - first:
+      213: 446853892951129292
+    second: Pidgey_16
+  - first:
+      213: -6229645690347885700
+    second: Pidgey_17
+  - first:
+      213: -4027677180757271882
+    second: Pidgey_18
+  - first:
+      213: 3886474098115206775
+    second: Pidgey_19
+  - first:
+      213: -5736482691714194027
+    second: Pidgey_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +103,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +134,474 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pidgey_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4210a847a49f747e0800000000000000
+      internalID: -1781181029423644380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 204
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ab8b64802122740800000000000000
+      internalID: 5125679152656595511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 204
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b147c1a696ac88fb0800000000000000
+      internalID: -4645240461532040165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 204
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35ab272f6b4b7df0800000000000000
+      internalID: -181468419207748289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 204
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9892b66ae8abdec50800000000000000
+      internalID: 6696213342809958793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b062bf05e04a5f7f0800000000000000
+      internalID: -579376595652106741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51ea182b90f150e0800000000000000
+      internalID: -2282778986916683429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13583c60645dd7d40800000000000000
+      internalID: 5583853609747186993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_8
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39e7c5ba2d5387b0800000000000000
+      internalID: -5223228704799856322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_9
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6320816a3f40c3d0800000000000000
+      internalID: -3188461424015826069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dddd83ab1486e3680800000000000000
+      internalID: -8773460392564695587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_11
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 102
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d339bfcf934b740800000000000000
+      internalID: 5166818431216074076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 102
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559eaa4feb28e60e0800000000000000
+      internalID: -2274737005115283115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_13
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 102
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a225add2c58b0c0800000000000000
+      internalID: -4559793270706525629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_14
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 102
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c62696f1b0d27810800000000000000
+      internalID: 1761699867020109504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9eaf8373c518120800000000000000
+      internalID: 2414312267496221148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_16
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 51
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc3ad38f3b833600800000000000000
+      internalID: 446853892951129292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_17
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 51
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b654e204adb89a0800000000000000
+      internalID: -6229645690347885700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_18
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 51
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba140391f0da18c0800000000000000
+      internalID: -4027677180757271882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_19
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 51
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ed9eec9978fe530800000000000000
+      internalID: 3886474098115206775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pidgey_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595e234926be360b0800000000000000
+      internalID: -5736482691714194027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

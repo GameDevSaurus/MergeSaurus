@@ -14,6 +14,9 @@ public class EarningsObserver : MonoBehaviour
     }
     void Update()
     {
-        _earningText.text = _economyManager.GetEarningsPerSecond().GetCurrentMoney() + "/sec";
+        GameCurrency gc = _economyManager.GetEarningsPerSecond();
+        gc.MultiplyCurrency(0.5f);
+        gc.MultiplyCurrency(CurrentSceneManager.GetGlobalSpeed());
+        _earningText.text = gc.GetCurrentMoney() + "/sec";
     }
 }

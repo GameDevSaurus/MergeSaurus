@@ -7,8 +7,6 @@ public class TouristInstance : MonoBehaviour
     List<int> _touristRoute;
     StreetManager _streetManager;
     float moveDuration = 3f;
-    [SerializeField]
-    AnimationCurve _animationCurve;
 
     public void SetRoute(List<int> route, StreetManager sManager)
     {
@@ -25,33 +23,77 @@ public class TouristInstance : MonoBehaviour
             finalP += _touristRoute[i];
         }
 
-        Vector3 initialPos = transform.position;
-        for (float j = 0; j < moveDuration; j += Time.deltaTime)
+        Vector3 initialPos = Vector3.zero;
+        float speed = Random.Range(1f,5f) * CurrentSceneManager.GetGlobalSpeed();
+
+        switch (_touristRoute[0])
         {
-            transform.position = Vector3.Lerp(initialPos, _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0), _animationCurve.Evaluate(j / moveDuration));
+            case 0:
+                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2,0,0);
+                break;
+            case 1:
+                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
+                break;
+            case 2:
+                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2, 0, 0);
+                break;
+            case 3:
+                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
+                break;
+        }
+
+        Vector3 startLerpPos = initialPos;
+        Vector3 targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0);
+        float lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
+        float lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+        float globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+
+        for (float j = 0; j < lerpTime; j += Time.deltaTime)
+        {
+            if(CurrentSceneManager.GetGlobalSpeed()  != globalSpeed)
+            {
+                lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                j /= (CurrentSceneManager.GetGlobalSpeed() / globalSpeed);
+                globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+            }
+            transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, j / lerpTime);
             yield return null;
         }
-        transform.position = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0);
+        transform.position = targetLerpPos;
 
-        yield return new WaitForSeconds(0.2f);
-
+        float waitingTime = Random.Range(0.5f, 1.5f);
+        yield return new WaitForSeconds(waitingTime/2f);
+        GameEvents.TouristWatchDino.Invoke(_touristRoute[0]);
+        yield return new WaitForSeconds(waitingTime/2f);
 
 
         for (int i = 0; i<_touristRoute.Count -1; i++)
         {
             int startingPoint = _touristRoute[i];
-            int targetPoint = _touristRoute[i+1];
-
+            int targetPoint = _touristRoute[i + 1];
             int initialSide = Random.Range(3,5);
-            for(float j = 0; j<0.2f; j += Time.deltaTime)
+
+            startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i], 0);
+            targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i],initialSide);
+            lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
+            lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+
+            globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+            for (float j = 0; j<lerpTime; j += Time.deltaTime)
             {
-                transform.position = Vector3.Lerp(_streetManager.GetExpositorTransformPosByCoords(_touristRoute[i], 0), _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i], initialSide), (j / 0.2f));
+                if (CurrentSceneManager.GetGlobalSpeed() != globalSpeed)
+                {
+                    lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                    j /= (CurrentSceneManager.GetGlobalSpeed() / globalSpeed);
+                    globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+                }
+                transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, (j / lerpTime));
                 yield return null;
             }
-            transform.position = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i], initialSide);
+            transform.position = targetLerpPos;
             //Obtengo las direcciones para ir desde startPoint hasta targetPoint
             List <StreetManager.Directions> directionsList = _streetManager.GetDirectionsList(startingPoint, targetPoint);
-            //Interpreto??¿¿??
+
             for (int j = 0; j<directionsList.Count; j++)
             {
                 Vector2 initialMatrixCoord = _streetManager.GetExpoCoordsByIndex(startingPoint);
@@ -73,25 +115,88 @@ public class TouristInstance : MonoBehaviour
                 }
                 targetPoint = _streetManager.GetExpoIndexByCoords(targetMatrixCoord);
 
-                for(float l = 0; l<1f; l += Time.deltaTime)
+                startLerpPos = _streetManager.GetExpositorTransformPosByCoords(startingPoint, initialSide);
+                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(targetPoint, initialSide);
+                lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
+                lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+
+                globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+                for (float l = 0; l< lerpTime; l += Time.deltaTime)
                 {
-                    transform.position = Vector3.Lerp(_streetManager.GetExpositorTransformPosByCoords(startingPoint,initialSide), _streetManager.GetExpositorTransformPosByCoords(targetPoint, initialSide), l/1f);
+                    if (CurrentSceneManager.GetGlobalSpeed() != globalSpeed)
+                    {
+                        lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                        l /= (CurrentSceneManager.GetGlobalSpeed() / globalSpeed);
+                        globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+                    }
+                    transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, l/ lerpTime);
                     yield return null;
                 }
-                transform.position = _streetManager.GetExpositorTransformPosByCoords(targetPoint, initialSide);
+                transform.position = targetLerpPos;
                 startingPoint = targetPoint; 
             }
-            for (float k = 0; k < 0.2f; k += Time.deltaTime)
+
+            startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], initialSide);
+            targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
+            lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
+            lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+
+            globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+            for (float k = 0; k < lerpTime; k += Time.deltaTime)
             {
-                transform.position = Vector3.Lerp(_streetManager.GetExpositorTransformPosByCoords(_touristRoute[i+1], initialSide), _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0), (k / 0.2f));
+                if (CurrentSceneManager.GetGlobalSpeed() != globalSpeed)
+                {
+                    lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                    k /= (CurrentSceneManager.GetGlobalSpeed() / globalSpeed);
+                    globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+                }
+                transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, (k / lerpTime));
                 yield return null;
             }
             transform.position = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
-            yield return new WaitForSeconds(2f);
+
+            waitingTime = Random.Range(0.5f, 1.5f);
+            yield return new WaitForSeconds(waitingTime / 2f);
+
+            //LANZAR MONEDA
+            GameEvents.TouristWatchDino.Invoke(_touristRoute[i+1]);
+            yield return new WaitForSeconds(waitingTime / 2f);
+            yield return new WaitForSeconds(0.2f);
         }
+
+        switch (_touristRoute[_touristRoute.Count -1])
+        {
+            case 0:
+                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(-2, 0, 0);
+                break;
+            case 1:
+                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(2, 0, 0);
+                break;
+            case 2:
+                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(-2, 0, 0);
+                break;
+            case 3:
+                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(2, 0, 0);
+                break;
+        }
+
+        startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0);
+        lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
+        lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+
+        globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+        for (float j = 0; j < lerpTime; j += Time.deltaTime)
+        {
+            if (CurrentSceneManager.GetGlobalSpeed() != globalSpeed)
+            {
+                lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                j /= (CurrentSceneManager.GetGlobalSpeed() / globalSpeed);
+                globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+            }
+            transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, j / lerpTime);
+            yield return null;
+        }
+        transform.position = targetLerpPos;
         Destroy(gameObject,1f);
     }
-
-
-
 }

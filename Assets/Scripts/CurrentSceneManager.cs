@@ -14,12 +14,22 @@ public class CurrentSceneManager : MonoBehaviour
     public static bool _canOpenBox;
     public static bool _canTakeBackByCell;
     public static bool _canTakeBackByExpositor;
+    public static float _currentGlobalSpeed;
 
     private void Start()
     {
+        _currentGlobalSpeed = 1f;
         UnlockEverything();
     }
 
+    public static void SetGlobalSpeed(int globalSpeed)
+    {
+        _currentGlobalSpeed = globalSpeed;
+    }
+    public static float GetGlobalSpeed()
+    {
+        return _currentGlobalSpeed;
+    }
     public static void OnlyCanPurchase()
     {
         LockEverything();

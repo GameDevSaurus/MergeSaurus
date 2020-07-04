@@ -13,11 +13,15 @@ public class MergeUpManager : MonoBehaviour
     bool canDisable;
     [SerializeField]
     Image fillQualityBar;
+    Tutorial _tutorial;
+    MainGameSceneController _mainGameSceneController;
 
     private void Awake()
     {
         _mergeUpPanel.SetActive(false);
         GameEvents.DinoUp.AddListener(MergeUpCallBack);
+        _tutorial = FindObjectOfType<Tutorial>();
+        _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
     }
     public void MergeUpCallBack(int dinoType)
     {
@@ -38,6 +42,7 @@ public class MergeUpManager : MonoBehaviour
     {
         if (canDisable)
         {
+            _mainGameSceneController.StopWaitingAnim();
             _mergeUpPanel.SetActive(false);
         }
     }

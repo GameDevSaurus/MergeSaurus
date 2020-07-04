@@ -36,6 +36,10 @@
     "value": "¡Genial! Ya sabes lo esencial, lo\ndejo todo en tus manos."
   },
   {
+    "key": "CONV_5_0",
+    "value": "Tu parque necesita que la gente\nande más rápido. ¡Cómprale a \nMigue el látigo para que corran \nel doble al visitar dinos!"
+  },
+  {
     "key": "ADVICE_NOEMPTYCELLS",
     "value": "No tienes huecos\ndisponibles"
   },
@@ -66,5 +70,9 @@
   {
     "key": "UPGRADES",
     "value": "VELOCIDAD"
+  },
+  {
+    "key": "ADDSECONDS",
+    "value": "Añadir otros 200 segundos"
   }
 ]

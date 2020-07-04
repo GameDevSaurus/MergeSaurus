@@ -11,7 +11,12 @@ public class LevelUpPanelManager : MonoBehaviour
     [SerializeField]
     GameObject _levelUpPanel;
     bool canDisable;
+    ExperienceManager _experienceManager;
 
+    private void Start()
+    {
+        _experienceManager = FindObjectOfType<ExperienceManager>();
+    }
     public void LevelUp()
     {
         StartCoroutine(ShowNewLevelInfo());
@@ -21,7 +26,8 @@ public class LevelUpPanelManager : MonoBehaviour
     {
         _levelUpPanel.SetActive(true);
         canDisable = false;
-        _levelUpTx.text = UserDataController.GetLevel().ToString();
+        int level = UserDataController.GetLevel() + 1;
+        _levelUpTx.text = level.ToString();
         yield return new WaitForSeconds(0.5f);
         canDisable = true;
     }
@@ -31,6 +37,7 @@ public class LevelUpPanelManager : MonoBehaviour
         if (canDisable)
         {
             _levelUpPanel.SetActive(false);
+            _experienceManager.CloseLvlUpPanel();
         }
     }
 }

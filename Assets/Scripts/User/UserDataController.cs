@@ -90,6 +90,28 @@ public class UserDataController : MonoBehaviour
             GameEvents.LevelUp.Invoke(postLevel);
         }
     }
+
+    public static bool IsGoingToLvlUp(int expAmount)
+    {
+        int preLevel = _currentUserData._level;
+        int level = 0;
+        do
+        {
+            level++;
+        }
+        while ((_currentUserData._experience+expAmount) >= ExperienceManager.experienceCost[level]);
+
+        if (level > _currentUserData._level)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
     public static void CalculateLevel()
     {
         int level = 0;
@@ -183,15 +205,19 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
-    public static void MergeDinosaurs(int originCell, int targetCell, int mergeDinoType)
+    public static bool MergeDinosaurs(int originCell, int targetCell, int mergeDinoType)
     {
+        bool mergeUp = false;
         if((mergeDinoType + 1) > GetBiggestDino())
         {
             GameEvents.DinoUp.Invoke(mergeDinoType + 1);
+            mergeUp = true;
         }
+        
         _currentUserData._dinosaurs[originCell] = -1;
         _currentUserData._dinosaurs[targetCell] = mergeDinoType +1;
         SaveToFile();
+        return mergeUp;
     }
     public static void ShowCell(int cell, int expositor)
     {

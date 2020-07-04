@@ -102,12 +102,12 @@ public class CellManager : MonoBehaviour
                 _cells.Add(cell);
             }
         }
-        GameObject panel = Instantiate(panelPrefab, new Vector3(0,0,1), Quaternion.identity);
-        panel.transform.localScale = new Vector2(panelWidth, panelHeight);
-        panel.name = "DinoPanel";
-        GameObject expoPanel = Instantiate(expoPanelPrefab, new Vector3(0, 0, 2), Quaternion.identity);
-        expoPanel.transform.localScale = new Vector2(expoPanelWidth, expoPanelHeight);
-        expoPanel.name = "ExpoPanel";
+        //GameObject panel = Instantiate(panelPrefab, new Vector3(0,0,1), Quaternion.identity);
+        //panel.transform.localScale = new Vector2(panelWidth, panelHeight);
+        //panel.name = "DinoPanel";
+        //GameObject expoPanel = Instantiate(expoPanelPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+        //expoPanel.transform.localScale = new Vector2(expoPanelWidth, expoPanelHeight);
+        //expoPanel.name = "ExpoPanel";
 
         float xExpoPosition = (panelWidth / 2) + (((expoPanelWidth / 2) - (panelWidth / 2)) / 2);
         float yExpoPosition = (panelHeight/2) + (((expoPanelHeight / 2) - (panelHeight / 2)) / 2);

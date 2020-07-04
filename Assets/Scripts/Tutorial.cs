@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Tutorial : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Tutorial : MonoBehaviour
     AdviceController _adviceController;    
     [SerializeField]
     CellManager _cellManager;
+    [SerializeField]
+    SpeedUpManager _speedUpManager;
+    [SerializeField]
+    BoxManager _boxManager;
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
     bool waitingMergeTutorial2 = false;
@@ -133,6 +138,9 @@ public class Tutorial : MonoBehaviour
             case 7:
                 StartCoroutine(Tutorial7());
                 break;
+            case 8:
+                StartCoroutine(Tutorial8());
+                break;
         }
     }
 
@@ -140,7 +148,6 @@ public class Tutorial : MonoBehaviour
     {
         waitingSpeak = false;
     }
-
     IEnumerator ZoomIn(float targetScale)
     {
         for(float i = 0; i< zoomDuration; i+= Time.deltaTime)
@@ -240,7 +247,7 @@ public class Tutorial : MonoBehaviour
         _circlePanelObject.SetActive(true);
         Vector3 emptyCellPosition = Camera.main.WorldToScreenPoint(_cellManager.GetCellPosition(_mainGameSceneController.GetFirstEmptyCell()));
         _circlePanelTr.position = emptyCellPosition;
-        _mainGameSceneController.DropBox(1);
+        _boxManager.DropBox(1);
         _handController.GetComponent<RectTransform>().position = emptyCellPosition;
         yield return StartCoroutine(ZoomIn(1f));
         _handController.gameObject.SetActive(true);
@@ -309,6 +316,46 @@ public class Tutorial : MonoBehaviour
         _handController.StartDoubleClickMode();
         yield return new WaitForSeconds(0.5f);
         CurrentSceneManager.OnlyCanShowByTouch();
+    }    
+    IEnumerator Tutorial8()
+    {
+        _tutorController.gameObject.SetActive(true);
+        _tutorController.Speak(5);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = _speedUpManager.GetSpeedUpPosition();
+        _handController.GetComponent<RectTransform>().position = _speedUpManager.GetSpeedUpPosition();
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.gameObject.SetActive(true);
+        _handController.StartTouchMode();
+        yield return new WaitForSeconds(0.5f);
+        while (!_speedUpManager.IsPanelOpen())
+        {
+            yield return null;
+        }
+        _handController.StopTouchCoroutines();
+        _handController.gameObject.SetActive(false);
+        _circlePanelObject.SetActive(false);
+        _handController.gameObject.SetActive(true);
+        _circlePanelObject.SetActive(true);
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.StartTouchMode();
+        _circlePanelTr.position = _speedUpManager.GetAdButtPosition();
+        _handController.GetComponent<RectTransform>().position = _speedUpManager.GetAdButtPosition();
+        while (CurrentSceneManager.GetGlobalSpeed() == 1)
+        {
+            yield return null;
+        }
+        _handController.StopTouchCoroutines();
+        _handController.gameObject.SetActive(false);
+        _circlePanelObject.SetActive(false);
+        UserDataController.SaveTutorial(8);
+        CurrentSceneManager.UnlockEverything();
     }
     #region EventsCallbacks
     public void FastPurchase(int n)
@@ -359,6 +406,17 @@ public class Tutorial : MonoBehaviour
                 CurrentSceneManager.UnlockEverything();
                 StartTutorial(7);
             }
+            else
+            {
+                if (dinoType == 3)
+                {
+                    _handController.StopTouchCoroutines();
+                    _handController.gameObject.SetActive(false);
+                    _circlePanelObject.SetActive(false);
+                    CurrentSceneManager.UnlockEverything();
+                    StartTutorial(8);
+                }
+            }
         }
     }
     public void Work()
@@ -395,6 +453,7 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         UserDataController.SaveTutorial(7);
+        _boxManager.SetDropTrue();
         CurrentSceneManager.UnlockEverything();
     }
     public void OpenBox()

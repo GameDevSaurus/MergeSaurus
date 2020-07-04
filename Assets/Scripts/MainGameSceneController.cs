@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MainGameSceneController : MonoBehaviour
 {
     [SerializeField]
     GameObject[] _dinoPrefabs;
-    [SerializeField]
-    GameObject[] _boxPrefabs;
     List<DinosaurInstance> _dinosIngame;
     [SerializeField]
     CellManager _cellManager;
@@ -19,6 +18,10 @@ public class MainGameSceneController : MonoBehaviour
     bool _isPicking;
     Camera _camera;
     EconomyManager _economyManager;
+    bool waitingForAnimation = false;
+    [SerializeField]
+    BoxManager _boxManager;
+
 
     private void Awake()
     {
@@ -69,7 +72,7 @@ public class MainGameSceneController : MonoBehaviour
             {
                 if(dinoType >= 100)
                 {
-                    CreateBox(i, dinoType-100);
+                    _boxManager.CreateBox(i, dinoType-100);
                 }
             }
         }
@@ -85,12 +88,6 @@ public class MainGameSceneController : MonoBehaviour
         _cellManager.SetDinosaurInCell(dinoInst, cellIndex);
         _dinosIngame.Add(dinoInst);
         UserDataController.CreateDinosaur(cellIndex, dinoType);
-    }
-    public void CreateBox(int cellIndex, int dinoType)
-    {
-        GameObject box = Instantiate(_boxPrefabs[0], _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
-        _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(dinoType, box);
-        UserDataController.CreateBox(cellIndex, dinoType);
     }
 
     public void UpdatePositions() 
@@ -111,14 +108,39 @@ public class MainGameSceneController : MonoBehaviour
         _dinosIngame.Add(dinoInst);
         _dinosIngame.Remove(dinoInstance1);
         _dinosIngame.Remove(dinoInstance2);
-        UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur());
+
+        if(UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur()))
+        {
+            StartCoroutine(WaitForUnlockNewDino( dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino ));
+        }
+        else
+        {
+            EndMerge(dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino);
+        }
+    }
+
+    IEnumerator WaitForUnlockNewDino(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
+    {
+        waitingForAnimation = true;
+        while (waitingForAnimation)
+        {
+            yield return null;
+        }
+        EndMerge(dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino);
+    }
+
+    public void StopWaitingAnim()
+    {
+        waitingForAnimation = false;
+    }
+    public void EndMerge(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
+    {
         _cellManager.SetDinosaurInCell(null, dinoInstance1.GetCellNumber());
         _cellManager.SetDinosaurInCell(dinoInst, dinoInstance2.GetCellNumber());
         Destroy(dinoInstance1.gameObject);
         Destroy(dinoInstance2.gameObject);
-        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur()+1);
+        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
     }
-
     DinosaurInstance GetDinoInstanceByCell(int cell)
     {
         foreach(DinosaurInstance d in _dinosIngame)
@@ -137,8 +159,7 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void DeleteGameData()
     {
-        UserDataController.DeleteFile();
-        GameEvents.LoadScene.Invoke("Splash");
+        GameEvents.LoadScene.Invoke("Reset");
     }
 
     public Vector3 GetDinoPositionsUIByCell(int cellIndex)
@@ -148,10 +169,6 @@ public class MainGameSceneController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            DropBox();
-        }
         Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (_isPicking)
         {
@@ -310,22 +327,7 @@ public class MainGameSceneController : MonoBehaviour
         }
         return selectedCell;
     }
-    public void DropBox(int dinotype)
-    {
-        int firstEmptyCell = GetFirstEmptyCell();
-        if (firstEmptyCell >= 0)
-        {
-            CreateBox(firstEmptyCell, dinotype);
-        }
-    }
-    public void DropBox()
-    {
-        int firstEmptyCell = GetFirstEmptyCell();
-        if(firstEmptyCell >= 0)
-        {
-            CreateBox(firstEmptyCell, 0);
-        }
-    }
+
     public List<int> GetMergeableDinosCellIndex()
     {
         int selectedDino1;

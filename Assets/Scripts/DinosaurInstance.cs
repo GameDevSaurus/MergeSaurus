@@ -10,12 +10,11 @@ public class DinosaurInstance : MonoBehaviour
     GameObject _otherCell;
     bool _working;
 
-
     public void StartWorking()
     {
         _working = true;
         GameEvents.WorkDino.Invoke();
-        GetComponent<SpriteRenderer>().color = Color.green;
+        GetComponent<SpriteRenderer>().color = new Color(121,121,121,255);
     }
     public void StopWorking()
     {

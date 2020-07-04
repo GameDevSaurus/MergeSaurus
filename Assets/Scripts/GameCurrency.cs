@@ -142,6 +142,33 @@ public class GameCurrency
         return currentMoney + _currencyNames[charIndex];
     }
 
+    public List<string> GetIntAndCurrency()
+    {
+        List<string> finalList = new List<string>();
+        int currentMoney = 0;
+        int charIndex = 0;
+        for (int i = _currencyUnits.Length - 1; i >= 0; i--)
+        {
+            if (_currencyUnits[i] > 0)
+            {
+                if (i > 0)
+                {
+                    currentMoney = _currencyUnits[i - 1] + (_currencyUnits[i] * 1000);
+                    charIndex = i - 1;
+                    break;
+                }
+                else
+                {
+                    currentMoney = _currencyUnits[0];
+                }
+            }
+        }
+        finalList.Add(currentMoney.ToString());
+        finalList.Add(charIndex.ToString());
+
+        return finalList;
+    }
+
     public void MultiplyCurrency(float multiplier)
     {
         for(int i = 0; i<_currencyUnits.Length; i++)

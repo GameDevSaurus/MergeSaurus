@@ -11,12 +11,11 @@ public class ExpositorInstance : MonoBehaviour
     SpriteRenderer dinoImage;
     bool _clicking;
     EconomyManager _economyManager;
-    List<int> _earningsTime = new List<int>() { 5, 4, 4, 3, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1 };
-    Coroutine _workingCr;
 
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
+        GameEvents.TouristWatchDino.AddListener(EarnMoney);
     }
     private void Start()
     {
@@ -26,17 +25,11 @@ public class ExpositorInstance : MonoBehaviour
     {
         _referencedCell = cellInstance;
         dinoImage.sprite = cellInstance.GetDinoInstance().GetComponent<SpriteRenderer>().sprite;
-        if (_workingCr != null)
-        {
-            StopCoroutine(WorkingCr());
-        }
-        _workingCr = StartCoroutine(WorkingCr());
     }
     public void HideDinosaur()
     {
         _referencedCell = null;
         dinoImage.sprite = null;
-        StopCoroutine(_workingCr);
     }
     public void SetExpositor(int expoNumber)
     {
@@ -90,14 +83,20 @@ public class ExpositorInstance : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         _clicking = false;
     }
-    public IEnumerator WorkingCr()
+    public void EarnMoney(int expoIndex)
     {
-        int dinoType = _referencedCell.GetDinoInstance().GetDinosaur();
-        yield return new WaitForSeconds(_earningsTime[dinoType]);
-        GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetIntList());
-        currentDinoEarnings.MultiplyCurrency(_earningsTime[dinoType]);
-        _economyManager.EarnSoftCoins(currentDinoEarnings);
-        GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, currentDinoEarnings));
-        _workingCr = StartCoroutine(WorkingCr());
+        if(_referencedCell != null)
+        {
+            int dinoType = _referencedCell.GetDinoInstance().GetDinosaur();
+            if (expoIndex == _expositorNumber)
+            {
+                if (dinoType >= 0)
+                {
+                    GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetIntList());
+                    _economyManager.EarnSoftCoins(currentDinoEarnings);
+                    GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, currentDinoEarnings));
+                }
+            }
+        }
     }
 }

@@ -11,9 +11,4 @@ public class UITextLocalization : MonoBehaviour
     {
         GetComponent<TextMeshProUGUI>().text = LocalizationController._localizedData[key];
     }
-
-    void Update()
-    {
-        
-    }
 }

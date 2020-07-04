@@ -14,7 +14,7 @@ public class VFXPool : MonoBehaviour
     }
     public void PlayParticles(GameEvents.MoneyEventData moneyEventData)
     {
-        _particleSystems[_currentParticleSystem].transform.position = moneyEventData._position;
+        _particleSystems[_currentParticleSystem].transform.position = moneyEventData._position - new Vector3(0, 0.2f, 0);
         _particleSystems[_currentParticleSystem].Play();
         _currentParticleSystem++;
         _currentParticleSystem = _currentParticleSystem % _particleSystems.Length;

@@ -58,6 +58,7 @@ public static class GameEvents
     public static IntEvent Purchase = new IntEvent();
     public static IntEvent LevelUp = new IntEvent();
     public static IntEvent DinoUp = new IntEvent();
+    public static IntEvent TouristWatchDino = new IntEvent();
     public static IntEvent MergeDino = new IntEvent();
     public static UnityEvent WorkDino = new UnityEvent();
     public static UnityEvent OpenBox = new UnityEvent();

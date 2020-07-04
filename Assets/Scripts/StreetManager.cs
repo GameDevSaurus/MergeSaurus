@@ -13,6 +13,8 @@ public class StreetManager : MonoBehaviour
     List<List<Vector3>> _streetPointsPositons;
     List<List<int>> _expositorsMatrix;
     List<Vector2> _expoMatrixCoordinates;
+    float _visitorSpawnTime = 3f;
+    float _currentVisitorTime = 0f;
 
     public enum Directions { Up, Down, Left, Right };
 
@@ -131,11 +133,6 @@ public class StreetManager : MonoBehaviour
             GameObject botMidPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.down * _streetCellDistance), _streetPointPrefab.transform.rotation);
             GameObject botLeftPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.down * _streetCellDistance) + (Vector3.left * _streetCellDistance), _streetPointPrefab.transform.rotation);
             GameObject botRightPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.down * _streetCellDistance) + (Vector3.right * _streetCellDistance), _streetPointPrefab.transform.rotation);
-
-            //GameObject leftMidPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.left * _streetCellDistance), _streetPointPrefab.transform.rotation);
-            //GameObject rightMidPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.right * _streetCellDistance), _streetPointPrefab.transform.rotation);
-            //GameObject topMidPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.up * _streetCellDistance), _streetPointPrefab.transform.rotation);
-            //_directionsList = new List<Directions>().Add(Directions.Up, );
             GameObject topLeftPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.up * _streetCellDistance) + (Vector3.left * _streetCellDistance), _streetPointPrefab.transform.rotation);
             GameObject topRightPoint = Instantiate(_streetPointPrefab, expositors[i].transform.position + (Vector3.up * _streetCellDistance) + (Vector3.right * _streetCellDistance), _streetPointPrefab.transform.rotation);
             
@@ -171,12 +168,14 @@ public class StreetManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        _currentVisitorTime += Time.deltaTime * CurrentSceneManager.GetGlobalSpeed();
+        if(_currentVisitorTime >= _visitorSpawnTime)
         {
             SpawnTourist();
+            _currentVisitorTime = 0;
+            _visitorSpawnTime = Random.Range(1f,3f);
         }
     }
-
     public void  SpawnTourist()
     {
         List<int> route = CreateRoute();
