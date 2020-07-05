@@ -21,7 +21,8 @@ public class MainGameSceneController : MonoBehaviour
     bool waitingForAnimation = false;
     [SerializeField]
     BoxManager _boxManager;
-
+    int deleteCount = 0;
+    float deleteTimer = 0;
 
     private void Awake()
     {
@@ -98,6 +99,22 @@ public class MainGameSceneController : MonoBehaviour
         }
     }
 
+    public int GetDinosSum()
+    {
+        int sum = 0;
+        for(int i = 0; i<_dinosIngame.Count; i++)
+        {
+            if(_dinosIngame[i].GetDinosaur() == 0)
+            {
+                sum++;
+            }
+            if (_dinosIngame[i].GetDinosaur() > 0)
+            {
+                sum += (int)Mathf.Pow(2, _dinosIngame[i].GetDinosaur());
+            }
+        }
+        return sum;
+    }
     public void Merge(DinosaurInstance dinoInstance1, int targetCellIndex)
     {
         GameObject dino = Instantiate(_dinoPrefabs[dinoInstance1.GetDinosaur()+1], _cellManager.GetCellPosition(targetCellIndex), Quaternion.identity);
@@ -159,7 +176,12 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void DeleteGameData()
     {
-        GameEvents.LoadScene.Invoke("Reset");
+        deleteCount++;
+        deleteTimer = 0;
+        if(deleteCount == 10)
+        {
+            GameEvents.LoadScene.Invoke("Reset");
+        }
     }
 
     public Vector3 GetDinoPositionsUIByCell(int cellIndex)
@@ -169,6 +191,11 @@ public class MainGameSceneController : MonoBehaviour
 
     private void Update()
     {
+        deleteTimer += Time.deltaTime;
+        if(deleteTimer > 2f)
+        {
+            deleteCount = 0;
+        }
         Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (_isPicking)
         {

@@ -9,17 +9,28 @@ public class DinosaurInstance : MonoBehaviour
     [SerializeField]
     GameObject _otherCell;
     bool _working;
-
+    [SerializeField]
+    Animator _dinoAnimator;
+    [SerializeField]
+    SpriteRenderer _dinoSprite;
     public void StartWorking()
     {
         _working = true;
         GameEvents.WorkDino.Invoke();
-        GetComponent<SpriteRenderer>().color = new Color(121,121,121,255);
+        if (_dinoAnimator != null)
+        {
+            _dinoSprite.color = new Color(95f/255f, 95f/255f, 95f/255f, 1f);
+            _dinoAnimator.speed = 0f;
+        }
     }
     public void StopWorking()
     {
         _working = false;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        if (_dinoAnimator != null)
+        {
+            _dinoSprite.color = Color.white;
+            _dinoAnimator.speed = 1f;
+        }
     }
 
     public void SetCell(int nCell)

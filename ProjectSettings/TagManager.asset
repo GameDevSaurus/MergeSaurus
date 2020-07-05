@@ -45,3 +45,6 @@ TagManager:
   - name: VFX
     uniqueID: 1273110419
     locked: 0
+  - name: Dino
+    uniqueID: 368488995
+    locked: 0

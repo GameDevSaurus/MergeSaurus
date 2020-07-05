@@ -11,6 +11,7 @@ public class ExpositorInstance : MonoBehaviour
     SpriteRenderer dinoImage;
     bool _clicking;
     EconomyManager _economyManager;
+    GameObject dinoCopy;
 
     private void Awake()
     {
@@ -24,12 +25,13 @@ public class ExpositorInstance : MonoBehaviour
     public void ShowDinosaur(CellInstance cellInstance)
     {
         _referencedCell = cellInstance;
-        dinoImage.sprite = cellInstance.GetDinoInstance().GetComponent<SpriteRenderer>().sprite;
+        dinoCopy = Instantiate(_referencedCell.GetDinoInstance().gameObject, transform.position, Quaternion.identity);
+        Destroy(dinoCopy.GetComponent<DinosaurInstance>());
     }
     public void HideDinosaur()
     {
         _referencedCell = null;
-        dinoImage.sprite = null;
+        Destroy(dinoCopy);
     }
     public void SetExpositor(int expoNumber)
     {

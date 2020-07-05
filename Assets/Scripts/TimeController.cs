@@ -12,7 +12,7 @@ public class TimeController: MonoBehaviour
         current date
     */
 
-    private string _url = "http://mikeindiedev.com/time.php";
+    private string _url = "http://torcudev.es/thebeating/time.php";
     private double _currentTimestamp;
     DateTime _currentDatetime;
     DateTime _dateAtStart;

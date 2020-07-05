@@ -1,34 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEditor;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField]
-    Button[] _dinoShopButtons;
-    [SerializeField]
-    Button _fastPurchaseButton;
-    [SerializeField]
-    TextMeshProUGUI[] _txProfitsPerSec;
-    [SerializeField]
-    TextMeshProUGUI[] _txCurrentCost;
-    [SerializeField]
-    Image[] _dinoImages;
-    [SerializeField]
-    Sprite[] _dinoSprites;
     EconomyManager _economyManager;
     [SerializeField]
     GameObject _shopPanel;
     MainGameSceneController _mainGameSceneController;
     [SerializeField]
-    TextMeshProUGUI txPurchaseCost;
-    [SerializeField]
     GameObject _shopButton;
     [SerializeField]
     GameObject _upgradeButton;
+    [SerializeField]
+    GameObject _purchaseDinoPanelPrefab;
+    [SerializeField]
+    Transform _panelParent;
+    List<PurchaseDinoPanel> _dinoPanelManagers;
+    string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     int _fastPurchaseDinoType = 0;
     private void Awake()
@@ -37,7 +26,6 @@ public class ShopManager : MonoBehaviour
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         _shopPanel.SetActive(false);
         GameEvents.EarnMoney.AddListener(RefreshButtons);
-        GameEvents.MergeDino.AddListener(CheckDinoMergeType);
         if (UserDataController.GetBiggestDino() < 3)
         {
             _shopButton.SetActive(false);
@@ -46,22 +34,22 @@ public class ShopManager : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < _txProfitsPerSec.Length; i++)
+        _dinoPanelManagers = new List<PurchaseDinoPanel>();
+        for (int i = 0; i < UserDataController._currentUserData._dinosaurs.Length; i++)
         {
-            string earnings = _economyManager.GetEarningsByType(i).GetCurrentMoney() + "/sec";
-            _txProfitsPerSec[i].text = earnings;
-        }
-        for (int i = 0; i < _dinoImages.Length; i++)
-        {
-            _dinoImages[i].sprite = _dinoSprites[i];
-            if(i > UserDataController.GetBiggestDino())
+            GameObject nPanel = Instantiate(_purchaseDinoPanelPrefab, transform.position, Quaternion.identity);
+            nPanel.transform.SetParent(_panelParent);
+            nPanel.transform.localScale = Vector3.one;
+            PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
+            p.SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
+            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/"+0));
+            p.SetDinoName(dinoNames[i]);
+            if (i > UserDataController.GetBiggestDino())
             {
-                _dinoImages[i].color = Color.black;
-                _dinoShopButtons[i].interactable = false;
-                _dinoShopButtons[i].GetComponent<Image>().color = Color.black;
+                p.LockPanel();
             }
+            _dinoPanelManagers.Add(p);
         }
-        RefreshButtons(null);
     }
     public void Close()
     {
@@ -74,30 +62,19 @@ public class ShopManager : MonoBehaviour
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
-        for (int i = 0; i < _dinoShopButtons.Length; i++)
+        for (int i = 0; i < _dinoPanelManagers.Count; i++)
         {
             bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-            _txCurrentCost[i].text = _economyManager.GetDinoCost(i).GetCurrentMoney();
+            _dinoPanelManagers[i].SetProfits(_economyManager.GetDinoCost(i).GetCurrentMoney());
+            _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(0).GetCurrentMoney());
 
-            if (i == 0)
+            if (canPurchase && i <= UserDataController.GetBiggestDino())
             {
-                txPurchaseCost.text = _economyManager.GetDinoCost(0).GetCurrentMoney();
-            }
-            if (canPurchase)
-            {
-                if (i == 0) //Cambiar indice del fastPurchase
-                {
-                    _fastPurchaseButton.interactable = true;
-                }
-                _dinoShopButtons[i].interactable = true;
+                _dinoPanelManagers[i].UnlockPanel();
             }
             else
             {
-                if (i == 0)
-                {
-                    _fastPurchaseButton.interactable = false;
-                }
-                _dinoShopButtons[i].interactable = false;
+                _dinoPanelManagers[i].LockPanel();
             }
         }
     }
@@ -117,24 +94,5 @@ public class ShopManager : MonoBehaviour
     public void FastPurchase()
     {
         Purchase(_fastPurchaseDinoType);
-    }
-
-    public void CheckDinoMergeType(int nLevel)
-    {
-        if (nLevel >= 3)
-        {
-            _shopButton.SetActive(true);
-            _upgradeButton.SetActive(true);
-        }
-        UnlockDinoButtonsTillBiggest();
-    }
-
-    public void UnlockDinoButtonsTillBiggest()
-    {
-        for(int i = 0; i<UserDataController.GetBiggestDino(); i++)
-        {
-            _dinoShopButtons[i].GetComponent<Image>().color = Color.white;
-            _dinoImages[i].color = Color.white;
-        }
     }
 }
