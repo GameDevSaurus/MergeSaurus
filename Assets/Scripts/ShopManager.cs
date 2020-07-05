@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class ShopManager : MonoBehaviour
 {
     EconomyManager _economyManager;
+    [SerializeField]
+    Button _fastPurchase;
+    [SerializeField]
+    Image _fastPurchaseFace;
+    [SerializeField]
+    TextMeshProUGUI _fastPurchaseCost;
+    [SerializeField]
+    TextMeshProUGUI _fastPurchaseName;
     [SerializeField]
     GameObject _shopPanel;
     MainGameSceneController _mainGameSceneController;
@@ -66,14 +75,27 @@ public class ShopManager : MonoBehaviour
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
+        int biggestDino = UserDataController.GetBiggestDino();
+        int fastPurchaseIndex = Mathf.Max(biggestDino-5,0);
         for (int i = 0; i < _dinoPanelManagers.Count; i++)
         {
+            if (i == fastPurchaseIndex)
+            {
+                _fastPurchase.interactable = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+                _fastPurchaseCost.text = _economyManager.GetDinoCost(i).GetCurrentMoney();
+                _fastPurchaseFace.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
+                _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
+                _fastPurchaseName.text = dinoNames[i];
+                _fastPurchaseDinoType = i;
+                
+            }
             if (i > UserDataController.GetBiggestDino())
             {
                 _dinoPanelManagers[i].LockPanel();
             }
             else
             {
+                _dinoPanelManagers[i].UnlockPanel();
                 bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
                 _dinoPanelManagers[i].SetProfits(_economyManager.GetDinoCost(i).GetCurrentMoney());
                 _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());

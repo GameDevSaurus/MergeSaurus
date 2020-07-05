@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class TouristInstance : MonoBehaviour
@@ -7,6 +8,8 @@ public class TouristInstance : MonoBehaviour
     List<int> _touristRoute;
     StreetManager _streetManager;
     float moveDuration = 3f;
+    [SerializeField]
+    Animator _animator;
 
     public void SetRoute(List<int> route, StreetManager sManager)
     {
@@ -24,8 +27,8 @@ public class TouristInstance : MonoBehaviour
         }
 
         Vector3 initialPos = Vector3.zero;
-        float speed = Random.Range(1f,5f) * CurrentSceneManager.GetGlobalSpeed();
-
+        float speed = Random.Range(1f,3f) * CurrentSceneManager.GetGlobalSpeed();
+        _animator.SetFloat("Speed", speed);
         switch (_touristRoute[0])
         {
             case 0:
@@ -47,7 +50,33 @@ public class TouristInstance : MonoBehaviour
         float lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
         float lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
         float globalSpeed = CurrentSceneManager.GetGlobalSpeed();
+        if(startLerpPos.x == targetLerpPos.x)
+        {
+            if(startLerpPos.y < targetLerpPos.y)
+            {
+                _animator.SetTrigger("Up");
 
+            }
+            else
+            {
+                if(startLerpPos.y > targetLerpPos.y)
+                {
+                    _animator.SetTrigger("Down");
+
+                }
+            }
+        }
+        else
+        {
+            if (startLerpPos.x < targetLerpPos.x)
+            {
+                _animator.SetTrigger("Right");
+            }
+            else
+            {
+                _animator.SetTrigger("Left");
+            }
+        }
         for (float j = 0; j < lerpTime; j += Time.deltaTime)
         {
             if(CurrentSceneManager.GetGlobalSpeed()  != globalSpeed)
@@ -60,7 +89,7 @@ public class TouristInstance : MonoBehaviour
             yield return null;
         }
         transform.position = targetLerpPos;
-
+        _animator.SetTrigger("Idle");
         float waitingTime = Random.Range(0.5f, 1.5f);
         yield return new WaitForSeconds(waitingTime/2f);
         GameEvents.TouristWatchDino.Invoke(_touristRoute[0]);
@@ -77,7 +106,33 @@ public class TouristInstance : MonoBehaviour
             targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i],initialSide);
             lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
             lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+            if (startLerpPos.x == targetLerpPos.x)
+            {
+                if (startLerpPos.y < targetLerpPos.y)
+                {
+                    _animator.SetTrigger("Up");
 
+                }
+                else
+                {
+                    if (startLerpPos.y > targetLerpPos.y)
+                    {
+                        _animator.SetTrigger("Down");
+
+                    }
+                }
+            }
+            else
+            {
+                if (startLerpPos.x < targetLerpPos.x)
+                {
+                    _animator.SetTrigger("Right");
+                }
+                else
+                {
+                    _animator.SetTrigger("Left");
+                }
+            }
             globalSpeed = CurrentSceneManager.GetGlobalSpeed();
             for (float j = 0; j<lerpTime; j += Time.deltaTime)
             {
@@ -119,7 +174,33 @@ public class TouristInstance : MonoBehaviour
                 targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(targetPoint, initialSide);
                 lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
                 lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+                if (startLerpPos.x == targetLerpPos.x)
+                {
+                    if (startLerpPos.y < targetLerpPos.y)
+                    {
+                        _animator.SetTrigger("Up");
 
+                    }
+                    else
+                    {
+                        if (startLerpPos.y > targetLerpPos.y)
+                        {
+                            _animator.SetTrigger("Down");
+
+                        }
+                    }
+                }
+                else
+                {
+                    if (startLerpPos.x < targetLerpPos.x)
+                    {
+                        _animator.SetTrigger("Right");
+                    }
+                    else
+                    {
+                        _animator.SetTrigger("Left");
+                    }
+                }
                 globalSpeed = CurrentSceneManager.GetGlobalSpeed();
                 for (float l = 0; l< lerpTime; l += Time.deltaTime)
                 {
@@ -140,7 +221,33 @@ public class TouristInstance : MonoBehaviour
             targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
             lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
             lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+            if (startLerpPos.x == targetLerpPos.x)
+            {
+                if (startLerpPos.y < targetLerpPos.y)
+                {
+                    _animator.SetTrigger("Up");
 
+                }
+                else
+                {
+                    if (startLerpPos.y > targetLerpPos.y)
+                    {
+                        _animator.SetTrigger("Down");
+
+                    }
+                }
+            }
+            else
+            {
+                if (startLerpPos.x < targetLerpPos.x)
+                {
+                    _animator.SetTrigger("Right");
+                }
+                else
+                {
+                    _animator.SetTrigger("Left");
+                }
+            }
             globalSpeed = CurrentSceneManager.GetGlobalSpeed();
             for (float k = 0; k < lerpTime; k += Time.deltaTime)
             {
@@ -154,7 +261,7 @@ public class TouristInstance : MonoBehaviour
                 yield return null;
             }
             transform.position = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
-
+            _animator.SetTrigger("Idle");
             waitingTime = Random.Range(0.5f, 1.5f);
             yield return new WaitForSeconds(waitingTime / 2f);
 
@@ -183,7 +290,33 @@ public class TouristInstance : MonoBehaviour
         startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0);
         lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
         lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
+        if (startLerpPos.x == targetLerpPos.x)
+        {
+            if (startLerpPos.y < targetLerpPos.y)
+            {
+                _animator.SetTrigger("Up");
 
+            }
+            else
+            {
+                if (startLerpPos.y > targetLerpPos.y)
+                {
+                    _animator.SetTrigger("Down");
+
+                }
+            }
+        }
+        else
+        {
+            if (startLerpPos.x < targetLerpPos.x)
+            {
+                _animator.SetTrigger("Right");
+            }
+            else
+            {
+                _animator.SetTrigger("Left");
+            }
+        }
         globalSpeed = CurrentSceneManager.GetGlobalSpeed();
         for (float j = 0; j < lerpTime; j += Time.deltaTime)
         {
@@ -198,5 +331,10 @@ public class TouristInstance : MonoBehaviour
         }
         transform.position = targetLerpPos;
         Destroy(gameObject,1f);
+    }
+
+    private void Update()
+    {
+        _animator.speed = CurrentSceneManager.GetGlobalSpeed();
     }
 }
