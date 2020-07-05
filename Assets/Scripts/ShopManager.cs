@@ -92,6 +92,7 @@ public class ShopManager : MonoBehaviour
             if (i > UserDataController.GetBiggestDino())
             {
                 _dinoPanelManagers[i].LockPanel();
+                _dinoPanelManagers[i].LockPurcharse();
             }
             else
             {
