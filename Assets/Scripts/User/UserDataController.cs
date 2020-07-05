@@ -55,14 +55,11 @@ public class UserDataController : MonoBehaviour
     {
         return File.Exists(Application.persistentDataPath + "/" + _fileName);
     }
-    public void SaveFromServer()
+    
+    public static void AddCell()
     {
-
-    }
-
-    public void SaveToServer()
-    {
-
+        _currentUserData._unlockedCells ++;
+        SaveToFile();
     }
 
     public static float GetExperienceAmount()
@@ -261,9 +258,12 @@ public class UserDataController : MonoBehaviour
         int biggestDino = 0;
         for (int i = 0; i <_currentUserData._dinosaurs.Length; i++)
         {
-            if(_currentUserData._dinosaurs[i] > biggestDino)
+            if (_currentUserData._dinosaurs[i] < 100)
             {
-                biggestDino = _currentUserData._dinosaurs[i];
+                if (_currentUserData._dinosaurs[i] > biggestDino)
+                {
+                    biggestDino = _currentUserData._dinosaurs[i];
+                }
             }
         }
         return biggestDino;

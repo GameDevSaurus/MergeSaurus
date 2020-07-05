@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     Transform _panelParent;
     List<PurchaseDinoPanel> _dinoPanelManagers;
-    string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     int _fastPurchaseDinoType = 0;
     private void Awake()
@@ -41,14 +41,18 @@ public class ShopManager : MonoBehaviour
             nPanel.transform.SetParent(_panelParent);
             nPanel.transform.localScale = Vector3.one;
             PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
+            int index = i;
+            p.GetDinoButton().onClick.AddListener(()=>Purchase(index));
             p.SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
-            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/"+0));
+            p.SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/"+ i));
             p.SetDinoName(dinoNames[i]);
             if (i > UserDataController.GetBiggestDino())
             {
                 p.LockPanel();
             }
             _dinoPanelManagers.Add(p);
+            RefreshButtons(null);
         }
     }
     public void Close()
@@ -64,19 +68,28 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < _dinoPanelManagers.Count; i++)
         {
-            bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-            _dinoPanelManagers[i].SetProfits(_economyManager.GetDinoCost(i).GetCurrentMoney());
-            _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(0).GetCurrentMoney());
-
-            if (canPurchase && i <= UserDataController.GetBiggestDino())
-            {
-                _dinoPanelManagers[i].UnlockPanel();
-            }
-            else
+            if (i > UserDataController.GetBiggestDino())
             {
                 _dinoPanelManagers[i].LockPanel();
             }
+            else
+            {
+                bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+                _dinoPanelManagers[i].SetProfits(_economyManager.GetDinoCost(i).GetCurrentMoney());
+                _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+
+                if (canPurchase && i <= UserDataController.GetBiggestDino())
+                {
+                    _dinoPanelManagers[i].UnlockPurcharse();
+                }
+                else
+                {
+                    _dinoPanelManagers[i].LockPurcharse();
+                }
+            }
+
         }
+
     }
     public void Purchase(int dinoType)
     {

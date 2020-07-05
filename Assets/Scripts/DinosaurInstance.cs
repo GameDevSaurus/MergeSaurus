@@ -17,20 +17,14 @@ public class DinosaurInstance : MonoBehaviour
     {
         _working = true;
         GameEvents.WorkDino.Invoke();
-        if (_dinoAnimator != null)
-        {
-            _dinoSprite.color = new Color(95f/255f, 95f/255f, 95f/255f, 1f);
-            _dinoAnimator.speed = 0f;
-        }
+        _dinoSprite.color = new Color(95f / 255f, 95f / 255f, 95f / 255f, 1f);
+        _dinoAnimator.speed = 0f;
     }
     public void StopWorking()
     {
         _working = false;
-        if (_dinoAnimator != null)
-        {
-            _dinoSprite.color = Color.white;
-            _dinoAnimator.speed = 1f;
-        }
+        _dinoSprite.color = Color.white;
+        _dinoAnimator.speed = 1f;
     }
 
     public void SetCell(int nCell)

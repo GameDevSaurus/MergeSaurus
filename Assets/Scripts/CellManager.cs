@@ -22,19 +22,21 @@ public class CellManager : MonoBehaviour
     [SerializeField]
     StreetManager _streetManager;
     List<List<int>> _cellPositionList;
-
+    MainGameSceneController _mainGameSceneController;
     float panelWidth;
     float panelHeight;
     float expoSize = 1.5f;
     float expoPanelWidth;
     float expoPanelHeight;
-    int ncells = 4;
 
     List<GameObject> _cells;
     List<ExpositorInstance> _expositors;
 
     private void Awake()
     {
+        _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
+        GameEvents.LevelUp.AddListener(LevelUpCallBack);
+
         panelWidth = 3 + (4f * horizontalDist);
         panelHeight = 5 + (6f * verticalDist);
         expoPanelWidth = panelWidth + (4f * padding) + (2f * expoSize);
@@ -67,6 +69,25 @@ public class CellManager : MonoBehaviour
         _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
 
         SetCellNumber(UserDataController._currentUserData._unlockedCells);
+    }
+
+    public void LevelUpCallBack(int lvl)
+    {
+        switch (lvl)
+        {
+            case 2:
+                AddCell();
+                break;
+            case 3:
+                AddCell();
+                break;
+            case 4:
+                AddCell();
+                break;
+            case 5:
+                AddCell();
+                break;
+        }
     }
 
     public void SetCellNumber(int nCells)
@@ -158,8 +179,8 @@ public class CellManager : MonoBehaviour
 
     public void SetCells(int n)
     {
-        ncells += n;
-        SetCellNumber(ncells);
+        cellCount += n;
+        SetCellNumber(cellCount);
     }
 
     public Vector2 GetCellPosition(int nCell)
@@ -178,5 +199,52 @@ public class CellManager : MonoBehaviour
     public void SetDinosaurInCell(DinosaurInstance dinosaur, int cell)
     {
         _cells[cell].GetComponent<CellInstance>().SetDinosaur(dinosaur);
+    }
+
+    public void AddCell()
+    {
+        cellCount++;
+        rows = _cellPositionList[cellCount - 4].Count;
+
+        float verticalOrigin = panelHeight / 2f;
+        float totalVerticalSpace = panelHeight - (float)rows;
+        float verticalCellDistance = totalVerticalSpace / ((float)rows + 1f);
+
+        int cellCounter = 0;
+        for (int i = 0; i < rows; i++)
+        {
+            cols = _cellPositionList[cellCount - 4][i];
+
+            float horizontalOrigin = -panelWidth / 2f;
+            float totalHorizontalSpace = panelWidth - (float)cols;
+            float horizontalCellDistance = totalHorizontalSpace / ((float)cols + 1f);
+
+            for (int j = 0; j < cols; j++)
+            {
+                if(cellCounter >= _cells.Count)
+                {
+                    GameObject cell = Instantiate(cellPrefab, new Vector3(horizontalOrigin + horizontalCellDistance + 0.5f + ((horizontalCellDistance + 1f) * j), verticalOrigin - verticalCellDistance - 0.5f - ((verticalCellDistance + 1f) * i), 0.9f), Quaternion.identity);
+                    cell.transform.SetParent(transform);
+                    cell.name = i + " - " + j;
+                    cell.GetComponent<CellInstance>().SetCell(_cells.Count);
+                    _cells.Add(cell);
+                }
+                else
+                {
+                    _cells[cellCounter].transform.position = new Vector3(horizontalOrigin + horizontalCellDistance + 0.5f + ((horizontalCellDistance + 1f) * j), verticalOrigin - verticalCellDistance - 0.5f - ((verticalCellDistance + 1f) * i), 0.9f);
+                }
+                cellCounter++;
+            }
+        }
+        _mainGameSceneController.UpdatePositions();
+        UserDataController.AddCell();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            AddCell();
+        }
     }
 }

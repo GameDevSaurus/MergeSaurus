@@ -15,6 +15,10 @@ public class MergeUpManager : MonoBehaviour
     Image fillQualityBar;
     Tutorial _tutorial;
     MainGameSceneController _mainGameSceneController;
+    [SerializeField]
+    Image dinoImage;
+    [SerializeField]
+    Sprite[] dinoMergeUpSprites;
 
     private void Awake()
     {
@@ -31,8 +35,9 @@ public class MergeUpManager : MonoBehaviour
     IEnumerator ShowNewMergeInfo(int dinoType)
     {
         _mergeUpPanel.SetActive(true);
+        dinoImage.sprite = dinoMergeUpSprites[dinoType-1];
         canDisable = false;
-        _dinoTypeTx.text = "Dino " + dinoType;
+        _dinoTypeTx.text = ShopManager.dinoNames[dinoType-1];
         fillQualityBar.fillAmount = (float)dinoType / (float)UserDataController._currentUserData._dinosaurs.Length;
         yield return new WaitForSeconds(0.5f);
         canDisable = true;

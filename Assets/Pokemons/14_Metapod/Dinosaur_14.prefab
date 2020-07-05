@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666820109353494335}
   - component: {fileID: 3562184097111692594}
-  - component: {fileID: 9019604699822195453}
+  - component: {fileID: 4180819624961950542}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -72,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 368488995
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 748085968269173832, guid: 12f68f93238825e49974e80c510f251f, type: 3}
+  m_Sprite: {fileID: 7293091392955053047, guid: c5f5a649c794dc049967fd76cb40629d,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &9019604699822195453
+--- !u!95 &4180819624961950542
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1420144247383048638}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6dc12140786715a4097090a4c257cb5d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 657d2035d0ee03b4ca51de54f481030e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _otherCell: {fileID: 0}
-  _dinoAnimator: {fileID: 9019604699822195453}
+  _dinoAnimator: {fileID: 4180819624961950542}
   _dinoSprite: {fileID: 3562184097111692594}
 --- !u!1 &6105822051569839819
 GameObject:

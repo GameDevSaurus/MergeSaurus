@@ -6042,17 +6042,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690058522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1148214147}
-  m_Father: {fileID: 1084993767}
-  m_RootOrder: 1
+  m_Father: {fileID: 1998181271}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0011336, y: -457.3}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 608.67365, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690058524
@@ -7232,14 +7232,20 @@ MonoBehaviour:
   _dinoPrefabs:
   - {fileID: 5357118317913399881, guid: c7311d6f74b2f784081b76aeb51deee9, type: 3}
   - {fileID: 5357118317913399881, guid: c75a97a4c8f2ead43b5054dde418133f, type: 3}
-  - {fileID: 5357118317913399881, guid: ddae7849b8455bd48918fc11cfca660b, type: 3}
-  - {fileID: 5357118317913399881, guid: 8f6cf27074e1ec64dbda2198df254c47, type: 3}
-  - {fileID: 5357118317913399881, guid: 4c2182f16d0c88f4c87e1d2d0dde62e9, type: 3}
-  - {fileID: 5357118317913399881, guid: 084d2328586943847b1d19cb0808b730, type: 3}
-  - {fileID: 5357118317913399881, guid: d8227d627c4256f4390be5ef06cae731, type: 3}
-  - {fileID: 5357118317913399881, guid: 77e1708140430cb4691e3c1cf915c958, type: 3}
-  - {fileID: 5357118317913399881, guid: d0882740ab03f684893c2ca7b380f7f0, type: 3}
-  - {fileID: 5357118317913399881, guid: 622d47eabe275f340bb44f6750c2edc6, type: 3}
+  - {fileID: 5357118317913399881, guid: 45c443b672f12df4cab35f5c92121ba5, type: 3}
+  - {fileID: 5357118317913399881, guid: e7bb04b292efd0f44a74f2441f86ee79, type: 3}
+  - {fileID: 5357118317913399881, guid: 7c556b1f50c1345419d77bb69c1ad37d, type: 3}
+  - {fileID: 5357118317913399881, guid: eca1bd4fbc972724285a2dd68d305212, type: 3}
+  - {fileID: 5357118317913399881, guid: 56302bcd54cba4a4fa5f75546f23b4e3, type: 3}
+  - {fileID: 5357118317913399881, guid: 51586b515cc8258448f14fbd0b2adf6e, type: 3}
+  - {fileID: 5357118317913399881, guid: 5bdce6732da206c4a86c84f0e183b94e, type: 3}
+  - {fileID: 5357118317913399881, guid: b6884b5e2a55d9a4a813727d1fbf5efc, type: 3}
+  - {fileID: 5357118317913399881, guid: a6efd44565948ff4f9f43caf8e53d5d8, type: 3}
+  - {fileID: 5357118317913399881, guid: a1e43df88ca151343a142027d7a6d2d0, type: 3}
+  - {fileID: 5357118317913399881, guid: 1719fc184412b7d48a8fd66058cdd12d, type: 3}
+  - {fileID: 5357118317913399881, guid: 7c36aa68327c0174da418c57d7f958c6, type: 3}
+  - {fileID: 5357118317913399881, guid: e04ccbb5283a7f343afbcfa2219e786a, type: 3}
+  - {fileID: 5357118317913399881, guid: 6ef237aef6234a64aa53f21342e670b5, type: 3}
   _cellManager: {fileID: 1650402420}
   _tutorial: {fileID: 999184968}
   _boxManager: {fileID: 133541037}
@@ -7741,7 +7747,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1998181271}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9621,14 +9627,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1611911766}
-  - {fileID: 690058523}
   m_Father: {fileID: 1998181271}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000030518}
-  m_SizeDelta: {x: 608.6714, y: 608.6714}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084993768
 MonoBehaviour:
@@ -9649,7 +9654,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c9728f8169292b47b7fbc725deb4610, type: 3}
+  m_Sprite: {fileID: 3934071353879260195, guid: 86e93216aa1f403408a7c5f00a801f2c,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12308,8 +12314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0001748, y: -154.31}
-  m_SizeDelta: {x: 593.6897, y: 178.61469}
+  m_AnchoredPosition: {x: 0.0001748, y: -277.9}
+  m_SizeDelta: {x: 522.11975, y: 256.22485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363676242
 MonoBehaviour:
@@ -12330,7 +12336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dino 3
+  m_text: Pidgey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b1498d5d65248c4d82dde5d4e8ea0c2, type: 2}
   m_sharedMaterial: {fileID: 2530935660213596482, guid: 8b1498d5d65248c4d82dde5d4e8ea0c2,
@@ -12359,12 +12365,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 124.57
+  m_fontSizeBase: 160
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 124.57
   m_fontStyle: 1
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -12402,8 +12408,8 @@ MonoBehaviour:
     textComponent: {fileID: 1363676242}
     characterCount: 6
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -13785,7 +13791,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1998181271}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -15620,6 +15626,7 @@ RectTransform:
   m_Children:
   - {fileID: 996280001}
   - {fileID: 1084993767}
+  - {fileID: 690058523}
   - {fileID: 1576405477}
   - {fileID: 873150688}
   m_Father: {fileID: 2114284980}
@@ -15643,7 +15650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.95686275}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15870,6 +15877,7 @@ MonoBehaviour:
   _mainGameSceneController: {fileID: 807927618}
   txProgress: {fileID: 518124677}
   currentLevel: {fileID: 886022619}
+  dinoImage: {fileID: 85429024}
 --- !u!114 &2052317699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16174,7 +16182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.69, y: 0.61438}
+  m_AnchoredPosition: {x: -61.4, y: 63.7}
   m_SizeDelta: {x: 146.93564, y: 146.93564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096309845
@@ -16196,7 +16204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af1e907b3968a1b409606658ef943128, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 851d9ac0ba14d2448b5878a5d6ed097d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16340,6 +16348,24 @@ MonoBehaviour:
   _dinoTypeTx: {fileID: 1363676242}
   _mergeUpPanel: {fileID: 1998181270}
   fillQualityBar: {fileID: 1148214149}
+  dinoImage: {fileID: 1084993768}
+  dinoMergeUpSprites:
+  - {fileID: -1781181029423644380, guid: 519fd8f295851e44e85bb7f0dc637ff5, type: 3}
+  - {fileID: 748085968269173832, guid: 12f68f93238825e49974e80c510f251f, type: 3}
+  - {fileID: 5631156226674304961, guid: 67d2cc8bfdbc82e4eb121e940e1da401, type: 3}
+  - {fileID: -1220967703460971538, guid: e0a2a44a178ce264ab970fb2ff782a45, type: 3}
+  - {fileID: 4787346263594426768, guid: cf5923e181a9ec740967e6df73031d61, type: 3}
+  - {fileID: -2685585903658353469, guid: 27d60c996bb8a904fb4d41c4245e1599, type: 3}
+  - {fileID: -7068587632436528966, guid: b24178a8735d1f14a8b3b6d06b1d8c24, type: 3}
+  - {fileID: 7076327721038586248, guid: e52f5c3887bbc214db4512121bcc8281, type: 3}
+  - {fileID: -8643241718321348785, guid: cefe9520cd4ec7846b4274eabc9a89a1, type: 3}
+  - {fileID: 2434866909773140888, guid: 8fc39f31bc6b086489c8b8b9bbe58fa3, type: 3}
+  - {fileID: 64320016150191101, guid: 26f63aa118c2aa34797eb8b11318a89e, type: 3}
+  - {fileID: 4834937319605551933, guid: ecfaf8772d630384ea567f02e70e1998, type: 3}
+  - {fileID: -5948766886010354769, guid: c68e24e73f476d4449ee2a7f43a8a101, type: 3}
+  - {fileID: 841500792984437267, guid: 86e93216aa1f403408a7c5f00a801f2c, type: 3}
+  - {fileID: 7293091392955053047, guid: c5f5a649c794dc049967fd76cb40629d, type: 3}
+  - {fileID: 58068862916304467, guid: 0d151a11c93e362488cd1e952a9fc328, type: 3}
 --- !u!1 &2123576893
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,18 +42,30 @@ public class PurchaseDinoPanel : MonoBehaviour
     public void LockPanel()
     {
         _dinoImage.color = Color.black;
-        _dinoButton.interactable = false;
         _purchaseCost.text = "";
+        _textName.enabled = false;
     }
     public void UnlockPanel()
     {
         _dinoImage.color = Color.white;
-        _dinoButton.interactable = true;
         _purchaseCost.text = purchaseCost;
+        _textName.enabled = true;
     }
-
+    public void LockPurcharse()
+    {
+        _dinoButton.interactable = false;
+    }
+    public void UnlockPurcharse()
+    {
+        _dinoButton.interactable = true;
+    }
     public void SetDinoButtonMode(bool isActive)
     {
         _dinoButton.interactable = isActive;
+    }
+
+    public Button GetDinoButton()
+    {
+        return _dinoButton;
     }
 }

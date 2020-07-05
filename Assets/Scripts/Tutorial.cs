@@ -356,13 +356,12 @@ public class Tutorial : MonoBehaviour
         }
         _handController.StopTouchCoroutines();
         _handController.gameObject.SetActive(false);
-        _circlePanelObject.SetActive(false);
-        _handController.gameObject.SetActive(true);
         _circlePanelObject.SetActive(true);
-        yield return StartCoroutine(ZoomIn(1f));
-        _handController.StartTouchMode();
         _circlePanelTr.position = _speedUpManager.GetAdButtPosition();
+        yield return StartCoroutine(ZoomIn(1f));
         _handController.GetComponent<RectTransform>().position = _speedUpManager.GetAdButtPosition();
+        _handController.gameObject.SetActive(true);
+        _handController.StartTouchMode();
         while (CurrentSceneManager.GetGlobalSpeed() == 1)
         {
             yield return null;
@@ -372,6 +371,7 @@ public class Tutorial : MonoBehaviour
         _circlePanelObject.SetActive(false);
         UserDataController.SaveTutorial(8);
         CurrentSceneManager.UnlockEverything();
+        _speedUpManager.CloseSpeedUpPanel();
     }
     #region EventsCallbacks
     public void FastPurchase(int n)
