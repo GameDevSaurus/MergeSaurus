@@ -8,6 +8,63 @@ TextureImporter:
   - first:
       213: 6341066533783783412
     second: Farfetch_1
+  - first:
+      213: -5764983754317609794
+    second: Farfetch_0
+  - first:
+      213: -9089079968373671047
+    second: Farfetch_2
+  - first:
+      213: 3479523220157097559
+    second: Farfetch_3
+  - first:
+      213: 4801125879594376573
+    second: Farfetch_4
+  - first:
+      213: 4736243116866632226
+    second: Farfetch_5
+  - first:
+      213: -3421922334285238194
+    second: Farfetch_6
+  - first:
+      213: 850314991663040148
+    second: Farfetch_7
+  - first:
+      213: -6876527414978572798
+    second: Farfetch_8
+  - first:
+      213: 2933828284488016194
+    second: Farfetch_9
+  - first:
+      213: 3655718075416814753
+    second: Farfetch_10
+  - first:
+      213: 3568929568596318209
+    second: Farfetch_11
+  - first:
+      213: -6885358432132765871
+    second: Farfetch_12
+  - first:
+      213: -244649626925777282
+    second: Farfetch_13
+  - first:
+      213: 2622378334568352708
+    second: Farfetch_14
+  - first:
+      213: -4013677824890188736
+    second: Farfetch_15
+  - first:
+      213: 8455005705548107727
+    second: Farfetch_16
+  - first:
+      213: 2063136618618862352
+    second: Farfetch_17
+  - first:
+      213: -3408572260834174309
+    second: Farfetch_18
+  - first:
+      213: 6622009101088209188
+    second: Farfetch_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +94,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -51,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 45
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +127,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,7 +139,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +151,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,17 +167,416 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 147
-        width: 46
+        width: 45
         height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4f7e9773790d0880800000000000000
-      internalID: -8643241718321348785
+      spriteID: eb44004d1d9aeffa0800000000000000
+      internalID: -5764983754317609794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 147
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7cc438a6efff750800000000000000
+      internalID: 6341066533783783412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 147
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bf7fdbce91dd180800000000000000
+      internalID: -9089079968373671047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 147
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756ef25feefb94030800000000000000
+      internalID: 3479523220157097559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 147
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d582fcc8601a240800000000000000
+      internalID: 4801125879594376573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a79b665048ab140800000000000000
+      internalID: 4736243116866632226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_6
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 98
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40f3ff54c3e280d0800000000000000
+      internalID: -3421922334285238194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_7
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 98
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496c341dafceccb00800000000000000
+      internalID: 850314991663040148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_8
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 98
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e87fddfbaa190a0800000000000000
+      internalID: -6876527414978572798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 98
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241e6e8d74d07b820800000000000000
+      internalID: 2933828284488016194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4a1348838bbb230800000000000000
+      internalID: 3655718075416814753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_11
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 49
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108529c9882678130800000000000000
+      internalID: 3568929568596318209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_12
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 49
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1576c757cfa4270a0800000000000000
+      internalID: -6885358432132765871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_13
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 49
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e38a4e574da9cf0800000000000000
+      internalID: -244649626925777282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_14
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 49
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb80aa833f846420800000000000000
+      internalID: 2622378334568352708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04cce8c984d8c48c0800000000000000
+      internalID: -4013677824890188736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_16
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf881584e6365570800000000000000
+      internalID: 8455005705548107727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_17
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bb0ebd2dbb1ac10800000000000000
+      internalID: 2063136618618862352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_18
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a9ab1969152b0d0800000000000000
+      internalID: -3408572260834174309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farfetch_19
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 45
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42934c9413a16eb50800000000000000
+      internalID: 6622009101088209188
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,174 @@ TextureImporter:
   - first:
       213: -1220967703460971538
     second: Abra_0
+  - first:
+      213: 5734624414796137173
+    second: Abra_0
+  - first:
+      213: -2051884614514144524
+    second: Abra_1
+  - first:
+      213: -2339392697345957867
+    second: Abra_2
+  - first:
+      213: 123284985672016716
+    second: Abra_3
+  - first:
+      213: -2863788640142533642
+    second: Abra_4
+  - first:
+      213: -455711120401735311
+    second: Abra_5
+  - first:
+      213: -4649864180253659907
+    second: Abra_6
+  - first:
+      213: -8800793089685446654
+    second: Abra_7
+  - first:
+      213: 9077658885319018335
+    second: Abra_8
+  - first:
+      213: -1286389810115725346
+    second: Abra_9
+  - first:
+      213: -697844111326440994
+    second: Abra_10
+  - first:
+      213: 8904622650143628240
+    second: Abra_11
+  - first:
+      213: 1350465168144882377
+    second: Abra_12
+  - first:
+      213: 2323366911618796974
+    second: Abra_13
+  - first:
+      213: 4058076082218252969
+    second: Abra_14
+  - first:
+      213: 6716463185857756264
+    second: Abra_15
+  - first:
+      213: -8849190088939449877
+    second: Abra_16
+  - first:
+      213: -2417655440438972164
+    second: Abra_17
+  - first:
+      213: 2071694769029001425
+    second: Abra_18
+  - first:
+      213: -7147865238265321482
+    second: Abra_19
+  - first:
+      213: 6309008934174635785
+    second: Abra_20
+  - first:
+      213: 1282028399779473434
+    second: Abra_21
+  - first:
+      213: 3101073764802340176
+    second: Abra_22
+  - first:
+      213: 2013063987492935548
+    second: Abra_23
+  - first:
+      213: -6313273168450860321
+    second: Abra_24
+  - first:
+      213: -2589423251265996219
+    second: Abra_25
+  - first:
+      213: 457902100939563556
+    second: Abra_26
+  - first:
+      213: -2423867540467289241
+    second: Abra_27
+  - first:
+      213: -5831851442441524406
+    second: Abra_28
+  - first:
+      213: 6210579215018022559
+    second: Abra_29
+  - first:
+      213: -8337782995227538148
+    second: Abra_30
+  - first:
+      213: -4166889789678547167
+    second: Abra_31
+  - first:
+      213: -1628830194060316912
+    second: Abra_32
+  - first:
+      213: 1738674569309178551
+    second: Abra_33
+  - first:
+      213: 1552714855504556053
+    second: Abra_34
+  - first:
+      213: 8566493101136435885
+    second: Abra_35
+  - first:
+      213: -7076132859215596627
+    second: Abra_36
+  - first:
+      213: -4648797824103291614
+    second: Abra_37
+  - first:
+      213: -1719090311015238250
+    second: Abra_38
+  - first:
+      213: 3871520521689443513
+    second: Abra_39
+  - first:
+      213: -3434061433193628730
+    second: Abra_40
+  - first:
+      213: 5146553353773284889
+    second: Abra_41
+  - first:
+      213: -8559555515436663570
+    second: Abra_42
+  - first:
+      213: 558606368096820263
+    second: Abra_43
+  - first:
+      213: 7630106606661065668
+    second: Abra_44
+  - first:
+      213: 7354949328545798016
+    second: Abra_45
+  - first:
+      213: -6207665433066447576
+    second: Abra_46
+  - first:
+      213: 8623509060692371741
+    second: Abra_47
+  - first:
+      213: 6970659314970797805
+    second: Abra_48
+  - first:
+      213: -5781547062936006654
+    second: Abra_49
+  - first:
+      213: 8966052953807370472
+    second: Abra_50
+  - first:
+      213: 2227974233419904403
+    second: Abra_51
+  - first:
+      213: 6439718814666906632
+    second: Abra_52
+  - first:
+      213: -4020443535703712115
+    second: Abra_53
+  - first:
+      213: -4973108380022933776
+    second: Abra_54
+  - first:
+      213: 5377697047714091265
+    second: Abra_55
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -34,7 +202,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -48,7 +216,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 45
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +235,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,7 +247,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,7 +259,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,18 +274,1173 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 690
-        width: 70
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 693
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eebfbf8b7504e0fe0800000000000000
-      internalID: -1220967703460971538
+      spriteID: 5d2c43c958a759f40800000000000000
+      internalID: 5734624414796137173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 693
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa8bcf70dd3683e0800000000000000
+      internalID: -2051884614514144524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 693
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5102d848cbec88fd0800000000000000
+      internalID: -2339392697345957867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 693
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43ae119a0ff5b100800000000000000
+      internalID: 123284985672016716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 693
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb5180a767c148d0800000000000000
+      internalID: -2863788640142533642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1716244862dfca9f0800000000000000
+      internalID: -455711120401735311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 630
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcea220a2d587fb0800000000000000
+      internalID: -4649864180253659907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 630
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2002693405d4dd580800000000000000
+      internalID: -8800793089685446654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 630
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57cb9329a25afd70800000000000000
+      internalID: 9077658885319018335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_9
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 630
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7be558843d52ee0800000000000000
+      internalID: -1286389810115725346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 567
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed11ac36a72c056f0800000000000000
+      internalID: -697844111326440994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 567
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db55b02f13939b70800000000000000
+      internalID: 8904622650143628240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_12
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 567
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca50d45ae0ddb210800000000000000
+      internalID: 1350465168144882377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_13
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 567
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead4fe975e14e3020800000000000000
+      internalID: 2323366911618796974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_14
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 567
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aab02832be215830800000000000000
+      internalID: 4058076082218252969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c3a04aeaba53d50800000000000000
+      internalID: 6716463185857756264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_16
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 504
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be15bd6cf7c513580800000000000000
+      internalID: -8849190088939449877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_17
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 504
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0385baf23c27ed0800000000000000
+      internalID: -2417655440438972164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_18
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 504
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d032078a6320cc10800000000000000
+      internalID: 2071694769029001425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_19
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 504
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f725d2df6eadcc90800000000000000
+      internalID: -7147865238265321482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 441
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907be36f23a1e8750800000000000000
+      internalID: 6309008934174635785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_21
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 441
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1861d0890eaac110800000000000000
+      internalID: 1282028399779473434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_22
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 441
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055a35da82a390b20800000000000000
+      internalID: 3101073764802340176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_23
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 441
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77d5ace707dfeb10800000000000000
+      internalID: 2013063987492935548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_24
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 441
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda4b70a08fb268a0800000000000000
+      internalID: -6313273168450860321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 378
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a3727b545801cd0800000000000000
+      internalID: -2589423251265996219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_26
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 378
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4226864e88bca5600800000000000000
+      internalID: 457902100939563556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_27
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 378
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763f8db6051bc5ed0800000000000000
+      internalID: -2423867540467289241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_28
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 378
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b6c66f20a111fa0800000000000000
+      internalID: -5831851442441524406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_29
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 378
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96d29814e8603650800000000000000
+      internalID: 6210579215018022559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d8b239a8e3a4c80800000000000000
+      internalID: -8337782995227538148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 315
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f020c30db3c26c0800000000000000
+      internalID: -4166889789678547167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_32
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 315
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01faa93819b3569e0800000000000000
+      internalID: -1628830194060316912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_33
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 315
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bacda31f43012810800000000000000
+      internalID: 1738674569309178551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_34
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 315
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51032d73fe95c8510800000000000000
+      internalID: 1552714855504556053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa5218961c42e670800000000000000
+      internalID: 8566493101136435885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_36
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 252
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da33cfec7a68ccd90800000000000000
+      internalID: -7076132859215596627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_37
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 252
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225e6b562072c7fb0800000000000000
+      internalID: -4648797824103291614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_38
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 252
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695fe1368709428e0800000000000000
+      internalID: -1719090311015238250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_39
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 252
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc2febf6676ab530800000000000000
+      internalID: 3871520521689443513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 189
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbff992253c750d0800000000000000
+      internalID: -3434061433193628730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_41
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 189
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e7045f10b3c6740800000000000000
+      internalID: 5146553353773284889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_42
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 189
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec7923fb99563980800000000000000
+      internalID: -8559555515436663570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_43
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 189
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c9eab388190c700800000000000000
+      internalID: 558606368096820263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_44
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 189
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbd460688593e960800000000000000
+      internalID: 7630106606661065668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08758f43277021660800000000000000
+      internalID: 7354949328545798016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_46
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 126
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d5a91ad21f9d9a0800000000000000
+      internalID: -6207665433066447576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_47
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 126
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d196ee72dcbdca770800000000000000
+      internalID: 8623509060692371741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_48
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 126
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de62a1ff6b1ccb060800000000000000
+      internalID: 6970659314970797805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_49
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 126
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2001f750491d3cfa0800000000000000
+      internalID: -5781547062936006654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8b70548a1dd6c70800000000000000
+      internalID: 8966052953807370472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_51
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 63
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39577bfc2ca5bee10800000000000000
+      internalID: 2227974233419904403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_52
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 63
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80cde91942a7e5950800000000000000
+      internalID: 6439718814666906632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_53
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 63
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e5ddec7e38438c0800000000000000
+      internalID: -4020443535703712115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_54
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 63
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6f63be648fbfab0800000000000000
+      internalID: -4973108380022933776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abra_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 84
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1015aaef8fa61aa40800000000000000
+      internalID: 5377697047714091265
       vertices: []
       indices: 
       edges: []
