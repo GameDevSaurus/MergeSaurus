@@ -30,17 +30,28 @@ public class TouristInstance : MonoBehaviour
         _animator.SetFloat("Speed", speed);
         switch (_touristRoute[0])
         {
+            case 6:
             case 0:
+            case 2:
+            case 8:
                 initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2,0,0);
                 break;
+            case 7:
             case 1:
-                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
-                break;
-            case 2:
-                initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2, 0, 0);
-                break;
             case 3:
+            case 9:
                 initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
+                break;
+            case 4:
+            case 5:
+                if (Random.value < 0.5f)
+                {
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
+                }
+                else
+                {
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2, 0, 0);
+                }
                 break;
         }
 

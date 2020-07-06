@@ -61,6 +61,11 @@ public class UserDataController : MonoBehaviour
         _currentUserData._unlockedCells ++;
         SaveToFile();
     }
+    public static void AddExpositor()
+    {
+        _currentUserData._unlockedExpositors++;
+        SaveToFile();
+    }
 
     public static float GetExperienceAmount()
     {
@@ -107,7 +112,6 @@ public class UserDataController : MonoBehaviour
             return false;
         }
     }
-
 
     public static void CalculateLevel()
     {
@@ -199,6 +203,12 @@ public class UserDataController : MonoBehaviour
         int aux = _currentUserData._dinosaurs[cellIndex2];
         _currentUserData._dinosaurs[cellIndex2] = _currentUserData._dinosaurs[cellIndex1];
         _currentUserData._dinosaurs[cellIndex1] = aux;
+        SaveToFile();
+    }
+
+    public static void DeleteDino(int dinocell)
+    {
+        _currentUserData._dinosaurs[dinocell] = -1;
         SaveToFile();
     }
 

@@ -133,6 +133,10 @@ public class CellInstance : MonoBehaviour
         return _targetExpositor;
     }
 
+    public GameObject HaveBox()
+    {
+        return _currentBox;
+    }
     public void OpenBox()
     {
         if (CurrentSceneManager._canOpenBox)

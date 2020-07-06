@@ -122,6 +122,129 @@ public class StreetManager : MonoBehaviour
 
         // FOUR  / / / / / / /
 
+        List<List<List<Directions>>> _directionsListManagerFour = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerFour.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerFour[0].Add(new List<Directions>() { Directions.Left, Directions.Down });
+        _directionsListManagerFour[1].Add(new List<Directions>() { Directions.Right, Directions.Down });
+        _directionsListManagerFour[2].Add(new List<Directions>() { Directions.Left, Directions.Down, Directions.Down });
+        _directionsListManagerFour[3].Add(new List<Directions>() { Directions.Right, Directions.Down, Directions.Down });
+        _directionsListManagerFour[4].Add(new List<Directions>());
+        _directionsListManagerFour[5].Add(new List<Directions>() { Directions.Right, Directions.Down, Directions.Down, Directions.Down, Directions.Left });
+        _directionsListManagerFour[5].Add(new List<Directions>() { Directions.Left, Directions.Down, Directions.Down, Directions.Down, Directions.Right });
+        _directionsListManagerFour[6].Add(new List<Directions>() { Directions.Left });
+        _directionsListManagerFour[7].Add(new List<Directions>() { Directions.Right });
+        _directionsListManagerFour[8].Add(new List<Directions>() { Directions.Left, Directions.Down, Directions.Down, Directions.Down });
+        _directionsListManagerFour[9].Add(new List<Directions>() { Directions.Right, Directions.Down, Directions.Down, Directions.Down });
+        _directionsManager.Add(_directionsListManagerFour );
+
+        // FIVE  / / / / / / /
+
+        List<List<List<Directions>>> _directionsListManagerFive = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerFive.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerFive[0].Add(new List<Directions>() { Directions.Left, Directions.Up, Directions.Up });
+        _directionsListManagerFive[1].Add(new List<Directions>() { Directions.Right, Directions.Up, Directions.Up });
+        _directionsListManagerFive[2].Add(new List<Directions>() { Directions.Left, Directions.Up });
+        _directionsListManagerFive[3].Add(new List<Directions>() { Directions.Right, Directions.Up });
+        _directionsListManagerFive[4].Add(new List<Directions>() { Directions.Right, Directions.Up, Directions.Up, Directions.Up, Directions.Left });
+        _directionsListManagerFive[4].Add(new List<Directions>() { Directions.Left, Directions.Up, Directions.Up, Directions.Up, Directions.Right });
+        _directionsListManagerFive[5].Add(new List<Directions>());
+        _directionsListManagerFive[6].Add(new List<Directions>() { Directions.Left, Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerFive[7].Add(new List<Directions>() { Directions.Right, Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerFive[8].Add(new List<Directions>() { Directions.Left });
+        _directionsListManagerFive[9].Add(new List<Directions>() { Directions.Right });
+        _directionsManager.Add(_directionsListManagerFive);
+
+        // SIX  / / / / / / /
+
+        List<List<List<Directions>>> _directionsListManagerSix = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerSix.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerSix[0].Add(new List<Directions>() { Directions.Down });
+        _directionsListManagerSix[1].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Down });
+        _directionsListManagerSix[2].Add(new List<Directions>() { Directions.Down, Directions.Down });
+        _directionsListManagerSix[3].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Down, Directions.Down });
+        _directionsListManagerSix[4].Add(new List<Directions>() { Directions.Right });
+        _directionsListManagerSix[5].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down, Directions.Right });
+        _directionsListManagerSix[6].Add(new List<Directions>());
+        _directionsListManagerSix[7].Add(new List<Directions>() { Directions.Right, Directions.Right });
+        _directionsListManagerSix[8].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down });
+        _directionsListManagerSix[9].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down, Directions.Right, Directions.Right });
+        _directionsListManagerSix[9].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Down, Directions.Down, Directions.Down });
+        _directionsManager.Add(_directionsListManagerSix);
+
+        // SEVEN  / / / / / / /
+
+        List<List<List<Directions>>> _directionsListManagerSeven = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerSeven.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerSeven[0].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Down });
+        _directionsListManagerSeven[1].Add(new List<Directions>() { Directions.Down });
+        _directionsListManagerSeven[2].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Down, Directions.Down });
+        _directionsListManagerSeven[3].Add(new List<Directions>() { Directions.Down, Directions.Down });
+        _directionsListManagerSeven[4].Add(new List<Directions>() { Directions.Left });
+        _directionsListManagerSeven[5].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down, Directions.Left });
+        _directionsListManagerSeven[6].Add(new List<Directions>() { Directions.Left, Directions.Left });
+        _directionsListManagerSeven[7].Add(new List<Directions>());
+        _directionsListManagerSeven[8].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down, Directions.Left, Directions.Left });
+        _directionsListManagerSeven[8].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Down, Directions.Down, Directions.Down });
+        _directionsListManagerSeven[9].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Down });
+        _directionsManager.Add(_directionsListManagerSeven);
+
+        // EIGHT  / / / / / / /
+
+        List<List<List<Directions>>> _directionsListManagerEight = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerEight.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerEight[0].Add(new List<Directions>() { Directions.Up, Directions.Up });
+        _directionsListManagerEight[1].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Up, Directions.Up });
+        _directionsListManagerEight[2].Add(new List<Directions>() { Directions.Up });
+        _directionsListManagerEight[3].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Up });
+        _directionsListManagerEight[4].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up, Directions.Right });
+        _directionsListManagerEight[5].Add(new List<Directions>() { Directions.Right });
+        _directionsListManagerEight[6].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerEight[7].Add(new List<Directions>() { Directions.Right, Directions.Right, Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerEight[7].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up, Directions.Right, Directions.Right });
+        _directionsListManagerEight[8].Add(new List<Directions>());
+        _directionsListManagerEight[9].Add(new List<Directions>() { Directions.Right, Directions.Right });
+        _directionsManager.Add(_directionsListManagerEight);
+
+        // NINE  / / / / / / /
+
+        List<List<List<Directions>>> _directionsListManagerNine = new List<List<List<Directions>>>();
+        for (int i = 0; i < 10; i++)
+        {
+            _directionsListManagerNine.Add(new List<List<Directions>>());
+        }
+
+        _directionsListManagerNine[0].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Up, Directions.Up });
+        _directionsListManagerNine[1].Add(new List<Directions>() { Directions.Up, Directions.Up });
+        _directionsListManagerNine[2].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Up });
+        _directionsListManagerNine[3].Add(new List<Directions>() { Directions.Up });
+        _directionsListManagerNine[4].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up, Directions.Left });
+        _directionsListManagerNine[5].Add(new List<Directions>() { Directions.Left });
+        _directionsListManagerNine[6].Add(new List<Directions>() { Directions.Left, Directions.Left, Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerNine[6].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up, Directions.Left, Directions.Left });
+        _directionsListManagerNine[7].Add(new List<Directions>() { Directions.Up, Directions.Up, Directions.Up });
+        _directionsListManagerNine[8].Add(new List<Directions>() { Directions.Left, Directions.Left });
+        _directionsListManagerNine[9].Add(new List<Directions>());
+        _directionsManager.Add(_directionsListManagerNine);
     }
 
     public void Init(List<ExpositorInstance> expositors)
@@ -150,7 +273,7 @@ public class StreetManager : MonoBehaviour
     {
         List<int> streetPointsIndex = new List<int>();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < UserDataController._currentUserData._unlockedExpositors; i++)
         {
             streetPointsIndex.Add(i);
         }

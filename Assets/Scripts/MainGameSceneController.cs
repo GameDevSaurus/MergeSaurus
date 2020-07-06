@@ -21,12 +21,14 @@ public class MainGameSceneController : MonoBehaviour
     bool waitingForAnimation = false;
     [SerializeField]
     BoxManager _boxManager;
+    TrashBin _trashBin;
     int deleteCount = 0;
     float deleteTimer = 0;
 
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
+        _trashBin = FindObjectOfType<TrashBin>();
     }
     private void Start()
     {
@@ -93,9 +95,21 @@ public class MainGameSceneController : MonoBehaviour
 
     public void UpdatePositions() 
     {
-        foreach (DinosaurInstance d in _dinosIngame)
+        foreach (GameObject c in _cellManager.GetCellInstances())
         {
-            d.transform.position = _cellManager.GetCellPosition(d.GetCellNumber());
+            CellInstance cellInst = c.GetComponent<CellInstance>();
+            GameObject cellBox = cellInst.HaveBox();
+            if (cellBox != null)
+            {
+                cellBox.transform.position = _cellManager.GetCellPosition(cellInst.GetCellNumber());
+            }
+            else
+            {
+                if(cellInst.GetDinoInstance() != null)
+                {
+                    cellInst.GetDinoInstance().transform.position = _cellManager.GetCellPosition(cellInst.GetCellNumber());
+                }
+            }         
         }
     }
 
@@ -203,6 +217,7 @@ public class MainGameSceneController : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 _isPicking = false;
+
                 if (_currentCell == null)
                 {
                     if (_currentExpositor != null)
@@ -210,6 +225,16 @@ public class MainGameSceneController : MonoBehaviour
                         if(_currentExpositor.GetDinoInstance() == null)
                         {
                             ShowDinosaur(_pickedDinosaur.GetCellNumber(), _currentExpositor.GetExpositorNumber());
+                        }
+                    }
+                    else
+                    {
+                        if (_trashBin.IsOverTrashBin())
+                        {
+                            _economyManager.EarnSoftCoins(_economyManager.GetInitialCost(_pickedDinosaur.GetDinosaur()));
+                            UserDataController.DeleteDino(_pickedDinosaur.GetCellNumber());
+                            _dinosIngame.Remove(_pickedDinosaur);
+                            Destroy(_pickedDinosaur.gameObject);
                         }
                     }
                 }
@@ -240,7 +265,7 @@ public class MainGameSceneController : MonoBehaviour
                         }
                         else
                         {
-                            if(_currentCell.GetBoxNumber() < 0)
+                            if (_currentCell.GetBoxNumber() < 0)
                             {
                                 if (CurrentSceneManager._canMoveDinosaur)
                                 {

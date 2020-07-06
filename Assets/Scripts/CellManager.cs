@@ -76,16 +76,23 @@ public class CellManager : MonoBehaviour
         switch (lvl)
         {
             case 2:
-                AddCell();
-                break;
             case 3:
+            case 6:
                 AddCell();
+                AddExpositor();
                 break;
             case 4:
+            case 5:
+            case 7:
+            case 9:
+            case 11:
+            case 15:
+            case 20:
                 AddCell();
                 break;
-            case 5:
-                AddCell();
+            case 8:
+            case 10:
+                AddExpositor();
                 break;
         }
     }
@@ -240,11 +247,23 @@ public class CellManager : MonoBehaviour
         UserDataController.AddCell();
     }
 
-    private void Update()
+    public void AddExpositor()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        UserDataController.AddExpositor();
+        for (int i = 0; i < _expositors.Count; i++)
         {
-            AddCell();
+            if (i >= UserDataController._currentUserData._unlockedExpositors)
+            {
+                _expositors[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                _expositors[i].gameObject.SetActive(true);
+            }
         }
+    }
+    public List<GameObject> GetCellInstances()
+    {
+        return _cells;
     }
 }
