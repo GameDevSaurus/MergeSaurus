@@ -74,5 +74,9 @@
   {
     "key": "ADDSECONDS",
     "value": "Añadir otros 200 segundos"
+  },
+  {
+    "key": "DAYCARE",
+    "value": "GUARDERÍA"
   }
 ]

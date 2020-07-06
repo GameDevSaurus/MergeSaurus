@@ -43,14 +43,23 @@ public class TouristInstance : MonoBehaviour
                 initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
                 break;
             case 4:
-            case 5:
                 if (Random.value < 0.5f)
                 {
-                    initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(2, 0, 0);
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(7, 0) + new Vector3(2, 0, 0);
                 }
                 else
                 {
-                    initialPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0) + new Vector3(-2, 0, 0);
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(6, 0) + new Vector3(-2, 0, 0);
+                }
+                break;
+            case 5:
+                if (Random.value < 0.5f)
+                {
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(9, 0) + new Vector3(2, 0, 0);
+                }
+                else
+                {
+                    initialPos = _streetManager.GetExpositorTransformPosByCoords(8, 0) + new Vector3(-2, 0, 0);
                 }
                 break;
         }
