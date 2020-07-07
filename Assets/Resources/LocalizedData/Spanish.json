@@ -68,7 +68,7 @@
     "value": "TIENDA"
   },
   {
-    "key": "UPGRADES",
+    "key": "SPEEDUP",
     "value": "VELOCIDAD"
   },
   {
@@ -78,5 +78,17 @@
   {
     "key": "DAYCARE",
     "value": "GUARDERÍA"
+  },
+  {
+    "key": "SPIN",
+    "value": "PREMIOS"
+  },
+  {
+    "key": "UPGRADES",
+    "value": "MEJORAS"
+  },
+  {
+    "key": "MISSIONS",
+    "value": "MISIONES"
   }
 ]

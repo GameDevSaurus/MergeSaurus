@@ -293,16 +293,36 @@ public class TouristInstance : MonoBehaviour
         switch (_touristRoute[_touristRoute.Count -1])
         {
             case 0:
-                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(-2, 0, 0);
-                break;
-            case 1:
-                targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(2, 0, 0);
-                break;
             case 2:
+            case 6:
+            case 8:
                 targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(-2, 0, 0);
                 break;
+            case 7:
+            case 1:
             case 3:
+            case 9:
                 targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0) + new Vector3(2, 0, 0);
+                break;
+            case 4:
+                if (Random.value < 0.5f)
+                {
+                    targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(7, 0) + new Vector3(2, 0, 0);
+                }
+                else
+                {
+                    targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(6, 0) + new Vector3(-2, 0, 0);
+                }
+                break;
+            case 5:
+                if (Random.value < 0.5f)
+                {
+                    targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(9, 0) + new Vector3(2, 0, 0);
+                }
+                else
+                {
+                    targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(8, 0) + new Vector3(-2, 0, 0);
+                }
                 break;
         }
 

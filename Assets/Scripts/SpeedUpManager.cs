@@ -16,9 +16,15 @@ public class SpeedUpManager : MonoBehaviour
     Button gemsPurchaseButton;
     [SerializeField]
     Transform _adButton;
+    [SerializeField]
+    RectTransform _activeFeedbackPanel;
+    [SerializeField]
+    TextMeshProUGUI _activeTime;
+
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
+    bool activeShown = false;
     public void OpenSpeedUpPanel()
     {
         _speedUpMain.SetActive(true);
@@ -62,27 +68,34 @@ public class SpeedUpManager : MonoBehaviour
     {
         if (_panelIsOpen) 
         {
-            ShowRemainingTime();
+            _remainingTimeTx.text = GetRemainingTime();
         }
         if(_speedingUp)
         {
+            _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 80);
+            _activeTime.text = GetRemainingTime();
             _speedUpTime -= Time.deltaTime;
             if(_speedUpTime < 0)
             {
                 _speedingUp = false;
                 _speedUpTime = 0;
                 CurrentSceneManager.SetGlobalSpeed(1);
+                _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 0);
             }
+        }
+        else
+        {
+            _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 0);
         }
     }
 
-    public void ShowRemainingTime()
+    public string GetRemainingTime()
     {
         int initialUnits = Mathf.FloorToInt(_speedUpTime);
         int minutes = initialUnits / 60;
         int seconds = initialUnits % 60;
         string time = minutes.ToString("00") + ":" + seconds.ToString("00");
-        _remainingTimeTx.text = time;
+        return time;
     }
 
     public Vector3 GetSpeedUpPosition()
