@@ -31,7 +31,9 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     GameObject _shopButton;
     [SerializeField]
-    GameObject _upgradeButton;
+    GameObject _speedUpButton;
+    [SerializeField]
+    GameObject _speedUpFeedback;
 
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
@@ -111,7 +113,14 @@ public class Tutorial : MonoBehaviour
                                         if (!UserDataController._currentUserData._tutorialCompleted[8])
                                         {
                                             _shopButton.SetActive(true);
-                                            _upgradeButton.SetActive(true);
+                                            _speedUpButton.SetActive(true);
+                                            _speedUpFeedback.SetActive(true);
+                                        }
+                                        else
+                                        {
+                                            _shopButton.SetActive(false);
+                                            _speedUpButton.SetActive(false);
+                                            _speedUpFeedback.SetActive(false);
                                         }
                                     }
                                 }
@@ -341,7 +350,8 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         _shopButton.SetActive(true);
-        _upgradeButton.SetActive(true);
+        _speedUpButton.SetActive(true);
+        _speedUpFeedback.SetActive(true);
 
         _circlePanelObject.SetActive(true);
         _circlePanelTr.position = _speedUpManager.GetSpeedUpPosition();

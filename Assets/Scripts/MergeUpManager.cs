@@ -12,7 +12,9 @@ public class MergeUpManager : MonoBehaviour
     GameObject _mergeUpPanel;
     bool canDisable;
     [SerializeField]
-    Image fillQualityBar;
+    Image lastQualityBar;
+    [SerializeField]
+    Image currentQualityBar;
     Tutorial _tutorial;
     MainGameSceneController _mainGameSceneController;
     [SerializeField]
@@ -38,7 +40,8 @@ public class MergeUpManager : MonoBehaviour
         dinoImage.sprite = dinoMergeUpSprites[dinoType-1];
         canDisable = false;
         _dinoTypeTx.text = ShopManager.dinoNames[dinoType-1];
-        fillQualityBar.fillAmount = (float)dinoType / (float)UserDataController._currentUserData._dinosaurs.Length;
+        lastQualityBar.fillAmount = (float)(dinoType-1f) / (float)UserDataController._currentUserData._dinosaurs.Length;
+        currentQualityBar.fillAmount = (float)dinoType / (float)UserDataController._currentUserData._dinosaurs.Length;     
         yield return new WaitForSeconds(0.5f);
         canDisable = true;
     }
