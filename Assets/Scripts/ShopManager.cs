@@ -20,8 +20,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     GameObject _shopButton;
     [SerializeField]
-    GameObject _upgradeButton;
-    [SerializeField]
     GameObject _purchaseDinoPanelPrefab;
     [SerializeField]
     Transform _panelParent;
@@ -38,7 +36,6 @@ public class ShopManager : MonoBehaviour
         if (UserDataController.GetBiggestDino() < 3)
         {
             _shopButton.SetActive(false);
-            _upgradeButton.SetActive(false);
         }
     }
     void Start()

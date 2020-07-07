@@ -4952,7 +4952,6 @@ GameObject:
   - component: {fileID: 534997558}
   - component: {fileID: 534997561}
   - component: {fileID: 534997560}
-  - component: {fileID: 534997559}
   m_Layer: 5
   m_Name: ActiveTime
   m_TagString: Untagged
@@ -4979,19 +4978,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0007782, y: -0.00018692}
   m_SizeDelta: {x: 178.17749, y: 39.999725}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &534997559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534997557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574ab58d5a02f8a4f9f59d3d4ad2e108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: UPGRADES
 --- !u!114 &534997560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9004,11 +8990,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedUpMain: {fileID: 1292881100}
   _remainingTimeTx: {fileID: 1016362873}
+  _speedUpButtonFeedback: {fileID: 1865432928}
   _speedUpButton: {fileID: 844228245}
   gemsPurchaseButton: {fileID: 410028561}
   _adButton: {fileID: 1495979473}
   _activeFeedbackPanel: {fileID: 1865432929}
   _activeTime: {fileID: 534997560}
+  _VFXFireworksPool: {fileID: 2030639448}
 --- !u!1 &865864602
 GameObject:
   m_ObjectHideFlags: 0
@@ -10387,7 +10375,6 @@ MonoBehaviour:
   _fastPurchaseName: {fileID: 1723038961}
   _shopPanel: {fileID: 1231451462}
   _shopButton: {fileID: 1775861599}
-  _upgradeButton: {fileID: 844228244}
   _purchaseDinoPanelPrefab: {fileID: 821567068831115295, guid: abc972a25ea133e46bbc7bb1f0c32e9a,
     type: 3}
   _panelParent: {fileID: 951902344}
@@ -13348,6 +13335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2063559039}
+  - {fileID: 2030639447}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18727,6 +18715,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029630234}
   m_CullTransparentMesh: 0
+--- !u!1001 &2030639446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1257949251}
+    m_Modifications:
+    - target: {fileID: 6824551257558069682, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_Name
+      value: VFX FireWorks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3eec910523059d04ea416d0e8486ecca, type: 3}
+--- !u!4 &2030639447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6824551257558069685, guid: 3eec910523059d04ea416d0e8486ecca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2030639446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2030639448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6824551257558069684, guid: 3eec910523059d04ea416d0e8486ecca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2030639446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b1534df34933f41a7533e4d7736ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2052317696
 GameObject:
   m_ObjectHideFlags: 0

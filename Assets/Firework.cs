@@ -12,14 +12,12 @@ public class Firework : MonoBehaviour
     AnimationCurve _fwAnimationCurve;
     [SerializeField]
     Color[] _colors;
-    void Start()
-    {
-        
-    }
 
     public void Launch()
     {
         var main = _fireWorkPS.main;
+        float min = Random.Range(5f,10f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(min , min + 5f) ;
         main.startColor =new ParticleSystem.MinMaxGradient(_colors[Random.Range(0, _colors.Length)], _colors[Random.Range(0, _colors.Length)]);
         StartCoroutine(CrLaunch());
     }

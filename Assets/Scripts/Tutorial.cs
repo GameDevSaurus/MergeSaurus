@@ -116,12 +116,6 @@ public class Tutorial : MonoBehaviour
                                             _speedUpButton.SetActive(true);
                                             _speedUpFeedback.SetActive(true);
                                         }
-                                        else
-                                        {
-                                            _shopButton.SetActive(false);
-                                            _speedUpButton.SetActive(false);
-                                            _speedUpFeedback.SetActive(false);
-                                        }
                                     }
                                 }
                             }

@@ -11,6 +11,8 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _remainingTimeTx;
     [SerializeField]
+    GameObject _speedUpButtonFeedback;
+    [SerializeField]
     Transform _speedUpButton;
     [SerializeField]
     Button gemsPurchaseButton;
@@ -20,11 +22,21 @@ public class SpeedUpManager : MonoBehaviour
     RectTransform _activeFeedbackPanel;
     [SerializeField]
     TextMeshProUGUI _activeTime;
+    [SerializeField]
+    VFXFireworksPool _VFXFireworksPool;
 
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
     bool activeShown = false;
+    private void Start()
+    {
+        if (UserDataController.GetBiggestDino() < 3)
+        {
+            _speedUpButton.gameObject.SetActive(false);
+            _speedUpButtonFeedback.SetActive(false);
+        }
+    }
     public void OpenSpeedUpPanel()
     {
         _speedUpMain.SetActive(true);
@@ -42,6 +54,7 @@ public class SpeedUpManager : MonoBehaviour
         _speedingUp = true;
         _speedUpTime += 200;
         CurrentSceneManager.SetGlobalSpeed(2);
+        _VFXFireworksPool.StartTheParty();
     }
 
     public void GemsPurchase()
@@ -79,6 +92,7 @@ public class SpeedUpManager : MonoBehaviour
             {
                 _speedingUp = false;
                 _speedUpTime = 0;
+                _VFXFireworksPool.StopTheParty();
                 CurrentSceneManager.SetGlobalSpeed(1);
                 _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 0);
             }
