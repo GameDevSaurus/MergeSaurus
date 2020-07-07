@@ -42,6 +42,7 @@ public class StreetManager : MonoBehaviour
         _expoMatrixCoordinates.Add(new Vector2(3, 2));
 
         // ZERO  / / / / / / /
+
         List<List<List<Directions>>> _directionsListManagerZero = new List<List<List<Directions>>>();
         for (int i = 0; i < 10; i++)
         {
@@ -59,6 +60,7 @@ public class StreetManager : MonoBehaviour
         _directionsListManagerZero[8].Add(new List<Directions>() { Directions.Down, Directions.Down });
         _directionsListManagerZero[9].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Right, Directions.Right });
         _directionsManager.Add(_directionsListManagerZero);
+
         // ONE  / / / / / / /
 
         List<List<List<Directions>>> _directionsListManagerOne = new List<List<List<Directions>>>();
@@ -79,6 +81,7 @@ public class StreetManager : MonoBehaviour
         _directionsListManagerOne[8].Add(new List<Directions>() { Directions.Down, Directions.Down, Directions.Left, Directions.Left });
         _directionsListManagerOne[9].Add(new List<Directions>() { Directions.Down, Directions.Down });
         _directionsManager.Add(_directionsListManagerOne);
+
         // TWO  / / / / / / /
 
         List<List<List<Directions>>> _directionsListManagerTwo = new List<List<List<Directions>>>();

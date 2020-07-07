@@ -52,7 +52,7 @@ public class CellManager : MonoBehaviour
         {
             Camera.main.orthographicSize = (9f / Camera.main.aspect)/2f;
         }
-
+        Camera.main.orthographicSize += 0.5f;
 
         _cellPositionList = new List<List<int>>();
         _cellPositionList.Add(new List<int>() { 2, 2 });
