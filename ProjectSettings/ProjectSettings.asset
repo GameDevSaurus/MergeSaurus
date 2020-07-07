@@ -744,10 +744,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: cddc68f1-b242-4596-831f-d93ec58a8f11
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: MergeSaurus
+  organizationId: kaiju-bits
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
