@@ -50,6 +50,9 @@ public class LevelUpPanelManager : MonoBehaviour
     {
         switch (lvl)
         {
+            case 3:
+                ShowRewards(1, 1, 3);
+                break;
             case 2:
             case 6:
                 ShowRewards(1,1,0);
