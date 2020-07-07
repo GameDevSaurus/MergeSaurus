@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b1498d5d65248c4d82dde5d4e8ea0c2, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e03c2da3ae034d8408a2ec4081141b1a, type: 2}
@@ -3574,7 +3574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650.9375, y: -183.66003}
+  m_AnchoredPosition: {x: 650.9375, y: -183.65997}
   m_SizeDelta: {x: 320, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410028560
@@ -3644,7 +3644,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 410028562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 858608228}
+        m_MethodName: GemsPurchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &410028562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8316,6 +8327,7 @@ MonoBehaviour:
   _speedUpMain: {fileID: 1292881100}
   _remainingTimeTx: {fileID: 1016362873}
   _speedUpButton: {fileID: 844228245}
+  gemsPurchaseButton: {fileID: 410028561}
   _adButton: {fileID: 1495979473}
 --- !u!1 &873150687
 GameObject:
@@ -13584,7 +13596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260.3125, y: -183.66003}
+  m_AnchoredPosition: {x: 260.3125, y: -183.65997}
   m_SizeDelta: {x: 320, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495979474

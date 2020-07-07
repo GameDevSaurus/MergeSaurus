@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class SpeedUpManager : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     Transform _speedUpButton;
     [SerializeField]
+    Button gemsPurchaseButton;
+    [SerializeField]
     Transform _adButton;
     float _speedUpTime = 0;
     bool _speedingUp = false;
@@ -21,6 +23,7 @@ public class SpeedUpManager : MonoBehaviour
     {
         _speedUpMain.SetActive(true);
         _panelIsOpen = true;
+        CheckGemsButton();
     }
     public void CloseSpeedUpPanel()
     {
@@ -35,6 +38,26 @@ public class SpeedUpManager : MonoBehaviour
         CurrentSceneManager.SetGlobalSpeed(2);
     }
 
+    public void GemsPurchase()
+    {
+        if(UserDataController._currentUserData._hardCoins >= 3)
+        {
+            SpeedUp();
+            UserDataController._currentUserData._hardCoins -= 3;
+        }
+        CheckGemsButton();
+    }
+    public void CheckGemsButton()
+    {
+        if (UserDataController._currentUserData._hardCoins >= 3)
+        {
+            gemsPurchaseButton.interactable = true;
+        }
+        else
+        {
+            gemsPurchaseButton.interactable = false;
+        }
+    }
     private void Update()
     {
         if (_panelIsOpen) 
