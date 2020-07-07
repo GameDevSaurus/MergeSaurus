@@ -41,6 +41,12 @@ public class CellInstance : MonoBehaviour
     {
         _cellNumber = cellNumber;
     }
+
+    public void SetExpositor(ExpositorInstance expositor)
+    {
+        _targetExpositor = expositor;
+    }
+
     public void SetBox(int boxNumber, GameObject box)
     {
         _boxNumber = boxNumber;

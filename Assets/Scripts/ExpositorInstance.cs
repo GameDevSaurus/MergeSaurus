@@ -28,6 +28,17 @@ public class ExpositorInstance : MonoBehaviour
         dinoCopy = Instantiate(_referencedCell.GetDinoInstance().gameObject, transform.position, Quaternion.identity);
         Destroy(dinoCopy.GetComponent<DinosaurInstance>());
     }
+    public void SetReferencedCell(CellInstance targetCell)
+    {
+        _referencedCell = targetCell;
+        if(targetCell != null)
+        {
+            Destroy(dinoCopy);
+            dinoCopy = Instantiate(targetCell.GetDinoInstance().gameObject, transform.position, Quaternion.identity);
+            dinoCopy.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        }
+    }
+
     public void HideDinosaur()
     {
         _referencedCell = null;

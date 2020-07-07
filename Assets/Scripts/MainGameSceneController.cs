@@ -150,6 +150,25 @@ public class MainGameSceneController : MonoBehaviour
         }
     }
 
+    public void Swap(DinosaurInstance dino1, DinosaurInstance dino2)
+    {
+        int auxDino1Cell = dino1.GetCellNumber();
+        int auxDino2Cell = dino2.GetCellNumber();
+        UserDataController.MoveDinosaur(auxDino1Cell, auxDino2Cell);
+        _cellManager.SetDinosaurInCell(dino1, auxDino2Cell);
+        _cellManager.SetDinosaurInCell(dino2, auxDino1Cell);
+        dino1.SetCell(auxDino2Cell);
+        dino2.SetCell(auxDino1Cell);
+        if (dino2.IsWorking())
+        {
+            UserDataController.ShowCell(dino2.GetCellNumber(), _cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor().GetExpositorNumber());
+            UserDataController.StopShowCell(auxDino2Cell);
+            _cellManager.GetCellInstanceByIndex(auxDino1Cell).SetExpositor(_cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor());
+            _cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor().SetReferencedCell(_cellManager.GetCellInstanceByIndex(auxDino1Cell));
+            _cellManager.GetCellInstanceByIndex(auxDino2Cell).SetExpositor(null);
+        }
+    }
+
     IEnumerator WaitForUnlockNewDino(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
     {
         waitingForAnimation = true;
@@ -261,6 +280,10 @@ public class MainGameSceneController : MonoBehaviour
                                         Merge(_pickedDinosaur, _currentCell.GetCellNumber());
                                     }
                                 }                        
+                            }
+                            else
+                            {
+                                Swap(_pickedDinosaur, _currentCell.GetDinoInstance());
                             }
                         }
                         else
