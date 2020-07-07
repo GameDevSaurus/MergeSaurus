@@ -31,6 +31,13 @@ public class ExperienceManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            MergeDinoCallBack(5);
+        }
+    }
     public void CloseLvlUpPanel()
     {
         waitingLvlUpPanel = false;

@@ -79,9 +79,12 @@ public class LevelUpPanelManager : MonoBehaviour
 
     public void ShowRewards(int cells, int expositors, int gems)
     {
+        foreach (Transform t in _rewardsPanel)
+        {
+            Destroy(t.gameObject);
+        }
         if (cells > 0)
         {
-
             GameObject nReward = Instantiate(_rewardsPrefab, _rewardsPanel.position, Quaternion.identity);
             nReward.GetComponent<RewardInstance>().SetRewards(_rewardsIcons[0], cells);
             nReward.transform.SetParent(_rewardsPanel);
@@ -100,6 +103,7 @@ public class LevelUpPanelManager : MonoBehaviour
             nReward.GetComponent<RewardInstance>().SetRewards(_rewardsIcons[2], gems);
             nReward.transform.SetParent(_rewardsPanel);
             nReward.transform.localScale = Vector3.one;
+            UserDataController.AddHardCoins(gems);
         }
     }
 }

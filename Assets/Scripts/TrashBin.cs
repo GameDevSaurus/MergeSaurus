@@ -18,18 +18,19 @@ public class TrashBin : MonoBehaviour
     {
         expandCr = StartCoroutine(Expand());
         overTrashBin = true;
+        print("Enter");
     }
     public void ExitPoint()
     {
         contractCr = StartCoroutine(Contract());
-        overTrashBin = false;
+        StartCoroutine(WaitForPointUp());
     }
     IEnumerator Expand()
     {
         Vector2 currentSize = rectTr.sizeDelta;
-        for(float i = 0; i<0.5f; i += Time.deltaTime)
+        for (float i = 0; i < 0.5f; i += Time.deltaTime)
         {
-            rectTr.sizeDelta = Vector2.Lerp(currentSize, new Vector2(120, 120), 0.5f/i);
+            rectTr.sizeDelta = Vector2.Lerp(currentSize, new Vector2(120, 120), 0.5f / i);
             yield return null;
         }
         rectTr.sizeDelta = new Vector2(120, 120);
@@ -49,5 +50,12 @@ public class TrashBin : MonoBehaviour
     public bool IsOverTrashBin()
     {
         return overTrashBin;
+    }
+
+    IEnumerator WaitForPointUp()
+    {
+        yield return null;
+        overTrashBin = false;
+        print("Exit");
     }
 }

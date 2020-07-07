@@ -258,6 +258,12 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
+    public static void AddHardCoins(int amount)
+    {
+        _currentUserData._hardCoins += amount;
+        SaveToFile();
+    }
+
     public static int GetOwnedDinosByDinoType(int dinoType)
     {
         return _currentUserData._purchasedTimes[dinoType];

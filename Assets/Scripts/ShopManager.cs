@@ -70,7 +70,6 @@ public class ShopManager : MonoBehaviour
     }
     public void Open()
     {
-
         _shopPanel.SetActive(true);
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
@@ -98,7 +97,7 @@ public class ShopManager : MonoBehaviour
             {
                 _dinoPanelManagers[i].UnlockPanel();
                 bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-                _dinoPanelManagers[i].SetProfits(_economyManager.GetDinoCost(i).GetCurrentMoney());
+                _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
                 _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
 
                 if (canPurchase && i <= UserDataController.GetBiggestDino())

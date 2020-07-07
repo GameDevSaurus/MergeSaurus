@@ -327,10 +327,10 @@ public class MainGameSceneController : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYEXPOSITORS");
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEXPOSITORS");
         }
     }
-
+    
     public void StopShowDino(int cell)
     {
         UserDataController.StopShowCell(_cellManager.GetCellInstanceByIndex(cell).GetTargetExpositor().GetExpositorNumber());
