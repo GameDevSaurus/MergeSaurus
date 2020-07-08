@@ -39,7 +39,7 @@ public class MergeUpManager : MonoBehaviour
         _mergeUpPanel.SetActive(true);
         dinoImage.sprite = dinoMergeUpSprites[dinoType-1];
         canDisable = false;
-        _dinoTypeTx.text = ShopManager.dinoNames[dinoType-1];
+        _dinoTypeTx.text = DayCareManager.dinoNames[dinoType-1];
         currentQualityBar.fillAmount = (float)(dinoType-1f) / (float)UserDataController._currentUserData._dinosaurs.Length;
         lastQualityBar.fillAmount = (float)dinoType / (float)UserDataController._currentUserData._dinosaurs.Length;     
         yield return new WaitForSeconds(0.5f);
