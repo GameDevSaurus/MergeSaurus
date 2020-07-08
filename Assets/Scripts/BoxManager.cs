@@ -15,6 +15,9 @@ public class BoxManager : MonoBehaviour
     float _currentTime;
     bool canDrop = false;
 
+    enum BoxTypes {StandardBox, LootBox, RewardBox };
+
+
     private void Start()
     {
         _waitingTime = Random.Range(15f, 30f);
@@ -29,22 +32,17 @@ public class BoxManager : MonoBehaviour
         _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(dinoType, box);
         UserDataController.CreateBox(cellIndex, dinoType);
     }
-    public void DropBox(int dinotype)
+    public void DropStandardBox()
     {
+        int biggestDino = UserDataController.GetBiggestDino();
+        int standardDropDino = Mathf.Max(biggestDino - 5, 0);
         int firstEmptyCell = _mainGameSceneController.GetFirstEmptyCell();
         if (firstEmptyCell >= 0)
         {
-            CreateBox(firstEmptyCell, dinotype);
+            CreateBox(firstEmptyCell, standardDropDino);
         }
     }
-    public void DropBox()
-    {
-        int firstEmptyCell = _mainGameSceneController.GetFirstEmptyCell();
-        if (firstEmptyCell >= 0)
-        {
-            CreateBox(firstEmptyCell, 0);
-        }
-    }
+
     public void SetDropTrue()
     {
         canDrop = true;
@@ -57,7 +55,7 @@ public class BoxManager : MonoBehaviour
 
             if (_currentTime >= _waitingTime)
             {
-                DropBox();
+                DropStandardBox();
                 _currentTime = 0f;
                 _waitingTime = Random.Range(15f, 30f);
             }
