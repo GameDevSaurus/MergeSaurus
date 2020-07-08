@@ -18,6 +18,7 @@ public class UserData
     public int[] _workingCellsByExpositor;
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
+    public int[] _obtainedTimes;
     public UserData()
     {
         _ID = 0;
@@ -46,6 +47,7 @@ public class UserData
             _workingCellsByExpositor[i] = -1;
         }
         _purchasedTimes = new int[16]; //Numero de indices igual al de tipos de dinosaurio #x
+        _obtainedTimes = new int[16]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[10];
     }
 }
