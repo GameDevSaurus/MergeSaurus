@@ -174,7 +174,7 @@ public class CellInstance : MonoBehaviour
         _currentBox = null;
         UserDataController.CreateDinosaur(_cellNumber, -1);
         _boxNumber = -1;
-        print("Abrimos cajitaaaa de loot");
+        FindObjectOfType<NestManager>().OpenNest();
     }
     public void DestroyBox()
     {
