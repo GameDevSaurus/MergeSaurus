@@ -2070,7 +2070,9 @@ MonoBehaviour:
     type: 3}
   _lootBox: {fileID: 5357118317913399881, guid: 8c020b3c44285e94c8d695d733d06269,
     type: 3}
-  _rewardBox: {fileID: 0}
+  _rewardBox: {fileID: 5357118317913399881, guid: 94ca5e3d5b2672f4abd4f937d29e266e,
+    type: 3}
+  _dayCareManager: {fileID: 0}
   _mainGameSceneController: {fileID: 807927618}
 --- !u!1 &148936861
 GameObject:

@@ -12,7 +12,8 @@ public class BoxManager : MonoBehaviour
     GameObject _lootBox;
     [SerializeField]
     GameObject _rewardBox;
-
+    [SerializeField]
+    DayCareManager _dayCareManager;
     [SerializeField]
     MainGameSceneController _mainGameSceneController;
 
@@ -21,11 +22,42 @@ public class BoxManager : MonoBehaviour
     float _lootCurrentTime;
     float _lootWaitingTime;
     bool canDrop = false;
-
+    int _rewardBoxCount;
+    bool _rewarding;
     public enum BoxType {StandardBox, LootBox, RewardedBox };
 
+    public void RewardBox(int boxesToReward)
+    {
+        _rewardBoxCount += boxesToReward;
+        if (!_rewarding)
+        {
+            _rewarding = true;
+            StartCoroutine(CrRewardBox());   
+        }
+        
+    }
+    IEnumerator CrRewardBox()
+    {
+        int cellIndex = _mainGameSceneController.GetFirstEmptyCell();
+        while (cellIndex < 0)
+        {
+            yield return null;
+            cellIndex = _mainGameSceneController.GetFirstEmptyCell();
+        }
+        CreateBox(BoxType.RewardedBox, cellIndex,  _dayCareManager.GetFastPurchaseIndex());
+        _rewardBoxCount--;
+        if (_rewardBoxCount > 0)
+        {
+            StartCoroutine(CrRewardBox());
+        }
+        else
+        {
+            _rewarding = false;
+        }
+    }
     private void Start()
     {
+        _dayCareManager = FindObjectOfType<DayCareManager>();
         _standardWaitingTime = Random.Range(15f, 30f);
         _lootWaitingTime = Random.Range(60f, 120f);
         if (UserDataController._currentUserData._tutorialCompleted[7])
@@ -53,17 +85,25 @@ public class BoxManager : MonoBehaviour
         
         GameObject box = Instantiate(boxToInstantiate, _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
         _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(boxType, dinoType, box);
-        UserDataController.CreateBox(cellIndex, dinoType);
+        UserDataController.CreateBox(boxType, cellIndex, dinoType);
     }
     public bool DropStandardBox()
     {
         int biggestDino = UserDataController.GetBiggestDino();
-        int standardDropDino = Mathf.Max(biggestDino - 5, 0);
+        int standardDropDino = _dayCareManager.GetFastPurchaseIndex();
+        standardDropDino = Mathf.Max(standardDropDino - 1, 0);
         int firstEmptyCell = _mainGameSceneController.GetFirstEmptyCell();
         bool canDropStandardBox = true; 
         if (firstEmptyCell >= 0)
         {
-            CreateBox(BoxType.StandardBox, firstEmptyCell, standardDropDino);
+            if (Random.value<0.2f)
+            {
+                CreateBox(BoxType.RewardedBox, firstEmptyCell, standardDropDino+1);
+            }
+            else
+            {
+                CreateBox(BoxType.StandardBox, firstEmptyCell, standardDropDino);
+            }
         }
         else
         {
@@ -108,6 +148,10 @@ public class BoxManager : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RewardBox(5);
+        }
         if (canDrop)
         {
             _lootCurrentTime += Time.deltaTime;
@@ -129,5 +173,6 @@ public class BoxManager : MonoBehaviour
                 }
             }
         }
+        print(_rewardBoxCount);
     }
 }
