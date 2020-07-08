@@ -4,40 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
-public class SpeedUpRewardButton : MonoBehaviour, IUnityAdsListener
+public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 {
 
-    #if UNITY_IOS
+#if UNITY_IOS
         private string gameId = "";
-    #elif UNITY_ANDROID
-        private string gameId = "3701221";
+#elif UNITY_ANDROID
+    private string gameId = "3701221";
 #endif
-
-    Button _button;
-    string myPlacementID = "SpeedUp";
+    [SerializeField]
+    Button _speedUpButton;
+    string _speedUpPlacementID = "SpeedUp";
     [SerializeField]
     SpeedUpManager _speedUpManager;
     //ID DEL JUEGO --> 3701221
     void Start()
     {
-        _button = GetComponent<Button>();
-        _button.interactable = Advertisement.IsReady(myPlacementID);
-        _button.onClick.AddListener(ShowRewardedVideo);
+        _speedUpButton.interactable = Advertisement.IsReady(_speedUpPlacementID);
+        _speedUpButton.onClick.AddListener(ShowRewardedVideo);
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameId, true);
     }
 
     void ShowRewardedVideo()
     {
-        Advertisement.Show(myPlacementID);
+        Advertisement.Show(_speedUpPlacementID);
     }
 
     public void OnUnityAdsReady(string placementId)
     {
         // If the ready Placement is rewarded, activate the button: 
-        if (placementId == myPlacementID)
+        if (placementId == _speedUpPlacementID)
         {
-            _button.interactable = true;
+            _speedUpButton.interactable = true;
         }
     }
 
@@ -49,13 +48,13 @@ public class SpeedUpRewardButton : MonoBehaviour, IUnityAdsListener
         }
         else
         {
-            if(showResult == ShowResult.Skipped)
+            if (showResult == ShowResult.Skipped)
             {
                 print("Cancelaron el video");
             }
             else
             {
-                if(showResult == ShowResult.Failed)
+                if (showResult == ShowResult.Failed)
                 {
                     print("El video falló :____(");
                 }
@@ -69,7 +68,7 @@ public class SpeedUpRewardButton : MonoBehaviour, IUnityAdsListener
     }
     public void OnUnityAdsDidStart(string placementId)
     {
-        
+
     }
 
 }
