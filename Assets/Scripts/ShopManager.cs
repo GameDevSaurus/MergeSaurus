@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GameObject _mainPanel;
 
-    // Update is called once per frame
-    void Update()
+    public void OpenShop()
     {
-        
+        _mainPanel.SetActive(true);
+    }
+    public void CloseShop()
+    {
+        _mainPanel.SetActive(false);
     }
 }
