@@ -68,6 +68,7 @@ public class DayCareManager : MonoBehaviour
     public void Open()
     {
         _shopPanel.SetActive(true);
+        RefreshButtons(null);
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
