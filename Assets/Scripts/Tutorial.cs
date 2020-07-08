@@ -260,7 +260,7 @@ public class Tutorial : MonoBehaviour
         _circlePanelObject.SetActive(true);
         Vector3 emptyCellPosition = Camera.main.WorldToScreenPoint(_cellManager.GetCellPosition(_mainGameSceneController.GetFirstEmptyCell()));
         _circlePanelTr.position = emptyCellPosition;
-        _boxManager.DropBox(1);
+        _boxManager.DropStandardBox();
         _handController.GetComponent<RectTransform>().position = emptyCellPosition;
         yield return StartCoroutine(ZoomIn(1f));
         _handController.gameObject.SetActive(true);
