@@ -83,9 +83,11 @@ public class MainGameSceneController : MonoBehaviour
                     {
                         _boxManager.CreateBox(BoxManager.BoxType.RewardedBox, i, dinoType - 200);
                     }
-                    else
-                    {
-                        _boxManager.CreateBox(BoxManager.BoxType.LootBox, i, 0);
+                    else{
+                        if(dinoType == 300)
+                        {
+                            UserDataController.CreateDinosaur(i, -1);
+                        }
                     }
                 }
             }

@@ -24,6 +24,8 @@ public class BoxManager : MonoBehaviour
     bool canDrop = false;
     int _rewardBoxCount;
     bool _rewarding;
+    float _lootBoxTime = 10f;
+    float _standardBoxTime = 15f;
     public enum BoxType {StandardBox, LootBox, RewardedBox };
 
     public void RewardBox(int boxesToReward)
@@ -68,22 +70,27 @@ public class BoxManager : MonoBehaviour
     public void CreateBox(BoxType boxType, int cellIndex, int dinoType)
     {
         GameObject boxToInstantiate = null;
+        float remainingTime = 0f;
         switch (boxType)
         {
             case BoxType.StandardBox:
                 boxToInstantiate = _standardBox;
+                remainingTime = _standardBoxTime;
                 break;
 
             case BoxType.LootBox:
                 boxToInstantiate = _lootBox;
+                remainingTime = _lootBoxTime;
                 break;
 
             case BoxType.RewardedBox:
                 boxToInstantiate = _rewardBox;
+                remainingTime = _standardBoxTime;
                 break;
         }
         
         GameObject box = Instantiate(boxToInstantiate, _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
+        box.GetComponent<BoxInstance>().Init(_cellManager.GetCellInstanceByIndex(cellIndex), remainingTime);
         _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(boxType, dinoType, box);
         UserDataController.CreateBox(boxType, cellIndex, dinoType);
     }
@@ -92,6 +99,7 @@ public class BoxManager : MonoBehaviour
         int biggestDino = UserDataController.GetBiggestDino();
         int standardDropDino = _dayCareManager.GetFastPurchaseIndex();
         standardDropDino = Mathf.Max(standardDropDino - 1, 0);
+
         int firstEmptyCell = _mainGameSceneController.GetFirstEmptyCell();
         bool canDropStandardBox = true; 
         if (firstEmptyCell >= 0)
