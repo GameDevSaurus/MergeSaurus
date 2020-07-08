@@ -177,9 +177,22 @@ public class UserDataController : MonoBehaviour
         _currentUserData._dinosaurs[targetCell] = dinosaurIndex;
         SaveToFile();
     }
-    public static void CreateBox(int targetCell, int boxIndex)
+    public static void CreateBox(BoxManager.BoxType boxType,  int targetCell, int boxIndex)
     {
-        _currentUserData._dinosaurs[targetCell] = boxIndex + 100;
+        int sum = 0;
+        switch (boxType)
+        {
+            case BoxManager.BoxType.StandardBox:
+                sum = 100;
+                break;
+            case BoxManager.BoxType.RewardedBox:
+                sum = 200;
+                break;
+            case BoxManager.BoxType.LootBox:
+                sum = 300;
+                break;
+        }
+        _currentUserData._dinosaurs[targetCell] = boxIndex + sum;
         SaveToFile();
     }
 

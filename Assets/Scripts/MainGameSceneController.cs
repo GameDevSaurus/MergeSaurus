@@ -73,9 +73,20 @@ public class MainGameSceneController : MonoBehaviour
             }
             else
             {
-                if(dinoType >= 100)
+                if(dinoType >= 100 && dinoType < 200)
                 {
                     _boxManager.CreateBox(BoxManager.BoxType.StandardBox, i, dinoType-100);
+                }
+                else
+                {
+                    if (dinoType >= 200 && dinoType < 300)
+                    {
+                        _boxManager.CreateBox(BoxManager.BoxType.RewardedBox, i, dinoType - 200);
+                    }
+                    else
+                    {
+                        _boxManager.CreateBox(BoxManager.BoxType.LootBox, i, 0);
+                    }
                 }
             }
         }

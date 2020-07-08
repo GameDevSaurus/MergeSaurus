@@ -72,8 +72,7 @@ public class DayCareManager : MonoBehaviour
     }
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
-        int biggestDino = UserDataController.GetBiggestDino();
-        int fastPurchaseIndex = Mathf.Max(biggestDino-5,0);
+        int fastPurchaseIndex = GetFastPurchaseIndex();
         for (int i = 0; i < _dinoPanelManagers.Count; i++)
         {
             if (i == fastPurchaseIndex)
@@ -110,6 +109,36 @@ public class DayCareManager : MonoBehaviour
 
         }
 
+    }
+
+    public int GetFastPurchaseIndex()
+    {
+        int biggestDino = UserDataController.GetBiggestDino();
+        int fastPurchaseIndex = 0;
+        if (biggestDino < 7)
+        {
+            fastPurchaseIndex = biggestDino - 4;
+        }
+        else
+        {
+            if(biggestDino < 9)
+            {
+                fastPurchaseIndex = biggestDino - 5;
+            }
+            else
+            {
+                if (biggestDino < 11)
+                {
+                    fastPurchaseIndex = biggestDino - 6;
+                }
+                else
+                {
+                    fastPurchaseIndex = biggestDino - 7;
+                }
+            }
+        }
+
+        return Mathf.Max(fastPurchaseIndex, 0);
     }
     public void Purchase(int dinoType)
     {
