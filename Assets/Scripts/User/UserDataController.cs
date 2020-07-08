@@ -11,7 +11,6 @@ public class UserDataController : MonoBehaviour
     public static UserData _currentUserData;
     public static string _fileName = "CurrentUserData.json";
     public static bool _checked;
-
     public static void Initialize()
     {
         _currentUserData = new UserData();
@@ -35,6 +34,7 @@ public class UserDataController : MonoBehaviour
 
         SaveToFile();
     }
+
     public static void LoadFromFile()
     {
         _currentUserData = JsonUtility.FromJson<UserData>(File.ReadAllText(Application.persistentDataPath + "/" + _fileName));
@@ -48,7 +48,16 @@ public class UserDataController : MonoBehaviour
 
     public static void SaveToFile()
     {
-        File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
+        if (TimeController._timeChecked)
+        {
+            DateTime lastUpdatedTime = DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
+            DateTime now = TimeController.GetTimeNow();
+            TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
+            int elapsedSeconds = (int)elapsedTime.TotalSeconds;
+            print("Han pasado " + elapsedSeconds + " desde la última ves que se guardó");
+            _currentUserData._lastUpdatedTime = TimeController.GetTimeNow().ToBinary().ToString();
+            File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
+        }
     }
 
     public static bool Exist()
@@ -115,14 +124,19 @@ public class UserDataController : MonoBehaviour
 
     public static void CalculateLevel()
     {
+        int currentUserDataLevel = _currentUserData._level;
         int level = 0;
         do
         {
             level++;
         }
         while (_currentUserData._experience >= ExperienceManager.experienceCost[level]);
-        _currentUserData._level = level;
-        SaveToFile();
+        if (currentUserDataLevel != level)
+        {
+            _currentUserData._level = level;
+            SaveToFile();
+        }
+        
     }
     public static int GetLevel()
     {
@@ -284,4 +298,6 @@ public class UserDataController : MonoBehaviour
         }
         return biggestDino;
     }
+
+
 }

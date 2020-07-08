@@ -14,10 +14,10 @@ public class TimeController: MonoBehaviour
 
     private string _url = "http://torcudev.es/thebeating/time.php";
     private double _currentTimestamp;
-    DateTime _currentDatetime;
-    DateTime _dateAtStart;
-    float _elapsedSeconds;
-    public bool _timeChecked;
+    static DateTime _currentDatetime;
+    static DateTime _dateAtStart;
+    static float _elapsedSeconds;
+    public static bool _timeChecked;
     void Awake()
     {
         
@@ -38,12 +38,13 @@ public class TimeController: MonoBehaviour
         _dateAtStart = ServerDateToDateTime(www.text);
         _timeChecked = true;
     }
-    public DateTime GetTimeNow()
+    public static DateTime GetTimeNow()
     {
         return _dateAtStart.AddSeconds(_elapsedSeconds);
     }
     void Start()
     {
+        _timeChecked = false;
         StartCoroutine(GetTime());
     }
     private void Update()
