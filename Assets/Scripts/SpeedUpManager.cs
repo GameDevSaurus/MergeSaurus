@@ -10,8 +10,6 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _remainingTimeTx;
     [SerializeField]
-    GameObject _speedUpButtonFeedback;
-    [SerializeField]
     Transform _speedUpButton;
     [SerializeField]
     Button gemsPurchaseButton;
@@ -33,7 +31,6 @@ public class SpeedUpManager : MonoBehaviour
         if (UserDataController.GetBiggestDino() < 3)
         {
             _speedUpButton.gameObject.SetActive(false);
-            _speedUpButtonFeedback.SetActive(false);
         }
     }
     public void OpenSpeedUpPanel()
@@ -84,7 +81,7 @@ public class SpeedUpManager : MonoBehaviour
         }
         if(_speedingUp)
         {
-            _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 80);
+            _activeFeedbackPanel.gameObject.SetActive(true);
             _activeTime.text = GetRemainingTime();
             _speedUpTime -= Time.deltaTime;
             if(_speedUpTime < 0)
@@ -93,12 +90,12 @@ public class SpeedUpManager : MonoBehaviour
                 _speedUpTime = 0;
                 _VFXFireworksPool.StopTheParty();
                 CurrentSceneManager.SetGlobalSpeed(1);
-                _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 0);
+                _activeFeedbackPanel.gameObject.SetActive(false);
             }
         }
         else
         {
-            _activeFeedbackPanel.anchoredPosition = new Vector2(-270, 0);
+            _activeFeedbackPanel.gameObject.SetActive(false);
         }
     }
 

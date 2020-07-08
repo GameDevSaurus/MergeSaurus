@@ -44,13 +44,16 @@ public class ButtonsFeedback : MonoBehaviour
         {
             StopCoroutine(RestoreScale());
         }
-        _restoreCr = StartCoroutine(RestoreScale());
+        if(_selfTransform.localScale.x < 1f)
+        {
+            _restoreCr = StartCoroutine(RestoreScale());
+        }
     }
     IEnumerator ReduceScale()
     {
-        for(float i = 0; i<0.25f; i+= Time.deltaTime)
+        for(float i = 0; i<0.15f; i+= Time.deltaTime)
         {
-            _selfTransform.localScale = Vector3.Lerp(Vector3.one, new Vector3(0.9f, 0.9f, 0.9f), i/0.25f);
+            _selfTransform.localScale = Vector3.Lerp(Vector3.one, new Vector3(0.9f, 0.9f, 0.9f), i/0.15f);
             yield return null;
         }
         _selfTransform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
