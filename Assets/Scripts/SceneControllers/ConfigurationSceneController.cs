@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ConfigurationSceneController : MonoBehaviour
 {
-    public TimeController _timeController;
     public float barFillDuration = 2f;
     float _loadAmount;
     bool _waitForTime = false;
@@ -26,9 +25,9 @@ public class ConfigurationSceneController : MonoBehaviour
     {
         if (_waitForTime)
         {
-            if (_timeController._timeChecked)
+            if (TimeController._timeChecked)
             {
-                UserDataController.InitializeUser(_timeController.GetTimeNow().ToBinary().ToString());
+                UserDataController.InitializeUser(TimeController.GetTimeNow().ToBinary().ToString());
                 _waitForTime = false;
                 StartCoroutine(LoadingBar());
             }
