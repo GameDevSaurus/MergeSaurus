@@ -18,7 +18,6 @@ public class TrashBin : MonoBehaviour
     {
         expandCr = StartCoroutine(Expand());
         overTrashBin = true;
-        print("Enter");
     }
     public void ExitPoint()
     {
@@ -56,6 +55,5 @@ public class TrashBin : MonoBehaviour
     {
         yield return null;
         overTrashBin = false;
-        print("Exit");
     }
 }
