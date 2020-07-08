@@ -13,7 +13,7 @@ public class CellInstance : MonoBehaviour
     Coroutine _clickCr;
     int _boxNumber;
     GameObject _currentBox;
-
+    BoxManager.BoxType _currentBoxType;
     private void Awake()
     {
         _boxNumber = -1;
@@ -47,8 +47,9 @@ public class CellInstance : MonoBehaviour
         _targetExpositor = expositor;
     }
 
-    public void SetBox(int boxNumber, GameObject box)
+    public void SetBox(BoxManager.BoxType boxType, int boxNumber, GameObject box)
     {
+        _currentBoxType = boxType;
         _boxNumber = boxNumber;
         _currentBox = box;
     }
@@ -125,9 +126,19 @@ public class CellInstance : MonoBehaviour
             }
             else
             {
-                if (_boxNumber >= 0)
+                if (_currentBoxType == BoxManager.BoxType.StandardBox || _currentBoxType == BoxManager.BoxType.RewardedBox)
                 {
-                    OpenBox();
+                    if(GetBoxNumber()>= 0)
+                    {
+                        OpenBox();
+                    }
+                }
+                else
+                {
+                    if(_currentBoxType == BoxManager.BoxType.LootBox)
+                    {
+                        OpenLootBox();
+                    }
                 }
             }
         }
@@ -153,5 +164,15 @@ public class CellInstance : MonoBehaviour
             _boxNumber = -1;
             GameEvents.OpenBox.Invoke();
         }
+    }
+    public void OpenLootBox()
+    {
+        Destroy(_currentBox);
+        _currentBox = null;
+        UserDataController.CreateDinosaur(_cellNumber, -1);
+        _boxNumber = -1;
+
+        print("Abrimos cajitaaaa de loot");
+
     }
 }

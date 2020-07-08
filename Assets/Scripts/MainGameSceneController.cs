@@ -75,7 +75,7 @@ public class MainGameSceneController : MonoBehaviour
             {
                 if(dinoType >= 100)
                 {
-                    _boxManager.CreateBox(i, dinoType-100);
+                    _boxManager.CreateBox(BoxManager.BoxType.StandardBox, i, dinoType-100);
                 }
             }
         }
