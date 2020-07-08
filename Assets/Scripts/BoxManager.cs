@@ -181,6 +181,5 @@ public class BoxManager : MonoBehaviour
                 }
             }
         }
-        print(_rewardBoxCount);
     }
 }

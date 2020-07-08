@@ -134,5 +134,45 @@
   {
     "key": "MISSIONS_ACHIEVEMENT",
     "value": "Logros"
+  },
+  {
+    "key": "NEST",
+    "value": "NIDO"
+  },
+  {
+    "key": "RESTORE",
+    "value": "Restaurar"
+  },
+  {
+    "key": "VIP_BLACK_PANEL",
+    "value": "3 días gratis, después 5,99€ semanales"
+  },
+  {
+    "key": "VIP_PURCHASE",
+    "value": "Comprar 5,99€"
+  },
+  {
+    "key": "VIP_CONDITIONS",
+    "value": "La suscripción VIP es una suscripción semanal, tendrás 3 días de prueba GRATUITOS, tras este periodo se te cobrará 5,99€. Tras comprar la suscripción desbloquearás los siguientes beneficios: +1 Espacio para robots, +50% Velocidad, +2 Robots en pista, +20% Ganancias pasivas, Eliminar publicidad de \"La Fábrica\" y 30 gemas cada día. Notas sobre la suscripción: * Los pagos serán cargado a tu cuenta de Google Play a la confirmación de la compra. *La suscripción se renovará automáticamente a no ser que la auto-renovación sea desactivada 24-horas antes de terminar el periodo actual. * El cargo de la renovación se realizará durante las 24 horas anteriores al final del periodo en curso y se aceptará el coste de la renovación. * Las suscripciones deben ser gestionadas por el usuario y la auto-renovación debe ser desactivada desde los ajustes de usuario de Google Play Store tras la compra. * Cualquier parte no usada durante el periodo de prueba, si se oferta, se perderá cuando el usuario compre una suscripción a esa publicación, si es aplicable."
+  },
+  {
+    "key": "SUBSCRIPTION",
+    "value": "Suscripción"
+  },
+  {
+    "key": "PASSIVE_GAINS",
+    "value": "GANANCIAS PASIVAS"
+  },
+  {
+    "key": "PASSIVE_GAINS_ADVICE",
+    "value": "Las ganancias pasivas no se acumulan más allá de 2 horas."
+  },
+  {
+    "key": "PASSIVE_GAINS_QUESTION",
+    "value": "¿Multiplicar tus ganancias?"
+  },
+  {
+    "key": "DAILY_REWARD",
+    "value": "RECOMPENSA DIARIA"
   }
 ]
