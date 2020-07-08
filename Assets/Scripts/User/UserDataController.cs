@@ -239,7 +239,7 @@ public class UserDataController : MonoBehaviour
             GameEvents.DinoUp.Invoke(mergeDinoType + 1);
             mergeUp = true;
         }
-        
+        _currentUserData._obtainedTimes[mergeDinoType + 1]++;
         _currentUserData._dinosaurs[originCell] = -1;
         _currentUserData._dinosaurs[targetCell] = mergeDinoType +1;
         SaveToFile();
