@@ -126,18 +126,21 @@ public class CellInstance : MonoBehaviour
             }
             else
             {
-                if (_currentBoxType == BoxManager.BoxType.StandardBox || _currentBoxType == BoxManager.BoxType.RewardedBox)
+                if (_currentBox != null)
                 {
-                    if(GetBoxNumber()>= 0)
+                    if (_currentBoxType == BoxManager.BoxType.StandardBox || _currentBoxType == BoxManager.BoxType.RewardedBox)
                     {
-                        OpenBox();
+                        if (GetBoxNumber() >= 0)
+                        {
+                            OpenBox();
+                        }
                     }
-                }
-                else
-                {
-                    if(_currentBoxType == BoxManager.BoxType.LootBox)
+                    else
                     {
-                        OpenLootBox();
+                        if (_currentBoxType == BoxManager.BoxType.LootBox)
+                        {
+                            OpenLootBox();
+                        }
                     }
                 }
             }
@@ -171,8 +174,12 @@ public class CellInstance : MonoBehaviour
         _currentBox = null;
         UserDataController.CreateDinosaur(_cellNumber, -1);
         _boxNumber = -1;
-
         print("Abrimos cajitaaaa de loot");
-
+    }
+    public void DestroyBox()
+    {
+        Destroy(_currentBox);
+        _currentBox = null;
+        UserDataController.CreateDinosaur(_cellNumber, -1);
     }
 }
