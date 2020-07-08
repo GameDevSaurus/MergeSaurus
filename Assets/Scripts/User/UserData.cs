@@ -18,7 +18,6 @@ public class UserData
     public int[] _workingCellsByExpositor;
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
-
     public UserData()
     {
         _ID = 0;
