@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Test
+  m_Name: SpriteOutline
   m_Shader: {fileID: -6465566751694194690, guid: ec420d426adb81549a2c162b8a7883a3,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -28,5 +28,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - Vector1_3220EA55: 0.0005
+    m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
