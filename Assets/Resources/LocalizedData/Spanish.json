@@ -90,5 +90,49 @@
   {
     "key": "MISSIONS",
     "value": "MISIONES"
+  },
+  {
+    "key": "SPECIAL_OFFER",
+    "value": "Oferta Especial"
+  },
+  {
+    "key": "GEMS_SHOP",
+    "value": "Tienda de Gemas"
+  },
+  {
+    "key": "CURRENCY_SHOP",
+    "value": "Tienda de Monedas"
+  },
+  {
+    "key": "CURRENCY_ADVICE",
+    "value": "*La cantidad de oro depende de tus ganancias por segundo."
+  },
+  {
+    "key": "FREE",
+    "value": "GRATIS"
+  },
+  {
+    "key": "NEXT_REWARD",
+    "value": "Próxima recompensa por vídeo "
+  },
+  {
+    "key": "UPGRADES_INFO",
+    "value": "¡Intercambia dinos por mejoras!"
+  },
+  {
+    "key": "UPGRADES_BUTTON",
+    "value": "Subir Nivel"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL",
+    "value": "Descuento de los dinos"
+  },
+  {
+    "key": "MISSIONS_DAILY",
+    "value": "Misiones Diarias"
+  },
+  {
+    "key": "MISSIONS_ACHIEVEMENT",
+    "value": "Logros"
   }
 ]
