@@ -54,7 +54,12 @@ public class UserDataController : MonoBehaviour
             DateTime now = TimeController.GetTimeNow();
             TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
             int elapsedSeconds = (int)elapsedTime.TotalSeconds;
-            print("Han pasado " + elapsedSeconds + " desde la última ves que se guardó");
+
+            /*
+             * TO DO: elapsedSeconds > 300 --> Mostrar panel ganancias pasivas
+             * 
+             */
+
             _currentUserData._lastUpdatedTime = TimeController.GetTimeNow().ToBinary().ToString();
             File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
         }
