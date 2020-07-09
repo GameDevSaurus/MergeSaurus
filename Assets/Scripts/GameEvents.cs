@@ -68,6 +68,7 @@ public static class GameEvents
     public static MoneyEvent EarnMoney = new MoneyEvent();
     public static StringEvent LoadScene = new StringEvent();
     public static StringEvent PlaySFX = new StringEvent();
+    public static StringEvent PlayAd = new StringEvent();
 
     public class StringEvent : UnityEvent<string> { };
     public class IntEvent : UnityEvent<int> { };

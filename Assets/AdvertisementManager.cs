@@ -14,37 +14,51 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 #endif
     [SerializeField]
     Button _speedUpButton;
-    string _speedUpPlacementID = "SpeedUp";
-    [SerializeField]
+    string _placementID;
     SpeedUpManager _speedUpManager;
     //ID DEL JUEGO --> 3701221
+    BoxManager _boxManager;
+    private void Awake()
+    {
+        GameEvents.PlayAd.AddListener(PlayVideo);
+        _speedUpManager = FindObjectOfType<SpeedUpManager>();
+        _boxManager = FindObjectOfType<BoxManager>();
+    }
     void Start()
     {
-        _speedUpButton.interactable = Advertisement.IsReady(_speedUpPlacementID);
-        _speedUpButton.onClick.AddListener(ShowRewardedVideo);
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameId, true);
     }
 
+    public void PlayVideo(string placementID)
+    {
+        _placementID = placementID;
+    }
     void ShowRewardedVideo()
     {
-        Advertisement.Show(_speedUpPlacementID);
+        Advertisement.Show(_placementID);
     }
 
     public void OnUnityAdsReady(string placementId)
     {
-        // If the ready Placement is rewarded, activate the button: 
-        if (placementId == _speedUpPlacementID)
-        {
-            _speedUpButton.interactable = true;
-        }
+
     }
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
         if (showResult == ShowResult.Finished)
         {
-            _speedUpManager.SpeedUp();
+            switch (placementId)
+            {
+                case "SpeedUp":
+                    _speedUpManager.SpeedUp();
+                    break;
+
+                case "SpecialBox":
+                    _boxManager.RewardBox(4);
+                    break;
+            }
+            
         }
         else
         {

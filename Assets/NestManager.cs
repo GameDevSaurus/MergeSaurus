@@ -15,4 +15,9 @@ public class NestManager : MonoBehaviour
     {
         _mainPanel.SetActive(false);
     }
+    public void ShowVideo()
+    {
+        GameEvents.PlayAd.Invoke("SpecialBox");
+        CloseNest();
+    }
 }
