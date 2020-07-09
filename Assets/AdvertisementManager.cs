@@ -16,6 +16,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     Button _speedUpButton;
     string _placementID;
     SpeedUpManager _speedUpManager;
+    SpinManager _spinManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
     private void Awake()
@@ -23,6 +24,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         GameEvents.PlayAd.AddListener(PlayVideo);
         _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
+        _spinManager = FindObjectOfType<SpinManager>();
     }
     void Start()
     {
