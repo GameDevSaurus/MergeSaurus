@@ -7,6 +7,8 @@ public class SpinManager : MonoBehaviour
     [SerializeField]
     GameObject _mainPanel;
 
+    enum SpinRewards {Boxes, SmallSpeedTime, BigSpeedTime, Money2H, Money4H};
+
     public void OpenSpin()
     {
         _mainPanel.SetActive(true);
@@ -15,4 +17,6 @@ public class SpinManager : MonoBehaviour
     {
         _mainPanel.SetActive(false);
     }
+
+    
 }
