@@ -33,6 +33,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     public void PlayVideo(string placementID)
     {
         _placementID = placementID;
+        ShowRewardedVideo();
     }
     void ShowRewardedVideo()
     {
@@ -55,7 +56,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                     break;
 
                 case "SpecialBox":
-                    _boxManager.RewardBox(4);
+                    _boxManager.RewardBox(4); 
                     break;
             }
             

@@ -46,10 +46,13 @@ public class BoxManager : MonoBehaviour
             yield return null;
             cellIndex = _mainGameSceneController.GetFirstEmptyCell();
         }
-        CreateBox(BoxType.RewardedBox, cellIndex,  _dayCareManager.GetFastPurchaseIndex());
+        int standardDropDino = _dayCareManager.GetFastPurchaseIndex();
+        standardDropDino = Mathf.Max(standardDropDino - 1, 0);
+        CreateBox(BoxType.RewardedBox, cellIndex, standardDropDino+1);
         _rewardBoxCount--;
         if (_rewardBoxCount > 0)
         {
+            yield return new WaitForSeconds(0.1f);
             StartCoroutine(CrRewardBox());
         }
         else
@@ -96,7 +99,6 @@ public class BoxManager : MonoBehaviour
     }
     public bool DropStandardBox()
     {
-        int biggestDino = UserDataController.GetBiggestDino();
         int standardDropDino = _dayCareManager.GetFastPurchaseIndex();
         standardDropDino = Mathf.Max(standardDropDino - 1, 0);
 
@@ -180,6 +182,10 @@ public class BoxManager : MonoBehaviour
                     _standardWaitingTime = Random.Range(15f, 30f);
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DropLootBox();
         }
     }
 }

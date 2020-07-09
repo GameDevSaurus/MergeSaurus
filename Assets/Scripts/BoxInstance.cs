@@ -30,5 +30,6 @@ public class BoxInstance : MonoBehaviour
                     break;
             }
         }
+
     }
 }

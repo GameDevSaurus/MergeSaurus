@@ -19,6 +19,12 @@ public class UserData
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
     public int[] _obtainedTimes;
+    int _discountLevel;
+    int _extraEarningsLevel;
+    int _extraSpeedLevel;
+    int _extraRobotSpeed;
+
+
     public UserData()
     {
         _ID = 0;
@@ -38,6 +44,10 @@ public class UserData
         _username = "Mechanic";
         _dinosaurs = new int[16];
         _workingCellsByExpositor = new int[10];
+        _discountLevel = 0;
+        _extraEarningsLevel = 0;
+        _extraSpeedLevel = 0;
+        _extraRobotSpeed = 0;
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;

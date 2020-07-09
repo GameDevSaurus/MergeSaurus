@@ -101,6 +101,10 @@ public class CellInstance : MonoBehaviour
         _clicking = false;
         _nClicks = 0;
     }
+    private void Update()
+    {
+
+    }
     private void OnMouseUp()
     {
         if (_clicking)
@@ -176,6 +180,7 @@ public class CellInstance : MonoBehaviour
         _boxNumber = -1;
         FindObjectOfType<NestManager>().OpenNest();
     }
+    
     public void DestroyBox()
     {
         Destroy(_currentBox);
