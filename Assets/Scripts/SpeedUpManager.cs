@@ -45,10 +45,10 @@ public class SpeedUpManager : MonoBehaviour
         _panelIsOpen = false;
     }
 
-    public void SpeedUpCallback()
+    public void SpeedUpCallback(int time)
     {
         _speedingUp = true;
-        _speedUpTime += 200;
+        _speedUpTime += time;
         CurrentSceneManager.SetGlobalSpeed(2);
         _VFXFireworksPool.StartTheParty();
     }
@@ -62,7 +62,7 @@ public class SpeedUpManager : MonoBehaviour
     {
         if(UserDataController._currentUserData._hardCoins >= 3)
         {
-            SpeedUpCallback();
+            SpeedUpCallback(200);
             UserDataController._currentUserData._hardCoins -= 3;
         }
         CheckGemsButton();

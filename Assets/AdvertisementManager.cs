@@ -19,6 +19,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     SpinManager _spinManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
+
     private void Awake()
     {
         GameEvents.PlayAd.AddListener(PlayVideo);
@@ -54,11 +55,14 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             switch (placementId)
             {
                 case "SpeedUp":
-                    _speedUpManager.SpeedUp();
+                    _speedUpManager.SpeedUpCallback(200);
                     break;
 
                 case "SpecialBox":
                     _boxManager.RewardBox(4); 
+                    break;
+                case "SpinReward":
+                    _spinManager.SpinCallBack();
                     break;
             }
             

@@ -106,6 +106,7 @@ public class ExpositorInstance : MonoBehaviour
                 if (dinoType >= 0)
                 {
                     GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetIntList());
+                    currentDinoEarnings.MultiplyCurrency(2f);
                     _economyManager.EarnSoftCoins(currentDinoEarnings);
                     GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, currentDinoEarnings));
                 }
