@@ -27,6 +27,9 @@ public class DayCareManager : MonoBehaviour
     bool watchedVideo = false;
     int smallGemCost = 3, bigGemCost = 4;
 
+
+    public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
+
     public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     int _fastPurchaseDinoType = 0;
@@ -44,19 +47,23 @@ public class DayCareManager : MonoBehaviour
     void Start()
     {
         _dinoPanelManagers = new List<PurchaseDinoPanel>();
+
         for (int i = 0; i < UserDataController._currentUserData._dinosaurs.Length; i++)
         {
             GameObject nPanel = Instantiate(_purchaseDinoPanelPrefab, transform.position, Quaternion.identity);
             nPanel.transform.SetParent(_panelParent);
             nPanel.transform.localScale = Vector3.one;
             PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
+            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/" + i));
+            p.SetDinoName(dinoNames[i]);
+
             int index = i;
             p.GetDinoButton().onClick.AddListener(()=>Purchase(index));
             p.GetGemsButton().onClick.AddListener(()=>GemsPurcharse(index));
             p.GetVideoButton().onClick.AddListener(()=>WatchVideo(index));
-            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/"+ i));
-            p.SetDinoName(dinoNames[i]);
+
             _dinoPanelManagers.Add(p);
+
             RefreshButtons(null);
         }
     }
@@ -86,7 +93,7 @@ public class DayCareManager : MonoBehaviour
                 _fastPurchaseDinoType = i;
                 
             }
-            if (i > UserDataController.GetBiggestDino())
+            if (i > biggestDino)
             {
                 _dinoPanelManagers[i].LockPanel();
             }
@@ -96,7 +103,9 @@ public class DayCareManager : MonoBehaviour
                 {
                     _dinoPanelManagers[0].UnlockPanel(0);
                     _dinoPanelManagers[1].UnlockPanel(1);
+                    _dinoPanelManagers[1].SetGemsCost(smallGemCost);
                     _dinoPanelManagers[2].UnlockPanel(1);
+                    _dinoPanelManagers[2].SetGemsCost(bigGemCost);
                     _dinoPanelManagers[3].LockPurcharse();
                 }
                 else
@@ -104,28 +113,35 @@ public class DayCareManager : MonoBehaviour
                     //Desbloqueo Corriente
                     if (biggestDino >= 4 && biggestDino < 8)
                     {
-                        if (i == biggestDino || i == biggestDino -1)
+
+                        if (i > biggestDino -2)
                         {
                             _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
                         }
-                        if(i == biggestDino - 2)
+                        else
                         {
-                            _dinoPanelManagers[i].UnlockPanel(1); //Gemas
-                            _dinoPanelManagers[i].SetGemsCost(bigGemCost);
-                        }
-                        if(i == biggestDino - 3)
-                        {
-                            _dinoPanelManagers[i].UnlockPanel(1); //Gemas
-                            _dinoPanelManagers[i].SetGemsCost(smallGemCost);
-                        }
-                        if (i < biggestDino - 3)
-                        {
-                            _dinoPanelManagers[i].UnlockPanel(0);
+                            if(i > biggestDino - 4)
+                            {
+                                if (i == biggestDino - 2)
+                                {
+                                    _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                    _dinoPanelManagers[i].SetGemsCost(bigGemCost);
+                                }
+                                if (i == biggestDino - 3)
+                                {
+                                    _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                    _dinoPanelManagers[i].SetGemsCost(smallGemCost);
+                                }
+                            }
+                            else
+                            {
+                                    _dinoPanelManagers[i].UnlockPanel(0);
+                            }
                         }
                     }
                     else
                     {
-                        if (biggestDino > 8)
+                        if (biggestDino >= 8)
                         {
                             if (i < biggestDino - 4)
                             {
@@ -164,16 +180,47 @@ public class DayCareManager : MonoBehaviour
                             }
                         }
                     }
-
-                    bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-                    _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
-                    _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
-                    _dinoPanelManagers[i].SetPurchaseState(canPurchase);
                 }
             }
+            bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+            _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
+            _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+            _dinoPanelManagers[i].SetPurchaseState(canPurchase);
         }
     }
 
+    public int GetAdPurchaseIndex()
+    {
+        int biggestDino = UserDataController.GetBiggestDino();
+        if (biggestDino > 8)
+        {
+            return biggestDino - 4;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    public int GetGemPurchaseCost(int index)
+    {
+        int biggestDino = UserDataController.GetBiggestDino();
+        int result = -1;
+        if (biggestDino > 8)
+        {
+            if(index == biggestDino - 2)
+            {
+                result =  bigGemCost;
+            }
+            else
+            {
+                if (index == biggestDino - 3)
+                {
+                    result = smallGemCost;
+                }
+            }
+        }
+        return result;
+    }
     public int GetFastPurchaseIndex()
     {
         int biggestDino = UserDataController.GetBiggestDino();
@@ -207,7 +254,7 @@ public class DayCareManager : MonoBehaviour
     {
         if (UserDataController.GetEmptyCells() > 0)
         {
-            _mainGameSceneController.Purchase(dinoType, _economyManager.GetDinoCost(dinoType));
+            _mainGameSceneController.SoftCoinsPurchase(dinoType, _economyManager.GetDinoCost(dinoType));
             RefreshButtons(null);
         }
         else
@@ -217,13 +264,12 @@ public class DayCareManager : MonoBehaviour
     }
     public void GemsPurcharse(int dinoType)
     {
-        print("Gems");
         if(_dinoPanelManagers[dinoType].GetGemCost() <= UserDataController._currentUserData._hardCoins)
         {
             if (UserDataController.GetEmptyCells() > 0)
             {
                 UserDataController.SpendHardCoins(_dinoPanelManagers[dinoType].GetGemCost());
-                _mainGameSceneController.Purchase(dinoType, null);
+                _mainGameSceneController.HardCoinPurchase(dinoType, GetGemPurchaseCost(dinoType));
                 RefreshButtons(null);
             }
             else
@@ -241,10 +287,7 @@ public class DayCareManager : MonoBehaviour
     {
         if (UserDataController.GetEmptyCells() > 0)
         {
-            //Mostrar publicidad y luego hacer esto:
-            watchedVideo = true;
-            _mainGameSceneController.Purchase(dinoType, null);
-            RefreshButtons(null);
+            GameEvents.PlayAd.Invoke("DayCareAdPurchase");
         }
         else
         {
@@ -252,8 +295,18 @@ public class DayCareManager : MonoBehaviour
         }
     }
 
+    public void WatchVideoCallback()
+    {
+        watchedVideo = true;
+        _mainGameSceneController.FreePurchase(GetAdPurchaseIndex());
+        RefreshButtons(null);
+    }
+
     public void FastPurchase()
     {
         Purchase(_fastPurchaseDinoType);
     }
+
 }
+
+

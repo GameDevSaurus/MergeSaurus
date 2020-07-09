@@ -45,7 +45,7 @@ public class SpeedUpManager : MonoBehaviour
         _panelIsOpen = false;
     }
 
-    public void SpeedUp()
+    public void SpeedUpCallback()
     {
         _speedingUp = true;
         _speedUpTime += 200;
@@ -53,11 +53,16 @@ public class SpeedUpManager : MonoBehaviour
         _VFXFireworksPool.StartTheParty();
     }
 
+    public void SpeedUpShowVideo()
+    {
+        GameEvents.PlayAd.Invoke("SpeedUp");
+    }
+
     public void GemsPurchase()
     {
         if(UserDataController._currentUserData._hardCoins >= 3)
         {
-            SpeedUp();
+            SpeedUpCallback();
             UserDataController._currentUserData._hardCoins -= 3;
         }
         CheckGemsButton();
