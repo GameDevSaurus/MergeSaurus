@@ -154,7 +154,7 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
-    public static void BuyDinosaur(int dinosaurIndex, GameCurrency cost)
+    public static void BuySoftCoinsDinosaur(int dinosaurIndex, GameCurrency cost)
     {
         for(int i = 0; i< _currentUserData._unlockedCells; i++)
         {
@@ -169,6 +169,34 @@ public class UserDataController : MonoBehaviour
         GameCurrency gCToSubstract = new GameCurrency((_currentUserData._softCoins));
         gCToSubstract.SubstractCurrency(cost);
         _currentUserData._softCoins = gCToSubstract.GetIntList();
+        SaveToFile();
+    }
+    public static void BuyFreeDinosaur(int dinosaurIndex)
+    {
+        for (int i = 0; i < _currentUserData._unlockedCells; i++)
+        {
+            if (_currentUserData._dinosaurs[i] == -1)
+            {
+                _currentUserData._dinosaurs[i] = dinosaurIndex;
+                break;
+            }
+        }
+        _currentUserData._purchasedTimes[dinosaurIndex]++;
+        _currentUserData._obtainedTimes[dinosaurIndex]++;
+        SaveToFile();
+    }
+    public static void BuyHardCoinDinosaur(int dinosaurIndex, int cost)
+    {
+        for (int i = 0; i < _currentUserData._unlockedCells; i++)
+        {
+            if (_currentUserData._dinosaurs[i] == -1)
+            {
+                _currentUserData._dinosaurs[i] = dinosaurIndex;
+                break;
+            }
+        }
+        _currentUserData._purchasedTimes[dinosaurIndex]++;
+        _currentUserData._obtainedTimes[dinosaurIndex]++;
         SaveToFile();
     }
 

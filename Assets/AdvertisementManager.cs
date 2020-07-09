@@ -18,11 +18,13 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     SpeedUpManager _speedUpManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
+    DayCareManager _dayCareManager;
     private void Awake()
     {
         GameEvents.PlayAd.AddListener(PlayVideo);
         _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
+        _dayCareManager = FindObjectOfType<DayCareManager>();
     }
     void Start()
     {
@@ -52,11 +54,14 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             switch (placementId)
             {
                 case "SpeedUp":
-                    _speedUpManager.SpeedUp();
+                    _speedUpManager.SpeedUpCallback();
                     break;
 
                 case "SpecialBox":
                     _boxManager.RewardBox(4); 
+                    break;
+                case "DayCareAdPurchase":
+                    _dayCareManager.WatchVideoCallback();
                     break;
             }
             

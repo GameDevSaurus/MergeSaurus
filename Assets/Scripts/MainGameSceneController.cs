@@ -35,7 +35,7 @@ public class MainGameSceneController : MonoBehaviour
         CreateStartingDinosaurs();
         _camera = Camera.main;
     }
-    public void Purchase(int dinosaurIndex, GameCurrency cost)
+    public void SoftCoinsPurchase(int dinosaurIndex, GameCurrency cost)
     {
         if (CurrentSceneManager._canPurchase)
         {
@@ -52,7 +52,49 @@ public class MainGameSceneController : MonoBehaviour
                     break;
                 }
             }
-            UserDataController.BuyDinosaur(dinosaurIndex, cost);
+            UserDataController.BuySoftCoinsDinosaur(dinosaurIndex, cost);
+            GameEvents.Purchase.Invoke(dinosaurIndex);
+        }
+    }
+    public void HardCoinPurchase(int dinosaurIndex, int cost)
+    {
+        if (CurrentSceneManager._canPurchase)
+        {
+            for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
+            {
+                if (UserDataController._currentUserData._dinosaurs[i] == -1)
+                {
+                    GameObject dino = Instantiate(_dinoPrefabs[dinosaurIndex], _cellManager.GetCellPosition(i), Quaternion.identity);
+                    DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
+                    dinoInst.SetCell(i);
+                    dinoInst.SetDino(dinosaurIndex);
+                    _cellManager.SetDinosaurInCell(dinoInst, i);
+                    _dinosIngame.Add(dinoInst);
+                    break;
+                }
+            }
+            UserDataController.BuyHardCoinDinosaur(dinosaurIndex, cost);
+            GameEvents.Purchase.Invoke(dinosaurIndex);
+        }
+    }
+    public void FreePurchase(int dinosaurIndex)
+    {
+        if (CurrentSceneManager._canPurchase)
+        {
+            for (int i = 0; i < UserDataController._currentUserData._unlockedCells; i++)
+            {
+                if (UserDataController._currentUserData._dinosaurs[i] == -1)
+                {
+                    GameObject dino = Instantiate(_dinoPrefabs[dinosaurIndex], _cellManager.GetCellPosition(i), Quaternion.identity);
+                    DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
+                    dinoInst.SetCell(i);
+                    dinoInst.SetDino(dinosaurIndex);
+                    _cellManager.SetDinosaurInCell(dinoInst, i);
+                    _dinosIngame.Add(dinoInst);
+                    break;
+                }
+            }
+            UserDataController.BuyFreeDinosaur(dinosaurIndex);
             GameEvents.Purchase.Invoke(dinosaurIndex);
         }
     }
