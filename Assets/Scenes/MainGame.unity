@@ -25077,7 +25077,7 @@ GameObject:
   - component: {fileID: 995304028}
   - component: {fileID: 995304027}
   m_Layer: 5
-  m_Name: SpinButtons
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31822,7 +31822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedUpButton: {fileID: 1495979475}
-  _speedUpManager: {fileID: 858608228}
 --- !u!1 &1302697035
 GameObject:
   m_ObjectHideFlags: 0
@@ -32036,7 +32035,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307399809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 512882139}
+        m_MethodName: ShowVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1307399809
 MonoBehaviour:
   m_ObjectHideFlags: 0
