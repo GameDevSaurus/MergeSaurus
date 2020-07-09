@@ -60,6 +60,14 @@ public class DayCareManager : MonoBehaviour
             _dinoPanelManagers.Add(p);
             RefreshButtons(null);
         }
+        if (UserDataController.GetBiggestDino() == 3)
+        {
+            FirstLock();
+        }
+        if (UserDataController.GetBiggestDino() >= 4)
+        {
+            DefaultLock();
+        }
     }
     public void Close()
     {
@@ -70,6 +78,24 @@ public class DayCareManager : MonoBehaviour
         _shopPanel.SetActive(true);
         RefreshButtons(null);
     }
+    public void FirstLock()
+    {
+        _dinoPanelManagers[UserDataController.GetBiggestDino()].LockPurcharse();
+        _dinoPanelManagers[UserDataController.GetBiggestDino() - 1].SetGemsCost(4);
+        _dinoPanelManagers[UserDataController.GetBiggestDino() - 2].SetGemsCost(3);
+    }
+    public void DefaultLock()
+    {
+        if(UserDataController.GetBiggestDino() >= 8)  //Comprobar cuantos son para que salgan videos
+        {
+            _dinoPanelManagers[UserDataController.GetBiggestDino()].LockPurcharse();
+            _dinoPanelManagers[UserDataController.GetBiggestDino() - 1].LockPurcharse();
+            _dinoPanelManagers[UserDataController.GetBiggestDino() - 2].SetGemsCost(4);
+            _dinoPanelManagers[UserDataController.GetBiggestDino() - 3].SetGemsCost(3);
+            _dinoPanelManagers[UserDataController.GetBiggestDino() - 4].SetVideoButton();
+        }
+    }
+
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
         int fastPurchaseIndex = GetFastPurchaseIndex();
@@ -108,7 +134,14 @@ public class DayCareManager : MonoBehaviour
             }
 
         }
-
+        if (UserDataController.GetBiggestDino() == 3)
+        {
+            FirstLock();
+        }
+        if (UserDataController.GetBiggestDino() >= 4)
+        {
+            DefaultLock();
+        }
     }
 
     public int GetFastPurchaseIndex()
@@ -142,14 +175,17 @@ public class DayCareManager : MonoBehaviour
     }
     public void Purchase(int dinoType)
     {
-        if (UserDataController.GetEmptyCells() > 0)
+        if (_dinoPanelManagers[dinoType].GetDinoButtonState())
         {
-            _mainGameSceneController.Purchase(dinoType, _economyManager.GetDinoCost(dinoType));
-            RefreshButtons(null);
-        }
-        else
-        {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            if (UserDataController.GetEmptyCells() > 0)
+            {
+                _mainGameSceneController.Purchase(dinoType, _economyManager.GetDinoCost(dinoType));
+                RefreshButtons(null);
+            }
+            else
+            {
+                GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            }
         }
     }
 

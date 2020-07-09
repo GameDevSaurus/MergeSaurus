@@ -116,6 +116,11 @@ MonoBehaviour:
   _textProfitsPerSec: {fileID: 1529300358731693852}
   _purchaseCost: {fileID: 505706335653366230}
   _dinoImage: {fileID: 1394397805323417543}
+  currencyImages:
+  - {fileID: 21300000, guid: 0d22e768b3f12a0478a530f1dbbfd18b, type: 3}
+  - {fileID: 21300000, guid: 97f7a2996d41ce44d8862e443c2e3af3, type: 3}
+  - {fileID: 21300000, guid: 681f264c1f8070b49a8effca68485c7c, type: 3}
+  _currencyImage: {fileID: 5461967888530688721}
   _dinoButton: {fileID: 6118322423081393614}
 --- !u!114 &785654918815901827
 MonoBehaviour:

@@ -15,8 +15,13 @@ public class PurchaseDinoPanel : MonoBehaviour
     [SerializeField]
     Image _dinoImage;
     [SerializeField]
+    Sprite[] currencyImages;
+    [SerializeField]
+    Image _currencyImage;
+    [SerializeField]
     Button _dinoButton;
     string purchaseCost;
+    bool available = false;
 
     public void SetDinoName(string n)
     {
@@ -32,8 +37,19 @@ public class PurchaseDinoPanel : MonoBehaviour
     {
         _purchaseCost.text = cost;
         purchaseCost = cost;
+        _currencyImage.sprite = currencyImages[0];
     }
-
+    public void SetGemsCost(int cost)
+    {
+        _purchaseCost.text = cost.ToString();
+        purchaseCost = cost.ToString();
+        _currencyImage.sprite = currencyImages[1];
+    }
+    public void SetVideoButton()
+    {
+        _purchaseCost.text = "GRATIS";
+        _currencyImage.sprite = currencyImages[2];
+    }
     public void SetDinoImage(Sprite image)
     {
         _dinoImage.sprite = image;
@@ -53,15 +69,19 @@ public class PurchaseDinoPanel : MonoBehaviour
     }
     public void LockPurcharse()
     {
-        _dinoButton.interactable = false;
+        available = false;
+        _purchaseCost.text = "";
+        _dinoButton.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f); //esto sera un cambio de sprite
     }
     public void UnlockPurcharse()
     {
-        _dinoButton.interactable = true;
+        available = true;
+        _purchaseCost.text = purchaseCost;
+        _dinoButton.GetComponent<Image>().color = Color.green; //esto sera un cambio de sprite
     }
-    public void SetDinoButtonMode(bool isActive)
+    public bool GetDinoButtonState()
     {
-        _dinoButton.interactable = isActive;
+        return available;
     }
 
     public Button GetDinoButton()
