@@ -174,5 +174,85 @@
   {
     "key": "DAILY_REWARD",
     "value": "RECOMPENSA DIARIA"
+  },
+  {
+    "key": "VIP",
+    "value": "VIP"
+  },
+  {
+    "key": "PROFILE",
+    "value": "PERFIL"
+  },
+  {
+    "key": "PROFILE_BUTTON_1",
+    "value": "Estadísticas"
+  },
+  {
+    "key": "PROFILE_BUTTON_2",
+    "value": "Avatar"
+  },
+  {
+    "key": "PROFILE_BUTTON_3",
+    "value": "Ajustes"
+  },
+  {
+    "key": "PROFILE_PANEL_1",
+    "value": "Jugador"
+  },
+  {
+    "key": "PROFILE_PANEL_2",
+    "value": "Extras"
+  },
+  {
+    "key": "PROFILE_PANEL_3",
+    "value": "Beneficios"
+  },
+  {
+    "key": "PROFILE_SELECT",
+    "value": "Seleccionado"
+  },
+  {
+    "key": "SETTINGS_FX",
+    "value": "Efectos"
+  },
+  {
+    "key": "SETTINGS_MUSIC",
+    "value": "Música"
+  },
+  {
+    "key": "CONTACT",
+    "value": "Contáctanos"
+  },
+  {
+    "key": "HELP_SUPPORT",
+    "value": "Ayuda y soporte"
+  },
+  {
+    "key": "PRIVACY",
+    "value": "Privacidad"
+  },
+  {
+    "key": "TERMS_OF_USE",
+    "value": "Términos"
+  },
+  {
+    "key": "CREDITS",
+    "value": "Créditos"
+  },
+  {
+    "key": "WATCH",
+    "value": "Ver"
+  },
+  {
+    "key": "PROFITS_S",
+    "value": "Beneficios por segundo"
+  },
+  {
+    "key": "PROFITS_T",
+    "value": "Beneficios Totales"
+  },
+  {
+    "key": "ADVICE_NOT_UNLOCKED",
+    "value": "Este dino no se ha descubierto todavía"
   }
 ]
