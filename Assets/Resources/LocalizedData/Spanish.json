@@ -254,5 +254,9 @@
   {
     "key": "ADVICE_NOT_UNLOCKED",
     "value": "Este dino no se ha descubierto todavía"
+  },
+  {
+    "key": "ADVICE_NOGEMS",
+    "value": "No tienes gemas\nsuficientes"
   }
 ]

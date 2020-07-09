@@ -24,6 +24,9 @@ public class DayCareManager : MonoBehaviour
     [SerializeField]
     Transform _panelParent;
     List<PurchaseDinoPanel> _dinoPanelManagers;
+    bool watchedVideo = false;
+    int smallGemCost = 3, bigGemCost = 4;
+
     public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     int _fastPurchaseDinoType = 0;
@@ -49,24 +52,12 @@ public class DayCareManager : MonoBehaviour
             PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
             int index = i;
             p.GetDinoButton().onClick.AddListener(()=>Purchase(index));
-            p.SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
-            p.SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+            p.GetGemsButton().onClick.AddListener(()=>GemsPurcharse(index));
+            p.GetVideoButton().onClick.AddListener(()=>WatchVideo(index));
             p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/"+ i));
             p.SetDinoName(dinoNames[i]);
-            if (i > UserDataController.GetBiggestDino())
-            {
-                p.LockPanel();
-            }
             _dinoPanelManagers.Add(p);
             RefreshButtons(null);
-        }
-        if (UserDataController.GetBiggestDino() == 3)
-        {
-            FirstLock();
-        }
-        if (UserDataController.GetBiggestDino() >= 4)
-        {
-            DefaultLock();
         }
     }
     public void Close()
@@ -78,27 +69,11 @@ public class DayCareManager : MonoBehaviour
         _shopPanel.SetActive(true);
         RefreshButtons(null);
     }
-    public void FirstLock()
-    {
-        _dinoPanelManagers[UserDataController.GetBiggestDino()].LockPurcharse();
-        _dinoPanelManagers[UserDataController.GetBiggestDino() - 1].SetGemsCost(4);
-        _dinoPanelManagers[UserDataController.GetBiggestDino() - 2].SetGemsCost(3);
-    }
-    public void DefaultLock()
-    {
-        if(UserDataController.GetBiggestDino() >= 8)  //Comprobar cuantos son para que salgan videos
-        {
-            _dinoPanelManagers[UserDataController.GetBiggestDino()].LockPurcharse();
-            _dinoPanelManagers[UserDataController.GetBiggestDino() - 1].LockPurcharse();
-            _dinoPanelManagers[UserDataController.GetBiggestDino() - 2].SetGemsCost(4);
-            _dinoPanelManagers[UserDataController.GetBiggestDino() - 3].SetGemsCost(3);
-            _dinoPanelManagers[UserDataController.GetBiggestDino() - 4].SetVideoButton();
-        }
-    }
 
     public void RefreshButtons(GameEvents.MoneyEventData e)
     {
         int fastPurchaseIndex = GetFastPurchaseIndex();
+        int biggestDino = UserDataController.GetBiggestDino();
         for (int i = 0; i < _dinoPanelManagers.Count; i++)
         {
             if (i == fastPurchaseIndex)
@@ -114,33 +89,88 @@ public class DayCareManager : MonoBehaviour
             if (i > UserDataController.GetBiggestDino())
             {
                 _dinoPanelManagers[i].LockPanel();
-                _dinoPanelManagers[i].LockPurcharse();
             }
             else
             {
-                _dinoPanelManagers[i].UnlockPanel();
-                bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-                _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
-                _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
-
-                if (canPurchase && i <= UserDataController.GetBiggestDino())
+                if (biggestDino == 3)
                 {
-                    _dinoPanelManagers[i].UnlockPurcharse();
+                    _dinoPanelManagers[0].UnlockPanel(0);
+                    _dinoPanelManagers[1].UnlockPanel(1);
+                    _dinoPanelManagers[2].UnlockPanel(1);
+                    _dinoPanelManagers[3].LockPurcharse();
                 }
                 else
                 {
-                    _dinoPanelManagers[i].LockPurcharse();
+                    //Desbloqueo Corriente
+                    if (biggestDino >= 4 && biggestDino < 8)
+                    {
+                        if (i == biggestDino || i == biggestDino -1)
+                        {
+                            _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
+                        }
+                        if(i == biggestDino - 2)
+                        {
+                            _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                            _dinoPanelManagers[i].SetGemsCost(bigGemCost);
+                        }
+                        if(i == biggestDino - 3)
+                        {
+                            _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                            _dinoPanelManagers[i].SetGemsCost(smallGemCost);
+                        }
+                        if (i < biggestDino - 3)
+                        {
+                            _dinoPanelManagers[i].UnlockPanel(0);
+                        }
+                    }
+                    else
+                    {
+                        if (biggestDino > 8)
+                        {
+                            if (i < biggestDino - 4)
+                            {
+                                _dinoPanelManagers[i].UnlockPanel(0); //Normal
+                            }
+                            else
+                            {
+                                if (i == biggestDino - 4)
+                                {
+                                    if (watchedVideo)
+                                    {
+                                        _dinoPanelManagers[i].UnlockPanel(2); //Video
+                                    }
+                                    else
+                                    {
+                                        _dinoPanelManagers[i].UnlockPanel(0); //Normal
+                                    }
+                                }
+                                else
+                                {
+                                    if (i == biggestDino - 2)
+                                    {
+                                        _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                        _dinoPanelManagers[i].SetGemsCost(bigGemCost);
+                                    }
+                                    if (i == biggestDino - 3)
+                                    {
+                                        _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                        _dinoPanelManagers[i].SetGemsCost(smallGemCost);
+                                    }
+                                    if (i == biggestDino || i == biggestDino - 1)
+                                    {
+                                        _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+                    _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
+                    _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+                    _dinoPanelManagers[i].SetPurchaseState(canPurchase);
                 }
             }
-
-        }
-        if (UserDataController.GetBiggestDino() == 3)
-        {
-            FirstLock();
-        }
-        if (UserDataController.GetBiggestDino() >= 4)
-        {
-            DefaultLock();
         }
     }
 
@@ -175,17 +205,50 @@ public class DayCareManager : MonoBehaviour
     }
     public void Purchase(int dinoType)
     {
-        if (_dinoPanelManagers[dinoType].GetDinoButtonState())
+        if (UserDataController.GetEmptyCells() > 0)
+        {
+            _mainGameSceneController.Purchase(dinoType, _economyManager.GetDinoCost(dinoType));
+            RefreshButtons(null);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+        }
+    }
+    public void GemsPurcharse(int dinoType)
+    {
+        print("Gems");
+        if(_dinoPanelManagers[dinoType].GetGemCost() <= UserDataController._currentUserData._hardCoins)
         {
             if (UserDataController.GetEmptyCells() > 0)
             {
-                _mainGameSceneController.Purchase(dinoType, _economyManager.GetDinoCost(dinoType));
+                UserDataController.SpendHardCoins(_dinoPanelManagers[dinoType].GetGemCost());
+                _mainGameSceneController.Purchase(dinoType, null);
                 RefreshButtons(null);
             }
             else
             {
                 GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
             }
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOGEMS");
+        }
+
+    }
+    public void WatchVideo(int dinoType)
+    {
+        if (UserDataController.GetEmptyCells() > 0)
+        {
+            //Mostrar publicidad y luego hacer esto:
+            watchedVideo = true;
+            _mainGameSceneController.Purchase(dinoType, null);
+            RefreshButtons(null);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
     }
 
