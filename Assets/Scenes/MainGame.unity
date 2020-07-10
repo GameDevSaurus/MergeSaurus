@@ -24982,6 +24982,11 @@ MonoBehaviour:
   - {fileID: 5357118317913399881, guid: 7c36aa68327c0174da418c57d7f958c6, type: 3}
   - {fileID: 5357118317913399881, guid: e04ccbb5283a7f343afbcfa2219e786a, type: 3}
   - {fileID: 5357118317913399881, guid: 6ef237aef6234a64aa53f21342e670b5, type: 3}
+  - {fileID: 5357118317913399881, guid: 280062381b71ca94b8fbbe4193416e23, type: 3}
+  - {fileID: 5357118317913399881, guid: a4fce241cdeec0e4fbadcbb3bda0295b, type: 3}
+  - {fileID: 5357118317913399881, guid: 763e8432000994e42b4ee99f7d12ba8e, type: 3}
+  - {fileID: 5357118317913399881, guid: b8df20bf808818c468ab294816e2fce4, type: 3}
+  - {fileID: 5357118317913399881, guid: b07a3faf65dc5244c873bfd74821c67b, type: 3}
   _cellManager: {fileID: 1650402420}
   _tutorial: {fileID: 999184968}
   _boxManager: {fileID: 133541037}
@@ -37846,7 +37851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18, y: -0.00013733}
+  m_AnchoredPosition: {x: 18, y: -0.00012207031}
   m_SizeDelta: {x: 561.4248, y: 0.00036621094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256554738

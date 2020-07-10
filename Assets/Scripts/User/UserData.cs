@@ -42,7 +42,7 @@ public class UserData
         _unlockedCells = 4;
         _unlockedExpositors = 4;
         _username = "Mechanic";
-        _dinosaurs = new int[16];
+        _dinosaurs = new int[21];
         _workingCellsByExpositor = new int[10];
         _discountLevel = 0;
         _extraEarningsLevel = 0;
@@ -62,8 +62,8 @@ public class UserData
         {
             _workingCellsByExpositor[i] = -1;
         }
-        _purchasedTimes = new int[16]; //Numero de indices igual al de tipos de dinosaurio #x
-        _obtainedTimes = new int[16]; //Numero de indices igual al de tipos de dinosaurio #x
+        _purchasedTimes = new int[21]; //Numero de indices igual al de tipos de dinosaurio #x
+        _obtainedTimes = new int[21]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[10];
     }
 }
