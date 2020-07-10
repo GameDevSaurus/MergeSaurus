@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _otherCell: {fileID: 0}
-  _dinoAnimator: {fileID: 0}
+  _dinoAnimator: {fileID: 4417035185019575703}
   _dinoSprite: {fileID: 3562184097111692594}
 --- !u!1 &6105822051569839819
 GameObject:

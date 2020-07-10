@@ -5,7 +5,7 @@ using UnityEngine;
 public class EconomyManager : MonoBehaviour
 {
     List<DinosaurInstance> _dinosInGame;
-    List<GameCurrency> _earningsByType = new List<GameCurrency>() { new GameCurrency(4), new GameCurrency(9), new GameCurrency(19), new GameCurrency(40), new GameCurrency(85), new GameCurrency(180), new GameCurrency(380), new GameCurrency(803), new GameCurrency(1697), new GameCurrency(3586), new GameCurrency(7578), new GameCurrency(16014), new GameCurrency(33841), new GameCurrency(71513), new GameCurrency(151121), new GameCurrency(319349), new GameCurrency(674848), new GameCurrency(1430677)};
+    List<GameCurrency> _earningsByType = new List<GameCurrency>() { new GameCurrency(4), new GameCurrency(9), new GameCurrency(19), new GameCurrency(40), new GameCurrency(85), new GameCurrency(180), new GameCurrency(380), new GameCurrency(803), new GameCurrency(1697), new GameCurrency(3586), new GameCurrency(7578), new GameCurrency(16014), new GameCurrency(33841), new GameCurrency(71513), new GameCurrency(151121), new GameCurrency(319349), new GameCurrency(674848), new GameCurrency(1426677), new GameCurrency(3013439), new GameCurrency(6370677), new GameCurrency(13455677) };
     List<int> _initialCostList; 
     float _initialCostIncrementRatio = 3.092f;
     float _firstDinoIncrementRatio = 1.07f;

@@ -31,7 +31,7 @@ public class DayCareManager : MonoBehaviour
 
     public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
 
-    public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "Psyduck", "Ponyta", "Vulpix", "Slowpoke", "Tangela", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     int _fastPurchaseDinoType = 0;
     private void Awake()

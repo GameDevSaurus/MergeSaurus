@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1050048139891413722}
   - component: {fileID: 259401228}
   m_Layer: 0
-  m_Name: Dinosaur_15
+  m_Name: Dinosaur_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _otherCell: {fileID: 0}
-  _dinoAnimator: {fileID: 0}
+  _dinoAnimator: {fileID: 525850118660613443}
   _dinoSprite: {fileID: 3562184097111692594}
 --- !u!1 &6105822051569839819
 GameObject:
