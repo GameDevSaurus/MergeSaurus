@@ -25,6 +25,10 @@ public class UserData
     public int _extraPasiveEarningsLevel;
     public int _spinRemainingAds;
     public string _spinLastViewedAd;
+    public int _speedUpRemainingSecs;
+    public string _SpeedUpLastUse;
+    public string _dayCareLastViewedAd;
+    public int _biggestDino;
 
     public UserData()
     {
@@ -46,6 +50,10 @@ public class UserData
         _extraPasiveEarningsLevel = 0;
         _spinRemainingAds = 3;
         _spinLastViewedAd = System.DateTime.Now.ToBinary().ToString();
+        _speedUpRemainingSecs = 0;
+        _SpeedUpLastUse = System.DateTime.Now.ToBinary().ToString();
+        _dayCareLastViewedAd = System.DateTime.Now.ToBinary().ToString();
+        _biggestDino = 0;
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;

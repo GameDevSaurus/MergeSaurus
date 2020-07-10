@@ -16,6 +16,8 @@ public class DinoProgressObserver : MonoBehaviour
     TextMeshProUGUI currentLevel;
     [SerializeField]
     Image dinoImage;
+    [SerializeField]
+    Image nextDinoImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,8 @@ public class DinoProgressObserver : MonoBehaviour
         currentLevel.text = (UserDataController.GetBiggestDino() + 2).ToString();
         _progressBar.fillAmount = finalAmount;
         txProgress.text = Mathf.Min(Mathf.Floor(finalAmount * 100),100f).ToString() + "%";
-        dinoImage.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + (UserDataController.GetBiggestDino() + 1));
+        dinoImage.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + (UserDataController.GetBiggestDino()));
+        nextDinoImage.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + (UserDataController.GetBiggestDino() +1));
     }
 
     private void Update()

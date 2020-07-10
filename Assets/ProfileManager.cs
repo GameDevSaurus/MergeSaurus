@@ -9,11 +9,11 @@ public class ProfileManager : MonoBehaviour
 
     [SerializeField]
     GameObject[] _profilePanels;
-
+    [SerializeField]
+    AnimationCurve animationCurve;
     public void OpenProfile()
     {
-        _mainPanel.SetActive(true);
-        OpenPanel(0);
+        StartCoroutine(CrOpen());
     }
     public void CloseProfile()
     {
@@ -27,5 +27,18 @@ public class ProfileManager : MonoBehaviour
             _profilePanels[i].SetActive(false);
         }
         _profilePanels[panel].SetActive(true);
+    }
+    IEnumerator CrOpen()
+    {
+        RectTransform rt = _mainPanel.GetComponent<RectTransform>();
+        rt.localScale = Vector3.zero;
+        _mainPanel.SetActive(true);
+        OpenPanel(0);
+        for (float i = 0; i < 0.25f; i += Time.deltaTime)
+        {
+            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
+            yield return null;
+        }
+        rt.localScale = Vector3.one;
     }
 }

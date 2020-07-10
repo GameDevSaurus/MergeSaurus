@@ -26,7 +26,8 @@ public class DayCareManager : MonoBehaviour
     List<PurchaseDinoPanel> _dinoPanelManagers;
     bool watchedVideo = false;
     int smallGemCost = 3, bigGemCost = 4;
-
+    [SerializeField]
+    AnimationCurve animationCurve;
 
     public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
 
@@ -58,14 +59,13 @@ public class DayCareManager : MonoBehaviour
             p.SetDinoName(dinoNames[i]);
 
             int index = i;
-            p.GetDinoButton().onClick.AddListener(()=>Purchase(index));
-            p.GetGemsButton().onClick.AddListener(()=>GemsPurcharse(index));
+            p.GetDinoButton().onClick.AddListener(()=>SoftCoinPurchase(index));
+            p.GetGemsButton().onClick.AddListener(()=>HardCoinsPurcharse(index));
             p.GetVideoButton().onClick.AddListener(()=>WatchVideo(index));
 
             _dinoPanelManagers.Add(p);
-
-            RefreshButtons(null);
         }
+        RefreshButtons(null);
     }
     public void Close()
     {
@@ -73,7 +73,7 @@ public class DayCareManager : MonoBehaviour
     }
     public void Open()
     {
-        _shopPanel.SetActive(true);
+        StartCoroutine(CrOpen());
         RefreshButtons(null);
     }
 
@@ -250,38 +250,35 @@ public class DayCareManager : MonoBehaviour
 
         return Mathf.Max(fastPurchaseIndex, 0);
     }
-    public void Purchase(int dinoType)
+    public void SoftCoinPurchase(int dinoType)
     {
         if (UserDataController.GetEmptyCells() > 0)
         {
-            _mainGameSceneController.SoftCoinsPurchase(dinoType, _economyManager.GetDinoCost(dinoType));
-            RefreshButtons(null);
+            if (_economyManager.SpendSoftCoins(_economyManager.GetDinoCost(dinoType)))
+            {
+                _mainGameSceneController.PurchaseDino(dinoType);
+                RefreshButtons(null);
+            }
         }
         else
         {
             GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
     }
-    public void GemsPurcharse(int dinoType)
+    public void HardCoinsPurcharse(int dinoType)
     {
-        if(_dinoPanelManagers[dinoType].GetGemCost() <= UserDataController._currentUserData._hardCoins)
+        if (UserDataController.GetEmptyCells() > 0)
         {
-            if (UserDataController.GetEmptyCells() > 0)
+            if (_economyManager.SpendHardCoins(_dinoPanelManagers[dinoType].GetGemCost()))
             {
-                UserDataController.SpendHardCoins(_dinoPanelManagers[dinoType].GetGemCost());
-                _mainGameSceneController.HardCoinPurchase(dinoType, GetGemPurchaseCost(dinoType));
+                _mainGameSceneController.PurchaseDino(dinoType);
                 RefreshButtons(null);
-            }
-            else
-            {
-                GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
             }
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOGEMS");
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
         }
-
     }
     public void WatchVideo(int dinoType)
     {
@@ -298,15 +295,26 @@ public class DayCareManager : MonoBehaviour
     public void WatchVideoCallback()
     {
         watchedVideo = true;
-        _mainGameSceneController.FreePurchase(GetAdPurchaseIndex());
+        _mainGameSceneController.PurchaseDino(GetAdPurchaseIndex());
         RefreshButtons(null);
     }
 
     public void FastPurchase()
     {
-        Purchase(_fastPurchaseDinoType);
+        SoftCoinPurchase(_fastPurchaseDinoType);
     }
-
+    IEnumerator CrOpen()
+    {
+        RectTransform rt = _shopPanel.GetComponent<RectTransform>();
+        rt.localScale = Vector3.zero;
+        _shopPanel.SetActive(true);
+        for (float i = 0; i < 0.25f; i += Time.deltaTime)
+        {
+            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
+            yield return null;
+        }
+        rt.localScale = Vector3.one;
+    }
 }
 
 

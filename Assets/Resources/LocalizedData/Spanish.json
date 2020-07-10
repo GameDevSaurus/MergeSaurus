@@ -256,7 +256,39 @@
     "value": "Este dino no se ha descubierto todavía"
   },
   {
-    "key": "ADVICE_NOGEMS",
+    "key": "ADVICE_NOHARDCOINS",
     "value": "No tienes gemas\nsuficientes"
+  },
+  {
+    "key": "ADVICE_NO_AD",
+    "value": "No te quedan más\nvideos"
+  },
+  {
+    "key": "ADVICE_NOSOFTCOINS",
+    "value": "No tienes suficiente\ndinero"
+  },
+  {
+    "key": "SPIN_REWARD_HARDCOINS",
+    "value": "Has ganado\n5 Gemas"
+  },
+  {
+    "key": "SPIN_REWARD_SOFTCOINS_2",
+    "value": "Has ganado\n2 horas de ingresos\n"
+  },
+  {
+    "key": "SPIN_REWARD_SOFTCOINS_4",
+    "value": "Has ganado\n4 horas de ingresos"
+  },
+  {
+    "key": "SPIN_REWARD_SPEEDUP_200",
+    "value": "Has ganado\n200 segundos de fiesta"
+  },
+  {
+    "key": "SPIN_REWARD_SPEEDUP_400",
+    "value": "Has ganado\n400 segundos de fiesta"
+  },
+  {
+    "key": "SPIN_REWARD_BOXES",
+    "value": "Has ganado\n4 superballs"
   }
 ]

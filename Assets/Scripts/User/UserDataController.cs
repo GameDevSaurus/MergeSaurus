@@ -151,38 +151,7 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
-    public static void BuySoftCoinsDinosaur(int dinosaurIndex, GameCurrency cost)
-    {
-        for(int i = 0; i< _currentUserData._unlockedCells; i++)
-        {
-            if (_currentUserData._dinosaurs[i] == -1)
-            {
-                _currentUserData._dinosaurs[i] = dinosaurIndex;
-                break;
-            }
-        }
-        _currentUserData._purchasedTimes[dinosaurIndex]++;
-        _currentUserData._obtainedTimes[dinosaurIndex]++;
-        GameCurrency gCToSubstract = new GameCurrency((_currentUserData._softCoins));
-        gCToSubstract.SubstractCurrency(cost);
-        _currentUserData._softCoins = gCToSubstract.GetIntList();
-        SaveToFile();
-    }
-    public static void BuyFreeDinosaur(int dinosaurIndex)
-    {
-        for (int i = 0; i < _currentUserData._unlockedCells; i++)
-        {
-            if (_currentUserData._dinosaurs[i] == -1)
-            {
-                _currentUserData._dinosaurs[i] = dinosaurIndex;
-                break;
-            }
-        }
-        _currentUserData._purchasedTimes[dinosaurIndex]++;
-        _currentUserData._obtainedTimes[dinosaurIndex]++;
-        SaveToFile();
-    }
-    public static void BuyHardCoinDinosaur(int dinosaurIndex, int cost)
+    public static void BuyDinosaur(int dinosaurIndex)
     {
         for (int i = 0; i < _currentUserData._unlockedCells; i++)
         {
@@ -276,6 +245,7 @@ public class UserDataController : MonoBehaviour
         if((mergeDinoType + 1) > GetBiggestDino())
         {
             GameEvents.DinoUp.Invoke(mergeDinoType + 1);
+            SetBiggestDino(mergeDinoType + 1);
             mergeUp = true;
         }
         _currentUserData._obtainedTimes[mergeDinoType + 1]++;
@@ -326,6 +296,17 @@ public class UserDataController : MonoBehaviour
         _currentUserData._hardCoins -= amount;
         SaveToFile();
     }
+    public static void SpendSoftCoins(GameCurrency amount)
+    {
+        GameCurrency g = new GameCurrency(_currentUserData._softCoins);
+        g.SubstractCurrency(amount);
+        _currentUserData._softCoins = g.GetIntList();
+        SaveToFile();
+    }
+    public static int GetHardCoins()
+    {
+        return _currentUserData._hardCoins;
+    }
 
     public static int GetOwnedDinosByDinoType(int dinoType)
     {
@@ -334,20 +315,13 @@ public class UserDataController : MonoBehaviour
 
     public static int GetBiggestDino()
     {
-        int biggestDino = 0;
-        for (int i = 0; i <_currentUserData._dinosaurs.Length; i++)
-        {
-            if (_currentUserData._dinosaurs[i] < 100)
-            {
-                if (_currentUserData._dinosaurs[i] > biggestDino)
-                {
-                    biggestDino = _currentUserData._dinosaurs[i];
-                }
-            }
-        }
-        return biggestDino;
+        return _currentUserData._biggestDino;
     }
-
+    public static void SetBiggestDino(int biggestDino)
+    {
+        _currentUserData._biggestDino = biggestDino;
+        SaveToFile();
+    }
     public int GetDiscountUpgradeLevel()
     {
         return _currentUserData._discountLevel;
@@ -368,4 +342,43 @@ public class UserDataController : MonoBehaviour
         return _currentUserData._extraCoolnessLevel;
     }
 
+    public void SpeedUp(int secs)
+    {
+        _currentUserData._speedUpRemainingSecs = secs;
+        _currentUserData._SpeedUpLastUse = System.DateTime.Now.ToBinary().ToString();
+        SaveToFile();
+    }
+    public static DateTime GetLastSpeedUpTime()
+    {
+        return DateTime.FromBinary(Convert.ToInt64(_currentUserData._SpeedUpLastUse));
+    }
+    public static int GetSpeedUpRemainingSecs()
+    {
+        return _currentUserData._speedUpRemainingSecs;
+    }
+    public static void UpdateSpeedUpData(int remainingSecs)
+    {
+        _currentUserData._speedUpRemainingSecs = remainingSecs;
+        _currentUserData._SpeedUpLastUse = System.DateTime.Now.ToBinary().ToString();
+        SaveToFile();
+    }
+
+    public static int GetSpinRemainingAds()
+    {
+        return _currentUserData._spinRemainingAds;
+    }
+    public static DateTime GetSpinLastViewTime()
+    {
+        return DateTime.FromBinary(Convert.ToInt64(_currentUserData._spinLastViewedAd));
+    }
+    public static void UpdateSpinData(int remainingAds)
+    {
+        _currentUserData._spinRemainingAds = remainingAds;
+        _currentUserData._spinLastViewedAd = System.DateTime.Now.ToBinary().ToString();
+        SaveToFile();
+    }
+    public static GameCurrency GetSoftCoins()
+    {
+        return new GameCurrency(_currentUserData._softCoins);
+    }
 }

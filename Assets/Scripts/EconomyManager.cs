@@ -13,7 +13,6 @@ public class EconomyManager : MonoBehaviour
     int initialCost0 = 100;
     int initialCost1 = 1500;
 
-
     private void Awake()
     {
         _initialCostList = new List<int>() {100, 1500};
@@ -33,6 +32,39 @@ public class EconomyManager : MonoBehaviour
     public void SetDinosInGame(List<DinosaurInstance> dinosInGame)
     {
         _dinosInGame = dinosInGame;
+    }
+
+    public bool SpendHardCoins(int amount)
+    {
+        bool canSpend = false;
+        if(UserDataController.GetHardCoins() >= amount)
+        {
+            canSpend = true;
+            UserDataController.SpendHardCoins(amount);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOHARDCOINS");
+        }
+        return canSpend;
+    }
+
+    public bool SpendSoftCoins(GameCurrency amount)
+    {
+        bool canSpend = false;
+        GameCurrency g = UserDataController.GetSoftCoins();
+        g.SubstractCurrency(amount);
+        int checkCurrency = int.Parse(g.GetIntAndCurrency()[0]);
+        if (checkCurrency > 0)
+        {
+            canSpend = true;
+            UserDataController.SpendSoftCoins(amount);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke("ADVICE_NOSOFTCOINS");
+        }
+        return canSpend;
     }
 
     public string GetEarningsPerSecond()

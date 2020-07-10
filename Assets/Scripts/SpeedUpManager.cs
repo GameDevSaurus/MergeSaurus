@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+
 public class SpeedUpManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,24 +22,43 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _activeTime;
     [SerializeField]
+    AnimationCurve animationCurve;
+    [SerializeField]
     VFXFireworksPool _VFXFireworksPool;
 
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
-    bool activeShown = false;
+
     private void Start()
     {
-        if (UserDataController.GetBiggestDino() < 3)
+        DateTime _lastSpeedUp = UserDataController.GetLastSpeedUpTime();
+        int remainingSecs = (int)System.DateTime.Now.Subtract(_lastSpeedUp).TotalSeconds;
+
+        int finalTime = UserDataController.GetSpeedUpRemainingSecs() - remainingSecs;
+
+        if (finalTime > 0)
         {
-            _speedUpButton.gameObject.SetActive(false);
+            SpeedUpCallback(finalTime);
         }
     }
     public void OpenSpeedUpPanel()
     {
+        StartCoroutine(CrOpen());
+        CheckGemsButton();
+    }
+    IEnumerator CrOpen()
+    {
+        RectTransform rt = _speedUpMain.GetComponent<RectTransform>();
+        rt.localScale = Vector3.zero;
         _speedUpMain.SetActive(true);
         _panelIsOpen = true;
-        CheckGemsButton();
+        for (float i = 0; i < 0.25f; i += Time.deltaTime)
+        {
+            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
+            yield return null;
+        }
+        rt.localScale = Vector3.one;
     }
     public void CloseSpeedUpPanel()
     {
@@ -51,6 +72,7 @@ public class SpeedUpManager : MonoBehaviour
         _speedUpTime += time;
         CurrentSceneManager.SetGlobalSpeed(2);
         _VFXFireworksPool.StartTheParty();
+        UserDataController.UpdateSpeedUpData((int)_speedUpTime);
     }
 
     public void SpeedUpShowVideo()

@@ -17,6 +17,8 @@ public class LevelUpPanelManager : MonoBehaviour
     [SerializeField]
     Sprite[] _rewardsIcons;
     [SerializeField]
+    AnimationCurve animationCurve;
+    [SerializeField]
     GameObject _rewardsPrefab;
     private void Start()
     {
@@ -30,14 +32,22 @@ public class LevelUpPanelManager : MonoBehaviour
 
     IEnumerator ShowNewLevelInfo()
     {
+        RectTransform rt = _levelUpPanel.GetComponent<RectTransform>();
+        rt.localScale = Vector3.zero;
         _levelUpPanel.SetActive(true);
+        for (float i = 0; i < 0.25f; i += Time.deltaTime)
+        {
+            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
+            yield return null;
+        }
+        rt.localScale = Vector3.one;
+
         canDisable = false;
         int level = UserDataController.GetLevel() + 1;
         _levelUpTx.text = level.ToString();
         yield return new WaitForSeconds(0.5f);
         canDisable = true;
     }
-
     public void DisableMainPanel()
     {
         if (canDisable)
