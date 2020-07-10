@@ -21,7 +21,7 @@ public class UserData
     public int[] _obtainedTimes;
     public int _discountLevel;
     public int _extraEarningsLevel;
-    public int _extraSpeedLevel;
+    public int _extraCoolnessLevel;
     public int _extraPasiveEarningsLevel;
 
 
@@ -46,7 +46,7 @@ public class UserData
         _workingCellsByExpositor = new int[10];
         _discountLevel = 0;
         _extraEarningsLevel = 0;
-        _extraSpeedLevel = 0;
+        _extraCoolnessLevel = 0;
         _extraPasiveEarningsLevel = 0;
         for (int i = 0; i<_dinosaurs.Length; i++)
         {

@@ -366,9 +366,9 @@ public class UserDataController : MonoBehaviour
         return _currentUserData._extraPasiveEarningsLevel;
     }
 
-    public int GetExtraSpeedLevel()
+    public int GetExtraCoolnessLevel()
     {
-
+        return _currentUserData._extraCoolnessLevel;
     }
 
 }
