@@ -25,7 +25,6 @@ public class EconomyManager : MonoBehaviour
             _initialCostList.Add((int)firstDinoCost);
         }
     }
-
     public void EarnSoftCoins(GameCurrency softCoins)
     {
         UserDataController.AddSoftCoins(softCoins);
@@ -36,7 +35,7 @@ public class EconomyManager : MonoBehaviour
         _dinosInGame = dinosInGame;
     }
 
-    public GameCurrency GetEarningsPerSecond()
+    public string GetEarningsPerSecond()
     {
         GameCurrency earningsPerSecond = new GameCurrency();
         foreach(DinosaurInstance d in _dinosInGame)
@@ -45,6 +44,16 @@ public class EconomyManager : MonoBehaviour
             {
                 earningsPerSecond.AddCurrency(_earningsByType[d.GetDinosaur()]);
             }
+        }
+        earningsPerSecond.MultiplyCurrency(CurrentSceneManager.GetGlobalSpeed());
+        return earningsPerSecond.GetCurrentMoney() + "/sec";
+    }
+    public GameCurrency GetTotalEarningsPerSecond()
+    {
+        GameCurrency earningsPerSecond = new GameCurrency();
+        foreach (DinosaurInstance d in _dinosInGame)
+        {
+            earningsPerSecond.AddCurrency(_earningsByType[d.GetDinosaur()]);       
         }
         return earningsPerSecond;
     }
