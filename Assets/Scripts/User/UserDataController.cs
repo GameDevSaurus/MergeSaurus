@@ -351,5 +351,24 @@ public class UserDataController : MonoBehaviour
         return biggestDino;
     }
 
+    public int GetDiscountUpgradeLevel()
+    {
+        return _currentUserData._discountLevel;
+    }
+
+    public int GetExtraEarningsLevel()
+    {
+        return _currentUserData._extraEarningsLevel;
+    }
+    
+    public int GetExtraPassiveEarningsLevel()
+    {
+        return _currentUserData._extraPasiveEarningsLevel;
+    }
+
+    public int GetExtraSpeedLevel()
+    {
+
+    }
 
 }
