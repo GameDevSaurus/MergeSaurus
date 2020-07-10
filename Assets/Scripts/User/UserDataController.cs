@@ -18,9 +18,9 @@ public class UserDataController : MonoBehaviour
         _checked = true;
     }
 
-    public static void InitializeUser(string lastUpdateTime)
+    public static void InitializeUser()
     {
-        _currentUserData = new UserData(lastUpdateTime);
+        _currentUserData = new UserData();
         SaveToFile();
         _checked = true;
     }
@@ -48,21 +48,18 @@ public class UserDataController : MonoBehaviour
 
     public static void SaveToFile()
     {
-        if (TimeController._timeChecked)
-        {
-            DateTime lastUpdatedTime = DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
-            DateTime now = TimeController.GetTimeNow();
-            TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
-            int elapsedSeconds = (int)elapsedTime.TotalSeconds;
+        DateTime lastUpdatedTime = DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
+        DateTime now = System.DateTime.Now;
+        TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
+        int elapsedSeconds = (int)elapsedTime.TotalSeconds;
 
-            /*
-             * TO DO: elapsedSeconds > 300 --> Mostrar panel ganancias pasivas
-             * 
-             */
+        /*
+         * TO DO: elapsedSeconds > 300 --> Mostrar panel ganancias pasivas
+         * 
+         */
 
-            _currentUserData._lastUpdatedTime = TimeController.GetTimeNow().ToBinary().ToString();
-            File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
-        }
+        _currentUserData._lastUpdatedTime = System.DateTime.Now.ToBinary().ToString();
+        File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
     }
 
     public static bool Exist()

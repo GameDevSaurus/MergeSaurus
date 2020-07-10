@@ -23,16 +23,12 @@ public class UserData
     public int _extraEarningsLevel;
     public int _extraCoolnessLevel;
     public int _extraPasiveEarningsLevel;
-
+    public int _spinRemainingAds;
+    public string _spinLastViewedAd;
 
     public UserData()
     {
-        _ID = 0;
-    }
-
-    public UserData(string lastUpdTime)
-    {
-        _lastUpdatedTime = lastUpdTime;
+        _lastUpdatedTime = System.DateTime.Now.ToBinary().ToString();
         _ID = 0;
         _experience = 0;
         _level = 1;
@@ -48,6 +44,8 @@ public class UserData
         _extraEarningsLevel = 0;
         _extraCoolnessLevel = 0;
         _extraPasiveEarningsLevel = 0;
+        _spinRemainingAds = 3;
+        _spinLastViewedAd = System.DateTime.Now.ToBinary().ToString();
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;

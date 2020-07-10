@@ -7,11 +7,11 @@ public class PassiveGainManager : MonoBehaviour
     [SerializeField]
     GameObject _mainPanel;
 
-    public void OpenVip()
+    public void OpenPassiveEarningsPanel()
     {
         _mainPanel.SetActive(true);
     }
-    public void CloseVip()
+    public void ClosePassiveEarningsPanel()
     {
         _mainPanel.SetActive(false);
     }
