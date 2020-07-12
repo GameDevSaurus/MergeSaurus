@@ -14,7 +14,7 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     Transform _speedUpButton;
     [SerializeField]
-    Button gemsPurchaseButton;
+    Button _hardCoinsPurchaseButton;
     [SerializeField]
     Transform _adButton;
     [SerializeField]
@@ -25,13 +25,14 @@ public class SpeedUpManager : MonoBehaviour
     AnimationCurve animationCurve;
     [SerializeField]
     VFXFireworksPool _VFXFireworksPool;
-
+    [SerializeField]
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
-
+    PanelManager _panelManager;
     private void Start()
     {
+        _panelManager = FindObjectOfType<PanelManager>();
         DateTime _lastSpeedUp = UserDataController.GetLastSpeedUpTime();
         int remainingSecs = (int)System.DateTime.Now.Subtract(_lastSpeedUp).TotalSeconds;
 
@@ -44,21 +45,12 @@ public class SpeedUpManager : MonoBehaviour
     }
     public void OpenSpeedUpPanel()
     {
-        StartCoroutine(CrOpen());
-        CheckGemsButton();
+        CheckHardCoinsButton();
+        _panelManager.RequestShowPanel(_speedUpMain);
     }
-    IEnumerator CrOpen()
+    public Vector3 GetHardCoinsButtonPosition()
     {
-        RectTransform rt = _speedUpMain.GetComponent<RectTransform>();
-        rt.localScale = Vector3.zero;
-        _speedUpMain.SetActive(true);
-        _panelIsOpen = true;
-        for (float i = 0; i < 0.25f; i += Time.deltaTime)
-        {
-            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
-            yield return null;
-        }
-        rt.localScale = Vector3.one;
+        return _hardCoinsPurchaseButton.transform.position;
     }
     public void CloseSpeedUpPanel()
     {
@@ -87,17 +79,17 @@ public class SpeedUpManager : MonoBehaviour
             SpeedUpCallback(200);
             UserDataController._currentUserData._hardCoins -= 3;
         }
-        CheckGemsButton();
+        CheckHardCoinsButton();
     }
-    public void CheckGemsButton()
+    public void CheckHardCoinsButton()
     {
         if (UserDataController._currentUserData._hardCoins >= 3)
         {
-            gemsPurchaseButton.interactable = true;
+            _hardCoinsPurchaseButton.interactable = true;
         }
         else
         {
-            gemsPurchaseButton.interactable = false;
+            _hardCoinsPurchaseButton.interactable = false;
         }
     }
     private void Update()

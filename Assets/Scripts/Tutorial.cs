@@ -343,7 +343,7 @@ public class Tutorial : MonoBehaviour
         _handController.StopTouchCoroutines();
         _handController.gameObject.SetActive(false);
         _circlePanelObject.SetActive(true);
-        _circlePanelTr.position = _speedUpManager.GetAdButtPosition();
+        _circlePanelTr.position = _speedUpManager.GetHardCoinsButtonPosition();
         yield return StartCoroutine(ZoomIn(1f));
         _handController.GetComponent<RectTransform>().position = _speedUpManager.GetAdButtPosition();
         _handController.gameObject.SetActive(true);

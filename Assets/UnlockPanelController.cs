@@ -20,6 +20,11 @@ public class UnlockPanelController : MonoBehaviour
             int unlockIndex = 7;
             switch (biggestDino)
             {
+                case 0:
+                case 1:
+                case 2:
+                    unlockIndex = 0;
+                    break;
                 case 3:
                 case 4:
                     unlockIndex = 2;

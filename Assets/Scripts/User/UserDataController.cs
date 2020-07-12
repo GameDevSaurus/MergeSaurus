@@ -11,11 +11,20 @@ public class UserDataController : MonoBehaviour
     public static UserData _currentUserData;
     public static string _fileName = "CurrentUserData.json";
     public static bool _checked;
+    public static int lastSaveTime = -1;
     public static void Initialize()
     {
         _currentUserData = new UserData();
         SaveToFile();
         _checked = true;
+    }
+    public static DateTime GetLastSave()
+    {
+        return DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
+    }
+    public static int GetSecondsSinceLastSave()
+    {
+        return lastSaveTime;
     }
 
     public static void InitializeUser()
@@ -48,20 +57,23 @@ public class UserDataController : MonoBehaviour
 
     public static void SaveToFile()
     {
-        DateTime lastUpdatedTime = DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
-        DateTime now = System.DateTime.Now;
-        TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
-        int elapsedSeconds = (int)elapsedTime.TotalSeconds;
-
-        /*
-         * TO DO: elapsedSeconds > 300 --> Mostrar panel ganancias pasivas
-         * 
-         */
+        if(lastSaveTime < 0)
+        {
+            DateTime lastUpdatedTime = DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
+            DateTime now = System.DateTime.Now;
+            TimeSpan elapsedTime = now.Subtract(lastUpdatedTime);
+            int elapsedSeconds = (int)elapsedTime.TotalSeconds;
+            lastSaveTime = elapsedSeconds;
+        }
+        
 
         _currentUserData._lastUpdatedTime = System.DateTime.Now.ToBinary().ToString();
         File.WriteAllText(Application.persistentDataPath + "/" + _fileName, JsonUtility.ToJson(_currentUserData));
     }
-
+    private void Start()
+    {
+        lastSaveTime = -1;
+    }
     public static bool Exist()
     {
         return File.Exists(Application.persistentDataPath + "/" + _fileName);

@@ -29,6 +29,7 @@ public class UserData
     public string _SpeedUpLastUse;
     public string _dayCareLastViewedAd;
     public int _biggestDino;
+    public string _dailyRewardCheck;
 
     public UserData()
     {

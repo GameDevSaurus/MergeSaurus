@@ -1,31 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DailyRewardManager : MonoBehaviour
 {
     [SerializeField]
     GameObject _mainPanel;
     [SerializeField]
-    AnimationCurve animationCurve;
-    public void OpenDaily()
+    Image _blackBackgroundImage;
+    [SerializeField]
+    PanelManager _panelManager;
+    private void Awake()
     {
-        StartCoroutine(CrOpen());
+        _panelManager = FindObjectOfType<PanelManager>();
+        GameEvents.DinoUp.AddListener(DinoUpCallback);
+    }
+    public void DinoUpCallback(int dino)
+    {
+        if(dino == 6)
+        {
+            OpenPanel();
+        }
     }
     public void CloseDaily()
     {
         _mainPanel.SetActive(false);
     }
-    IEnumerator CrOpen()
+    private void Update()
     {
-        RectTransform rt = _mainPanel.GetComponent<RectTransform>();
-        rt.localScale = Vector3.zero;
-        _mainPanel.SetActive(true);
-        for (float i = 0; i < 0.25f; i += Time.deltaTime)
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
+            OpenPanel();
+        }
+    }
+    public void OpenPanel()
+    {
+        _panelManager.RequestShowPanel(_mainPanel.gameObject);
+        //StartCoroutine(CrOpenPanel());
+    }
+
+    IEnumerator CrOpenPanel()
+    {
+        _mainPanel.SetActive(true);
+        float fadeTime = 0.25f;
+        Color semiTransparentBlack = new Color(0, 0, 0, 0.75f);
+        Color transparentBlack = new Color(0, 0, 0, 0f);
+        for (float i = 0; i < fadeTime; i += Time.deltaTime)
+        {
+            _blackBackgroundImage.color = Color.Lerp(transparentBlack, semiTransparentBlack, i / fadeTime);
             yield return null;
         }
-        rt.localScale = Vector3.one;
+        _blackBackgroundImage.color = semiTransparentBlack;
+    }
+    public void CheckForDailyReward()
+    {
+
     }
 }

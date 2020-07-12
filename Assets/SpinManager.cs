@@ -17,19 +17,18 @@ public class SpinManager : MonoBehaviour
     SpeedUpManager _speedUpManager;
     BoxManager _boxManager;
     EconomyManager _economyManager;
-    [SerializeField]
-    AnimationCurve animationCurve;
     enum SpinRewards {Boxes, SmallSpeedTime, BigSpeedTime, Money2H, Money4H, Gems};
     SpinRewards _obtainedReward;
     float _nextAdTime;
     int timeToNextAd = 3600;
+    PanelManager _panelManager;
     private void Start()
     {
         _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
         _economyManager = FindObjectOfType<EconomyManager>();
         _currentTries = UserDataController.GetSpinRemainingAds();
-
+        _panelManager = FindObjectOfType<PanelManager>();
         int finalCount = (int)System.DateTime.Now.Subtract(UserDataController.GetSpinLastViewTime()).TotalSeconds;
         
         int nAds = finalCount / timeToNextAd;
@@ -40,9 +39,9 @@ public class SpinManager : MonoBehaviour
             _nextAdTime = timeToNextAd - remainingTime;
         }
     }
-    public void OpenSpin()
+    public void Open()
     {
-        StartCoroutine(Open());
+        _panelManager.RequestShowPanel(_mainPanel);
     }
     public void CloseSpin()
     {
@@ -162,17 +161,5 @@ public class SpinManager : MonoBehaviour
         }
         UserDataController.UpdateSpinData(_currentTries);
         CloseSpin();
-    }
-    IEnumerator Open()
-    {
-        RectTransform rt = _mainPanel.GetComponent<RectTransform>();
-        rt.localScale = Vector3.zero;
-        _mainPanel.SetActive(true);
-        for (float i = 0; i<0.25f; i += Time.deltaTime)
-        {
-            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i /0.25f));
-            yield return null;
-        }
-        rt.localScale = Vector3.one;
     }
 }

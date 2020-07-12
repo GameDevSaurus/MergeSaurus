@@ -26,8 +26,9 @@ public class DayCareManager : MonoBehaviour
     List<PurchaseDinoPanel> _dinoPanelManagers;
     bool watchedVideo = false;
     int smallGemCost = 3, bigGemCost = 4;
-    [SerializeField]
-    AnimationCurve animationCurve;
+
+    PanelManager _panelManager;
+
 
     public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
 
@@ -39,6 +40,7 @@ public class DayCareManager : MonoBehaviour
         _economyManager = FindObjectOfType<EconomyManager>();
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         _shopPanel.SetActive(false);
+        _panelManager = FindObjectOfType<PanelManager>();
         GameEvents.EarnMoney.AddListener(RefreshButtons);
         if (UserDataController.GetBiggestDino() < 3)
         {
@@ -73,8 +75,9 @@ public class DayCareManager : MonoBehaviour
     }
     public void Open()
     {
-        StartCoroutine(CrOpen());
         RefreshButtons(null);
+        _panelManager.RequestShowPanel(_shopPanel.gameObject);
+        
     }
 
     public void RefreshButtons(GameEvents.MoneyEventData e)
@@ -124,12 +127,12 @@ public class DayCareManager : MonoBehaviour
                             {
                                 if (i == biggestDino - 2)
                                 {
-                                    _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                    _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
                                     _dinoPanelManagers[i].SetGemsCost(bigGemCost);
                                 }
                                 if (i == biggestDino - 3)
                                 {
-                                    _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                    _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
                                     _dinoPanelManagers[i].SetGemsCost(smallGemCost);
                                 }
                             }
@@ -164,12 +167,12 @@ public class DayCareManager : MonoBehaviour
                                 {
                                     if (i == biggestDino - 2)
                                     {
-                                        _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                        _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
                                         _dinoPanelManagers[i].SetGemsCost(bigGemCost);
                                     }
                                     if (i == biggestDino - 3)
                                     {
-                                        _dinoPanelManagers[i].UnlockPanel(1); //Gemas
+                                        _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
                                         _dinoPanelManagers[i].SetGemsCost(smallGemCost);
                                     }
                                     if (i == biggestDino || i == biggestDino - 1)
@@ -303,18 +306,7 @@ public class DayCareManager : MonoBehaviour
     {
         SoftCoinPurchase(_fastPurchaseDinoType);
     }
-    IEnumerator CrOpen()
-    {
-        RectTransform rt = _shopPanel.GetComponent<RectTransform>();
-        rt.localScale = Vector3.zero;
-        _shopPanel.SetActive(true);
-        for (float i = 0; i < 0.25f; i += Time.deltaTime)
-        {
-            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
-            yield return null;
-        }
-        rt.localScale = Vector3.one;
-    }
+
 }
 
 
