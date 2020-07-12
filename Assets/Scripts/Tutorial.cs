@@ -320,6 +320,7 @@ public class Tutorial : MonoBehaviour
     }    
     IEnumerator Tutorial8()
     {
+        
         _tutorController.gameObject.SetActive(true);
         _tutorController.Speak(5);
         CurrentSceneManager.LockEverything();
@@ -336,16 +337,19 @@ public class Tutorial : MonoBehaviour
         _handController.gameObject.SetActive(true);
         _handController.StartTouchMode();
         yield return new WaitForSeconds(0.5f);
+        _speedUpManager.SetSpeedHardCoinsCost(0);
         while (!_speedUpManager.IsPanelOpen())
         {
             yield return null;
         }
+        transform.SetAsLastSibling();
+
         _handController.StopTouchCoroutines();
         _handController.gameObject.SetActive(false);
         _circlePanelObject.SetActive(true);
         _circlePanelTr.position = _speedUpManager.GetHardCoinsButtonPosition();
         yield return StartCoroutine(ZoomIn(1f));
-        _handController.GetComponent<RectTransform>().position = _speedUpManager.GetAdButtPosition();
+        _handController.GetComponent<RectTransform>().position = _speedUpManager.GetHardCoinsButtonPosition();
         _handController.gameObject.SetActive(true);
         _handController.StartTouchMode();
         while (CurrentSceneManager.GetGlobalSpeed() == 1)
@@ -358,6 +362,9 @@ public class Tutorial : MonoBehaviour
         UserDataController.SaveTutorial(8);
         CurrentSceneManager.UnlockEverything();
         _speedUpManager.CloseSpeedUpPanel();
+        _speedUpManager.SetSpeedHardCoinsCost(3);
+        transform.SetSiblingIndex(5);
+
     }
     #region EventsCallbacks
     public void FastPurchase(int n)

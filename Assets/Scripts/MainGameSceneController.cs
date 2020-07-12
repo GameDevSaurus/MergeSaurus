@@ -24,11 +24,12 @@ public class MainGameSceneController : MonoBehaviour
     TrashBin _trashBin;
     int deleteCount = 0;
     float deleteTimer = 0;
-
+    PanelManager _panelManager;
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
         _trashBin = FindObjectOfType<TrashBin>();
+        _panelManager = FindObjectOfType<PanelManager>();
     }
     private void Start()
     {
@@ -144,25 +145,46 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void Merge(DinosaurInstance dinoInstance1, int targetCellIndex)
     {
+        //Creamos al nuevo dinosaurio en la posición del mergeo
         GameObject dino = Instantiate(_dinoPrefabs[dinoInstance1.GetDinosaur()+1], _cellManager.GetCellPosition(targetCellIndex), Quaternion.identity);
+        //Obtenemos la dinoInstance del dinosaurio sobre el que soltamos
         DinosaurInstance dinoInstance2 = GetDinoInstanceByCell(targetCellIndex);
+        //Obtenemos la instance del dinosaurio recién creado
         DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
+        //A la dinoInstance del dinosaurio recién creado le decimos el dinosaurio que es
         dinoInst.SetDino(dinoInstance1.GetDinosaur()+1);
+        //A la dinoInstance del dinosaurio recién creado le decimos la celda que va a ocupar
         dinoInst.SetCell(targetCellIndex);
+        //A la lista de dinosaurios en juego añadimos la dinoinstance del recién creado
         _dinosIngame.Add(dinoInst);
+        //A la lista de dinosaurios en juego le borramos las dinoinstance de los dinosaurios mergeados
         _dinosIngame.Remove(dinoInstance1);
         _dinosIngame.Remove(dinoInstance2);
 
+
         if(UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur()))
         {
+            //Si es un dinosaurio nuevo, realizamos la animación de nuevo dinosaurio
             StartCoroutine(WaitForUnlockNewDino( dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino ));
         }
         else
         {
+            //Si no lo es, finalizamos el merge
             EndMerge(dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino);
         }
     }
-
+    public void EndMerge(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
+    {
+        //A la celda del dinosaurio desde el que empezamos a arrastrar le borramos el dinosaurio
+        _cellManager.SetDinosaurInCell(null, dinoInstance1.GetCellNumber());
+        //A la celda del dinosaurio sobre el que merjeamos lo actualizamos para que tenga la referencia del dinosaurio nuevo mergeado
+        _cellManager.SetDinosaurInCell(dinoInst, dinoInstance2.GetCellNumber());
+        //Borramos los dos dinosaurios preMergeo
+        Destroy(dinoInstance1.gameObject);
+        Destroy(dinoInstance2.gameObject);
+        //Se termina el mergeo, conque llamamos al evento.
+        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
+    }
     public void Swap(DinosaurInstance dino1, DinosaurInstance dino2)
     {
         int auxDino1Cell = dino1.GetCellNumber();
@@ -196,14 +218,7 @@ public class MainGameSceneController : MonoBehaviour
     {
         waitingForAnimation = false;
     }
-    public void EndMerge(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
-    {
-        _cellManager.SetDinosaurInCell(null, dinoInstance1.GetCellNumber());
-        _cellManager.SetDinosaurInCell(dinoInst, dinoInstance2.GetCellNumber());
-        Destroy(dinoInstance1.gameObject);
-        Destroy(dinoInstance2.gameObject);
-        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
-    }
+
     DinosaurInstance GetDinoInstanceByCell(int cell)
     {
         foreach(DinosaurInstance d in _dinosIngame)

@@ -26,16 +26,20 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     VFXFireworksPool _VFXFireworksPool;
     [SerializeField]
+    TextMeshProUGUI _hardCoinsPurchaseText;
+    [SerializeField]
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
     PanelManager _panelManager;
+    int _speedHardCoinsCost = 3;
+    EconomyManager _economyManager;
     private void Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
         DateTime _lastSpeedUp = UserDataController.GetLastSpeedUpTime();
         int remainingSecs = (int)System.DateTime.Now.Subtract(_lastSpeedUp).TotalSeconds;
-
+        _economyManager = FindObjectOfType<EconomyManager>();
         int finalTime = UserDataController.GetSpeedUpRemainingSecs() - remainingSecs;
 
         if (finalTime > 0)
@@ -43,10 +47,16 @@ public class SpeedUpManager : MonoBehaviour
             SpeedUpCallback(finalTime);
         }
     }
+    public void SetSpeedHardCoinsCost(int newCost)
+    {
+        _speedHardCoinsCost = newCost;
+        _hardCoinsPurchaseText.text = newCost.ToString();
+    }
     public void OpenSpeedUpPanel()
     {
         CheckHardCoinsButton();
         _panelManager.RequestShowPanel(_speedUpMain);
+        _panelIsOpen = true;
     }
     public Vector3 GetHardCoinsButtonPosition()
     {
@@ -54,7 +64,7 @@ public class SpeedUpManager : MonoBehaviour
     }
     public void CloseSpeedUpPanel()
     {
-        _speedUpMain.SetActive(false);
+        _panelManager.ClosePanel();
         _panelIsOpen = false;
     }
 
@@ -72,18 +82,18 @@ public class SpeedUpManager : MonoBehaviour
         GameEvents.PlayAd.Invoke("SpeedUp");
     }
 
-    public void GemsPurchase()
+    public void HardcoinsPurchase()
     {
-        if(UserDataController._currentUserData._hardCoins >= 3)
+        
+        if(_economyManager.SpendHardCoins(_speedHardCoinsCost))
         {
             SpeedUpCallback(200);
-            UserDataController._currentUserData._hardCoins -= 3;
         }
         CheckHardCoinsButton();
     }
     public void CheckHardCoinsButton()
     {
-        if (UserDataController._currentUserData._hardCoins >= 3)
+        if (UserDataController._currentUserData._hardCoins >= _speedHardCoinsCost)
         {
             _hardCoinsPurchaseButton.interactable = true;
         }

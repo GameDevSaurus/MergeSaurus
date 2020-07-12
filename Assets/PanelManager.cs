@@ -12,7 +12,6 @@ public class PanelManager : MonoBehaviour
     Image _blackBackground;
     public void RequestShowPanel(GameObject panel)
     {
-        print("VAmooos");
         if (_panelsToOpen == null)
         {
             _panelsToOpen = new Queue<GameObject>();
@@ -45,11 +44,10 @@ public class PanelManager : MonoBehaviour
 
     IEnumerator CrShowPanel()
     {
-        print("Mostraré muestreando");
         GameObject panelToShow = _panelsToOpen.Dequeue();
         Color transparentBlack = new Color(0, 0, 0, 0f);
         panelToShow.SetActive(true);
-        Color semiTransparentBlack = new Color(0, 0, 0, 0.5f);
+        Color semiTransparentBlack = new Color(0, 0, 0, 1f);
         _blackBackground.color = transparentBlack;
         _blackBackground.gameObject.SetActive(true);
         _isAnyPanelOpen = true;
