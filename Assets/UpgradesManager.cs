@@ -25,7 +25,7 @@ public class UpgradesManager : MonoBehaviour
     MainGameSceneController _mainGameSceneController;
     int discountIncrement = 5, earningsIncrement = 7, coolnesIncrement = 6, passiveEarningsIncrement = 4;
 
-    public enum UpgradeTypes {Discount, DinoEarnings, Coolness , PassiveEarnings}
+    public enum UpgradeTypes {Discount, DinoEarnings, TouristSpeed , PassiveEarnings}
 
     public void OpenUpgrades()
     {
@@ -46,22 +46,22 @@ public class UpgradesManager : MonoBehaviour
     {
         int dinoLevelForDiscount = GetDinoLevelForUpgrade(UpgradeTypes.Discount, UserDataController.GetDiscountUpgradeLevel()) ;
         int dinoLevelForEarnings = GetDinoLevelForUpgrade(UpgradeTypes.DinoEarnings, UserDataController.GetExtraEarningsLevel()) ;
-        int dinoLevelForCoolness = GetDinoLevelForUpgrade(UpgradeTypes.Coolness, UserDataController.GetExtraCoolnessLevel());
+        int dinoLevelForTouristSpeed = GetDinoLevelForUpgrade(UpgradeTypes.TouristSpeed, UserDataController.GetExtraTouristSpeedLevel());
         int dinoLevelForPassiveEarnings = GetDinoLevelForUpgrade(UpgradeTypes.PassiveEarnings, UserDataController.GetExtraPassiveEarningsLevel());
 
-        _dinoRequiredTypeTx[0].text = "Dino " + (dinoLevelForDiscount+1);
-        _dinoRequiredTypeTx[1].text = "Dino " + (dinoLevelForEarnings+1);
-        _dinoRequiredTypeTx[2].text = "Dino " + (dinoLevelForCoolness+1);
-        _dinoRequiredTypeTx[3].text = "Dino " + (dinoLevelForPassiveEarnings+1);
+        _dinoRequiredTypeTx[0].text = "Dino " + (dinoLevelForDiscount + 1);
+        _dinoRequiredTypeTx[1].text = "Dino " + (dinoLevelForEarnings + 1);
+        _dinoRequiredTypeTx[2].text = "Dino " + (dinoLevelForTouristSpeed + 1);
+        _dinoRequiredTypeTx[3].text = "Dino " + (dinoLevelForPassiveEarnings + 1);
 
         _currentLevelsTx[0].text = "Nvl. " + (UserDataController.GetDiscountUpgradeLevel() +1);
         _currentLevelsTx[1].text = "Nvl. " + (UserDataController.GetExtraEarningsLevel()+1);
-        _currentLevelsTx[2].text = "Nvl. " + (UserDataController.GetExtraCoolnessLevel()+1);
+        _currentLevelsTx[2].text = "Nvl. " + (UserDataController.GetExtraTouristSpeedLevel()+1);
         _currentLevelsTx[3].text = "Nvl. " + (UserDataController.GetExtraPassiveEarningsLevel()+1);
 
         _dinoCostTx[0].text = UserDataController.GetDinoAmountByType(dinoLevelForDiscount) + "/3";
         _dinoCostTx[1].text = UserDataController.GetDinoAmountByType(dinoLevelForEarnings) + "/3";
-        _dinoCostTx[2].text = UserDataController.GetDinoAmountByType(dinoLevelForCoolness) + "/3";
+        _dinoCostTx[2].text = UserDataController.GetDinoAmountByType(dinoLevelForTouristSpeed) + "/3";
         _dinoCostTx[3].text = UserDataController.GetDinoAmountByType(dinoLevelForPassiveEarnings) + "/3";
 
         _upgradesCurrentPercentTx[0].text = discountIncrement * UserDataController.GetDiscountUpgradeLevel() + "%";
@@ -70,8 +70,8 @@ public class UpgradesManager : MonoBehaviour
         _upgradesCurrentPercentTx[1].text = earningsIncrement * UserDataController.GetExtraEarningsLevel() + "%";
         _upgradesTargetPercentTx[1].text = " -> " + earningsIncrement * (UserDataController.GetExtraEarningsLevel() + 1) + "%";
 
-        _upgradesCurrentPercentTx[2].text = coolnesIncrement * UserDataController.GetExtraCoolnessLevel() + "%";
-        _upgradesTargetPercentTx[2].text = " -> " + coolnesIncrement * (UserDataController.GetExtraCoolnessLevel() + 1) + "%";
+        _upgradesCurrentPercentTx[2].text = coolnesIncrement * UserDataController.GetExtraTouristSpeedLevel() + "%";
+        _upgradesTargetPercentTx[2].text = " -> " + coolnesIncrement * (UserDataController.GetExtraTouristSpeedLevel() + 1) + "%";
 
         _upgradesCurrentPercentTx[3].text = passiveEarningsIncrement * UserDataController.GetExtraPassiveEarningsLevel() + "%";
         _upgradesTargetPercentTx[3].text = " -> " + passiveEarningsIncrement * (UserDataController.GetExtraPassiveEarningsLevel() + 1) + "%";
@@ -94,7 +94,7 @@ public class UpgradesManager : MonoBehaviour
             _upgradeButtons[1].interactable = false;
         }
 
-        if (UserDataController.GetDinoAmountByType(dinoLevelForCoolness) >= 3)
+        if (UserDataController.GetDinoAmountByType(dinoLevelForTouristSpeed) >= 3)
         {
             _upgradeButtons[2].interactable = true;
         }
@@ -134,8 +134,8 @@ public class UpgradesManager : MonoBehaviour
             case UpgradeTypes.DinoEarnings:
                 requiredDinoLevel = GetDinoLevelForUpgrade(upgradeType, UserDataController.GetExtraEarningsLevel());
                 break;
-            case UpgradeTypes.Coolness:
-                requiredDinoLevel = GetDinoLevelForUpgrade(upgradeType, UserDataController.GetExtraCoolnessLevel());
+            case UpgradeTypes.TouristSpeed:
+                requiredDinoLevel = GetDinoLevelForUpgrade(upgradeType, UserDataController.GetExtraTouristSpeedLevel());
                 break;
             case UpgradeTypes.PassiveEarnings:
                 requiredDinoLevel = GetDinoLevelForUpgrade(upgradeType, UserDataController.GetExtraPassiveEarningsLevel());
@@ -151,5 +151,30 @@ public class UpgradesManager : MonoBehaviour
             UserDataController.LevelUpUpgrade(upgradeType);
             RefreshUpgradesInfo();
         }
+    }
+
+    public static int GetDiscount() 
+    {
+        int increment = 5;
+        int discount = increment * UserDataController.GetDiscountUpgradeLevel();
+        return discount;
+    }
+    public static int GetExtraEarnings()
+    {
+        int increment = 7;
+        int extra = increment * UserDataController.GetExtraEarningsLevel();
+        return extra;
+    }
+    public static int GetExtraTouristSpeed()
+    {
+        int increment = 6;
+        int extra = increment * UserDataController.GetExtraTouristSpeedLevel();
+        return extra;
+    }
+    public static int GetExtraPassiveEarnings()
+    {
+        int increment = 4;
+        int extra = increment * UserDataController.GetExtraPassiveEarningsLevel();
+        return extra;
     }
 }

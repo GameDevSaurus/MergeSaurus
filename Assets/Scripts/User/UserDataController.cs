@@ -342,9 +342,9 @@ public class UserDataController : MonoBehaviour
     {
         return _currentUserData._extraEarningsLevel;
     }
-    public static int GetExtraCoolnessLevel()
+    public static int GetExtraTouristSpeedLevel()
     {
-        return _currentUserData._extraCoolnessLevel;
+        return _currentUserData._extraTouristSpeedLevel;
     }
     public static int GetExtraPassiveEarningsLevel()
     {
@@ -361,8 +361,8 @@ public class UserDataController : MonoBehaviour
             case UpgradesManager.UpgradeTypes.DinoEarnings:
                 _currentUserData._extraEarningsLevel++;
                 break;
-            case UpgradesManager.UpgradeTypes.Coolness:
-                _currentUserData._extraCoolnessLevel++;
+            case UpgradesManager.UpgradeTypes.TouristSpeed:
+                _currentUserData._extraTouristSpeedLevel++;
                 break;
             case UpgradesManager.UpgradeTypes.PassiveEarnings:
                 _currentUserData._extraPasiveEarningsLevel++;

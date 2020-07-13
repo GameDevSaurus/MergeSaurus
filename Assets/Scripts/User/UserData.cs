@@ -21,7 +21,7 @@ public class UserData
     public int[] _obtainedTimes;
     public int _discountLevel;
     public int _extraEarningsLevel;
-    public int _extraCoolnessLevel;
+    public int _extraTouristSpeedLevel;
     public int _extraPasiveEarningsLevel;
     public int _spinRemainingAds;
     public string _spinLastViewedAd;
@@ -47,7 +47,7 @@ public class UserData
         _workingCellsByExpositor = new int[10];
         _discountLevel = 0;
         _extraEarningsLevel = 0;
-        _extraCoolnessLevel = 0;
+        _extraTouristSpeedLevel = 0;
         _extraPasiveEarningsLevel = 0;
         _spinRemainingAds = 3;
         _spinLastViewedAd = System.DateTime.Now.ToBinary().ToString();

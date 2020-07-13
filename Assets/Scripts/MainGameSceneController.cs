@@ -24,12 +24,10 @@ public class MainGameSceneController : MonoBehaviour
     TrashBin _trashBin;
     int deleteCount = 0;
     float deleteTimer = 0;
-    PanelManager _panelManager;
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
         _trashBin = FindObjectOfType<TrashBin>();
-        _panelManager = FindObjectOfType<PanelManager>();
     }
     private void Start()
     {

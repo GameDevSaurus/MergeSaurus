@@ -56,12 +56,6 @@ public class PanelManager : MonoBehaviour
         _blackBackground.gameObject.SetActive(true);
         _isAnyPanelOpen = true;
         _currentPanel = panelToShow;
-        float fadeTime = 0.1f;
-        //for (float i = 0; i < fadeTime; i += Time.deltaTime)
-        //{
-        //    _blackBackground.color = Color.Lerp(transparentBlack, semiTransparentBlack, i / fadeTime);
-        //    yield return null;
-        //}
         _blackBackground.color = semiTransparentBlack;
     }
 }

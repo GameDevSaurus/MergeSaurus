@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -93,13 +94,6 @@ public class GameCurrency
                 }
             }
         }
-        if (canSubstract)
-        {
-            Print();
-            currency.Print();
-        }
-
-
         return canSubstract;
     }
 
@@ -201,9 +195,22 @@ public class GameCurrency
 
     public void MultiplyCurrency(float multiplier)
     {
-        for(int i = 0; i<_currencyUnits.Length; i++)
+        for (int i = 0; i<_currencyUnits.Length; i++)
         {
-            _currencyUnits[i] = (int)(_currencyUnits[i] * multiplier);
+            float multipliedCurrency = _currencyUnits[i] * multiplier;
+            int finalMultipliedCurrency = 0;
+
+            if(i == 0)
+            {
+                finalMultipliedCurrency = Mathf.RoundToInt(multipliedCurrency);
+            }
+            else
+            {
+                finalMultipliedCurrency = Mathf.FloorToInt(multipliedCurrency);
+                float difference = multipliedCurrency - finalMultipliedCurrency;
+                _currencyUnits[i - 1] += Mathf.RoundToInt(difference * 1000);
+            }
+            _currencyUnits[i] = finalMultipliedCurrency;
         }
         ConvertUnits();
     }
@@ -228,5 +235,6 @@ public class GameCurrency
             s += _currencyUnits[i];
             s += _currencyNames[i];
         }
+        Debug.Log(s);
     }
 }

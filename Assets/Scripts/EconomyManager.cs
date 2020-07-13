@@ -92,7 +92,12 @@ public class EconomyManager : MonoBehaviour
 
     public GameCurrency GetEarningsByType(int dinoType)
     {
-        return _earningsByType[dinoType];
+        GameCurrency g = new GameCurrency(_earningsByType[dinoType].GetIntList());
+        if (UserDataController.GetExtraEarningsLevel() > 0)
+        {
+            g.MultiplyCurrency(1f + (UpgradesManager.GetExtraEarnings() / 100f));
+        }
+        return g;
     }
 
     public GameCurrency GetDinoCost(int dinoType)
@@ -111,6 +116,10 @@ public class EconomyManager : MonoBehaviour
                 dinoCurrency = GetInitialCost(dinoType);
                 dinoCurrency.MultiplyCurrency(Mathf.Pow(_dinoIncrementRatio, ownedDinos));
             }
+        }
+        if(UserDataController.GetDiscountUpgradeLevel() > 0)
+        {
+            dinoCurrency.MultiplyCurrency(1f - (UpgradesManager.GetDiscount()/100f));
         }
         return dinoCurrency;
     }

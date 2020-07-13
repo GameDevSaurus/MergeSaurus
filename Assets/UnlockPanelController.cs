@@ -15,7 +15,7 @@ public class UnlockPanelController : MonoBehaviour
     
     void UnlockButtons(int biggestDino)
     {
-        if(biggestDino < 8)
+        if(biggestDino < 2) //PONER A 8
         {
             int unlockIndex = 7;
             switch (biggestDino)
