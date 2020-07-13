@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 [System.Serializable]
 public class GameCurrency
@@ -72,6 +73,7 @@ public class GameCurrency
         }
     }
 
+
     public bool CompareCurrencies(GameCurrency currency)
     {
         bool canSubstract = true;
@@ -117,6 +119,34 @@ public class GameCurrency
                 }
             }
         }
+    }
+
+    public string GetCurrentMoneyConvertedTo3Chars()
+    {
+        int currentMoney = 0;
+        int charIndex = 0;
+        for (int i = _currencyUnits.Length - 1; i >= 0; i--)
+        {
+            if (_currencyUnits[i] > 0)
+            {
+                if (i > 0)
+                {
+                    currentMoney = _currencyUnits[i - 1] + (_currencyUnits[i] * 1000);
+                    charIndex = i - 1;
+                    if (currentMoney > 10000)
+                    {
+                        currentMoney /= 1000;
+                        charIndex++;
+                    }
+                    break;
+                }
+                else
+                {
+                    currentMoney = _currencyUnits[0];
+                }
+            }
+        }
+        return currentMoney + _currencyNames[charIndex];
     }
 
     public string GetCurrentMoney()

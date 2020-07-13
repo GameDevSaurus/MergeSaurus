@@ -29,14 +29,15 @@ public class LevelUpPanelManager : MonoBehaviour
     public void LevelUp()
     {
         StartCoroutine(ShowNewLevelInfo());
-        LevelUpRewards(UserDataController.GetLevel() + 1);
+        LevelUpRewards(UserDataController.GetLevel());
     }
 
     IEnumerator ShowNewLevelInfo()
     {
+        yield return null;
         _panelManager.RequestShowPanel(_levelUpPanel);
         canDisable = false;
-        int level = UserDataController.GetLevel() + 1;
+        int level = UserDataController.GetLevel();
         _levelUpTx.text = level.ToString();
         yield return new WaitForSeconds(0.5f);
         canDisable = true;

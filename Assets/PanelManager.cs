@@ -25,7 +25,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowPanel()
     {
-        StartCoroutine(CrShowPanel());
+        CrShowPanel();
     }
 
     public void ClosePanel()
@@ -42,22 +42,26 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    IEnumerator CrShowPanel()
+    public bool GetPanelState()
+    {
+        return _isAnyPanelOpen;
+    }
+    void CrShowPanel()
     {
         GameObject panelToShow = _panelsToOpen.Dequeue();
         Color transparentBlack = new Color(0, 0, 0, 0f);
         panelToShow.SetActive(true);
-        Color semiTransparentBlack = new Color(0, 0, 0, 1f);
+        Color semiTransparentBlack = new Color(0, 0, 0, 0.8f);
         _blackBackground.color = transparentBlack;
         _blackBackground.gameObject.SetActive(true);
         _isAnyPanelOpen = true;
         _currentPanel = panelToShow;
         float fadeTime = 0.1f;
-        for (float i = 0; i < fadeTime; i += Time.deltaTime)
-        {
-            _blackBackground.color = Color.Lerp(transparentBlack, semiTransparentBlack, i / fadeTime);
-            yield return null;
-        }
+        //for (float i = 0; i < fadeTime; i += Time.deltaTime)
+        //{
+        //    _blackBackground.color = Color.Lerp(transparentBlack, semiTransparentBlack, i / fadeTime);
+        //    yield return null;
+        //}
         _blackBackground.color = semiTransparentBlack;
     }
 }

@@ -28,6 +28,8 @@ public class Tutorial : MonoBehaviour
     SpeedUpManager _speedUpManager;
     [SerializeField]
     BoxManager _boxManager;
+    [SerializeField]
+    PanelManager _panelManager;
 
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
@@ -47,7 +49,7 @@ public class Tutorial : MonoBehaviour
     {
         GameEvents.Purchase.AddListener(FastPurchase);
         GameEvents.ShowAdvice.AddListener(ShowAdvice);
-        GameEvents.MergeDino.AddListener(Merge);
+        GameEvents.CloseDinoUpPanel.AddListener(Merge);
         GameEvents.WorkDino.AddListener(Work);
         GameEvents.OpenBox.AddListener(OpenBox);
         GameEvents.TakeBack.AddListener(TakeDinoBack);
@@ -300,6 +302,10 @@ public class Tutorial : MonoBehaviour
     }
     IEnumerator Tutorial7()
     {
+        while (_panelManager.GetPanelState())
+        {
+            yield return null;
+        }
         _tutorController.gameObject.SetActive(true);
         _tutorController.Speak(3);
         CurrentSceneManager.LockEverything();
@@ -320,7 +326,10 @@ public class Tutorial : MonoBehaviour
     }    
     IEnumerator Tutorial8()
     {
-        
+        while (_panelManager.GetPanelState())
+        {
+            yield return null;
+        }
         _tutorController.gameObject.SetActive(true);
         _tutorController.Speak(5);
         CurrentSceneManager.LockEverything();
@@ -391,7 +400,7 @@ public class Tutorial : MonoBehaviour
             StartTutorial(2);
         }
     }
-    public void Merge(int dinoType)
+    public void Merge()
     {
         if (waitingMergeTutorial2)
         {
@@ -417,7 +426,7 @@ public class Tutorial : MonoBehaviour
             }
             else
             {
-                if (dinoType == 3 && !UserDataController._currentUserData._tutorialCompleted[8])
+                if (!UserDataController._currentUserData._tutorialCompleted[8])
                 {
                     _handController.StopTouchCoroutines();
                     _handController.gameObject.SetActive(false);

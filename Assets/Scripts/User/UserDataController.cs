@@ -334,22 +334,22 @@ public class UserDataController : MonoBehaviour
         _currentUserData._biggestDino = biggestDino;
         SaveToFile();
     }
-    public int GetDiscountUpgradeLevel()
+    public static int GetDiscountUpgradeLevel()
     {
         return _currentUserData._discountLevel;
     }
 
-    public int GetExtraEarningsLevel()
+    public static int GetExtraEarningsLevel()
     {
         return _currentUserData._extraEarningsLevel;
     }
     
-    public int GetExtraPassiveEarningsLevel()
+    public static int GetExtraPassiveEarningsLevel()
     {
         return _currentUserData._extraPasiveEarningsLevel;
     }
 
-    public int GetExtraCoolnessLevel()
+    public static int GetExtraCoolnessLevel()
     {
         return _currentUserData._extraCoolnessLevel;
     }

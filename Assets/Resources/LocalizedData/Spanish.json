@@ -124,7 +124,7 @@
     "value": "Subir Nivel"
   },
   {
-    "key": "UPGRADES_INFO_PANEL",
+    "key": "UPGRADES_INFO_PANEL_0",
     "value": "Descuento de los dinos"
   },
   {
@@ -290,5 +290,17 @@
   {
     "key": "SPIN_REWARD_BOXES",
     "value": "Has ganado\n4 superballs"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_1",
+    "value": "Ganancias de los dinos"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_2",
+    "value": "Carisma de los dinos"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_3",
+    "value": "Ganancias pasivas"
   }
 ]

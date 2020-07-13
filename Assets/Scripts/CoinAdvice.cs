@@ -28,7 +28,7 @@ public class CoinAdvice : MonoBehaviour
     IEnumerator AdviceManage(GameCurrency nCoins)
     {
         _adviceText.rectTransform.anchoredPosition = new Vector2(0, 50);
-        yield return  StartCoroutine(CrShowText(nCoins.GetCurrentMoney()));
+        yield return  StartCoroutine(CrShowText(nCoins.GetCurrentMoneyConvertedTo3Chars()));
         StartCoroutine(CrMoveText());
         yield return new WaitForSeconds(moveDuration - fadeDuration * 2f);
         yield return StartCoroutine(CrHideText());

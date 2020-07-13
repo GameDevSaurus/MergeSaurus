@@ -50,13 +50,9 @@ public class MergeUpManager : MonoBehaviour
         canDisable = true;
     }
 
-    public void DisableMainPanel()
+    public void ClosePanel()
     {
-        if (canDisable)
-        {
-            _panelManager.ClosePanel();
-            _mainGameSceneController.StopWaitingAnim();
-            _mergeUpPanel.SetActive(false);
-        }
+        _panelManager.ClosePanel();
+        GameEvents.CloseDinoUpPanel.Invoke();
     }
 }

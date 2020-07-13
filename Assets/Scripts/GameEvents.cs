@@ -63,6 +63,8 @@ public static class GameEvents
     public static UnityEvent WorkDino = new UnityEvent();
     public static UnityEvent OpenBox = new UnityEvent();
     public static UnityEvent TakeBack = new UnityEvent();
+    public static UnityEvent CloseDinoUpPanel = new UnityEvent();
+    public static UnityEvent CloseLevelUpPanel = new UnityEvent();
     public static StringEvent ShowAdvice = new StringEvent();
 
     public static MoneyEvent EarnMoney = new MoneyEvent();

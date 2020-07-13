@@ -161,20 +161,6 @@ public class MainGameSceneController : MonoBehaviour
         _dinosIngame.Remove(dinoInstance1);
         _dinosIngame.Remove(dinoInstance2);
 
-
-        if(UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur()))
-        {
-            //Si es un dinosaurio nuevo, realizamos la animación de nuevo dinosaurio
-            StartCoroutine(WaitForUnlockNewDino( dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino ));
-        }
-        else
-        {
-            //Si no lo es, finalizamos el merge
-            EndMerge(dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino);
-        }
-    }
-    public void EndMerge(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
-    {
         //A la celda del dinosaurio desde el que empezamos a arrastrar le borramos el dinosaurio
         _cellManager.SetDinosaurInCell(null, dinoInstance1.GetCellNumber());
         //A la celda del dinosaurio sobre el que merjeamos lo actualizamos para que tenga la referencia del dinosaurio nuevo mergeado
@@ -184,41 +170,29 @@ public class MainGameSceneController : MonoBehaviour
         Destroy(dinoInstance2.gameObject);
         //Se termina el mergeo, conque llamamos al evento.
         GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
+        UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur());
     }
     public void Swap(DinosaurInstance dino1, DinosaurInstance dino2)
     {
+        bool dino2IsWorking = dino2.IsWorking();
+        int dino2Expositor = -1;
         int auxDino1Cell = dino1.GetCellNumber();
         int auxDino2Cell = dino2.GetCellNumber();
+        if (dino2IsWorking)
+        {
+            dino2Expositor = _cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor().GetExpositorNumber();
+            StopShowDino(auxDino2Cell);
+        }
         UserDataController.MoveDinosaur(auxDino1Cell, auxDino2Cell);
         _cellManager.SetDinosaurInCell(dino1, auxDino2Cell);
         _cellManager.SetDinosaurInCell(dino2, auxDino1Cell);
         dino1.SetCell(auxDino2Cell);
         dino2.SetCell(auxDino1Cell);
-        if (dino2.IsWorking())
+        if (dino2IsWorking)
         {
-            UserDataController.ShowCell(dino2.GetCellNumber(), _cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor().GetExpositorNumber());
-            UserDataController.StopShowCell(auxDino2Cell);
-            _cellManager.GetCellInstanceByIndex(auxDino1Cell).SetExpositor(_cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor());
-            _cellManager.GetCellInstanceByIndex(auxDino2Cell).GetTargetExpositor().SetReferencedCell(_cellManager.GetCellInstanceByIndex(auxDino1Cell));
-            _cellManager.GetCellInstanceByIndex(auxDino2Cell).SetExpositor(null);
-        }
+            ShowDinosaur(auxDino1Cell,dino2Expositor);
+        }     
     }
-
-    IEnumerator WaitForUnlockNewDino(DinosaurInstance dinoInstance1, DinosaurInstance dinoInst, DinosaurInstance dinoInstance2, int targetCellIndex, GameObject dino)
-    {
-        waitingForAnimation = true;
-        while (waitingForAnimation)
-        {
-            yield return null;
-        }
-        EndMerge(dinoInstance1, dinoInst, dinoInstance2, targetCellIndex, dino);
-    }
-
-    public void StopWaitingAnim()
-    {
-        waitingForAnimation = false;
-    }
-
     DinosaurInstance GetDinoInstanceByCell(int cell)
     {
         foreach(DinosaurInstance d in _dinosIngame)

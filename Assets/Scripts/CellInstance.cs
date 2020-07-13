@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CellInstance : MonoBehaviour
 {
@@ -68,22 +69,25 @@ public class CellInstance : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(_placedDino != null) 
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (CurrentSceneManager._canPickDinosaur)
+            if (_placedDino != null)
             {
-                if (!_placedDino.IsWorking())
+                if (CurrentSceneManager._canPickDinosaur)
                 {
-                    _mainSceneController.PickDinosaur(_placedDino);
+                    if (!_placedDino.IsWorking())
+                    {
+                        _mainSceneController.PickDinosaur(_placedDino);
+                    }
                 }
             }
+            if (_clickCr != null)
+            {
+                StopCoroutine(_clickCr);
+            }
+            _clicking = true;
+            _clickCr = StartCoroutine(DisableClickingState());
         }
-        if (_clickCr != null)
-        {
-            StopCoroutine(_clickCr);
-        }
-        _clicking = true;
-        _clickCr = StartCoroutine(DisableClickingState());
     }
     private void OnMouseEnter()
     {

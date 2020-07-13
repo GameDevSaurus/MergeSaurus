@@ -20,14 +20,12 @@ public class ExperienceManager : MonoBehaviour
 
     public void MergeDinoCallBack(int dinoType)
     {
-        if (UserDataController.IsGoingToLvlUp(dinoType))
+        int preLevel = UserDataController.GetLevel();
+        UserDataController.AddExperiencePoints(dinoType);
+        int postLevel = UserDataController.GetLevel();
+        if (postLevel > preLevel)
         {
             _levelUpPanelManager.LevelUp();
-            StartCoroutine(WaitingCloseLvlUpPanel(dinoType));
-        }
-        else
-        {
-            UserDataController.AddExperiencePoints(dinoType);
         }
     }
 
@@ -41,14 +39,5 @@ public class ExperienceManager : MonoBehaviour
     public void CloseLvlUpPanel()
     {
         waitingLvlUpPanel = false;
-    }
-    IEnumerator WaitingCloseLvlUpPanel(int dinoType)
-    {
-        waitingLvlUpPanel = true;
-        while (waitingLvlUpPanel)
-        {
-            yield return null;
-        }
-        UserDataController.AddExperiencePoints(dinoType);
     }
 }
