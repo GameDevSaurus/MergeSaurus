@@ -28,7 +28,7 @@ public class CurrentSceneManager : MonoBehaviour
     }
     public static float GetGlobalSpeed()
     {
-        return _currentGlobalSpeed;
+        return _currentGlobalSpeed * (1 + (UpgradesManager.GetExtraTouristSpeed()/100f));
     }
     public static void OnlyCanPurchase()
     {

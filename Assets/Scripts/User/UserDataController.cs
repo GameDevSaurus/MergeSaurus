@@ -22,6 +22,10 @@ public class UserDataController : MonoBehaviour
     {
         return DateTime.FromBinary(Convert.ToInt64(_currentUserData._lastUpdatedTime));
     }
+    public static DateTime GetLastPlayedDay()
+    {
+        return DateTime.FromBinary(Convert.ToInt64(_currentUserData._dailyRewardCheck));
+    }
     public static int GetSecondsSinceLastSave()
     {
         return lastSaveTime;
@@ -438,5 +442,14 @@ public class UserDataController : MonoBehaviour
             }
         }
         return threeFirstDinos;
+    }
+    public static void AddPlayedDay()
+    {
+        _currentUserData._playedDays++;
+        SaveToFile();
+    }
+    public static int GetPlayedDays()
+    {
+        return _currentUserData._playedDays;
     }
 }

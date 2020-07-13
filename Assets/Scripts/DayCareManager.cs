@@ -89,7 +89,7 @@ public class DayCareManager : MonoBehaviour
             if (i == fastPurchaseIndex)
             {
                 _fastPurchase.interactable = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-                _fastPurchaseCost.text = _economyManager.GetDinoCost(i).GetCurrentMoney();
+                _fastPurchaseCost.text = _economyManager.GetDinoCost(i).GetCurrentMoneyConvertedTo3Chars();
                 _fastPurchaseFace.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
                 _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
                 _fastPurchaseName.text = dinoNames[i];
@@ -186,8 +186,8 @@ public class DayCareManager : MonoBehaviour
                 }
             }
             bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
-            _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoney());
-            _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoney());
+            _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoneyConvertedTo3Chars());
+            _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoneyConvertedTo3Chars());
             _dinoPanelManagers[i].SetPurchaseState(canPurchase);
         }
     }
@@ -255,17 +255,20 @@ public class DayCareManager : MonoBehaviour
     }
     public void SoftCoinPurchase(int dinoType)
     {
-        if (UserDataController.GetEmptyCells() > 0)
+        if (CurrentSceneManager._canPurchase)
         {
-            if (_economyManager.SpendSoftCoins(_economyManager.GetDinoCost(dinoType)))
+            if (UserDataController.GetEmptyCells() > 0)
             {
-                _mainGameSceneController.PurchaseDino(dinoType);
-                RefreshButtons(null);
+                if (_economyManager.SpendSoftCoins(_economyManager.GetDinoCost(dinoType)))
+                {
+                    _mainGameSceneController.PurchaseDino(dinoType);
+                    RefreshButtons(null);
+                }
             }
-        }
-        else
-        {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            else
+            {
+                GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            }
         }
     }
     public void HardCoinsPurcharse(int dinoType)

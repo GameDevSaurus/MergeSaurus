@@ -148,13 +148,13 @@ public class SpinManager : MonoBehaviour
                 break;
             case SpinRewards.Money2H:
                 baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
-                baseRewardPSec.MultiplyCurrency(720);
+                baseRewardPSec.MultiplyCurrency(7200);
                 _economyManager.EarnSoftCoins(baseRewardPSec);
                 GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SOFTCOINS_2");
                 break;
             case SpinRewards.Money4H:
                 baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
-                baseRewardPSec.MultiplyCurrency(1440);
+                baseRewardPSec.MultiplyCurrency(14400);
                 _economyManager.EarnSoftCoins(baseRewardPSec);
                 GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SOFTCOINS_4");
                 break;

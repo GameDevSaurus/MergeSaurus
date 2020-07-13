@@ -22,9 +22,16 @@ public class NestManager : MonoBehaviour
     {
         _panelManager.RequestShowPanel(_mainPanel);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            OpenNest();
+        }
+    }
     public void CloseNest()
     {
-        _mainPanel.SetActive(false);
+        _panelManager.ClosePanel();
     }
     public void ShowVideo()
     {

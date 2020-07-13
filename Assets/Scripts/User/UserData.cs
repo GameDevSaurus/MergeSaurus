@@ -30,6 +30,7 @@ public class UserData
     public string _dayCareLastViewedAd;
     public int _biggestDino;
     public string _dailyRewardCheck;
+    public int _playedDays;
 
     public UserData()
     {
@@ -54,7 +55,9 @@ public class UserData
         _speedUpRemainingSecs = 0;
         _SpeedUpLastUse = System.DateTime.Now.ToBinary().ToString();
         _dayCareLastViewedAd = System.DateTime.Now.ToBinary().ToString();
+        _dailyRewardCheck = System.DateTime.Now.ToBinary().ToString();
         _biggestDino = 0;
+        _playedDays = 0;
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;
