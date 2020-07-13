@@ -253,9 +253,7 @@ public class MainGameSceneController : MonoBehaviour
                         if (_trashBin.IsOverTrashBin())
                         {
                             _economyManager.EarnSoftCoins(_economyManager.GetInitialCost(_pickedDinosaur.GetDinosaur()));
-                            UserDataController.DeleteDino(_pickedDinosaur.GetCellNumber());
-                            _dinosIngame.Remove(_pickedDinosaur);
-                            Destroy(_pickedDinosaur.gameObject);
+                            DestroyDinosaur(_pickedDinosaur);
                         }
                     }
                 }
@@ -438,5 +436,23 @@ public class MainGameSceneController : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public void DestroyDinosaur(DinosaurInstance targetDino)
+    {
+        int targetCell = targetDino.GetCellNumber();
+        if (targetDino.IsWorking())
+        {
+            StopShowDino(targetCell);
+        }
+        UserDataController.DeleteDino(targetCell);
+        _cellManager.GetCellInstanceByIndex(targetCell).SetDinosaur(null);
+        _dinosIngame.Remove(targetDino);
+        Destroy(targetDino.gameObject);
+    }
+    public void DestroyDinosaur(int cellIndex)
+    {
+        DinosaurInstance targetDino = _cellManager.GetCellInstanceByIndex(cellIndex).GetDinoInstance();
+        DestroyDinosaur(targetDino);
     }
 }

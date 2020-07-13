@@ -338,20 +338,36 @@ public class UserDataController : MonoBehaviour
     {
         return _currentUserData._discountLevel;
     }
-
     public static int GetExtraEarningsLevel()
     {
         return _currentUserData._extraEarningsLevel;
     }
-    
+    public static int GetExtraCoolnessLevel()
+    {
+        return _currentUserData._extraCoolnessLevel;
+    }
     public static int GetExtraPassiveEarningsLevel()
     {
         return _currentUserData._extraPasiveEarningsLevel;
     }
 
-    public static int GetExtraCoolnessLevel()
+    public static void LevelUpUpgrade(UpgradesManager.UpgradeTypes upgradeType)
     {
-        return _currentUserData._extraCoolnessLevel;
+        switch (upgradeType)
+        {
+            case UpgradesManager.UpgradeTypes.Discount:
+                _currentUserData._discountLevel++;
+                break;
+            case UpgradesManager.UpgradeTypes.DinoEarnings:
+                _currentUserData._extraEarningsLevel++;
+                break;
+            case UpgradesManager.UpgradeTypes.Coolness:
+                _currentUserData._extraCoolnessLevel++;
+                break;
+            case UpgradesManager.UpgradeTypes.PassiveEarnings:
+                _currentUserData._extraPasiveEarningsLevel++;
+                break;
+        }
     }
 
     public void SpeedUp(int secs)
@@ -392,5 +408,35 @@ public class UserDataController : MonoBehaviour
     public static GameCurrency GetSoftCoins()
     {
         return new GameCurrency(_currentUserData._softCoins);
+    }
+
+    public static int GetDinoAmountByType(int dinoType)
+    {
+        int amount = 0;
+        for(int i = 0; i<_currentUserData._dinosaurs.Length; i++)
+        {
+            if(_currentUserData._dinosaurs[i] == dinoType)
+            {
+                amount++;
+            }
+        }
+        return amount;
+    }
+    public static List<int> GetFirstThreeDinosByType(int dinoType)
+    {
+        List<int> threeFirstDinos = new List<int>();
+
+        for (int i = 0; i < _currentUserData._dinosaurs.Length; i++)
+        {
+            if (_currentUserData._dinosaurs[i] == dinoType)
+            {
+                threeFirstDinos.Add(i);
+                if (threeFirstDinos.Count > 2)
+                {
+                    break;
+                }
+            }
+        }
+        return threeFirstDinos;
     }
 }
