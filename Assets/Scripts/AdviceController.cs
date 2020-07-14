@@ -15,9 +15,11 @@ public class AdviceController : MonoBehaviour
     public float fadeDuration = 0.25f;
     Color transParentWhite = new Color(1, 1, 1, 0);
 
-    public IEnumerator CrShowText(string txKey)
+    public IEnumerator CrShowText(GameEvents.AdviceEventData adviceKey)
     {
-        _adviceText.text = LocalizationController._localizedData[txKey];
+        string localizedKey = LocalizationController._localizedData[adviceKey._mainString];
+        string outputString = string.Format(localizedKey, adviceKey._parameter);
+        _adviceText.text = outputString;
         for (float i = 0; i< fadeDuration; i += Time.deltaTime)
         {
             _adviceText.color = Color.Lerp(transParentWhite, Color.white, _animCurve.Evaluate(i / fadeDuration));

@@ -267,7 +267,7 @@ public class DayCareManager : MonoBehaviour
             }
             else
             {
-                GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOEMPTYCELLS"));
             }
         }
     }
@@ -283,7 +283,7 @@ public class DayCareManager : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOEMPTYCELLS"));
         }
     }
     public void WatchVideo(int dinoType)
@@ -294,7 +294,7 @@ public class DayCareManager : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEMPTYCELLS");
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOEMPTYCELLS"));
         }
     }
 

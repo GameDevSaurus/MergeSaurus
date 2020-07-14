@@ -446,10 +446,11 @@ public class UserDataController : MonoBehaviour
     public static void AddPlayedDay()
     {
         _currentUserData._playedDays++;
+        _currentUserData._dailyRewardCheck = System.DateTime.Now.ToBinary().ToString();
         SaveToFile();
     }
     public static int GetPlayedDays()
     {
-        return _currentUserData._playedDays;
+        return _currentUserData._playedDays % 7;
     }
 }

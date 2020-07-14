@@ -348,7 +348,7 @@ public class MainGameSceneController : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOEXPOSITORS");
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOEXPOSITORS"));
         }
     }
     

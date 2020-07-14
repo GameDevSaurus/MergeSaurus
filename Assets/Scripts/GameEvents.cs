@@ -65,7 +65,7 @@ public static class GameEvents
     public static UnityEvent TakeBack = new UnityEvent();
     public static UnityEvent CloseDinoUpPanel = new UnityEvent();
     public static UnityEvent CloseLevelUpPanel = new UnityEvent();
-    public static StringEvent ShowAdvice = new StringEvent();
+    public static AdviceEvent ShowAdvice = new AdviceEvent();
 
     public static MoneyEvent EarnMoney = new MoneyEvent();
     public static StringEvent LoadScene = new StringEvent();
@@ -73,6 +73,7 @@ public static class GameEvents
     public static StringEvent PlayAd = new StringEvent();
 
     public class StringEvent : UnityEvent<string> { };
+    public class AdviceEvent : UnityEvent<AdviceEventData> { };
     public class IntEvent : UnityEvent<int> { };
     public class MoneyEvent : UnityEvent<MoneyEventData> { };
 
@@ -89,5 +90,20 @@ public static class GameEvents
             _money = money;
         }
     }
+    public class AdviceEventData
+    {
+        public string _mainString;
+        public string _parameter;
 
+        public AdviceEventData(string main, string param)
+        {
+            _mainString = main;
+            _parameter = param;
+        }
+        public AdviceEventData(string main)
+        {
+            _mainString = main;
+            _parameter = "";
+        }
+    }
 }

@@ -2,27 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 using UnityEngine.UI;
 
 public class PassiveGainManager : MonoBehaviour
 {
     [SerializeField]
     GameObject _mainPanel;
-
-    [SerializeField]
-    Image _blackBackgroundImage;
-
+    EconomyManager _economyManager;
     PanelManager _panelManager;
+    [SerializeField]
+    TextMeshProUGUI txCurrentCoins;
+    [SerializeField]
+    TextMeshProUGUI txTargetCoins;
 
+    GameCurrency baseRewardPSec;
+    GameCurrency targetPossibleCoins;
     public void OpenPassiveEarningsPanel()
     {
         _mainPanel.SetActive(true);
     }
     public void ClosePassiveEarningsPanel()
     {
-        _mainPanel.SetActive(false);
+        EarnMoney();
+        DefaultClose();
+    }
+    public void DefaultClose()
+    {
+        _panelManager.ClosePanel();
     }
 
+    public void WatchAdd()
+    {
+        GameEvents.PlayAd.Invoke("PassiveEarnings");
+    }
+
+    public void VideoWatchedCallBack()
+    {
+        EarnTripleMoney();
+        DefaultClose();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -31,29 +50,11 @@ public class PassiveGainManager : MonoBehaviour
         }
     }
 
-    public void OpenPanel()
-    {
-        StartCoroutine(CrOpenPanel());
-    }
-
     public void Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
+        _economyManager = FindObjectOfType<EconomyManager>();
         CheckLastSaveTime();
-    }
-
-    IEnumerator CrOpenPanel()
-    {
-        _mainPanel.SetActive(true);
-        float fadeTime = 0.25f;
-        Color semiTransparentBlack = new Color(0, 0, 0, 0.75f);
-        Color transparentBlack = new Color(0, 0, 0, 0f);
-        for (float i = 0; i < fadeTime; i += Time.deltaTime)
-        {
-            _blackBackgroundImage.color = Color.Lerp(transparentBlack, semiTransparentBlack, i/fadeTime);
-            yield return null;
-        }
-        _blackBackgroundImage.color = semiTransparentBlack;
     }
 
     public void CheckLastSaveTime()
@@ -67,5 +68,31 @@ public class PassiveGainManager : MonoBehaviour
         }
 
         print("Han pasado " + secondsSinceLastSave + " desde la última vez que se guardó");
+        if(UserDataController.GetBiggestDino() >= 4)
+        {           
+            if (secondsSinceLastSave > 60)
+            {
+                if(secondsSinceLastSave > 7200)
+                {
+                    secondsSinceLastSave = 7200;
+                }
+                baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
+                baseRewardPSec.MultiplyCurrency(secondsSinceLastSave);
+                baseRewardPSec.MultiplyCurrency(1 + (UpgradesManager.GetExtraPassiveEarnings() / 100));
+                _panelManager.RequestShowPanel(_mainPanel);
+                txCurrentCoins.text = "+ " + baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
+                targetPossibleCoins = new GameCurrency(baseRewardPSec.GetIntList());
+                targetPossibleCoins.MultiplyCurrency(3f);
+                txTargetCoins.text = "+ " + targetPossibleCoins.GetCurrentMoneyConvertedTo3Chars();
+            }
+        }
+    }
+    public void EarnMoney()
+    {
+        _economyManager.EarnSoftCoins(baseRewardPSec);
+    }
+    public void EarnTripleMoney()
+    {
+        _economyManager.EarnSoftCoins(targetPossibleCoins);
     }
 }

@@ -502,7 +502,7 @@ public class Tutorial : MonoBehaviour
         }
     }
     #endregion
-    public void ShowAdvice(string adviceKey)
+    public void ShowAdvice(GameEvents.AdviceEventData advice)
     {
         if (_adviceCr != null)
         {
@@ -521,13 +521,14 @@ public class Tutorial : MonoBehaviour
                 StopCoroutine(_moveTextCr);
             }
         }
-        _adviceCr = StartCoroutine(CrShowAdvice(adviceKey));
+        _adviceCr = StartCoroutine(CrShowAdvice(advice));
     }
 
-    IEnumerator CrShowAdvice(string adviceKey)
+    IEnumerator CrShowAdvice(GameEvents.AdviceEventData adviceKey)
     {
         _adviceController.gameObject.SetActive(true);
         _moveTextCr = StartCoroutine(_adviceController.CrMoveText());
+
         yield return _showTextCr = StartCoroutine(_adviceController.CrShowText(adviceKey));
         yield return new WaitForSeconds(_adviceController.moveDuration - (_adviceController.fadeDuration *2f));
         yield return _hideTextCr = StartCoroutine(_adviceController.CrHideText());

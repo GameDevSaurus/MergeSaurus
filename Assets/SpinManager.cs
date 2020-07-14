@@ -14,7 +14,6 @@ public class SpinManager : MonoBehaviour
     bool spinning = false;
     [SerializeField]
     RectTransform _spin;
-    SpeedUpManager _speedUpManager;
     BoxManager _boxManager;
     EconomyManager _economyManager;
     enum SpinRewards {Boxes, SmallSpeedTime, BigSpeedTime, Money2H, Money4H, Gems};
@@ -22,13 +21,15 @@ public class SpinManager : MonoBehaviour
     float _nextAdTime;
     int timeToNextAd = 3600;
     PanelManager _panelManager;
+    RewardManager _rewardManager;
+
     private void Start()
     {
-        _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
         _economyManager = FindObjectOfType<EconomyManager>();
         _currentTries = UserDataController.GetSpinRemainingAds();
         _panelManager = FindObjectOfType<PanelManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
         int finalCount = (int)System.DateTime.Now.Subtract(UserDataController.GetSpinLastViewTime()).TotalSeconds;
         
         int nAds = finalCount / timeToNextAd;
@@ -45,7 +46,7 @@ public class SpinManager : MonoBehaviour
     }
     public void CloseSpin()
     {
-        _mainPanel.SetActive(false);
+        _panelManager.ClosePanel();
     }
     public void ShowVideo()
     {
@@ -57,7 +58,7 @@ public class SpinManager : MonoBehaviour
             }
             else
             {
-                GameEvents.ShowAdvice.Invoke("ADVICE_NO_AD");
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NO_AD"));
             }
         }
     }
@@ -127,36 +128,27 @@ public class SpinManager : MonoBehaviour
         spinning = false;
         _obtainedReward = (SpinRewards)Random.Range(0,6);
         print(_obtainedReward);
-        GameCurrency baseRewardPSec;
+
         switch (_obtainedReward)
         {
             case SpinRewards.SmallSpeedTime:
-                _speedUpManager.SpeedUpCallback(200);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SPEEDUP_200");
+                _rewardManager.EarnSpeedUp(200);
                 break;
             case SpinRewards.BigSpeedTime:
-                _speedUpManager.SpeedUpCallback(400);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SPEEDUP_400");
+                _rewardManager.EarnSpeedUp(400);
                 break;
             case SpinRewards.Boxes:
                 _boxManager.RewardBox(4);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_BOXES");
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("SPIN_REWARD_BOXES", "4"));
                 break;
             case SpinRewards.Gems:
-                UserDataController.AddHardCoins(5);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_HARDCOINS");
+                _rewardManager.EarnHardCoin(5);
                 break;
             case SpinRewards.Money2H:
-                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
-                baseRewardPSec.MultiplyCurrency(7200);
-                _economyManager.EarnSoftCoins(baseRewardPSec);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SOFTCOINS_2");
+                _rewardManager.EarnSoftCoin(7200);
                 break;
             case SpinRewards.Money4H:
-                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
-                baseRewardPSec.MultiplyCurrency(14400);
-                _economyManager.EarnSoftCoins(baseRewardPSec);
-                GameEvents.ShowAdvice.Invoke("SPIN_REWARD_SOFTCOINS_4");
+                _rewardManager.EarnSoftCoin(14400);
                 break;
         }
         UserDataController.UpdateSpinData(_currentTries);

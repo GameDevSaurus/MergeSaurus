@@ -269,27 +269,19 @@
   },
   {
     "key": "SPIN_REWARD_HARDCOINS",
-    "value": "Has ganado\n5 Gemas"
+    "value": "Has ganado\n{0} Gemas"
   },
   {
-    "key": "SPIN_REWARD_SOFTCOINS_2",
-    "value": "Has ganado\n2 horas de ingresos\n"
+    "key": "SPIN_REWARD_SOFTCOINS",
+    "value": "Has ganado\n{0} horas de ingresos"
   },
   {
-    "key": "SPIN_REWARD_SOFTCOINS_4",
-    "value": "Has ganado\n4 horas de ingresos"
-  },
-  {
-    "key": "SPIN_REWARD_SPEEDUP_200",
-    "value": "Has ganado\n200 segundos de fiesta"
-  },
-  {
-    "key": "SPIN_REWARD_SPEEDUP_400",
-    "value": "Has ganado\n400 segundos de fiesta"
+    "key": "SPIN_REWARD_SPEEDUP",
+    "value": "Has ganado\n{0} segundos de fiesta"
   },
   {
     "key": "SPIN_REWARD_BOXES",
-    "value": "Has ganado\n4 superballs"
+    "value": "Has ganado\n{0} superballs"
   },
   {
     "key": "UPGRADES_INFO_PANEL_1",
@@ -302,5 +294,25 @@
   {
     "key": "UPGRADES_INFO_PANEL_3",
     "value": "Ganancias pasivas"
+  },
+  {
+    "key": "DAILY_REWARD_DAY",
+    "value": "Día {0}"
+  },
+  {
+    "key": "SPIN_REWARD_SOFTCOINS_MINS",
+    "value": "Has ganado\n{0} minutos de ingresos"
+  },
+  {
+    "key": "REWARD_HARDCOINS",
+    "value": "{0} GEMAS"
+  },
+  {
+    "key": "REWARD_SPEEDUP",
+    "value": "{0} segundos de fiesta"
+  },
+  {
+    "key": "REWARD_DINOREWARDS",
+    "value": "{0} segundos de "
   }
 ]

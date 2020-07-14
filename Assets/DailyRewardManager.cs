@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DailyRewardManager : MonoBehaviour
 {
@@ -10,12 +11,13 @@ public class DailyRewardManager : MonoBehaviour
     GameObject _mainPanel;
     [SerializeField]
     Image _blackBackgroundImage;
-    [SerializeField]
     PanelManager _panelManager;
     SpeedUpManager _speedUpManager;
     EconomyManager _economyManager;
-
-
+    [SerializeField]
+    RectTransform[] _dailyRewards;
+    [SerializeField]
+    Image _reborder;
     private void Awake()
     {
         _panelManager = FindObjectOfType<PanelManager>();
@@ -27,11 +29,10 @@ public class DailyRewardManager : MonoBehaviour
     {
         DateTime lastDay = UserDataController.GetLastPlayedDay();
         DateTime today = System.DateTime.Now;
-        TimeSpan elapsedTime = today.Subtract(lastDay);
-        if(elapsedTime.TotalDays > 0)
+        if(lastDay.Day != today.Day || lastDay.Month != today.Month)
         {
             OpenPanel();
-        }
+        }     
     }
     public void DinoUpCallback(int dino)
     {
@@ -42,26 +43,13 @@ public class DailyRewardManager : MonoBehaviour
     }
     public void CloseDaily()
     {
-        _mainPanel.SetActive(false);
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            OpenPanel();
-        }
+        _panelManager.ClosePanel();
     }
     public void OpenPanel()
     {
+        int playedDays = UserDataController.GetPlayedDays();
+        MarkButton(playedDays);
         _panelManager.RequestShowPanel(_mainPanel.gameObject);
-        //DIA 1 300s SPEEDUP
-        //DIA 2 1 HORA DE GANANCIAS
-        //DIA 3 300s DE GANANCIAS x5
-        //DIA 4 2 HORAS DE GANANCIAS
-        //DIA 5 300s SPEEDUP Y GANANCIAS x5
-        //DIA 6 4 HORAS DE GANANCIAS
-        //DIA 7 50 HARDCOINS
-
     }
 
     public void ObtainReward(int rewardDay)
@@ -71,10 +59,12 @@ public class DailyRewardManager : MonoBehaviour
         {
             case 0:
                 _speedUpManager.SpeedUpCallback(300);
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("SPIN_REWARD_SPEEDUP","300"));
                 break;
             case 1:
-                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
+                baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
                 baseRewardPSec.MultiplyCurrency(3600);
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("SPIN_REWARD_SOFTCOINS", "1"));
                 _economyManager.EarnSoftCoins(baseRewardPSec);
                 break;
             case 2:
@@ -82,8 +72,9 @@ public class DailyRewardManager : MonoBehaviour
                 //300s DE GANANCIAS x5
                 break;
             case 3:
-                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
+                baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
                 baseRewardPSec.MultiplyCurrency(7200);
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("SPIN_REWARD_SOFTCOINS", "2"));
                 _economyManager.EarnSoftCoins(baseRewardPSec);
                 break;
             case 4:
@@ -92,8 +83,9 @@ public class DailyRewardManager : MonoBehaviour
                 //300s DE GANANCIAS x5
                 break;
             case 5:
-                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
+                baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
                 baseRewardPSec.MultiplyCurrency(14400);
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("SPIN_REWARD_SOFTCOINS", "4"));
                 _economyManager.EarnSoftCoins(baseRewardPSec);
                 break;
             case 6:
@@ -101,5 +93,37 @@ public class DailyRewardManager : MonoBehaviour
                 break;
         }
         UserDataController.AddPlayedDay();
+        CloseDaily();
+    }
+
+    public void MarkButton(int buttonIndex)
+    {
+        for(int i = 0; i<_dailyRewards.Length; i++)
+        {
+            Button dailyButton = _dailyRewards[i].GetComponentInChildren<Button>();
+            TextMeshProUGUI dailyText = _dailyRewards[i].GetComponentInChildren<TextMeshProUGUI>();
+            string finalTx = string.Format(LocalizationController._localizedData["DAILY_REWARD_DAY"], (i+1).ToString());
+            dailyText.text = finalTx;
+
+            if (i != buttonIndex)
+            {
+                dailyButton.interactable = false;
+            }
+            else
+            {
+                if (i == 6)
+                {
+                    _reborder.rectTransform.sizeDelta = new Vector2(400, 350);
+                }
+                else
+                {
+                    _reborder.rectTransform.sizeDelta = new Vector2(250, 350);
+                }
+                _reborder.transform.SetParent(_dailyRewards[i]);
+                _reborder.transform.SetAsLastSibling();
+                _reborder.rectTransform.anchoredPosition = Vector3.zero;
+                dailyButton.interactable = true;
+            }
+        }
     }
 }

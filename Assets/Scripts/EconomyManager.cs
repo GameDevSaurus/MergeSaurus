@@ -44,7 +44,7 @@ public class EconomyManager : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOHARDCOINS");
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOHARDCOINS", ""));
         }
         return canSpend;
     }
@@ -62,7 +62,7 @@ public class EconomyManager : MonoBehaviour
         }
         else
         {
-            GameEvents.ShowAdvice.Invoke("ADVICE_NOSOFTCOINS");
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOSOFTCOINS"));
         }
         return canSpend;
     }

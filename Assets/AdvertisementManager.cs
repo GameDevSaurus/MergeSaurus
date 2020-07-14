@@ -17,6 +17,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     string _placementID;
     SpeedUpManager _speedUpManager;
     SpinManager _spinManager;
+    PassiveGainManager _passiveGainManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
 
@@ -26,6 +27,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
         _spinManager = FindObjectOfType<SpinManager>();
+        _passiveGainManager = FindObjectOfType<PassiveGainManager>();
     }
     void Start()
     {
@@ -63,6 +65,9 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                     break;
                 case "SpinReward":
                     _spinManager.SpinCallBack();
+                    break;
+                case "PassiveEarnings":
+                    _passiveGainManager.VideoWatchedCallBack();
                     break;
             }
             
