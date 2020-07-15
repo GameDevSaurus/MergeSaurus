@@ -15,18 +15,15 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     [SerializeField]
     Button _speedUpButton;
     string _placementID;
-    SpeedUpManager _speedUpManager;
     SpinManager _spinManager;
     PassiveGainManager _passiveGainManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
     RewardManager _rewardManager;
-    bool justWatchedAd = false;
 
     private void Awake()
     {
         GameEvents.PlayAd.AddListener(PlayVideo);
-        _speedUpManager = FindObjectOfType<SpeedUpManager>();
         _boxManager = FindObjectOfType<BoxManager>();
         _spinManager = FindObjectOfType<SpinManager>();
         _passiveGainManager = FindObjectOfType<PassiveGainManager>();
@@ -57,20 +54,23 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     {
         if (showResult == ShowResult.Finished)
         {
-            justWatchedAd = true;
+            UserDataController.AddDailyAd();
             switch (placementId)
             {
                 case "SpeedUp":
+                    print("Has ganado speedup");
                     _rewardManager.EarnSpeedUp(200);
                     break;
-
                 case "SpecialBox":
+                    print("Has ganado speedup");
                     _boxManager.RewardBox(4); 
                     break;
                 case "SpinReward":
+                    print("Has ganado speedup");
                     _spinManager.SpinCallBack();
                     break;
                 case "PassiveEarnings":
+                    print("Has ganado speedup");
                     _passiveGainManager.VideoWatchedCallBack();
                     break;
             }
@@ -91,14 +91,6 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    private void Update()
-    {
-        if (justWatchedAd)
-        {
-            justWatchedAd = false;
-            UserDataController.AddDailyAd();
-        }
-    }
     public void OnUnityAdsDidError(string errorMessage)
     {
         print(errorMessage);

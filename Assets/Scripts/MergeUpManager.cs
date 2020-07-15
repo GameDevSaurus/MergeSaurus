@@ -19,13 +19,18 @@ public class MergeUpManager : MonoBehaviour
     MainGameSceneController _mainGameSceneController;
     [SerializeField]
     Image dinoImage;
-    [SerializeField]
-    Sprite[] dinoMergeUpSprites;
+    List<Sprite> dinoMergeUpSprites;
     [SerializeField]
     AnimationCurve animationCurve;
     PanelManager _panelManager;
     private void Awake()
     {
+        dinoMergeUpSprites = new List<Sprite>();
+        for(int i = 0; i < UserDataController.GetDinoAmount(); i++)
+        {
+            string path = Application.productName + "/Sprites/DefaultSprites/" + i;
+            dinoMergeUpSprites.Add(Resources.Load<Sprite>(path));
+        }
         _panelManager = FindObjectOfType<PanelManager>();
         _mergeUpPanel.SetActive(false);
         GameEvents.DinoUp.AddListener(MergeUpCallBack);
@@ -43,8 +48,8 @@ public class MergeUpManager : MonoBehaviour
         dinoImage.sprite = dinoMergeUpSprites[dinoType - 1];
         canDisable = false;
         _dinoTypeTx.text = DayCareManager.dinoNames[dinoType - 1];
-        currentQualityBar.fillAmount = (float)(dinoType - 1f) / (float)UserDataController._currentUserData._dinosaurs.Length;
-        lastQualityBar.fillAmount = (float)dinoType / (float)UserDataController._currentUserData._dinosaurs.Length;
+        currentQualityBar.fillAmount = (float)(dinoType - 1f) / (float)UserDataController.GetDinoAmount();
+        lastQualityBar.fillAmount = (float)dinoType / (float)UserDataController.GetDinoAmount();
         _panelManager.RequestShowPanel(_mergeUpPanel);
         yield return new WaitForSeconds(0.5f);
         canDisable = true;

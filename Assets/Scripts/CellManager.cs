@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class CellManager : MonoBehaviour
 {
-    [SerializeField]
     GameObject cellPrefab;
     [SerializeField]
     GameObject expoPanelPrefab;
-    [SerializeField]
     GameObject expoPrefab;
     [SerializeField]
     GameObject panelPrefab;
@@ -28,7 +26,8 @@ public class CellManager : MonoBehaviour
     float expoSize = 1.5f;
     float expoPanelWidth;
     float expoPanelHeight;
-
+    [SerializeField]
+    SpriteRenderer backgroundTile;
     List<GameObject> _cells;
     List<ExpositorInstance> _expositors;
 
@@ -36,6 +35,13 @@ public class CellManager : MonoBehaviour
     {
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         GameEvents.LevelUp.AddListener(LevelUpCallBack);
+
+        string cellPath = Application.productName + "/Environment/Cell";
+        string expositorPath = Application.productName + "/Environment/Expositor";
+        string bgPath = Application.productName + "/Environment/Background";
+        cellPrefab = Resources.Load<GameObject>(cellPath);
+        expoPrefab = Resources.Load<GameObject>(expositorPath);
+        backgroundTile.sprite = Resources.Load<Sprite>(bgPath);
 
         panelWidth = 3 + (4f * horizontalDist);
         panelHeight = 5 + (6f * verticalDist);

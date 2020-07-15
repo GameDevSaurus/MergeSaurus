@@ -30,7 +30,10 @@ public class UserDataController : MonoBehaviour
     {
         return lastSaveTime;
     }
-
+    public static int GetDinoAmount()
+    {
+        return _currentUserData._dinosaurs.Length;
+    }
     public static void InitializeUser()
     {
         _currentUserData = new UserData();

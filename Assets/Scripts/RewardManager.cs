@@ -20,7 +20,7 @@ public class RewardManager : MonoBehaviour
     SpeedUpManager _speedUpManager;
     [SerializeField]
     GameObject _mainPanel;
-    Queue<RewardData> rewardDataQueue = new Queue<RewardData>();
+    Queue<RewardData> rewardDataQueue;
     bool canClose = false;
     bool panelIsOpen = false;
 
@@ -29,6 +29,7 @@ public class RewardManager : MonoBehaviour
         GameEvents.MergeDino.AddListener(MergeDinoCallBack);
         GameEvents.Purchase.AddListener(PurchaseDinoCallBack);
         GameEvents.DinoUp.AddListener(CheckDinoUp);
+        rewardDataQueue = new Queue<RewardData>();
     }
     public void ShowPanel()
     {

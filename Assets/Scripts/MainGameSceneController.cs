@@ -5,8 +5,7 @@ using UnityEngine.UIElements;
 
 public class MainGameSceneController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject[] _dinoPrefabs;
+    List<GameObject> _dinoPrefabs;
     List<DinosaurInstance> _dinosIngame;
     [SerializeField]
     CellManager _cellManager;
@@ -26,8 +25,14 @@ public class MainGameSceneController : MonoBehaviour
     float deleteTimer = 0;
     private void Awake()
     {
+        _dinoPrefabs = new List<GameObject>();
         _economyManager = FindObjectOfType<EconomyManager>();
         _trashBin = FindObjectOfType<TrashBin>();
+        for(int i = 0; i<UserDataController.GetDinoAmount(); i++)
+        {
+            string path = Application.productName + "/Prefabs/" + i;       
+            _dinoPrefabs.Add(Resources.Load<GameObject>(path));
+        }
     }
     private void Start()
     {

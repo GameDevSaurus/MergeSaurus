@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+
 public class DayCareManager : MonoBehaviour
 {
     EconomyManager _economyManager;
@@ -51,13 +53,13 @@ public class DayCareManager : MonoBehaviour
     {
         _dinoPanelManagers = new List<PurchaseDinoPanel>();
 
-        for (int i = 0; i < UserDataController._currentUserData._dinosaurs.Length; i++)
+        for (int i = 0; i < UserDataController.GetDinoAmount(); i++)
         {
             GameObject nPanel = Instantiate(_purchaseDinoPanelPrefab, transform.position, Quaternion.identity);
             nPanel.transform.SetParent(_panelParent);
             nPanel.transform.localScale = Vector3.one;
             PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
-            p.SetDinoImage(Resources.Load<Sprite>("Sprites/ShopSprites/" + i));
+            p.SetDinoImage(Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i));
             p.SetDinoName(dinoNames[i]);
 
             int index = i;
@@ -90,8 +92,8 @@ public class DayCareManager : MonoBehaviour
             {
                 _fastPurchase.interactable = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
                 _fastPurchaseCost.text = _economyManager.GetDinoCost(i).GetCurrentMoneyConvertedTo3Chars();
-                _fastPurchaseFace.sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
-                _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + i);
+                _fastPurchaseFace.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
+                _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
                 _fastPurchaseName.text = dinoNames[i];
                 _fastPurchaseDinoType = i;
                 

@@ -25,7 +25,8 @@ public class ExpositorInstance : MonoBehaviour
     public void ShowDinosaur(CellInstance cellInstance)
     {
         _referencedCell = cellInstance;
-        dinoCopy = Instantiate(_referencedCell.GetDinoInstance().gameObject, transform.position, Quaternion.identity);
+        dinoCopy = Instantiate(_referencedCell.GetDinoInstance().gameObject, transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity);
+        dinoCopy.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);//SOLO FUNCIONA EN CHIBIS
         Destroy(dinoCopy.GetComponent<DinosaurInstance>());
     }
     public void SetReferencedCell(CellInstance targetCell)
