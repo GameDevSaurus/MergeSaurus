@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: NuevoDino
-  m_EditorClassIdentifier: Assembly-CSharp::SOADino
-  dinoType: 0
-  image: {fileID: 21300000, guid: 7f0d284a13163ff409f6a0afef14ab09, type: 3}
+  m_Script: {fileID: 11500000, guid: e30062cc85e5a904688ede34725d20a4, type: 3}
+  m_Name: 6
+  m_EditorClassIdentifier: 
+  dinoLevel: 32
+  amount: 5
+  rewardAmount: 7

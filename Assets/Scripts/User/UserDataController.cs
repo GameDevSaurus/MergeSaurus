@@ -294,6 +294,11 @@ public class UserDataController : MonoBehaviour
         }
         return foundedExpositor;
     }
+
+    public static int GetObtainedDinosByDinotype(int dinoType)
+    {
+        return _currentUserData._obtainedTimes[dinoType];
+    }
     public static void AddSoftCoins(GameCurrency softCoins)
     {
         GameCurrency gCToAdd = new GameCurrency((_currentUserData._softCoins));
@@ -452,5 +457,81 @@ public class UserDataController : MonoBehaviour
     public static int GetPlayedDays()
     {
         return _currentUserData._playedDays % 7;
+    }
+    public static void ClaimAchievement(int achievementID)
+    {
+        _currentUserData._claimedAchievements[achievementID] = true;
+        SaveToFile();
+    }
+    public static bool GetClaimedAchievement(int index)
+    {
+        return _currentUserData._claimedAchievements[index];
+    }
+
+    //DAILYMISSIONS MERGES
+    public static int GetDailyMerges()
+    {
+        return _currentUserData._dailyMerges;
+    }
+    public static int GetDailyMergeLevel()
+    {
+        return _currentUserData._dailyMergeLevel;
+    }
+    public static void AddDailyMergeLevel()
+    {
+        _currentUserData._dailyMerges = 0;
+        _currentUserData._dailyMergeLevel ++;
+    }
+    public static void AddDailyMerge()
+    {
+        _currentUserData._dailyMerges++;
+    }
+
+    //DAILYMISSIONS ADDS
+    public static int GetDailyAds()
+    {
+        return _currentUserData._dailyAds;
+    }
+    public static int GetDailyAdLevel()
+    {
+        return _currentUserData._dailyAdLevel;
+    }
+    public static void AddDailyAdLevel()
+    {
+        _currentUserData._dailyAds = 0;
+        _currentUserData._dailyAdLevel++;
+    }
+    public static void AddDailyAd()
+    {
+        _currentUserData._dailyAds++;
+    }
+
+    //DAILYMISSIONS PURCHASES
+    public static int GetDailyPurchases()
+    {
+        return _currentUserData._dailyPurchases;
+    }
+    public static int GetDailyPurchaseLevel()
+    {
+        return _currentUserData._dailyPurchaseLevel;
+    }
+    public static void AddDailyPurchaseLevel()
+    {
+        _currentUserData._dailyPurchases = 0;
+        _currentUserData._dailyPurchaseLevel++;
+    }
+    public static void AddDailyPurchase()
+    {
+        _currentUserData._dailyPurchases++;
+    }
+
+    public static void RestoreDailyMissions()
+    {
+        _currentUserData._dailyMerges = 0;
+        _currentUserData._dailyMergeLevel = 0;
+        _currentUserData._dailyAds = 0;
+        _currentUserData._dailyAdLevel = 0;
+        _currentUserData._dailyPurchases = 0;
+        _currentUserData._dailyPurchaseLevel = 0;
     }
 }

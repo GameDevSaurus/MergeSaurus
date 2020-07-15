@@ -23,6 +23,9 @@ public class UpgradesManager : MonoBehaviour
     Button[] _upgradeButtons;
     [SerializeField]
     MainGameSceneController _mainGameSceneController;
+    [SerializeField]
+    Image[] _dinoFaces;
+
     int discountIncrement = 5, earningsIncrement = 7, coolnesIncrement = 6, passiveEarningsIncrement = 4;
 
     public enum UpgradeTypes {Discount, DinoEarnings, TouristSpeed , PassiveEarnings}
@@ -58,6 +61,49 @@ public class UpgradesManager : MonoBehaviour
         _currentLevelsTx[1].text = "Nvl. " + (UserDataController.GetExtraEarningsLevel()+1);
         _currentLevelsTx[2].text = "Nvl. " + (UserDataController.GetExtraTouristSpeedLevel()+1);
         _currentLevelsTx[3].text = "Nvl. " + (UserDataController.GetExtraPassiveEarningsLevel()+1);
+
+        _dinoFaces[0].sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForDiscount);
+        _dinoFaces[1].sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForEarnings);
+        _dinoFaces[2].sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForTouristSpeed);
+        _dinoFaces[3].sprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForPassiveEarnings);
+
+        _dinoFaces[0].overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForDiscount);
+        _dinoFaces[1].overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForEarnings);
+        _dinoFaces[2].overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForTouristSpeed);
+        _dinoFaces[3].overrideSprite = Resources.Load<Sprite>("Sprites/ShopSprites/" + dinoLevelForPassiveEarnings);
+
+        if(UserDataController.GetBiggestDino() < dinoLevelForDiscount)
+        {
+            _dinoFaces[0].color = Color.black;
+        }
+        else
+        {
+            _dinoFaces[0].color = Color.white;
+        }
+        if (UserDataController.GetBiggestDino() < dinoLevelForEarnings)
+        {
+            _dinoFaces[1].color = Color.black;
+        }
+        else
+        {
+            _dinoFaces[1].color = Color.white;
+        }
+        if (UserDataController.GetBiggestDino() < dinoLevelForTouristSpeed)
+        {
+            _dinoFaces[2].color = Color.black;
+        }
+        else
+        {
+            _dinoFaces[2].color = Color.white;
+        }
+        if (UserDataController.GetBiggestDino() < dinoLevelForPassiveEarnings)
+        {
+            _dinoFaces[3].color = Color.black;
+        }
+        else
+        {
+            _dinoFaces[3].color = Color.white;
+        }
 
         _dinoCostTx[0].text = UserDataController.GetDinoAmountByType(dinoLevelForDiscount) + "/3";
         _dinoCostTx[1].text = UserDataController.GetDinoAmountByType(dinoLevelForEarnings) + "/3";
@@ -115,7 +161,7 @@ public class UpgradesManager : MonoBehaviour
 
     public int GetDinoLevelForUpgrade(UpgradeTypes upgradeType, int level)
     {
-        int requiredDinoLevel= 0;
+        int requiredDinoLevel= 6;
         requiredDinoLevel += (int)upgradeType;
         requiredDinoLevel += (4 * level);
         return requiredDinoLevel;

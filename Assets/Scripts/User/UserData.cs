@@ -19,6 +19,7 @@ public class UserData
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
     public int[] _obtainedTimes;
+    public bool[] _claimedAchievements;
     public int _discountLevel;
     public int _extraEarningsLevel;
     public int _extraTouristSpeedLevel;
@@ -31,6 +32,12 @@ public class UserData
     public int _biggestDino;
     public string _dailyRewardCheck;
     public int _playedDays;
+    public int _dailyMerges;
+    public int _dailyMergeLevel;
+    public int _dailyAds;
+    public int _dailyAdLevel;
+    public int _dailyPurchases;
+    public int _dailyPurchaseLevel;
 
     public UserData()
     {
@@ -66,8 +73,12 @@ public class UserData
         {
             _workingCellsByExpositor[i] = -1;
         }
-        _purchasedTimes = new int[21]; //Numero de indices igual al de tipos de dinosaurio #x
-        _obtainedTimes = new int[21]; //Numero de indices igual al de tipos de dinosaurio #x
+        _purchasedTimes = new int[40]; //Numero de indices igual al de tipos de dinosaurio #x
+        _obtainedTimes = new int[40]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[10];
+        _claimedAchievements = new bool[10];
+        _dailyMerges = 0;
+        _dailyAds = 0;
+        _dailyPurchases = 0;
     }
 }

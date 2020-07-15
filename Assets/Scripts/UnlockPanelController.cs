@@ -11,7 +11,6 @@ public class UnlockPanelController : MonoBehaviour
         GameEvents.DinoUp.AddListener(UnlockButtons);
         UnlockButtons(UserDataController.GetBiggestDino());
     }
-
     
     void UnlockButtons(int biggestDino)
     {

@@ -334,11 +334,11 @@ public class Tutorial : MonoBehaviour
         _tutorController.Speak(5);
         CurrentSceneManager.LockEverything();
         waitingSpeak = true;
+        _speedUpManager.SetSpeedHardCoinsCost(0);
         while (waitingSpeak)
         {
             yield return null;
         }
-
         _circlePanelObject.SetActive(true);
         _circlePanelTr.position = _speedUpManager.GetSpeedUpPosition();
         _handController.GetComponent<RectTransform>().position = _speedUpManager.GetSpeedUpPosition();
@@ -346,7 +346,6 @@ public class Tutorial : MonoBehaviour
         _handController.gameObject.SetActive(true);
         _handController.StartTouchMode();
         yield return new WaitForSeconds(0.5f);
-        _speedUpManager.SetSpeedHardCoinsCost(0);
         while (!_speedUpManager.IsPanelOpen())
         {
             yield return null;

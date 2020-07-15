@@ -34,6 +34,11 @@ public class EconomyManager : MonoBehaviour
         _dinosInGame = dinosInGame;
     }
 
+    public void EarnHardCoins(int amount)
+    {
+        UserDataController.AddHardCoins(amount);
+    }
+
     public bool SpendHardCoins(int amount)
     {
         bool canSpend = false;

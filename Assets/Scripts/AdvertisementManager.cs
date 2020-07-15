@@ -20,6 +20,8 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     PassiveGainManager _passiveGainManager;
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
+    RewardManager _rewardManager;
+    bool justWatchedAd = false;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         _boxManager = FindObjectOfType<BoxManager>();
         _spinManager = FindObjectOfType<SpinManager>();
         _passiveGainManager = FindObjectOfType<PassiveGainManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
     }
     void Start()
     {
@@ -54,10 +57,11 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     {
         if (showResult == ShowResult.Finished)
         {
+            justWatchedAd = true;
             switch (placementId)
             {
                 case "SpeedUp":
-                    _speedUpManager.SpeedUpCallback(200);
+                    _rewardManager.EarnSpeedUp(200);
                     break;
 
                 case "SpecialBox":
@@ -70,7 +74,6 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                     _passiveGainManager.VideoWatchedCallBack();
                     break;
             }
-            
         }
         else
         {
@@ -88,6 +91,14 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    private void Update()
+    {
+        if (justWatchedAd)
+        {
+            justWatchedAd = false;
+            UserDataController.AddDailyAd();
+        }
+    }
     public void OnUnityAdsDidError(string errorMessage)
     {
         print(errorMessage);

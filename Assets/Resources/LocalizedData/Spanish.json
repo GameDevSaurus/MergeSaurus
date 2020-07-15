@@ -289,7 +289,7 @@
   },
   {
     "key": "UPGRADES_INFO_PANEL_2",
-    "value": "Carisma de los dinos"
+    "value": "Velocidad de los turistas"
   },
   {
     "key": "UPGRADES_INFO_PANEL_3",
@@ -314,5 +314,37 @@
   {
     "key": "REWARD_DINOREWARDS",
     "value": "{0} segundos de "
+  },
+  {
+    "key": "CLAIM",
+    "value": "Reclamar"
+  },
+  {
+    "key": "ACHIEVEMENT_TITLE",
+    "value": "Consigue 5 dinos de nivel {0}"
+  },
+  {
+    "key": "DAILYMISSION_MERGE",
+    "value": "Combina {0} dinos "
+  },
+  {
+    "key": "DAILYMISSION_AD",
+    "value": "Mira {0} videos a cambio de recompensas"
+  },
+  {
+    "key": "DAILYMISSION_PURCHASE",
+    "value": "Compra {0} dinos"
+  },
+  {
+    "key": "UNLOCK_SPIN",
+    "value": "Has desbloqueado La Ruleta"
+  },
+  {
+    "key": "UNLOCK_MISSIONS",
+    "value": "Has desbloqueado Misiones"
+  },
+  {
+    "key": "UNLOCK_UPGRADES",
+    "value": "Has desbloqueado Mejoras"
   }
 ]

@@ -34,9 +34,11 @@ public class SpeedUpManager : MonoBehaviour
     PanelManager _panelManager;
     int _speedHardCoinsCost = 3;
     EconomyManager _economyManager;
+    RewardManager _rewardManager;
     private void Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
         DateTime _lastSpeedUp = UserDataController.GetLastSpeedUpTime();
         int remainingSecs = (int)System.DateTime.Now.Subtract(_lastSpeedUp).TotalSeconds;
         _economyManager = FindObjectOfType<EconomyManager>();
@@ -84,10 +86,9 @@ public class SpeedUpManager : MonoBehaviour
 
     public void HardcoinsPurchase()
     {
-        
         if(_economyManager.SpendHardCoins(_speedHardCoinsCost))
         {
-            SpeedUpCallback(200);
+            _rewardManager.EarnSpeedUp(200);
         }
         CheckHardCoinsButton();
     }

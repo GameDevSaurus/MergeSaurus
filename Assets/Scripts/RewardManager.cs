@@ -23,6 +23,13 @@ public class RewardManager : MonoBehaviour
     Queue<RewardData> rewardDataQueue = new Queue<RewardData>();
     bool canClose = false;
     bool panelIsOpen = false;
+
+    private void Awake()
+    {
+        GameEvents.MergeDino.AddListener(MergeDinoCallBack);
+        GameEvents.Purchase.AddListener(PurchaseDinoCallBack);
+        GameEvents.DinoUp.AddListener(CheckDinoUp);
+    }
     public void ShowPanel()
     {
         RewardData r = rewardDataQueue.Dequeue();
@@ -50,6 +57,46 @@ public class RewardManager : MonoBehaviour
         }
     }
 
+    public void CheckDinoUp(int dinoType)
+    {
+        if(dinoType == 5)
+        {
+            UnlockSpin();
+        }
+        if (dinoType == 6)
+        {
+            UnlockUpgrades();
+        }
+        if (dinoType == 7)
+        {
+            UnlockMissions();
+        }
+    }
+
+    public void UnlockSpin()
+    {
+        rewardDataQueue.Enqueue(new RewardData(4, 0));
+        if (!panelIsOpen)
+        {
+            ShowPanel();
+        }
+    }
+    public void UnlockMissions()
+    {
+        rewardDataQueue.Enqueue(new RewardData(5, 0));
+        if (!panelIsOpen)
+        {
+            ShowPanel();
+        }
+    }
+    public void UnlockUpgrades()
+    {
+        rewardDataQueue.Enqueue(new RewardData(6, 0));
+        if (!panelIsOpen)
+        {
+            ShowPanel();
+        }
+    }
     public void EarnSoftCoin(int seconds)
     {
         GameCurrency baseRewardPSec;
@@ -115,25 +162,6 @@ public class RewardManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            EarnSoftCoin(100);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            EarnHardCoin(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            EarnSpeedUp(200);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            EarnDinoEarnings(50);
-        }
-    }
     public void RefreshInfo(RewardData r)
     {
         switch (r._rewardType)
@@ -157,7 +185,28 @@ public class RewardManager : MonoBehaviour
                 _txReward.text = string.Format(LocalizationController.GetValueByKey("REWARD_DINOREWARDS"), r._amount);
                 _rewardImage.sprite = _rewardSprites[r._rewardType];
                 break;
+            case 4:
+                _txReward.text = LocalizationController.GetValueByKey("UNLOCK_SPIN");
+                _rewardImage.sprite = _rewardSprites[r._rewardType];
+                break;
+            case 5:
+                _txReward.text = LocalizationController.GetValueByKey("UNLOCK_MISSIONS");
+                _rewardImage.sprite = _rewardSprites[r._rewardType];
+                break;
+            case 6:
+                _txReward.text = LocalizationController.GetValueByKey("UNLOCK_UPGRADES");
+                _rewardImage.sprite = _rewardSprites[r._rewardType];
+                break;
         }
+    }
+
+    public void MergeDinoCallBack(int dinoType)
+    {
+        UserDataController.AddDailyMerge();
+    }
+    public void PurchaseDinoCallBack(int dinoType)
+    {
+        UserDataController.AddDailyPurchase();
     }
 }
 
