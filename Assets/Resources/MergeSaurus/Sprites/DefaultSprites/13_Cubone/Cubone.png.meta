@@ -1,0 +1,2156 @@
+fileFormatVersion: 2
+guid: 8e3fa80273228634ead3b8a978d9870e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 841500792984437267
+    second: Cubone_0
+  - first:
+      213: -2170160663666024153
+    second: Cubone_1
+  - first:
+      213: 8098658436335823512
+    second: Cubone_2
+  - first:
+      213: -6718709692949376700
+    second: Cubone_3
+  - first:
+      213: 3934071353879260195
+    second: Cubone_4
+  - first:
+      213: -2641162711738651159
+    second: Cubone_5
+  - first:
+      213: 1901054927788670692
+    second: Cubone_6
+  - first:
+      213: 703331185203938977
+    second: Cubone_7
+  - first:
+      213: 7801620642579342177
+    second: Cubone_8
+  - first:
+      213: 2844347558472772985
+    second: Cubone_9
+  - first:
+      213: -694530774794467599
+    second: Cubone_10
+  - first:
+      213: -4349885896064435025
+    second: Cubone_11
+  - first:
+      213: 1178538764742449338
+    second: Cubone_12
+  - first:
+      213: -5018450144759425274
+    second: Cubone_13
+  - first:
+      213: -346860509312388186
+    second: Cubone_14
+  - first:
+      213: 4619636327763176462
+    second: Cubone_15
+  - first:
+      213: 2089898974249391561
+    second: Cubone_16
+  - first:
+      213: -8242753597871642165
+    second: Cubone_17
+  - first:
+      213: -5831583300132381970
+    second: Cubone_18
+  - first:
+      213: 6683505437676330031
+    second: Cubone_19
+  - first:
+      213: -3817426408237271057
+    second: Cubone_20
+  - first:
+      213: 1078842825262872204
+    second: Cubone_21
+  - first:
+      213: -3862844030394620365
+    second: Cubone_22
+  - first:
+      213: -8864502380975970948
+    second: Cubone_23
+  - first:
+      213: -786116624961250291
+    second: Cubone_24
+  - first:
+      213: -3176666965384508760
+    second: Cubone_25
+  - first:
+      213: -6524879707483919497
+    second: Cubone_26
+  - first:
+      213: 1449157885200760326
+    second: Cubone_27
+  - first:
+      213: -5201903273898511500
+    second: Cubone_28
+  - first:
+      213: 8306186969139858123
+    second: Cubone_29
+  - first:
+      213: -5363836475931233765
+    second: Cubone_30
+  - first:
+      213: -8840926389508615431
+    second: Cubone_31
+  - first:
+      213: 2145712333604606840
+    second: Cubone_32
+  - first:
+      213: -2128573383785112428
+    second: Cubone_33
+  - first:
+      213: -7412021918786529227
+    second: Cubone_34
+  - first:
+      213: -4294534577596123395
+    second: Cubone_35
+  - first:
+      213: 2240056820421992167
+    second: Cubone_36
+  - first:
+      213: -3818559200525295322
+    second: Cubone_37
+  - first:
+      213: -4671692847687509246
+    second: Cubone_38
+  - first:
+      213: -5391986370818087884
+    second: Cubone_39
+  - first:
+      213: -3913856009612553209
+    second: Cubone_40
+  - first:
+      213: 6682804136687367854
+    second: Cubone_41
+  - first:
+      213: -6455175536420480161
+    second: Cubone_42
+  - first:
+      213: 4881941079485865731
+    second: Cubone_43
+  - first:
+      213: -6619587850709702904
+    second: Cubone_44
+  - first:
+      213: 5653427221561924047
+    second: Cubone_45
+  - first:
+      213: -822185669571943450
+    second: Cubone_46
+  - first:
+      213: -5886342665456362769
+    second: Cubone_47
+  - first:
+      213: -7217845692336967080
+    second: Cubone_48
+  - first:
+      213: 7496937397296317281
+    second: Cubone_49
+  - first:
+      213: -5939959847122371582
+    second: Cubone_50
+  - first:
+      213: -4026064388972197082
+    second: Cubone_51
+  - first:
+      213: -4295389998407679295
+    second: Cubone_52
+  - first:
+      213: 8418301568653873362
+    second: Cubone_53
+  - first:
+      213: -7866257320271507966
+    second: Cubone_54
+  - first:
+      213: -1848128927122304761
+    second: Cubone_55
+  - first:
+      213: -3453741332961113579
+    second: Cubone_56
+  - first:
+      213: 6624323744108508537
+    second: Cubone_57
+  - first:
+      213: -5582114433408386149
+    second: Cubone_58
+  - first:
+      213: -7796940021194309511
+    second: Cubone_59
+  - first:
+      213: -8673352045933087688
+    second: Cubone_60
+  - first:
+      213: -6492313035022848147
+    second: Cubone_61
+  - first:
+      213: 1895927679958371241
+    second: Cubone_62
+  - first:
+      213: 7133794964731069869
+    second: Cubone_63
+  - first:
+      213: 7285710113997254082
+    second: Cubone_64
+  - first:
+      213: 2296259370810549538
+    second: Cubone_65
+  - first:
+      213: -7100229007034544149
+    second: Cubone_66
+  - first:
+      213: -4124602119066270698
+    second: Cubone_67
+  - first:
+      213: -9220236119437821269
+    second: Cubone_68
+  - first:
+      213: 4366330531890176909
+    second: Cubone_69
+  - first:
+      213: 6443979979326543738
+    second: Cubone_70
+  - first:
+      213: -3890006198405777516
+    second: Cubone_71
+  - first:
+      213: 2869541966073929780
+    second: Cubone_72
+  - first:
+      213: -794753529009595193
+    second: Cubone_73
+  - first:
+      213: 8610228148449621907
+    second: Cubone_74
+  - first:
+      213: 802198205289074176
+    second: Cubone_75
+  - first:
+      213: -3614110938309232921
+    second: Cubone_76
+  - first:
+      213: -3939586966714884117
+    second: Cubone_77
+  - first:
+      213: -7278657109611364299
+    second: Cubone_78
+  - first:
+      213: 1110721294354737441
+    second: Cubone_79
+  - first:
+      213: 4870796734467049094
+    second: Cubone_80
+  - first:
+      213: 5319498753219926172
+    second: Cubone_81
+  - first:
+      213: -5710379997376564171
+    second: Cubone_82
+  - first:
+      213: -1207814210860091488
+    second: Cubone_83
+  - first:
+      213: -1100163807961173232
+    second: Cubone_84
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 45
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cubone_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 752
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3120c04438c9dab00800000000000000
+      internalID: 841500792984437267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 752
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72129a8df5a02e1e0800000000000000
+      internalID: -2170160663666024153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 752
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a640770f6346070800000000000000
+      internalID: 8098658436335823512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 752
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44157caa12952c2a0800000000000000
+      internalID: -6718709692949376700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 752
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c63018d01a89630800000000000000
+      internalID: 3934071353879260195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 705
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ed6fc4d184b85bd0800000000000000
+      internalID: -2641162711738651159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 705
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee79557267e16a10800000000000000
+      internalID: 1901054927788670692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_7
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 705
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6098d8cfbb2c900800000000000000
+      internalID: 703331185203938977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_8
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 705
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163eb41c3ace44c60800000000000000
+      internalID: 7801620642579342177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 705
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97de480d807297720800000000000000
+      internalID: 2844347558472772985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 658
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f68ccaa0f78c56f0800000000000000
+      internalID: -694530774794467599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_11
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 658
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facf89ff2d912a3c0800000000000000
+      internalID: -4349885896064435025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 658
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8508a23c20b5010800000000000000
+      internalID: 1178538764742449338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 658
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6075b96ae22ea5ab0800000000000000
+      internalID: -5018450144759425274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_14
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 658
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3f2db5434bf2bf0800000000000000
+      internalID: -346860509312388186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 611
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c60d3a3ce3c1040800000000000000
+      internalID: 4619636327763176462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 611
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c596985b00d00d10800000000000000
+      internalID: 2089898974249391561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_17
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 611
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9a9c3564bdb9d80800000000000000
+      internalID: -8242753597871642165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 611
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea5285b2ed021fa0800000000000000
+      internalID: -5831583300132381970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_19
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 611
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2cd61be8c490cc50800000000000000
+      internalID: 6683505437676330031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 564
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe772d448e6c50bc0800000000000000
+      internalID: -3817426408237271057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_21
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 564
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86b54865d1d8fe00800000000000000
+      internalID: 1078842825262872204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 564
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336279112db646ac0800000000000000
+      internalID: -3862844030394620365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 564
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75a257fc06faf480800000000000000
+      internalID: -8864502380975970948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_24
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 564
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cd72938172715f0800000000000000
+      internalID: -786116624961250291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 517
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aac986c9363ae3d0800000000000000
+      internalID: -3176666965384508760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_26
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 517
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b2441f978f275a0800000000000000
+      internalID: -6524879707483919497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_27
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 517
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ef8da2b617c1410800000000000000
+      internalID: 1449157885200760326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_28
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 517
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473765388802fc7b0800000000000000
+      internalID: -5201903273898511500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_29
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 517
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca4f855a01854370800000000000000
+      internalID: 8306186969139858123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 470
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12f5dad423df85b0800000000000000
+      internalID: -5363836475931233765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 470
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f256fb3a48be4580800000000000000
+      internalID: -8840926389508615431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_32
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 470
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8735daabff917cd10800000000000000
+      internalID: 2145712333604606840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_33
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 470
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c132df8c9c572e0800000000000000
+      internalID: -2128573383785112428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_34
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 470
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538d15fd555332990800000000000000
+      internalID: -7412021918786529227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 423
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df630ca1e8fb664c0800000000000000
+      internalID: -4294534577596123395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_36
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 423
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee91f15fc7461f10800000000000000
+      internalID: 2240056820421992167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_37
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 423
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621e3e283a0c10bc0800000000000000
+      internalID: -3818559200525295322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_38
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 423
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b5ad15b10da2fb0800000000000000
+      internalID: -4671692847687509246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_39
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 423
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434e3a5b6f0db25b0800000000000000
+      internalID: -5391986370818087884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 376
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704140d12b03fa9c0800000000000000
+      internalID: -3913856009612553209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_41
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 376
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6f2ce84f61ebc50800000000000000
+      internalID: 6682804136687367854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_42
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 376
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b9dd4fc0c9a66a0800000000000000
+      internalID: -6455175536420480161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_43
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 376
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f5421db8320c340800000000000000
+      internalID: 4881941079485865731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_44
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 376
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807e4fefbef7224a0800000000000000
+      internalID: -6619587850709702904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9d8b8da12057e40800000000000000
+      internalID: 5653427221561924047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_46
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 329
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e36fb95d720794f0800000000000000
+      internalID: -822185669571943450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_47
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 329
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea5f3f68828f4ea0800000000000000
+      internalID: -5886342665456362769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_48
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 329
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852fba8a59f05db90800000000000000
+      internalID: -7217845692336967080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_49
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 329
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1634035a7d87a0860800000000000000
+      internalID: 7496937397296317281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 282
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cff248df5019da0800000000000000
+      internalID: -5939959847122371582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_51
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 282
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b467ce4cb8028c0800000000000000
+      internalID: -4026064388972197082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_52
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 282
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2052ded85b364c0800000000000000
+      internalID: -4295389998407679295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_53
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 282
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d05ab3bca0d3d470800000000000000
+      internalID: 8418301568653873362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_54
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 282
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e8669f4a075d290800000000000000
+      internalID: -7866257320271507966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70150c758802a56e0800000000000000
+      internalID: -1848128927122304761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_56
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 235
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ac4ce6e88d110d0800000000000000
+      internalID: -3453741332961113579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_57
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 235
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975f5cc19535eeb50800000000000000
+      internalID: 6624323744108508537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_58
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 235
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bbc158f785882b0800000000000000
+      internalID: -5582114433408386149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_59
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 235
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970cfa55c54bbc390800000000000000
+      internalID: -7796940021194309511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 188
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8343042844012a780800000000000000
+      internalID: -8673352045933087688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_61
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 188
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f23d041bba6e5a0800000000000000
+      internalID: -6492313035022848147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_62
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 188
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abcfbb0e20bf4a10800000000000000
+      internalID: 1895927679958371241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_63
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 188
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5044559b4500360800000000000000
+      internalID: 7133794964731069869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_64
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 188
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cde6415fba0c1560800000000000000
+      internalID: 7285710113997254082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225235d4bb3fddf10800000000000000
+      internalID: 2296259370810549538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_66
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 141
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef08c3365be67d90800000000000000
+      internalID: -7100229007034544149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_67
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 141
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6144b3dc93872c6c0800000000000000
+      internalID: -4124602119066270698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_68
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 141
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baabeaba9142b0080800000000000000
+      internalID: -9220236119437821269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_69
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 141
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83a1452c72589c30800000000000000
+      internalID: 4366330531890176909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77dc7746ad9d6950800000000000000
+      internalID: 6443979979326543738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_71
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 94
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497b4f109fbe30ac0800000000000000
+      internalID: -3890006198405777516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_72
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 94
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430a9e3f639a2d720800000000000000
+      internalID: 2869541966073929780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_73
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 94
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc156b40e778f4f0800000000000000
+      internalID: -794753529009595193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_74
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 94
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 397b86fc1ecad7770800000000000000
+      internalID: 8610228148449621907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e06b9740bf12b00800000000000000
+      internalID: 802198205289074176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_76
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 47
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6793fff3918ddc0800000000000000
+      internalID: -3614110938309232921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_77
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 47
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef533fc686c359c0800000000000000
+      internalID: -3939586966714884117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_78
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 47
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5304ebb3ce30dfa90800000000000000
+      internalID: -7278657109611364299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_79
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 47
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129e972e1231a6f00800000000000000
+      internalID: 1110721294354737441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6868a0bc2db889340800000000000000
+      internalID: 4870796734467049094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_81
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c989ec0aee7a2d940800000000000000
+      internalID: 5319498753219926172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_82
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534bfd3b5a7a0c0b0800000000000000
+      internalID: -5710379997376564171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_83
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7f30fdf5bfc3fe0800000000000000
+      internalID: -1207814210860091488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubone_84
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013bbb778de6bb0f0800000000000000
+      internalID: -1100163807961173232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
