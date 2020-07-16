@@ -1,0 +1,2060 @@
+fileFormatVersion: 2
+guid: 3e7a6eba5ec178143bb67d68cc40661b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 888703617552120232
+    second: Psyduck_0
+  - first:
+      213: 5653262427695719164
+    second: Psyduck_1
+  - first:
+      213: 8476796478768878172
+    second: Psyduck_2
+  - first:
+      213: 451705529520088340
+    second: Psyduck_3
+  - first:
+      213: -3655336430270671329
+    second: Psyduck_4
+  - first:
+      213: -5695587121139570960
+    second: Psyduck_5
+  - first:
+      213: -4515925524129533507
+    second: Psyduck_6
+  - first:
+      213: 2218984960714915919
+    second: Psyduck_7
+  - first:
+      213: 789510767464223517
+    second: Psyduck_8
+  - first:
+      213: -6576366674576195652
+    second: Psyduck_9
+  - first:
+      213: -7615298733201690930
+    second: Psyduck_10
+  - first:
+      213: 4669273799589642774
+    second: Psyduck_11
+  - first:
+      213: -5965984255362517761
+    second: Psyduck_12
+  - first:
+      213: 3676445089546150188
+    second: Psyduck_13
+  - first:
+      213: -3243524195899152976
+    second: Psyduck_14
+  - first:
+      213: 7915984269048485121
+    second: Psyduck_15
+  - first:
+      213: -2983346850987364
+    second: Psyduck_16
+  - first:
+      213: 328774824953023701
+    second: Psyduck_17
+  - first:
+      213: -1601243160400961751
+    second: Psyduck_18
+  - first:
+      213: 5147754800415138858
+    second: Psyduck_19
+  - first:
+      213: -1579091661027396289
+    second: Psyduck_20
+  - first:
+      213: 7456987850831528161
+    second: Psyduck_21
+  - first:
+      213: 8754072270348614951
+    second: Psyduck_22
+  - first:
+      213: 6828910137383690743
+    second: Psyduck_23
+  - first:
+      213: -6516338863496131292
+    second: Psyduck_24
+  - first:
+      213: -7336303983999008196
+    second: Psyduck_25
+  - first:
+      213: 2364660755637051316
+    second: Psyduck_26
+  - first:
+      213: -624624920134449775
+    second: Psyduck_27
+  - first:
+      213: -2626284539679351316
+    second: Psyduck_28
+  - first:
+      213: -2589587834103664341
+    second: Psyduck_29
+  - first:
+      213: -5935333426829399252
+    second: Psyduck_30
+  - first:
+      213: -2952040067124124798
+    second: Psyduck_31
+  - first:
+      213: -2367630394779074815
+    second: Psyduck_32
+  - first:
+      213: -4334179567153928535
+    second: Psyduck_33
+  - first:
+      213: -1824118565927531103
+    second: Psyduck_34
+  - first:
+      213: -1270300267845938362
+    second: Psyduck_35
+  - first:
+      213: 557699219938339251
+    second: Psyduck_36
+  - first:
+      213: 4428718456308646273
+    second: Psyduck_37
+  - first:
+      213: 596792014278076209
+    second: Psyduck_38
+  - first:
+      213: 3908453646552664817
+    second: Psyduck_39
+  - first:
+      213: -5969047801334492101
+    second: Psyduck_40
+  - first:
+      213: 3743389617056653087
+    second: Psyduck_41
+  - first:
+      213: -4726320073450445498
+    second: Psyduck_42
+  - first:
+      213: 6028320836618613315
+    second: Psyduck_43
+  - first:
+      213: -9052413975487722444
+    second: Psyduck_44
+  - first:
+      213: -649288277480266026
+    second: Psyduck_45
+  - first:
+      213: -6679984256029542638
+    second: Psyduck_46
+  - first:
+      213: 6489189718602343448
+    second: Psyduck_47
+  - first:
+      213: -6020089318511119964
+    second: Psyduck_48
+  - first:
+      213: 2239551423312196003
+    second: Psyduck_49
+  - first:
+      213: 1021277231011675795
+    second: Psyduck_50
+  - first:
+      213: -257715920388667571
+    second: Psyduck_51
+  - first:
+      213: 2086103958094312094
+    second: Psyduck_52
+  - first:
+      213: 3440068151953006130
+    second: Psyduck_53
+  - first:
+      213: -5504530773285645207
+    second: Psyduck_54
+  - first:
+      213: 4813705258641097540
+    second: Psyduck_55
+  - first:
+      213: 4217682616489236086
+    second: Psyduck_56
+  - first:
+      213: -8117535579252892762
+    second: Psyduck_57
+  - first:
+      213: 1572361788203248945
+    second: Psyduck_58
+  - first:
+      213: -571905504555485515
+    second: Psyduck_59
+  - first:
+      213: -8238988189260346132
+    second: Psyduck_60
+  - first:
+      213: 5974688643182345627
+    second: Psyduck_61
+  - first:
+      213: -7626599552573937092
+    second: Psyduck_62
+  - first:
+      213: 6885088790829242406
+    second: Psyduck_63
+  - first:
+      213: -4023523139416678269
+    second: Psyduck_64
+  - first:
+      213: -5854618740211392854
+    second: Psyduck_65
+  - first:
+      213: 8839009436999039214
+    second: Psyduck_66
+  - first:
+      213: -1581939075844961847
+    second: Psyduck_67
+  - first:
+      213: -4740942622782799192
+    second: Psyduck_68
+  - first:
+      213: 3688102968754774532
+    second: Psyduck_69
+  - first:
+      213: -5847891148234513044
+    second: Psyduck_70
+  - first:
+      213: -650317529590999618
+    second: Psyduck_71
+  - first:
+      213: 7631812183733642083
+    second: Psyduck_72
+  - first:
+      213: -2822436747359854998
+    second: Psyduck_73
+  - first:
+      213: 4358747200365824016
+    second: Psyduck_74
+  - first:
+      213: 8119259511025327042
+    second: Psyduck_75
+  - first:
+      213: -7009735571748075606
+    second: Psyduck_76
+  - first:
+      213: -8924513252768761252
+    second: Psyduck_77
+  - first:
+      213: -4453239909550811090
+    second: Psyduck_78
+  - first:
+      213: 1819238457654688569
+    second: Psyduck_79
+  - first:
+      213: -7208866750415323832
+    second: Psyduck_80
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Psyduck_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a97cca4b3f455c00800000000000000
+      internalID: 888703617552120232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 736
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2add8c93c647e40800000000000000
+      internalID: 5653262427695719164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 736
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c521d464c71a3a570800000000000000
+      internalID: 8476796478768878172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 736
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415ef1e29c7c44600800000000000000
+      internalID: 451705529520088340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 736
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f161c2b22e2a54dc0800000000000000
+      internalID: -3655336430270671329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 690
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6af2990b535f0b0800000000000000
+      internalID: -5695587121139570960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 690
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1b32689a53451c0800000000000000
+      internalID: -4515925524129533507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_7
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 690
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40c859a01b6bce10800000000000000
+      internalID: 2218984960714915919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_8
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 690
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d131d092cd7e4fa00800000000000000
+      internalID: 789510767464223517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 690
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf3b214a5d0cb4a0800000000000000
+      internalID: -6576366674576195652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 644
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecee7055626015690800000000000000
+      internalID: -7615298733201690930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_11
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 644
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 612449728c79cc040800000000000000
+      internalID: 4669273799589642774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_12
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 644
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff43b8bcde0943da0800000000000000
+      internalID: -5965984255362517761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_13
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 644
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21a0ae845b550330800000000000000
+      internalID: 3676445089546150188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_14
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 644
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5eb03cdefacf2d0800000000000000
+      internalID: -3243524195899152976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 598
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105173480c93bdd60800000000000000
+      internalID: 7915984269048485121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_16
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 598
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9284be69a665fff0800000000000000
+      internalID: -2983346850987364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_17
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 598
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc8a6c16fa009400800000000000000
+      internalID: 328774824953023701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 598
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92fd64154dd37c9e0800000000000000
+      internalID: -1601243160400961751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_19
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 598
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a246e8d87bf707740800000000000000
+      internalID: 5147754800415138858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 552
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f353eac2080f51ae0800000000000000
+      internalID: -1579091661027396289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 552
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e0873701fa8c7760800000000000000
+      internalID: 7456987850831528161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_22
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 552
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72df93c4956bc7970800000000000000
+      internalID: 8754072270348614951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_23
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 552
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1a1ddb69925ce50800000000000000
+      internalID: 6828910137383690743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_24
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 552
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d8d3524505195a0800000000000000
+      internalID: -6516338863496131292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 506
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32c47d5566303a90800000000000000
+      internalID: -7336303983999008196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_26
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 506
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf9d02cd66f0d020800000000000000
+      internalID: 2364660755637051316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_27
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 506
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195878dc1f2e457f0800000000000000
+      internalID: -624624920134449775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_28
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 506
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceddf4530209d8bd0800000000000000
+      internalID: -2626284539679351316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_29
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 506
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21f399c59fef0cd0800000000000000
+      internalID: -2589587834103664341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 460
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2be45ee1b571ada0800000000000000
+      internalID: -5935333426829399252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_31
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 460
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283a854133f3807d0800000000000000
+      internalID: -2952040067124124798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_32
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 460
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f76cf33bc742fd0800000000000000
+      internalID: -2367630394779074815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_33
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 460
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6a80ba5a6e9d3c0800000000000000
+      internalID: -4334179567153928535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_34
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 460
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1adc1b134dd6fa6e0800000000000000
+      internalID: -1824118565927531103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 414
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64395f003acfe5ee0800000000000000
+      internalID: -1270300267845938362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_36
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 414
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9efe75c785db700800000000000000
+      internalID: 557699219938339251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_37
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 414
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1814e7eb8f7f57d30800000000000000
+      internalID: 4428718456308646273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_38
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 414
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137a5dfcc2b384800800000000000000
+      internalID: 596792014278076209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_39
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 414
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa0ad732ed9d3630800000000000000
+      internalID: 3908453646552664817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34912a66aea92da0800000000000000
+      internalID: -5969047801334492101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_41
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 368
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f1c8cf50133f330800000000000000
+      internalID: 3743389617056653087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_42
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 368
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645203f2fecb86eb0800000000000000
+      internalID: -4726320073450445498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_43
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 368
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342fcba8cd5e8a350800000000000000
+      internalID: 6028320836618613315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_44
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 368
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cc547737d5f5280800000000000000
+      internalID: -9052413975487722444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 322
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6a6ff60c34df6f0800000000000000
+      internalID: -649288277480266026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_46
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 322
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217382216bdeb43a0800000000000000
+      internalID: -6679984256029542638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_47
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 322
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814e869faab3e0a50800000000000000
+      internalID: 6489189718602343448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_48
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 322
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1750e19a8547ca0800000000000000
+      internalID: -6020089318511119964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_49
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 322
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a17eb2672c741f10800000000000000
+      internalID: 2239551423312196003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e35ab0b3e4c2e00800000000000000
+      internalID: 1021277231011675795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_51
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 276
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4745406cb86c6cf0800000000000000
+      internalID: -257715920388667571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_52
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 276
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e927fba4f7453fc10800000000000000
+      internalID: 2086103958094312094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_53
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 276
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e1b4802c39dbf20800000000000000
+      internalID: 3440068151953006130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_54
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 276
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9645a1b0d6afb93b0800000000000000
+      internalID: -5504530773285645207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4438bbabd67bdc240800000000000000
+      internalID: 4813705258641097540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_56
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 230
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6765e235ef7388a30800000000000000
+      internalID: 4217682616489236086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_57
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 230
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab59033668b85f80800000000000000
+      internalID: -8117535579252892762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_58
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 230
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13da04437b622d510800000000000000
+      internalID: 1572361788203248945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_59
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 230
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b631e349fe2018f0800000000000000
+      internalID: -571905504555485515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec8f76d4eb39ad80800000000000000
+      internalID: -8238988189260346132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_61
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 184
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9db17c6aab5ae250800000000000000
+      internalID: 5974688643182345627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_62
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 184
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a6da84d10e82690800000000000000
+      internalID: -7626599552573937092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_63
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 184
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6289668c6cfbc8f50800000000000000
+      internalID: 6885088790829242406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_64
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 184
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3802181b5039928c0800000000000000
+      internalID: -4023523139416678269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaeda5e564730cea0800000000000000
+      internalID: -5854618740211392854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_66
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 138
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee837aa70487aaa70800000000000000
+      internalID: 8839009436999039214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_67
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 138
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c983ffbac2db0ae0800000000000000
+      internalID: -1581939075844961847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_68
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 138
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2c58c9dc9c43eb0800000000000000
+      internalID: -4740942622782799192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_69
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 138
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40221b31c16ce2330800000000000000
+      internalID: 3688102968754774532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65a450fbfd18dea0800000000000000
+      internalID: -5847891148234513044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_71
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 92
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5d48107ab99f6f0800000000000000
+      internalID: -650317529590999618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_72
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 92
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36321fbfeb4a9e960800000000000000
+      internalID: 7631812183733642083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_73
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 92
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e5b907bb0b4d8d0800000000000000
+      internalID: -2822436747359854998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_74
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 92
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018888f2c716d7c30800000000000000
+      internalID: 4358747200365824016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb50e1f1876da070800000000000000
+      internalID: 8119259511025327042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_76
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 46
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7498cf2aa68be90800000000000000
+      internalID: -7009735571748075606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_77
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 46
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ab37f0b72c52480800000000000000
+      internalID: -8924513252768761252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_78
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 46
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2891a385e9e232c0800000000000000
+      internalID: -4453239909550811090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_79
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 46
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bbc3e0dbb3f3910800000000000000
+      internalID: 1819238457654688569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Psyduck_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dbe5c72e5f4fb90800000000000000
+      internalID: -7208866750415323832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

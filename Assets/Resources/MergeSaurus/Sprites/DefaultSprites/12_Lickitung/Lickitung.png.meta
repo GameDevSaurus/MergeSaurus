@@ -1,0 +1,1076 @@
+fileFormatVersion: 2
+guid: 794b2ca8705a69940862123507d2e311
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5948766886010354769
+    second: Lickitung_0
+  - first:
+      213: 4987141706118533704
+    second: Lickitung_1
+  - first:
+      213: -3103069782274049263
+    second: Lickitung_2
+  - first:
+      213: 3174796688640391419
+    second: Lickitung_3
+  - first:
+      213: 2677314533660708330
+    second: Lickitung_4
+  - first:
+      213: 5482604690018413326
+    second: Lickitung_5
+  - first:
+      213: -3496728996707245247
+    second: Lickitung_6
+  - first:
+      213: 855551597267919561
+    second: Lickitung_7
+  - first:
+      213: -6097138604123242249
+    second: Lickitung_8
+  - first:
+      213: -4472094228188137081
+    second: Lickitung_9
+  - first:
+      213: -1737846643382294550
+    second: Lickitung_10
+  - first:
+      213: -7027484489927427324
+    second: Lickitung_11
+  - first:
+      213: -6840863950808557971
+    second: Lickitung_12
+  - first:
+      213: -2296224238238097561
+    second: Lickitung_13
+  - first:
+      213: -5838000056760407531
+    second: Lickitung_14
+  - first:
+      213: 5005221062661552916
+    second: Lickitung_15
+  - first:
+      213: 7707781609389246718
+    second: Lickitung_16
+  - first:
+      213: -8946878113477013324
+    second: Lickitung_17
+  - first:
+      213: 3629287625734012830
+    second: Lickitung_18
+  - first:
+      213: -4036072178244657867
+    second: Lickitung_19
+  - first:
+      213: 4589533019447203679
+    second: Lickitung_20
+  - first:
+      213: -1996537649299751065
+    second: Lickitung_21
+  - first:
+      213: -327875934554275765
+    second: Lickitung_22
+  - first:
+      213: 3318416331113925388
+    second: Lickitung_23
+  - first:
+      213: -3402377357236186689
+    second: Lickitung_24
+  - first:
+      213: -6590686752841135795
+    second: Lickitung_25
+  - first:
+      213: -5633448040927913114
+    second: Lickitung_26
+  - first:
+      213: 2926303188084222601
+    second: Lickitung_27
+  - first:
+      213: 3449122309871698017
+    second: Lickitung_28
+  - first:
+      213: 6162269216112472768
+    second: Lickitung_29
+  - first:
+      213: 3061676372193303861
+    second: Lickitung_30
+  - first:
+      213: 3433349349477807855
+    second: Lickitung_31
+  - first:
+      213: 2702127381956201594
+    second: Lickitung_32
+  - first:
+      213: 6557034263988568912
+    second: Lickitung_33
+  - first:
+      213: 5090297300321851731
+    second: Lickitung_34
+  - first:
+      213: 6112716313752625529
+    second: Lickitung_35
+  - first:
+      213: -4793916875147122386
+    second: Lickitung_36
+  - first:
+      213: -7349725041816582406
+    second: Lickitung_37
+  - first:
+      213: 6758290915807937424
+    second: Lickitung_38
+  - first:
+      213: -3569648858396181974
+    second: Lickitung_39
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lickitung_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa30fbbf80cb17da0800000000000000
+      internalID: -5948766886010354769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 385
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8421bbd65f2e53540800000000000000
+      internalID: 4987141706118533704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 385
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b7e4a497eafe4d0800000000000000
+      internalID: -3103069782274049263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 385
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf83f7c74c42f0c20800000000000000
+      internalID: 3174796688640391419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 385
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed46d2226bb72520800000000000000
+      internalID: 2677314533660708330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b2070eaef161c40800000000000000
+      internalID: 5482604690018413326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_6
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 330
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143e473018f197fc0800000000000000
+      internalID: -3496728996707245247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_7
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 330
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c22c2215a78fdb00800000000000000
+      internalID: 855551597267919561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 330
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0c9ea5ebc926ba0800000000000000
+      internalID: -6097138604123242249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 330
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78975ce5efdefe1c0800000000000000
+      internalID: -4472094228188137081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7e7137fade1e7e0800000000000000
+      internalID: -1737846643382294550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_11
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 275
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40bfe41f61c597e90800000000000000
+      internalID: -7027484489927427324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_12
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 275
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66d74f2b7e5011a0800000000000000
+      internalID: -6840863950808557971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_13
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 275
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f1d23a83c2220e0800000000000000
+      internalID: -2296224238238097561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_14
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 275
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ae51221e14bfea0800000000000000
+      internalID: -5838000056760407531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bbe36a90e167540800000000000000
+      internalID: 5005221062661552916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_16
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 220
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef84fe1498a87fa60800000000000000
+      internalID: 7707781609389246718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_17
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 220
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b05c7522cd46d380800000000000000
+      internalID: -8946878113477013324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_18
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 220
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fb897edd1dd5230800000000000000
+      internalID: 3629287625734012830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 220
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dd3e7ecbdfcf7c0800000000000000
+      internalID: -4036072178244657867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57931df6fb41bf30800000000000000
+      internalID: 4589533019447203679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_21
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 165
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f7bc8069fda44e0800000000000000
+      internalID: -1996537649299751065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_22
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 165
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b404e7e1396237bf0800000000000000
+      internalID: -327875934554275765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_23
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 165
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b86e842126d0e20800000000000000
+      internalID: 3318416331113925388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_24
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 165
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1da16f1d358c0d0800000000000000
+      internalID: -3402377357236186689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d490807315d2984a0800000000000000
+      internalID: -6590686752841135795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_26
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 110
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b1fd3aad8f1d1b0800000000000000
+      internalID: -5633448040927913114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_27
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 110
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a6adece315c9820800000000000000
+      internalID: 2926303188084222601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_28
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 110
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16007c2777ebddf20800000000000000
+      internalID: 3449122309871698017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 110
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c275b4f337c48550800000000000000
+      internalID: 6162269216112472768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dd9c560724d7a20800000000000000
+      internalID: 3061676372193303861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_31
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 55
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6717dea05b5af20800000000000000
+      internalID: 3433349349477807855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_32
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 55
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c0b539982ef7520800000000000000
+      internalID: 2702127381956201594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_33
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 55
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0538a152ce34ffa50800000000000000
+      internalID: 6557034263988568912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_34
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 55
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35950d2dc6e54a640800000000000000
+      internalID: 5090297300321851731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971e5fdc91bb4d450800000000000000
+      internalID: 6112716313752625529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_36
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29ea165006987db0800000000000000
+      internalID: -4793916875147122386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_37
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6cab5d308800a90800000000000000
+      internalID: -7349725041816582406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_38
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0934b7de7c54acd50800000000000000
+      internalID: 6758290915807937424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lickitung_39
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 76
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2aba6ea64f067ec0800000000000000
+      internalID: -3569648858396181974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
