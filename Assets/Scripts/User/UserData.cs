@@ -10,6 +10,7 @@ public class UserData
     public int _experience;
     public int _level;
     public int[] _softCoins;
+    public int[] _totalSoftCoins;
     public int _hardCoins;
     public int _unlockedCells;
     public int _unlockedExpositors;
@@ -39,6 +40,7 @@ public class UserData
     public int _dailyPurchases;
     public int _dailyPurchaseLevel;
 
+
     public UserData()
     {
         _lastUpdatedTime = System.DateTime.Now.ToBinary().ToString();
@@ -47,6 +49,8 @@ public class UserData
         _level = 1;
         _softCoins = new int[31];
         _softCoins[0] = 20000;
+        _totalSoftCoins = new int[31];
+        _totalSoftCoins[0] = 20000;
         _hardCoins = 0;
         _unlockedCells = 4;
         _unlockedExpositors = 4;

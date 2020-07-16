@@ -307,6 +307,7 @@ public class UserDataController : MonoBehaviour
         GameCurrency gCToAdd = new GameCurrency((_currentUserData._softCoins));
         gCToAdd.AddCurrency(softCoins);
         _currentUserData._softCoins = gCToAdd.GetIntList();
+        _currentUserData._totalSoftCoins = gCToAdd.GetIntList();
         SaveToFile();
     }
 
@@ -332,6 +333,11 @@ public class UserDataController : MonoBehaviour
         return _currentUserData._hardCoins;
     }
 
+    public static GameCurrency GetTotalEarnings()
+    {
+        GameCurrency t = new GameCurrency(_currentUserData._totalSoftCoins);
+        return t;
+    }
     public static int GetOwnedDinosByDinoType(int dinoType)
     {
         return _currentUserData._purchasedTimes[dinoType];

@@ -346,5 +346,29 @@
   {
     "key": "UNLOCK_UPGRADES",
     "value": "Has desbloqueado Mejoras"
+  },
+  {
+    "key": "PROFILE_EXTRAS_1",
+    "value": "Beneficios incrementados {0}%"
+  },
+  {
+    "key": "PROFILE_EXTRAS_2",
+    "value": "{0}% de descuento en los dinos"
+  },
+  {
+    "key": "PROFILE_EXTRAS_3",
+    "value": "+{0}% de velocidad de los dinos"
+  },
+  {
+    "key": "PROFILE_EXTRAS_4",
+    "value": "+{0}% de ganancias pasivas"
+  },
+  {
+    "key": null,
+    "value": null
+  },
+  {
+    "key": null,
+    "value": " "
   }
 ]

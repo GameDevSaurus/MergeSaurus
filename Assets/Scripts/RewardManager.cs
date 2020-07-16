@@ -22,7 +22,7 @@ public class RewardManager : MonoBehaviour
     GameObject _mainPanel;
     Queue<RewardData> rewardDataQueue;
     bool canClose = false;
-    bool panelIsOpen = false;
+    bool panelIsOpen;
 
     private void Awake()
     {
@@ -30,17 +30,24 @@ public class RewardManager : MonoBehaviour
         GameEvents.Purchase.AddListener(PurchaseDinoCallBack);
         GameEvents.DinoUp.AddListener(CheckDinoUp);
         rewardDataQueue = new Queue<RewardData>();
+        panelIsOpen = false;
     }
     public void ShowPanel()
     {
+        print("0");
         RewardData r = rewardDataQueue.Dequeue();
+        print("1");
         if (!panelIsOpen)
         {
+            print("2");
             _mainPanel.SetActive(true);
             panelIsOpen = true;
+            print("3");
         }
         RefreshInfo(r);
+        print("4");
         StartCoroutine(WaitToClose(1f));
+        print("5");
     }
     public void ClosePanel()
     {
