@@ -27,17 +27,17 @@ public class ProfileManager : MonoBehaviour
         {
             StartCoroutine(CrOpen());
             profileOpen = true;
-            string extra0 = string.Format(LocalizationController.GetValueByKey("Beneficios incrementados {0}%"), (5 * UserDataController.GetDiscountUpgradeLevel()));
+            string extra0 = string.Format(LocalizationController.GetValueByKey("PROFILE_EXTRAS_1"), (5 * UserDataController.GetDiscountUpgradeLevel()));
             txExtras[0].text = extra0;
 
-            string extra1 = string.Format(LocalizationController.GetValueByKey("{0}% de descuento en los dinos"), (7 * UserDataController.GetExtraEarningsLevel()));
-            txExtras[1].text = extra0;
+            string extra1 = string.Format(LocalizationController.GetValueByKey("PROFILE_EXTRAS_2"), (7 * UserDataController.GetExtraEarningsLevel()));
+            txExtras[1].text = extra1;
 
-            string extra2 = string.Format(LocalizationController.GetValueByKey("+{0}% de velocidad de los dinos"), (6 * UserDataController.GetDiscountUpgradeLevel()));
-            txExtras[2].text = extra0;
+            string extra2 = string.Format(LocalizationController.GetValueByKey("PROFILE_EXTRAS_3"), (6 * UserDataController.GetDiscountUpgradeLevel()));
+            txExtras[2].text = extra2;
 
-            string extra3 = string.Format(LocalizationController.GetValueByKey("+{0}% de ganancias pasivas"), (4 * UserDataController.GetDiscountUpgradeLevel()));
-            txExtras[3].text = extra0;
+            string extra3 = string.Format(LocalizationController.GetValueByKey("PROFILE_EXTRAS_4"), (4 * UserDataController.GetDiscountUpgradeLevel()));
+            txExtras[3].text = extra3;
 
             txSProfits.text = _economyManager.GetEarningsPerSecond();
             txTProfits.text = UserDataController.GetTotalEarnings().GetCurrentMoney();
