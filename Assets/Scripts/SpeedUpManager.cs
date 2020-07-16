@@ -31,6 +31,8 @@ public class SpeedUpManager : MonoBehaviour
     float _speedUpTime = 0;
     bool _speedingUp = false;
     bool _panelIsOpen = false;
+    [SerializeField]
+    Image _timeFillBar;
     PanelManager _panelManager;
     int _speedHardCoinsCost = 3;
     EconomyManager _economyManager;
@@ -74,6 +76,10 @@ public class SpeedUpManager : MonoBehaviour
     {
         _speedingUp = true;
         _speedUpTime += time;
+        if(_speedUpTime > 1800)
+        {
+            _speedUpTime = 1800;
+        }
         CurrentSceneManager.SetGlobalSpeed(2);
         _VFXFireworksPool.StartTheParty();
         UserDataController.UpdateSpeedUpData((int)_speedUpTime);
@@ -108,6 +114,7 @@ public class SpeedUpManager : MonoBehaviour
         if (_panelIsOpen) 
         {
             _remainingTimeTx.text = GetRemainingTime();
+            _timeFillBar.fillAmount = _speedUpTime / 1800f;
         }
         if(_speedingUp)
         {
