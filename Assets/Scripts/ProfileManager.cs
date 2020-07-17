@@ -11,7 +11,7 @@ public class ProfileManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI[] txExtras;
     [SerializeField]
-    TextMeshProUGUI txSProfits, txTProfits;
+    TextMeshProUGUI txSProfits, txTProfits, txLevel;
     [SerializeField]
     Button[] _panelButtons;
     [SerializeField]
@@ -20,12 +20,25 @@ public class ProfileManager : MonoBehaviour
     GameObject[] _profilePanels;
     [SerializeField]
     AnimationCurve animationCurve;
+    [SerializeField]
+    Image[] _avatarFaces;
+    [SerializeField]
+    Image _avatar;
+    [SerializeField]
+    Button _sfxButton, _musicButton;
+    bool _sfxState = true, _musicState = true;
+    [SerializeField]
+    GameObject _selectedBorderPrefab;
+    GameObject _currentSelectedBorder;
+    [SerializeField]
+    PanelManager _panelManager;
     bool profileOpen = false;
+
     public void OpenProfile()
     {
         if (!profileOpen)
         {
-            StartCoroutine(CrOpen());
+            _panelManager.RequestShowPanel(_mainPanel);
             profileOpen = true;
             string extra0 = string.Format(LocalizationController.GetValueByKey("PROFILE_EXTRAS_1"), (5 * UserDataController.GetDiscountUpgradeLevel()));
             txExtras[0].text = extra0;
@@ -41,12 +54,67 @@ public class ProfileManager : MonoBehaviour
 
             txSProfits.text = _economyManager.GetEarningsPerSecond();
             txTProfits.text = UserDataController.GetTotalEarnings().GetCurrentMoney();
+            txLevel.text = UserDataController.GetLevel().ToString();
+
+            for(int i = 0; i < UserDataController.GetDinoAmount(); i++)
+            {
+                _avatarFaces[i].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
+                if (i > UserDataController.GetBiggestDino())
+                {
+                    _avatarFaces[i].color = Color.black;
+                }
+                else
+                {
+                    _avatarFaces[i].color = Color.white;
+                }
+            }
+            _avatar.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
+            _currentSelectedBorder = Instantiate(_selectedBorderPrefab, _avatarFaces[UserDataController.GetPlayerAvatar()].transform.parent);
         }
     }
     public void CloseProfile()
     {
-        _mainPanel.SetActive(false);
+        _panelManager.ClosePanel();
         profileOpen = false;
+    }
+
+    public void ChooseAvatar(int avatarIndex)
+    {
+        if(avatarIndex <= UserDataController.GetBiggestDino())
+        {
+            UserDataController.SetPlayerAvatar(avatarIndex);
+            Destroy(_currentSelectedBorder);
+            _currentSelectedBorder = Instantiate(_selectedBorderPrefab, _avatarFaces[UserDataController.GetPlayerAvatar()].transform.parent);
+        }
+        else
+        {
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOT_UNLOCKED"));
+        }
+    }
+
+    public void SFXButton()
+    {
+        _sfxState = !_sfxState;
+        if (_sfxState)
+        {
+            _sfxButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _sfxButton.GetComponent<Image>().color = Color.black;
+        }
+    }
+    public void MusicButton()
+    {
+        _musicState = !_musicState;
+        if (_musicState)
+        {
+            _musicButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _musicButton.GetComponent<Image>().color = Color.black;
+        }
     }
 
     public void OpenPanel(int panel)
@@ -58,18 +126,6 @@ public class ProfileManager : MonoBehaviour
         }
         _profilePanels[panel].SetActive(true);
         _panelButtons[panel].GetComponent<Image>().color = Color.green;
-    }
-    IEnumerator CrOpen()
-    {
-        RectTransform rt = _mainPanel.GetComponent<RectTransform>();
-        rt.localScale = Vector3.zero;
-        _mainPanel.SetActive(true);
-        OpenPanel(0);
-        for (float i = 0; i < 0.25f; i += Time.deltaTime)
-        {
-            rt.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, animationCurve.Evaluate(i / 0.25f));
-            yield return null;
-        }
-        rt.localScale = Vector3.one;
+        _avatar.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
     }
 }

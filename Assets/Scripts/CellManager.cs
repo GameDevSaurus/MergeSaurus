@@ -48,17 +48,24 @@ public class CellManager : MonoBehaviour
         expoPanelWidth = panelWidth + (4f * padding) + (2f * expoSize);
         expoPanelHeight = panelHeight + (4f * padding) + (2f * expoSize);
 
+        Camera c = Camera.main;
         float cameraHeight = (expoPanelHeight / 7f) * 10;
-        float cameraWidth = Camera.main.aspect * cameraHeight;
+        float cameraWidth = c.aspect * cameraHeight;
         if(cameraWidth > 9)
         {
-            Camera.main.orthographicSize = (expoPanelHeight / 7f) * 5f;
+            c.orthographicSize = (expoPanelHeight / 7f) * 5f;
         }
         else
         {
-            Camera.main.orthographicSize = (9f / Camera.main.aspect)/2f;
+            c.orthographicSize = (9f / c.aspect)/2f;
         }
-        Camera.main.orthographicSize += 0.5f;
+        c.orthographicSize += 0.5f;
+       
+        float backGroundSize = c.orthographicSize * 2f;
+        print(c.aspect);
+        backgroundTile.gameObject.transform.localScale = new Vector3(backGroundSize * (c.aspect*(16/9f)), backGroundSize, 1);
+        backgroundTile.gameObject.transform.position = new Vector3(0, -0.3f, 0);
+
 
         _cellPositionList = new List<List<int>>();
         _cellPositionList.Add(new List<int>() { 2, 2 });

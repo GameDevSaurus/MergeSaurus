@@ -34,6 +34,14 @@ public class UserDataController : MonoBehaviour
     {
         return _currentUserData._dinosaurs.Length;
     }
+    public static int GetPlayerAvatar()
+    {
+        return _currentUserData._playerAvatar;
+    }
+    public static void SetPlayerAvatar(int avatarIndex)
+    {
+        _currentUserData._playerAvatar = avatarIndex;
+    }
     public static void InitializeUser()
     {
         _currentUserData = new UserData();

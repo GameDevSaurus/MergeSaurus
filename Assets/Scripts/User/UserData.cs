@@ -39,7 +39,7 @@ public class UserData
     public int _dailyAdLevel;
     public int _dailyPurchases;
     public int _dailyPurchaseLevel;
-
+    public int _playerAvatar;
 
     public UserData()
     {
@@ -84,5 +84,6 @@ public class UserData
         _dailyMerges = 0;
         _dailyAds = 0;
         _dailyPurchases = 0;
+        _playerAvatar = 0;
     }
 }

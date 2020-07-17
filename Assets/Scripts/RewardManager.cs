@@ -34,20 +34,14 @@ public class RewardManager : MonoBehaviour
     }
     public void ShowPanel()
     {
-        print("0");
         RewardData r = rewardDataQueue.Dequeue();
-        print("1");
         if (!panelIsOpen)
         {
-            print("2");
             _mainPanel.SetActive(true);
             panelIsOpen = true;
-            print("3");
         }
         RefreshInfo(r);
-        print("4");
         StartCoroutine(WaitToClose(1f));
-        print("5");
     }
     public void ClosePanel()
     {
