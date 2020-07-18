@@ -130,7 +130,6 @@ public class SpinManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         spinning = false;
         _obtainedReward = (SpinRewards)Random.Range(0,6);
-        print(_obtainedReward);
 
         switch (_obtainedReward)
         {
