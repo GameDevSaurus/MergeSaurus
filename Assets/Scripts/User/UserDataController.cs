@@ -49,6 +49,18 @@ public class UserDataController : MonoBehaviour
         _checked = true;
     }
 
+    public static void AddWatchedVideo()
+    {
+        _currentUserData._currentRewardVideos++;
+        if(_currentUserData._currentRewardVideos >= 7)
+        {
+            _currentUserData._currentRewardVideos = 1;
+        }
+    }
+    public static int GetWatchedVideos()
+    {
+        return _currentUserData._currentRewardVideos;
+    }
     public static void SetUserData()
     {
         if (_currentUserData == null)

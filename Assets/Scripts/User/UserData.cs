@@ -40,6 +40,7 @@ public class UserData
     public int _dailyPurchases;
     public int _dailyPurchaseLevel;
     public int _playerAvatar;
+    public int _currentRewardVideos;
 
     public UserData()
     {
@@ -69,6 +70,8 @@ public class UserData
         _dailyRewardCheck = System.DateTime.Now.ToBinary().ToString();
         _biggestDino = 0;
         _playedDays = 0;
+        _currentRewardVideos = 0;
+
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;
