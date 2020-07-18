@@ -27,10 +27,9 @@ public class DayCareManager : MonoBehaviour
     Transform _panelParent;
     List<PurchaseDinoPanel> _dinoPanelManagers;
     bool watchedVideo = false;
-    int smallGemCost = 3, bigGemCost = 4;
-
+    int[] gemCost = new int[] {4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 86, 94, 102, 110, 120, 130, 140, 150, 165, 180, 197, 214, 231, 250 };
     PanelManager _panelManager;
-
+    int smallGemCost, bigGemCost;
 
     public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
 
@@ -79,7 +78,6 @@ public class DayCareManager : MonoBehaviour
     {
         RefreshButtons(null);
         _panelManager.RequestShowPanel(_shopPanel.gameObject);
-        
     }
 
     public void RefreshButtons(GameEvents.MoneyEventData e)
@@ -104,21 +102,22 @@ public class DayCareManager : MonoBehaviour
             }
             else
             {
-                if (biggestDino == 3)
+                if (biggestDino <= 3)
                 {
                     _dinoPanelManagers[0].UnlockPanel(0);
                     _dinoPanelManagers[1].UnlockPanel(1);
-                    _dinoPanelManagers[1].SetGemsCost(smallGemCost);
+                    _dinoPanelManagers[1].SetGemsCost(2);
                     _dinoPanelManagers[2].UnlockPanel(1);
-                    _dinoPanelManagers[2].SetGemsCost(bigGemCost);
+                    _dinoPanelManagers[2].SetGemsCost(3);
                     _dinoPanelManagers[3].LockPurcharse();
+                    smallGemCost = 2;
+                    bigGemCost = 3;
                 }
                 else
                 {
                     //Desbloqueo Corriente
                     if (biggestDino >= 4 && biggestDino < 8)
                     {
-
                         if (i > biggestDino -2)
                         {
                             _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
@@ -130,13 +129,15 @@ public class DayCareManager : MonoBehaviour
                                 if (i == biggestDino - 2)
                                 {
                                     _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
-                                    _dinoPanelManagers[i].SetGemsCost(bigGemCost);
+                                    _dinoPanelManagers[i].SetGemsCost(4);
                                 }
                                 if (i == biggestDino - 3)
                                 {
                                     _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
-                                    _dinoPanelManagers[i].SetGemsCost(smallGemCost);
+                                    _dinoPanelManagers[i].SetGemsCost(3);
                                 }
+                                smallGemCost = 3;
+                                bigGemCost = 4;
                             }
                             else
                             {
@@ -170,12 +171,14 @@ public class DayCareManager : MonoBehaviour
                                     if (i == biggestDino - 2)
                                     {
                                         _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
-                                        _dinoPanelManagers[i].SetGemsCost(bigGemCost);
+                                        _dinoPanelManagers[i].SetGemsCost(gemCost[biggestDino -7]);
+                                        smallGemCost = gemCost[biggestDino - 7];
                                     }
                                     if (i == biggestDino - 3)
                                     {
                                         _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
-                                        _dinoPanelManagers[i].SetGemsCost(smallGemCost);
+                                        _dinoPanelManagers[i].SetGemsCost(gemCost[biggestDino - 8]);
+                                        bigGemCost = gemCost[biggestDino - 8];
                                     }
                                     if (i == biggestDino || i == biggestDino - 1)
                                     {

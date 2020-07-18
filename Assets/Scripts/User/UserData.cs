@@ -51,7 +51,7 @@ public class UserData
         _softCoins[0] = 20000;
         _totalSoftCoins = new int[31];
         _totalSoftCoins[0] = 20000;
-        _hardCoins = 0;
+        _hardCoins = 1000; //CAMBIAR
         _unlockedCells = 4;
         _unlockedExpositors = 4;
         _username = "Mechanic";
