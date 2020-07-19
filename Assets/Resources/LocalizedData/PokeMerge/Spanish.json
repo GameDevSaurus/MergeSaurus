@@ -1,0 +1,366 @@
+[
+  {
+    "key": "LOADING",
+    "value": "Cargando..."
+  },
+  {
+    "key": "CONTINUE",
+    "value": "- Continuar -"
+  },
+  {
+    "key": "CLOSE",
+    "value": "- Toca para cerrar -"
+  },
+  {
+    "key": "CONV_0_0",
+    "value": "¡Bienvenido, te estaba esperando!\nNecesito tu ayuda para mejorar\nmis dinos."
+  },
+  {
+    "key": "CONV_0_1",
+    "value": "Este es nuestro parque, el objetivo\nes conseguir los mejores dinos\ny ganar mucho, mucho dinero."
+  },
+  {
+    "key": "CONV_1_0",
+    "value": "¡Coloca los dinos en los\nexpositores! Así generarán dinero\ncuando las personas pasen\npor su lado."
+  },
+  {
+    "key": "CONV_2_0",
+    "value": "Toca sobre ellos para traerlos de\nvuelta."
+  },
+  {
+    "key": "CONV_3_0",
+    "value": "También puedes colocar los\ndinos en la pista tocando dos\nveces sobre ellos. ¡Pruébalo!"
+  },
+  {
+    "key": "CONV_4_0",
+    "value": "¡Genial! Ya sabes lo esencial, lo\ndejo todo en tus manos."
+  },
+  {
+    "key": "CONV_5_0",
+    "value": "Tu parque necesita que la gente\nande más rápido. ¡Cómprale a \nMigue el látigo para que corran \nel doble al visitar dinos!"
+  },
+  {
+    "key": "ADVICE_NOEMPTYCELLS",
+    "value": "No tienes huecos\ndisponibles"
+  },
+  {
+    "key": "ADVICE_NOEXPOSITORS",
+    "value": "No tienes expositores\ndisponibles"
+  },
+  {
+    "key": "LEVEL_UP_PANEL",
+    "value": "¡SUBIDA DE NIVEL!"
+  },
+  {
+    "key": "REWARDS",
+    "value": "Recompensas:"
+  },
+  {
+    "key": "UNLOCK",
+    "value": "¡DESBLOQUEADO!"
+  },
+  {
+    "key": "UNLOCK_DINO_QUALITY",
+    "value": "Carisma"
+  },
+  {
+    "key": "SHOP",
+    "value": "TIENDA"
+  },
+  {
+    "key": "SPEEDUP",
+    "value": "VELOCIDAD"
+  },
+  {
+    "key": "ADDSECONDS",
+    "value": "Añadir otros 200 segundos"
+  },
+  {
+    "key": "DAYCARE",
+    "value": "GUARDERÍA"
+  },
+  {
+    "key": "SPIN",
+    "value": "PREMIOS"
+  },
+  {
+    "key": "UPGRADES",
+    "value": "MEJORAS"
+  },
+  {
+    "key": "MISSIONS",
+    "value": "MISIONES"
+  },
+  {
+    "key": "SPECIAL_OFFER",
+    "value": "Oferta Especial"
+  },
+  {
+    "key": "GEMS_SHOP",
+    "value": "Tienda de Gemas"
+  },
+  {
+    "key": "CURRENCY_SHOP",
+    "value": "Tienda de Monedas"
+  },
+  {
+    "key": "CURRENCY_ADVICE",
+    "value": "*La cantidad de oro depende de tus ganancias por segundo."
+  },
+  {
+    "key": "FREE",
+    "value": "GRATIS"
+  },
+  {
+    "key": "NEXT_REWARD",
+    "value": "Próxima recompensa por vídeo ({0}/6)"
+  },
+  {
+    "key": "UPGRADES_INFO",
+    "value": "¡Intercambia dinos por mejoras!"
+  },
+  {
+    "key": "UPGRADES_BUTTON",
+    "value": "Subir Nivel"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_0",
+    "value": "Descuento de los dinos"
+  },
+  {
+    "key": "MISSIONS_DAILY",
+    "value": "Misiones Diarias"
+  },
+  {
+    "key": "MISSIONS_ACHIEVEMENT",
+    "value": "Logros"
+  },
+  {
+    "key": "NEST",
+    "value": "NIDO"
+  },
+  {
+    "key": "RESTORE",
+    "value": "Restaurar"
+  },
+  {
+    "key": "VIP_BLACK_PANEL",
+    "value": "3 días gratis, después 5,99€ semanales"
+  },
+  {
+    "key": "VIP_PURCHASE",
+    "value": "Comprar 5,99€"
+  },
+  {
+    "key": "VIP_CONDITIONS",
+    "value": "La suscripción VIP es una suscripción semanal, tendrás 3 días de prueba GRATUITOS, tras este periodo se te cobrará 5,99€. Tras comprar la suscripción desbloquearás los siguientes beneficios: +1 Espacio para robots, +50% Velocidad, +2 Robots en pista, +20% Ganancias pasivas, Eliminar publicidad de \"La Fábrica\" y 30 gemas cada día. Notas sobre la suscripción: * Los pagos serán cargado a tu cuenta de Google Play a la confirmación de la compra. *La suscripción se renovará automáticamente a no ser que la auto-renovación sea desactivada 24-horas antes de terminar el periodo actual. * El cargo de la renovación se realizará durante las 24 horas anteriores al final del periodo en curso y se aceptará el coste de la renovación. * Las suscripciones deben ser gestionadas por el usuario y la auto-renovación debe ser desactivada desde los ajustes de usuario de Google Play Store tras la compra. * Cualquier parte no usada durante el periodo de prueba, si se oferta, se perderá cuando el usuario compre una suscripción a esa publicación, si es aplicable."
+  },
+  {
+    "key": "SUBSCRIPTION",
+    "value": "Suscripción"
+  },
+  {
+    "key": "PASSIVE_GAINS",
+    "value": "GANANCIAS PASIVAS"
+  },
+  {
+    "key": "PASSIVE_GAINS_ADVICE",
+    "value": "Las ganancias pasivas no se acumulan más allá de 2 horas."
+  },
+  {
+    "key": "PASSIVE_GAINS_QUESTION",
+    "value": "¿Multiplicar tus ganancias?"
+  },
+  {
+    "key": "DAILY_REWARD",
+    "value": "RECOMPENSA DIARIA"
+  },
+  {
+    "key": "VIP",
+    "value": "VIP"
+  },
+  {
+    "key": "PROFILE",
+    "value": "PERFIL"
+  },
+  {
+    "key": "PROFILE_BUTTON_1",
+    "value": "Estadísticas"
+  },
+  {
+    "key": "PROFILE_BUTTON_2",
+    "value": "Avatar"
+  },
+  {
+    "key": "PROFILE_BUTTON_3",
+    "value": "Ajustes"
+  },
+  {
+    "key": "PROFILE_PANEL_1",
+    "value": "Jugador"
+  },
+  {
+    "key": "PROFILE_PANEL_2",
+    "value": "Extras"
+  },
+  {
+    "key": "PROFILE_PANEL_3",
+    "value": "Beneficios"
+  },
+  {
+    "key": "PROFILE_SELECT",
+    "value": "Seleccionado"
+  },
+  {
+    "key": "SETTINGS_FX",
+    "value": "Efectos"
+  },
+  {
+    "key": "SETTINGS_MUSIC",
+    "value": "Música"
+  },
+  {
+    "key": "CONTACT",
+    "value": "Contáctanos"
+  },
+  {
+    "key": "HELP_SUPPORT",
+    "value": "Ayuda y soporte"
+  },
+  {
+    "key": "PRIVACY",
+    "value": "Privacidad"
+  },
+  {
+    "key": "TERMS_OF_USE",
+    "value": "Términos"
+  },
+  {
+    "key": "CREDITS",
+    "value": "Créditos"
+  },
+  {
+    "key": "WATCH",
+    "value": "Ver"
+  },
+  {
+    "key": "PROFITS_S",
+    "value": "Beneficios por segundo"
+  },
+  {
+    "key": "PROFITS_T",
+    "value": "Beneficios Totales"
+  },
+  {
+    "key": "ADVICE_NOT_UNLOCKED",
+    "value": "Este dino no se ha descubierto todavía"
+  },
+  {
+    "key": "ADVICE_NOHARDCOINS",
+    "value": "No tienes gemas\nsuficientes"
+  },
+  {
+    "key": "ADVICE_NO_AD",
+    "value": "No te quedan más\nvideos"
+  },
+  {
+    "key": "ADVICE_NOSOFTCOINS",
+    "value": "No tienes suficiente\ndinero"
+  },
+  {
+    "key": "SPIN_REWARD_HARDCOINS",
+    "value": "Has ganado\n{0} Gemas"
+  },
+  {
+    "key": "SPIN_REWARD_SOFTCOINS",
+    "value": "Has ganado\n{0} horas de ingresos"
+  },
+  {
+    "key": "SPIN_REWARD_SPEEDUP",
+    "value": "Has ganado\n{0} segundos de fiesta"
+  },
+  {
+    "key": "SPIN_REWARD_BOXES",
+    "value": "Has ganado\n{0} superballs"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_1",
+    "value": "Ganancias de los dinos"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_2",
+    "value": "Velocidad de los turistas"
+  },
+  {
+    "key": "UPGRADES_INFO_PANEL_3",
+    "value": "Ganancias pasivas"
+  },
+  {
+    "key": "DAILY_REWARD_DAY",
+    "value": "Día {0}"
+  },
+  {
+    "key": "SPIN_REWARD_SOFTCOINS_MINS",
+    "value": "Has ganado\n{0} minutos de ingresos"
+  },
+  {
+    "key": "REWARD_HARDCOINS",
+    "value": "{0} GEMAS"
+  },
+  {
+    "key": "REWARD_SPEEDUP",
+    "value": "{0} segundos de fiesta"
+  },
+  {
+    "key": "REWARD_DINOREWARDS",
+    "value": "{0} segundos de "
+  },
+  {
+    "key": "CLAIM",
+    "value": "Reclamar"
+  },
+  {
+    "key": "ACHIEVEMENT_TITLE",
+    "value": "Consigue 5 dinos de nivel {0}"
+  },
+  {
+    "key": "DAILYMISSION_MERGE",
+    "value": "Combina {0} dinos "
+  },
+  {
+    "key": "DAILYMISSION_AD",
+    "value": "Mira {0} videos a cambio de recompensas"
+  },
+  {
+    "key": "DAILYMISSION_PURCHASE",
+    "value": "Compra {0} dinos"
+  },
+  {
+    "key": "UNLOCK_SPIN",
+    "value": "Has desbloqueado La Ruleta"
+  },
+  {
+    "key": "UNLOCK_MISSIONS",
+    "value": "Has desbloqueado Misiones"
+  },
+  {
+    "key": "UNLOCK_UPGRADES",
+    "value": "Has desbloqueado Mejoras"
+  },
+  {
+    "key": "PROFILE_EXTRAS_1",
+    "value": "Beneficios incrementados {0}%"
+  },
+  {
+    "key": "PROFILE_EXTRAS_2",
+    "value": "{0}% de descuento en los dinos"
+  },
+  {
+    "key": "PROFILE_EXTRAS_3",
+    "value": "+{0}% de velocidad de los dinos"
+  },
+  {
+    "key": "PROFILE_EXTRAS_4",
+    "value": "+{0}% de ganancias pasivas"
+  }
+]
