@@ -102,6 +102,7 @@ public class EconomyManager : MonoBehaviour
         {
             g.MultiplyCurrency(1f + (UpgradesManager.GetExtraEarnings() / 100f));
         }
+
         return g;
     }
 
