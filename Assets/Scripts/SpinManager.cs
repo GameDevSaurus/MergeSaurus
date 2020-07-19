@@ -22,7 +22,8 @@ public class SpinManager : MonoBehaviour
     int timeToNextAd = 3600;
     PanelManager _panelManager;
     RewardManager _rewardManager;
-
+    [SerializeField]
+    VideoFillBarController _videoFillBarController;
     private void Start()
     {
         _boxManager = FindObjectOfType<BoxManager>();
@@ -43,6 +44,7 @@ public class SpinManager : MonoBehaviour
     public void Open()
     {
         _panelManager.RequestShowPanel(_mainPanel);
+        _videoFillBarController.RefreshInfo();
     }
     public void CloseSpin()
     {
@@ -70,6 +72,7 @@ public class SpinManager : MonoBehaviour
             _nextAdTime = (float)timeToNextAd;
         }
         Spin();
+        _videoFillBarController.RefreshInfo();
     }
 
     public void HardCoinSpin()
@@ -127,7 +130,6 @@ public class SpinManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         spinning = false;
         _obtainedReward = (SpinRewards)Random.Range(0,6);
-        print(_obtainedReward);
 
         switch (_obtainedReward)
         {

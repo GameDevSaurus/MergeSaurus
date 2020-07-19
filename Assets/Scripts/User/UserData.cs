@@ -40,6 +40,7 @@ public class UserData
     public int _dailyPurchases;
     public int _dailyPurchaseLevel;
     public int _playerAvatar;
+    public int _currentRewardVideos;
 
     public UserData()
     {
@@ -51,7 +52,7 @@ public class UserData
         _softCoins[0] = 20000;
         _totalSoftCoins = new int[31];
         _totalSoftCoins[0] = 20000;
-        _hardCoins = 0;
+        _hardCoins = 1000; //CAMBIAR
         _unlockedCells = 4;
         _unlockedExpositors = 4;
         _username = "Mechanic";
@@ -69,6 +70,8 @@ public class UserData
         _dailyRewardCheck = System.DateTime.Now.ToBinary().ToString();
         _biggestDino = 0;
         _playedDays = 0;
+        _currentRewardVideos = 0;
+
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
             _dinosaurs[i] = -1;

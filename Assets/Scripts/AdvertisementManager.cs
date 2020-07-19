@@ -20,7 +20,6 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     //ID DEL JUEGO --> 3701221
     BoxManager _boxManager;
     RewardManager _rewardManager;
-
     private void Awake()
     {
         GameEvents.PlayAd.AddListener(PlayVideo);
@@ -55,6 +54,19 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         if (showResult == ShowResult.Finished)
         {
             UserDataController.AddDailyAd();
+            UserDataController.AddWatchedVideo();
+            if(UserDataController.GetWatchedVideos() == 2)
+            {
+                _rewardManager.GiveVideoFillReward(1);
+            }
+            if (UserDataController.GetWatchedVideos() == 4)
+            {
+                _rewardManager.GiveVideoFillReward(2);
+            }
+            if (UserDataController.GetWatchedVideos() == 6)
+            {
+                _rewardManager.GiveVideoFillReward(3);
+            }
             switch (placementId)
             {
                 case "SpeedUp":

@@ -113,7 +113,7 @@
   },
   {
     "key": "NEXT_REWARD",
-    "value": "Próxima recompensa por vídeo "
+    "value": "Próxima recompensa por vídeo ({0}/6)"
   },
   {
     "key": "UPGRADES_INFO",

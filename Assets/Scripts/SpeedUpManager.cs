@@ -37,6 +37,8 @@ public class SpeedUpManager : MonoBehaviour
     int _speedHardCoinsCost = 3;
     EconomyManager _economyManager;
     RewardManager _rewardManager;
+    [SerializeField]
+    VideoFillBarController _videoFillBarController;
     private void Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
@@ -60,6 +62,7 @@ public class SpeedUpManager : MonoBehaviour
     {
         CheckHardCoinsButton();
         _panelManager.RequestShowPanel(_speedUpMain);
+        _videoFillBarController.RefreshInfo();
         _panelIsOpen = true;
     }
     public Vector3 GetHardCoinsButtonPosition()
@@ -83,6 +86,7 @@ public class SpeedUpManager : MonoBehaviour
         CurrentSceneManager.SetGlobalSpeed(2);
         _VFXFireworksPool.StartTheParty();
         UserDataController.UpdateSpeedUpData((int)_speedUpTime);
+        _videoFillBarController.RefreshInfo();
     }
 
     public void SpeedUpShowVideo()

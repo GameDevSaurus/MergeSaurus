@@ -210,6 +210,22 @@ public class RewardManager : MonoBehaviour
     {
         UserDataController.AddDailyPurchase();
     }
+
+    public void GiveVideoFillReward(int rewardType)
+    {
+        switch (rewardType)
+        {
+            case 1:
+                EarnSoftCoin(7200);
+                break;
+            case 2:
+                EarnSoftCoin(14400);
+                break;
+            case 3:
+                EarnSoftCoin(21600);
+                break;
+        }
+    }
 }
 
 
