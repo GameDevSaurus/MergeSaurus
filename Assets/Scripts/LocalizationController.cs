@@ -17,7 +17,8 @@ public class LocalizationController : MonoBehaviour
     {
         if (_localizedData == null)
         {
-            TextAsset myTextData = (TextAsset)Resources.Load("LocalizedData/Spanish");
+            print("LocalizedData/" + Application.productName + "/Spanish");
+            TextAsset myTextData = (TextAsset)Resources.Load("LocalizedData/" + Application.productName + "/Spanish");
             string dataAsJson = "{\"items\":" + myTextData.text + "}";
             LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
             _localizedData = new Dictionary<string, string>();
