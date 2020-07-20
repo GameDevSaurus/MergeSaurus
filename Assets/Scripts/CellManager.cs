@@ -62,7 +62,6 @@ public class CellManager : MonoBehaviour
         c.orthographicSize += 0.5f;
        
         float backGroundSize = c.orthographicSize * 2f;
-        print(c.aspect);
         backgroundTile.gameObject.transform.localScale = new Vector3(backGroundSize * (c.aspect*(16/9f)), backGroundSize, 1);
         backgroundTile.gameObject.transform.position = new Vector3(0, -0.3f, 0);
 
@@ -105,7 +104,7 @@ public class CellManager : MonoBehaviour
                 break;
             case 8:
             case 10:
-                AddExpositor();
+               // AddExpositor();
                 break;
         }
     }
@@ -178,11 +177,11 @@ public class CellManager : MonoBehaviour
         _expositors.Add(expositorDownLeftMiddle.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorDownRightMiddle.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUp.GetComponent<ExpositorInstance>());
-        _expositors.Add(expositorDown.GetComponent<ExpositorInstance>());
+        //_expositors.Add(expositorDown.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUpLeftCorner.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUpRightCorner.GetComponent<ExpositorInstance>());
-        _expositors.Add(expositorDownLeftCorner.GetComponent<ExpositorInstance>());
-        _expositors.Add(expositorDownRightCorner.GetComponent<ExpositorInstance>());
+        //_expositors.Add(expositorDownLeftCorner.GetComponent<ExpositorInstance>());
+        //_expositors.Add(expositorDownRightCorner.GetComponent<ExpositorInstance>());
         for (int i = 0; i < _expositors.Count; i++)
         {
             _expositors[i].SetExpositor(i);
