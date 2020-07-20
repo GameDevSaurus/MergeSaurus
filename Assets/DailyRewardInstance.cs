@@ -9,6 +9,7 @@ public class DailyRewardInstance : MonoBehaviour
     Image background, upperBorder, lowerborder, button, buttonBorder;
     [SerializeField]
     Color bgC1, bgC2, bordersC1, bordersC2, buttonC1, buttonC2, buttonBorderC1, buttonBorderC2;
+
     public void BasicConfig()
     {
         background.color = bgC1;

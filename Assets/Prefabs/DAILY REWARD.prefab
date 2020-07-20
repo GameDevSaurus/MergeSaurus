@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63919544, g: 0.7868114, b: 0.7924528, a: 1}
+  m_Color: {r: 1, g: 0.4627451, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63919544, g: 0.7868114, b: 0.7924528, a: 1}
+  m_Color: {r: 1, g: 0.46135104, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17254902, g: 0.62352943, b: 0.6392157, a: 1}
+  m_Color: {r: 1, g: 0.7254902, b: 0.078431375, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09411765, g: 0.30588236, b: 0.30980393, a: 1}
+  m_Color: {r: 0.5294118, g: 0.22224517, b: 0.14117648, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -653,7 +653,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -669,6 +669,7 @@ GameObject:
   - component: {fileID: 2680896176935653682}
   - component: {fileID: 2680896176935653684}
   - component: {fileID: 2680896176935653683}
+  - component: {fileID: 1917625053}
   m_Layer: 5
   m_Name: DAILY REWARD
   m_TagString: Untagged
@@ -720,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28982732, g: 0.35653538, b: 0.3679245, a: 1}
+  m_Color: {r: 0.21462265, g: 0.83684796, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -736,3 +737,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1917625053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680896176935653681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb54f9aaca085f240b1bbd35053553c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 2680896176935653683}
+  upperBorder: {fileID: 2680896175631707128}
+  lowerborder: {fileID: 2680896175538769877}
+  button: {fileID: 2680896176198372363}
+  buttonBorder: {fileID: 2680896176217449008}
+  bgC1: {r: 0.2901961, g: 0.35686275, b: 0.36862746, a: 1}
+  bgC2: {r: 0.21568628, g: 0.8352941, b: 0.85882354, a: 1}
+  bordersC1: {r: 0.6392157, g: 0.7882353, b: 0.7921569, a: 1}
+  bordersC2: {r: 1, g: 0.4627451, b: 0, a: 1}
+  buttonC1: {r: 0.17254902, g: 0.62352943, b: 0.6392157, a: 1}
+  buttonC2: {r: 1, g: 0.7254902, b: 0.078431375, a: 1}
+  buttonBorderC1: {r: 0.09411765, g: 0.30588236, b: 0.30980393, a: 1}
+  buttonBorderC2: {r: 0.5294118, g: 0.22352941, b: 0.14117648, a: 1}
