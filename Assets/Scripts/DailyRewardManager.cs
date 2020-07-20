@@ -12,8 +12,6 @@ public class DailyRewardManager : MonoBehaviour
     [SerializeField]
     Image _blackBackgroundImage;
     PanelManager _panelManager;
-    SpeedUpManager _speedUpManager;
-    EconomyManager _economyManager;
     [SerializeField]
     RectTransform[] _dailyRewards;
     [SerializeField]
@@ -24,8 +22,6 @@ public class DailyRewardManager : MonoBehaviour
     {
         _panelManager = FindObjectOfType<PanelManager>();
         GameEvents.DinoUp.AddListener(DinoUpCallback);
-        _speedUpManager = FindObjectOfType<SpeedUpManager>();
-        _economyManager = FindObjectOfType<EconomyManager>();
         _rewardManager = FindObjectOfType<RewardManager>();
     }
     private void Start()
@@ -58,7 +54,6 @@ public class DailyRewardManager : MonoBehaviour
 
     public void ObtainReward(int rewardDay)
     {
-        GameCurrency baseRewardPSec;
         switch (rewardDay)
         {
             case 0:
@@ -111,7 +106,7 @@ public class DailyRewardManager : MonoBehaviour
                 }
                 else
                 {
-                    _reborder.rectTransform.sizeDelta = new Vector2(250, 350);
+                    _reborder.rectTransform.sizeDelta = new Vector2(265, 365);
                 }
                 _reborder.transform.SetParent(_dailyRewards[i]);
                 _reborder.transform.SetAsLastSibling();
