@@ -103,10 +103,12 @@ public class DailyRewardManager : MonoBehaviour
                 if (i == 6)
                 {
                     _reborder.rectTransform.sizeDelta = new Vector2(400, 350);
+                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().SelectedConfig();
                 }
                 else
                 {
                     _reborder.rectTransform.sizeDelta = new Vector2(265, 365);
+                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().BasicConfig();
                 }
                 _reborder.transform.SetParent(_dailyRewards[i]);
                 _reborder.transform.SetAsLastSibling();
