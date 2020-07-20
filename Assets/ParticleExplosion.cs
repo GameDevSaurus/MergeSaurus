@@ -26,6 +26,8 @@ public class ParticleExplosion : MonoBehaviour
     ParticleSystem _haloSquares;
     [SerializeField]
     ParticleSystem _haloExplosion;
+    [SerializeField]
+    ParticleSystem _normalHaloBack;
     void Start()
     {
         
@@ -51,6 +53,7 @@ public class ParticleExplosion : MonoBehaviour
         _dustOut.Play();
         _confettiRain.Play();
         _haloExplosion.Play();
+        _normalHaloBack.Play();
     }
 
     IEnumerator CrPlayParticle()
