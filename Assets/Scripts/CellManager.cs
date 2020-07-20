@@ -190,7 +190,12 @@ public class CellManager : MonoBehaviour
         {
             if(i >= UserDataController._currentUserData._unlockedExpositors)
             {
+                _expositors[i].Lock();
                 //_expositors[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                _expositors[i].Unlock();
             }
         }
         _streetManager.Init(_expositors);
@@ -266,11 +271,12 @@ public class CellManager : MonoBehaviour
         {
             if (i >= UserDataController._currentUserData._unlockedExpositors)
             {
-                _expositors[i].gameObject.SetActive(false);
+                _expositors[i].Lock();
             }
             else
             {
-                _expositors[i].gameObject.SetActive(true);
+                _expositors[i].Unlock();
+
             }
         }
     }

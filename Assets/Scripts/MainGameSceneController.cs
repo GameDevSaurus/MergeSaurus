@@ -338,9 +338,17 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void ShowDinosaur(int cell, int expo)
     {
-        _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
-        _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
-        UserDataController.ShowCell(cell, expo);
+        if (_cellManager.GetExpoInstanceByIndex(expo).IsLocked())
+        {
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("LOCKED_EXPOSITOR"));
+        }
+        else
+        {
+            _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
+            _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
+            UserDataController.ShowCell(cell, expo);
+        }
+        
     }
     public void ShowDinosaurInFirstExpo(int cell)
     {

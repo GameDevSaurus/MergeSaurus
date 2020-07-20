@@ -362,5 +362,9 @@
   {
     "key": "PROFILE_EXTRAS_4",
     "value": "+{0}% de ganancias pasivas"
+  },
+  {
+    "key": "LOCKED_EXPOSITOR",
+    "value": "Todavía no has desbloqueado este expositor"
   }
 ]

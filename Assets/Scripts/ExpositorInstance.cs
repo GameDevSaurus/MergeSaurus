@@ -12,7 +12,21 @@ public class ExpositorInstance : MonoBehaviour
     bool _clicking;
     EconomyManager _economyManager;
     GameObject dinoCopy;
-
+    bool locked;
+    public void Lock()
+    {
+        GetComponent<SpriteRenderer>().color = Color.gray;
+        locked = true;
+    }
+    public void Unlock()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
+        locked = false;
+    }
+    public bool IsLocked()
+    {
+        return locked;
+    }
     private void Awake()
     {
         _economyManager = FindObjectOfType<EconomyManager>();
