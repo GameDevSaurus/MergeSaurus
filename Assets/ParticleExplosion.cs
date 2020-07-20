@@ -38,6 +38,19 @@ public class ParticleExplosion : MonoBehaviour
         {
             StartCoroutine(CrPlayParticle());
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Explode();
+        }
+    }
+    public void Explode()
+    {
+        _confettiExplosion.Play();
+        _sparks.Play();
+        _haloSquares.Play();
+        _dustOut.Play();
+        _confettiRain.Play();
+        _haloExplosion.Play();
     }
 
     IEnumerator CrPlayParticle()
@@ -55,11 +68,6 @@ public class ParticleExplosion : MonoBehaviour
         _dustIn.Stop();
         _capsuleIn.Stop();
         _godRays.Stop();
-        _confettiExplosion.Play();
-        _sparks.Play();
-        _haloSquares.Play();
-        _dustOut.Play();
-        _confettiRain.Play();
-        _haloExplosion.Play();
+        Explode();
     }
 }
