@@ -33,7 +33,7 @@ public class ExperienceManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            MergeDinoCallBack(5);
+            MergeDinoCallBack(500);
         }
     }
     public void CloseLvlUpPanel()

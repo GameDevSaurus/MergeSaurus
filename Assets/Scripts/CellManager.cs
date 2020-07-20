@@ -63,7 +63,7 @@ public class CellManager : MonoBehaviour
        
         float backGroundSize = c.orthographicSize * 2f;
         backgroundTile.gameObject.transform.localScale = new Vector3(backGroundSize * (c.aspect*(16/9f)), backGroundSize, 1);
-        backgroundTile.gameObject.transform.position = new Vector3(0, -0.3f, 0);
+        backgroundTile.gameObject.transform.position = new Vector3(0, 0.3f, 0);
 
 
         _cellPositionList = new List<List<int>>();
@@ -177,11 +177,11 @@ public class CellManager : MonoBehaviour
         _expositors.Add(expositorDownLeftMiddle.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorDownRightMiddle.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUp.GetComponent<ExpositorInstance>());
-        //_expositors.Add(expositorDown.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDown.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUpLeftCorner.GetComponent<ExpositorInstance>());
         _expositors.Add(expositorUpRightCorner.GetComponent<ExpositorInstance>());
-        //_expositors.Add(expositorDownLeftCorner.GetComponent<ExpositorInstance>());
-        //_expositors.Add(expositorDownRightCorner.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownLeftCorner.GetComponent<ExpositorInstance>());
+        _expositors.Add(expositorDownRightCorner.GetComponent<ExpositorInstance>());
         for (int i = 0; i < _expositors.Count; i++)
         {
             _expositors[i].SetExpositor(i);
@@ -190,7 +190,7 @@ public class CellManager : MonoBehaviour
         {
             if(i >= UserDataController._currentUserData._unlockedExpositors)
             {
-                _expositors[i].gameObject.SetActive(false);
+                //_expositors[i].gameObject.SetActive(false);
             }
         }
         _streetManager.Init(_expositors);
