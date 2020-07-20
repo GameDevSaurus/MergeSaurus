@@ -9,9 +9,23 @@ public class ParticleExplosion : MonoBehaviour
     [SerializeField]
     ParticleSystem _confettiExplosion;
     [SerializeField]
+    ParticleSystem _sparks;
+    [SerializeField]
     ParticleSystem _implosion;
     [SerializeField]
     ParticleSystem _explosion;
+    [SerializeField]
+    ParticleSystem _capsuleIn;
+    [SerializeField]
+    ParticleSystem _godRays;
+    [SerializeField]
+    ParticleSystem _dustIn;
+    [SerializeField]
+    ParticleSystem _dustOut;
+    [SerializeField]
+    ParticleSystem _haloSquares;
+    [SerializeField]
+    ParticleSystem _haloExplosion;
     void Start()
     {
         
@@ -20,6 +34,32 @@ public class ParticleExplosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            StartCoroutine(CrPlayParticle());
+        }
+    }
+
+    IEnumerator CrPlayParticle()
+    {
+        _godRays.Play();
+        _capsuleIn.Play();
+        _dustIn.Play();
+        yield return new WaitForSeconds(2f);
+        _implosion.Play();
+        yield return new WaitForSeconds(0.5f);
+        _explosion.Play();
+        yield return new WaitForSeconds(2f);
+        _explosion.Stop();
+        _explosion.Stop();
+        _dustIn.Stop();
+        _capsuleIn.Stop();
+        _godRays.Stop();
+        _confettiExplosion.Play();
+        _sparks.Play();
+        _haloSquares.Play();
+        _dustOut.Play();
+        _confettiRain.Play();
+        _haloExplosion.Play();
     }
 }
