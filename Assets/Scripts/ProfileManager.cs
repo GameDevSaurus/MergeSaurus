@@ -122,10 +122,10 @@ public class ProfileManager : MonoBehaviour
         for(int i = 0; i<_profilePanels.Length; i++)
         {
             _profilePanels[i].SetActive(false);
-            _panelButtons[i].GetComponent<Image>().color = Color.gray;
+            _panelButtons[i].GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.2f, 1f);
         }
         _profilePanels[panel].SetActive(true);
-        _panelButtons[panel].GetComponent<Image>().color = Color.green;
+        _panelButtons[panel].GetComponent<Image>().color = new Color(0.1f, 0.7f, 0.07f, 1f); ;
         _avatar.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
     }
 }
