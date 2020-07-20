@@ -51,7 +51,6 @@ public class DailyRewardManager : MonoBehaviour
         MarkButton(playedDays);
         _panelManager.RequestShowPanel(_mainPanel.gameObject);
     }
-
     public void ObtainReward(int rewardDay)
     {
         switch (rewardDay)
@@ -96,19 +95,19 @@ public class DailyRewardManager : MonoBehaviour
 
             if (i != buttonIndex)
             {
+                _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().BasicConfig();
                 dailyButton.interactable = false;
             }
             else
             {
+                _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().SelectedConfig();
                 if (i == 6)
                 {
                     _reborder.rectTransform.sizeDelta = new Vector2(400, 350);
-                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().SelectedConfig();
                 }
                 else
                 {
                     _reborder.rectTransform.sizeDelta = new Vector2(265, 365);
-                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().BasicConfig();
                 }
                 _reborder.transform.SetParent(_dailyRewards[i]);
                 _reborder.transform.SetAsLastSibling();
