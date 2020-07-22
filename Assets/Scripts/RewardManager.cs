@@ -23,7 +23,7 @@ public class RewardManager : MonoBehaviour
     Queue<RewardData> rewardDataQueue;
     bool canClose = false;
     bool panelIsOpen;
-
+    ParticleManager _particleManager;
     private void Awake()
     {
         GameEvents.MergeDino.AddListener(MergeDinoCallBack);
@@ -31,9 +31,11 @@ public class RewardManager : MonoBehaviour
         GameEvents.DinoUp.AddListener(CheckDinoUp);
         rewardDataQueue = new Queue<RewardData>();
         panelIsOpen = false;
+        _particleManager = FindObjectOfType<ParticleManager>();
     }
     public void ShowPanel()
     {
+        _particleManager.Explode();
         RewardData r = rewardDataQueue.Dequeue();
         if (!panelIsOpen)
         {
@@ -47,6 +49,7 @@ public class RewardManager : MonoBehaviour
     {
         if (canClose)
         {
+            _particleManager.StopAll();
             if (rewardDataQueue.Count > 0)
             {
                 ShowPanel();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleExplosion : MonoBehaviour
+public class ParticleManager : MonoBehaviour
 {
     [SerializeField]
     ParticleSystem _confettiRain;
@@ -72,5 +72,20 @@ public class ParticleExplosion : MonoBehaviour
         _capsuleIn.Stop();
         _godRays.Stop();
         Explode();
+    }
+    public void StopAll()
+    {
+        _confettiRain.Stop();
+        _sparks.Stop();
+        _implosion.Stop();
+        _explosion.Stop();
+        _capsuleIn.Stop();
+        _godRays.Stop();
+        _dustIn.Stop();
+        _dustOut.Stop();
+        _haloSquares.Stop();
+        _haloExplosion.Stop();
+        _confettiExplosion.Stop();
+        _normalHaloBack.Stop();
     }
 }
