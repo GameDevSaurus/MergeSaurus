@@ -58,7 +58,7 @@ public class ProfileManager : MonoBehaviour
 
             for(int i = 0; i < UserDataController.GetDinoAmount(); i++)
             {
-                _avatarFaces[i].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
+                _avatarFaces[i].sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + i);
                 if (i > UserDataController.GetBiggestDino())
                 {
                     _avatarFaces[i].color = Color.black;
@@ -68,7 +68,7 @@ public class ProfileManager : MonoBehaviour
                     _avatarFaces[i].color = Color.white;
                 }
             }
-            _avatar.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
+            _avatar.sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
             _currentSelectedBorder = Instantiate(_selectedBorderPrefab, _avatarFaces[UserDataController.GetPlayerAvatar()].transform.parent);
         }
     }
@@ -126,6 +126,6 @@ public class ProfileManager : MonoBehaviour
         }
         _profilePanels[panel].SetActive(true);
         _panelButtons[panel].GetComponent<Image>().color = new Color(0.1f, 0.7f, 0.07f, 1f); ;
-        _avatar.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
+        _avatar.sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + UserDataController.GetPlayerAvatar());
     }
 }

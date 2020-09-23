@@ -15,9 +15,11 @@ public class PassiveGainManager : MonoBehaviour
     TextMeshProUGUI txCurrentCoins;
     [SerializeField]
     TextMeshProUGUI txTargetCoins;
+    RewardManager _rewardManager;
 
     GameCurrency baseRewardPSec;
     GameCurrency targetPossibleCoins;
+    int secondsSinceLastSave;
     public void OpenPassiveEarningsPanel()
     {
         _mainPanel.SetActive(true);
@@ -32,15 +34,13 @@ public class PassiveGainManager : MonoBehaviour
         _panelManager.ClosePanel();
     }
 
-    public void WatchAdd()
+    public void SpendHardCoins(int cost)
     {
-        GameEvents.PlayAd.Invoke("PassiveEarnings");
-    }
-
-    public void VideoWatchedCallBack()
-    {
-        EarnTripleMoney();
-        DefaultClose();
+        if (_economyManager.SpendHardCoins(cost))
+        {
+            EarnTripleMoney();
+            DefaultClose();
+        }
     }
     private void Update()
     {
@@ -50,16 +50,18 @@ public class PassiveGainManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    public IEnumerator Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
         _economyManager = FindObjectOfType<EconomyManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
+        yield return null;
         CheckLastSaveTime();
     }
 
     public void CheckLastSaveTime()
     {
-        int secondsSinceLastSave = UserDataController.GetSecondsSinceLastSave();
+        secondsSinceLastSave = UserDataController.GetSecondsSinceLastSave();
         if (secondsSinceLastSave < 0)
         {
             DateTime lastSave = UserDataController.GetLastSave();
@@ -67,7 +69,6 @@ public class PassiveGainManager : MonoBehaviour
             secondsSinceLastSave = (int)now.Subtract(lastSave).TotalSeconds;
         }
 
-        print("Han pasado " + secondsSinceLastSave + " desde la última vez que se guardó");
         if(UserDataController.GetBiggestDino() >= 4)
         {           
             if (secondsSinceLastSave > 60)
@@ -76,9 +77,9 @@ public class PassiveGainManager : MonoBehaviour
                 {
                     secondsSinceLastSave = 7200;
                 }
-                baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
+                baseRewardPSec = _economyManager.GetTotalEarningsPerSecond();
                 baseRewardPSec.MultiplyCurrency(secondsSinceLastSave);
-                baseRewardPSec.MultiplyCurrency(1 + (UpgradesManager.GetExtraPassiveEarnings() / 100));
+               // baseRewardPSec.MultiplyCurrency(1 + (UpgradesManager.GetExtraPassiveEarnings() / 100));
                 _panelManager.RequestShowPanel(_mainPanel);
                 txCurrentCoins.text = "+ " + baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
                 targetPossibleCoins = new GameCurrency(baseRewardPSec.GetIntList());
@@ -89,10 +90,10 @@ public class PassiveGainManager : MonoBehaviour
     }
     public void EarnMoney()
     {
-        _economyManager.EarnSoftCoins(baseRewardPSec);
+        _rewardManager.EarnSoftCoin(secondsSinceLastSave);
     }
     public void EarnTripleMoney()
     {
-        _economyManager.EarnSoftCoins(targetPossibleCoins);
+        _rewardManager.EarnSoftCoin(secondsSinceLastSave * 3);
     }
 }

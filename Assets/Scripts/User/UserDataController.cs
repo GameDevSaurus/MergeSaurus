@@ -41,6 +41,29 @@ public class UserDataController : MonoBehaviour
     public static void SetPlayerAvatar(int avatarIndex)
     {
         _currentUserData._playerAvatar = avatarIndex;
+        SaveToFile();
+    }
+    public static int GetCurrentCell()
+    {
+        return _currentUserData._currentCell;
+    }
+    public static void SetCurrentCell(int cellIndex)
+    {
+        _currentUserData._currentCell = cellIndex;
+        SaveToFile();
+    }
+    public static void SetCurrentExpositor(int expositorIndex)
+    {
+        _currentUserData._currentExpositor = expositorIndex;
+        SaveToFile();
+    }
+    public static int GetCurrentExpositor()
+    {
+        return _currentUserData._currentExpositor;
+    }
+    public static int GetChibiSkinsNumber()
+    {
+        return _currentUserData._skins.Length;
     }
     public static void InitializeUser()
     {
@@ -49,6 +72,11 @@ public class UserDataController : MonoBehaviour
         _checked = true;
     }
 
+    public static void ChangeName(string username)
+    {
+        _currentUserData._username = username;
+        SaveToFile();
+    }
     public static void AddWatchedVideo()
     {
         _currentUserData._currentRewardVideos++;
@@ -71,6 +99,16 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
+    public static int GetFreeSpinTries()
+    {
+        return _currentUserData._freeSpinTries;
+    }
+    public static void SetFreeSpinTries(int tries)
+    {
+        _currentUserData._freeSpinTries = tries;
+        SaveToFile();
+    }
+
     public static void LoadFromFile()
     {
         _currentUserData = JsonUtility.FromJson<UserData>(File.ReadAllText(Application.persistentDataPath + "/" + _fileName));
@@ -81,7 +119,80 @@ public class UserDataController : MonoBehaviour
     {
         File.Delete(Application.persistentDataPath + "/" + _fileName);
     }
+    public static bool IsSkinUnlocked(int skinIndex)
+    {
+        return _currentUserData._skins[skinIndex];
+    }
+    public static bool IsSpecialCardUnlocked(int skinIndex)
+    {
+        return _currentUserData._specialCards[skinIndex];
+    }
+    public static void UnlockSpecialCard(int skinIndex)
+    {
+        _currentUserData._specialCards[skinIndex] = true;
+        SaveToFile();
+    }
+    public static bool CheckSpecialOffer()
+    {
+        return _currentUserData._specialOffer;
+    }
 
+    public static void PurchaseSpecialOffer()
+    {
+        _currentUserData._specialOffer = true;
+        UnlockCellSkin(1);
+        UnlockExpositorSkin(1);
+        UnlockGroundSkin(1);
+        UnlockFrameSkin(1);
+        SaveToFile();
+    }
+
+    public static void UnlockSkin(int skinIndex)
+    {
+        _currentUserData._skins[skinIndex] = true;
+        SaveToFile();
+    }
+    public static void UnlockCellSkin(int skinIndex)
+    {
+        _currentUserData._cellSkins[skinIndex] = true;
+        SaveToFile();
+    }
+    public static void UnlockExpositorSkin(int skinIndex)
+    {
+        _currentUserData._expositorSkins[skinIndex] = true;
+        SaveToFile();
+    }
+    public static void UnlockGroundSkin(int skinIndex)
+    {
+        _currentUserData._groundSkins[skinIndex] = true;
+        SaveToFile();
+    }
+    public static void UnlockFrameSkin(int skinIndex)
+    {
+        _currentUserData._framesSkins[skinIndex] = true;
+        SaveToFile();
+    }
+    public static bool IsVipUser()
+    {
+        return _currentUserData._vipUser;
+    }
+    public static void SetVip()
+    {
+        _currentUserData._vipUser = true;
+        SaveToFile();
+    }
+    public static int GetUnlockedSkinsNumber()
+    {
+        int skins = 0;
+        for(int i = 0; i< _currentUserData._skins.Length; i++)
+        {
+            if (_currentUserData._skins[i])
+            {
+                skins++;
+            }
+        }
+        return skins;
+    }
     public static void SaveToFile()
     {
         if(lastSaveTime < 0)
@@ -117,6 +228,58 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
+    public static bool[] GetExpositorsSkins()
+    {
+        return _currentUserData._expositorSkins;
+    }
+    public static bool[] GetCellsSkins()
+    {
+        return _currentUserData._cellSkins;
+    }
+    public static bool[] GetGroundSkins()
+    {
+        return _currentUserData._groundSkins;
+    }
+    public static bool[] GetFramesSkins()
+    {
+        return _currentUserData._framesSkins;
+    }
+    public static void SetCurrentGround(int groundIndex)
+    {
+        _currentUserData._currentGround = groundIndex;
+        SaveToFile();
+    }
+    public static int GetCurrentGround()
+    {
+        return _currentUserData._currentGround;
+    }
+    public static int GetCurrentFrame()
+    {
+        return _currentUserData._currentFrame;
+    }
+    public static bool HasSeenGalleryTutorial()
+    {
+        return _currentUserData._haswatchedGalleryTutorial;
+    }
+    public static bool HasSeenGalleryTutorial2()
+    {
+        return _currentUserData._haswatchedGalleryTutorial2;
+    }
+    public static void WatchGalleryTutorial()
+    {
+        _currentUserData._haswatchedGalleryTutorial = true;
+        SaveToFile();
+    }
+    public static void WatchSecondGalleryTutorial()
+    {
+        _currentUserData._haswatchedGalleryTutorial2 = true;
+        SaveToFile();
+    }
+    public static void SetCurrentFrame(int frameIndex)
+    {
+        _currentUserData._currentFrame = frameIndex;
+        SaveToFile();
+    }
     public static float GetExperienceAmount()
     {
         CalculateLevel();
@@ -264,6 +427,16 @@ public class UserDataController : MonoBehaviour
         return haveMoney;
     }
 
+    public static bool HaveGems(int amount)
+    {
+        bool haveGems = false;
+        if((_currentUserData._hardCoins - amount) >= 0)
+        {
+            haveGems = true;
+        }
+        return haveGems;
+    }
+
     public static void MoveDinosaur(int cellIndex1, int cellIndex2)
     {
         int aux = _currentUserData._dinosaurs[cellIndex2];
@@ -283,7 +456,6 @@ public class UserDataController : MonoBehaviour
         bool mergeUp = false;
         if((mergeDinoType + 1) > GetBiggestDino())
         {
-            GameEvents.DinoUp.Invoke(mergeDinoType + 1);
             SetBiggestDino(mergeDinoType + 1);
             mergeUp = true;
         }
@@ -429,6 +601,16 @@ public class UserDataController : MonoBehaviour
         SaveToFile();
     }
 
+    public static bool[] GetGalleryImagesToOpen()
+    {
+        return _currentUserData._galleryImagesToOpen;
+    }
+    public static void SetGalleryImage(int index, bool state)
+    {
+        _currentUserData._galleryImagesToOpen[index] = state;
+        SaveToFile();
+    }
+
     public static int GetSpinRemainingAds()
     {
         return _currentUserData._spinRemainingAds;
@@ -492,6 +674,15 @@ public class UserDataController : MonoBehaviour
         _currentUserData._claimedAchievements[achievementID] = true;
         SaveToFile();
     }
+    public static void SetchievementToClaim(int index, bool state)
+    {
+        _currentUserData._achievementsToClaim[index] = state;
+        SaveToFile();
+    }
+    public static bool[] GetAchievementsToClaim()
+    {
+        return _currentUserData._achievementsToClaim;
+    }
     public static bool GetClaimedAchievement(int index)
     {
         return _currentUserData._claimedAchievements[index];
@@ -510,29 +701,23 @@ public class UserDataController : MonoBehaviour
     {
         _currentUserData._dailyMerges = 0;
         _currentUserData._dailyMergeLevel ++;
+        SaveToFile();
     }
     public static void AddDailyMerge()
     {
         _currentUserData._dailyMerges++;
+        SaveToFile();
     }
 
     //DAILYMISSIONS ADDS
-    public static int GetDailyAds()
+    public static int GetDailySkinLevel()
     {
-        return _currentUserData._dailyAds;
+        return _currentUserData._dailySkinLevel;
     }
-    public static int GetDailyAdLevel()
+    public static void AddDailySkinLevel()
     {
-        return _currentUserData._dailyAdLevel;
-    }
-    public static void AddDailyAdLevel()
-    {
-        _currentUserData._dailyAds = 0;
-        _currentUserData._dailyAdLevel++;
-    }
-    public static void AddDailyAd()
-    {
-        _currentUserData._dailyAds++;
+        _currentUserData._dailySkinLevel++;
+        SaveToFile();
     }
 
     //DAILYMISSIONS PURCHASES
@@ -548,18 +733,18 @@ public class UserDataController : MonoBehaviour
     {
         _currentUserData._dailyPurchases = 0;
         _currentUserData._dailyPurchaseLevel++;
+        SaveToFile();
     }
     public static void AddDailyPurchase()
     {
         _currentUserData._dailyPurchases++;
+        SaveToFile();
     }
 
     public static void RestoreDailyMissions()
     {
         _currentUserData._dailyMerges = 0;
         _currentUserData._dailyMergeLevel = 0;
-        _currentUserData._dailyAds = 0;
-        _currentUserData._dailyAdLevel = 0;
         _currentUserData._dailyPurchases = 0;
         _currentUserData._dailyPurchaseLevel = 0;
     }

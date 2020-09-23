@@ -13,6 +13,9 @@ public class ExpositorInstance : MonoBehaviour
     EconomyManager _economyManager;
     GameObject dinoCopy;
     bool locked;
+    [SerializeField]
+    SpriteRenderer _expositorSprite;
+
     public void Lock()
     {
         GetComponent<SpriteRenderer>().color = Color.gray;
@@ -35,12 +38,13 @@ public class ExpositorInstance : MonoBehaviour
     private void Start()
     {
         _mainSceneController = FindObjectOfType<MainGameSceneController>();
+        RefreshExpositorSprite();
     }
     public void ShowDinosaur(CellInstance cellInstance)
     {
         _referencedCell = cellInstance;
         dinoCopy = Instantiate(_referencedCell.GetDinoInstance().gameObject, transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity);
-        dinoCopy.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);//SOLO FUNCIONA EN CHIBIS
+        dinoCopy.transform.localScale = new Vector3(1,1,1);//SOLO FUNCIONA EN CHIBIS
         Destroy(dinoCopy.GetComponent<DinosaurInstance>());
     }
     public void SetReferencedCell(CellInstance targetCell)
@@ -59,6 +63,12 @@ public class ExpositorInstance : MonoBehaviour
         _referencedCell = null;
         Destroy(dinoCopy);
     }
+
+    public void RefreshExpositorSprite()
+    {
+        _expositorSprite.sprite = Resources.Load<Sprite>("Sprites/Expositors/" + UserDataController.GetCurrentExpositor());
+    }
+
     public void SetExpositor(int expoNumber)
     {
         _expositorNumber = expoNumber;
@@ -123,7 +133,18 @@ public class ExpositorInstance : MonoBehaviour
                     GameCurrency currentDinoEarnings = new GameCurrency(_economyManager.GetEarningsByType(dinoType).GetIntList());
                     currentDinoEarnings.MultiplyCurrency(2f);
                     _economyManager.EarnSoftCoins(currentDinoEarnings);
-                    GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position, currentDinoEarnings));
+                    Vector3 padding = new Vector3(0, 0.2f, 0);
+                    switch (expoIndex)
+                    {
+                        case 6:
+                        case 0:
+                        case 2:
+                        case 8:
+                            padding = new Vector3(0.15f *(float)(currentDinoEarnings.GetCurrentMoney().Length), 0.2f, 0);
+                            break;
+                    }
+                    GameEvents.EarnMoney.Invoke(new GameEvents.MoneyEventData(transform.position + padding, currentDinoEarnings));
+                    GameEvents.PlaySFX.Invoke("Coins_" + Random.Range(0, 4));
                 }
             }
         }

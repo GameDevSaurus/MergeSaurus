@@ -14,14 +14,16 @@ public class DailyRewardManager : MonoBehaviour
     PanelManager _panelManager;
     [SerializeField]
     RectTransform[] _dailyRewards;
-    [SerializeField]
-    Image _reborder;
     RewardManager _rewardManager;
+    [SerializeField]
+    TextMeshProUGUI _rewardTx1, _rewardTx2, _rewardTx3;
+    EconomyManager _economyManager;
 
     private void Awake()
     {
         _panelManager = FindObjectOfType<PanelManager>();
-        GameEvents.DinoUp.AddListener(DinoUpCallback);
+        _economyManager = FindObjectOfType<EconomyManager>();
+        GameEvents.RewardMergeUp.AddListener(DinoUpCallback);
         _rewardManager = FindObjectOfType<RewardManager>();
     }
     private void Start()
@@ -32,14 +34,23 @@ public class DailyRewardManager : MonoBehaviour
         {
             OpenPanel();
             UserDataController.RestoreDailyMissions();
-        }     
+            if (UserDataController.IsVipUser())
+            {
+                UserDataController.SetFreeSpinTries(2);
+            }
+            else
+            {
+                UserDataController.SetFreeSpinTries(1);
+            }
+        }
+
     }
     public void DinoUpCallback(int dino)
     {
-        if(dino == 6)
-        {
-            OpenPanel();
-        }
+        //if (dino == 6)
+        //{
+        //    OpenPanel();
+        //}
     }
     public void CloseDaily()
     {
@@ -47,31 +58,38 @@ public class DailyRewardManager : MonoBehaviour
     }
     public void OpenPanel()
     {
+        GameCurrency baseRewardPSec;
+        baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
+        baseRewardPSec.MultiplyCurrency(3600);
+        _rewardTx1.text = baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
+        baseRewardPSec.MultiplyCurrency(2);
+        _rewardTx2.text = baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
+        baseRewardPSec.MultiplyCurrency(2);
+        _rewardTx3.text = baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
+
         int playedDays = UserDataController.GetPlayedDays();
         MarkButton(playedDays);
         _panelManager.RequestShowPanel(_mainPanel.gameObject);
+
     }
     public void ObtainReward(int rewardDay)
     {
         switch (rewardDay)
         {
             case 0:
-                _rewardManager.EarnSpeedUp(300);
+                _rewardManager.EarnSpeedUp(200);
                 break;
             case 1:
                 _rewardManager.EarnSoftCoin(3600);
                 break;
             case 2:
-                //TO DO
-                //300s DE GANANCIAS x5
+                _rewardManager.EarnSpeedUp(400);
                 break;
             case 3:
                 _rewardManager.EarnSoftCoin(7200);
                 break;
             case 4:
-                _rewardManager.EarnSpeedUp(300);
-                //TO DO
-                //300s DE GANANCIAS x5
+                _rewardManager.EarnSpeedUp(600);
                 break;
             case 5:
                 _rewardManager.EarnSoftCoin(14400);
@@ -93,26 +111,23 @@ public class DailyRewardManager : MonoBehaviour
             string finalTx = string.Format(LocalizationController._localizedData["DAILY_REWARD_DAY"], (i+1).ToString());
             dailyText.text = finalTx;
 
-            if (i != buttonIndex)
+            if (buttonIndex == i)
             {
-                _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().BasicConfig();
-                dailyButton.interactable = false;
+                _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().SelectedConfig();
+                dailyButton.interactable = true;
             }
             else
             {
-                _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().SelectedConfig();
-                if (i == 6)
+                if (i < buttonIndex)
                 {
-                    _reborder.rectTransform.sizeDelta = new Vector2(400, 350);
+                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().UsedConfig();
+                    dailyButton.interactable = false;
                 }
                 else
                 {
-                    _reborder.rectTransform.sizeDelta = new Vector2(265, 365);
+                    _dailyRewards[i].gameObject.GetComponent<DailyRewardInstance>().BasicConfig();
+                    dailyButton.interactable = false;
                 }
-                _reborder.transform.SetParent(_dailyRewards[i]);
-                _reborder.transform.SetAsLastSibling();
-                _reborder.rectTransform.anchoredPosition = Vector3.zero;
-                dailyButton.interactable = true;
             }
         }
     }

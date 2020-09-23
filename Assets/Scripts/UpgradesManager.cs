@@ -62,15 +62,15 @@ public class UpgradesManager : MonoBehaviour
         _currentLevelsTx[2].text = "Nvl. " + (UserDataController.GetExtraTouristSpeedLevel()+1);
         _currentLevelsTx[3].text = "Nvl. " + (UserDataController.GetExtraPassiveEarningsLevel()+1);
 
-        _dinoFaces[0].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForDiscount);
-        _dinoFaces[1].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForEarnings);
-        _dinoFaces[2].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForTouristSpeed);
-        _dinoFaces[3].sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForPassiveEarnings);
+        _dinoFaces[0].sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForDiscount);
+        _dinoFaces[1].sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForEarnings);
+        _dinoFaces[2].sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForTouristSpeed);
+        _dinoFaces[3].sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForPassiveEarnings);
 
-        _dinoFaces[0].overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForDiscount);
-        _dinoFaces[1].overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForEarnings);
-        _dinoFaces[2].overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForTouristSpeed);
-        _dinoFaces[3].overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + dinoLevelForPassiveEarnings);
+        _dinoFaces[0].overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForDiscount);
+        _dinoFaces[1].overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForEarnings);
+        _dinoFaces[2].overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForTouristSpeed);
+        _dinoFaces[3].overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + dinoLevelForPassiveEarnings);
 
         if(UserDataController.GetBiggestDino() < dinoLevelForDiscount)
         {

@@ -8,6 +8,23 @@ public class BoxInstance : MonoBehaviour
     BoxManager.BoxType _boxType;
     CellInstance _myCell;
     float _remainingTime = 1f;
+    [SerializeField]
+    AnimationCurve _animationCurve;
+    private void Awake()
+    {
+        StartCoroutine(CrGrow());
+    }
+
+    IEnumerator CrGrow()
+    {
+        for(float i = 0; i<0.25f; i += Time.deltaTime)
+        {
+            transform.localScale = Vector3.one* _animationCurve.Evaluate(i / 0.25f);
+            yield return null;
+        }
+        transform.localScale = Vector3.one;
+    }
+
     public void Init(CellInstance myCell,float remainingTime )
     {
         _remainingTime = remainingTime;

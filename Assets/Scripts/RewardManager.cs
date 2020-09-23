@@ -23,25 +23,27 @@ public class RewardManager : MonoBehaviour
     Queue<RewardData> rewardDataQueue;
     bool canClose = false;
     bool panelIsOpen;
-    ParticleManager _particleManager;
+    VFXManager _vfxManager;
+    RewardData _rewardData;
     private void Awake()
     {
+        _vfxManager = FindObjectOfType<VFXManager>();
         GameEvents.MergeDino.AddListener(MergeDinoCallBack);
         GameEvents.Purchase.AddListener(PurchaseDinoCallBack);
-        GameEvents.DinoUp.AddListener(CheckDinoUp);
+        GameEvents.RewardMergeUp.AddListener(CheckDinoUp);
         rewardDataQueue = new Queue<RewardData>();
         panelIsOpen = false;
-        _particleManager = FindObjectOfType<ParticleManager>();
     }
     public void ShowPanel()
     {
-        _particleManager.Explode();
         RewardData r = rewardDataQueue.Dequeue();
+        GameEvents.PlaySFX.Invoke("Achievement");
         if (!panelIsOpen)
         {
             _mainPanel.SetActive(true);
             panelIsOpen = true;
         }
+        _vfxManager.Explode();
         RefreshInfo(r);
         StartCoroutine(WaitToClose(1f));
     }
@@ -49,7 +51,11 @@ public class RewardManager : MonoBehaviour
     {
         if (canClose)
         {
-            _particleManager.StopAll();
+
+            if (_rewardData._rewardType == 6)
+            {
+                FindObjectOfType<DailyRewardManager>().OpenPanel();
+            }
             if (rewardDataQueue.Count > 0)
             {
                 ShowPanel();
@@ -62,6 +68,25 @@ public class RewardManager : MonoBehaviour
         }
     }
 
+    public int GetRemainingRewards()
+    {
+        if(rewardDataQueue.Count == 0)
+        {
+            if (panelIsOpen)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return rewardDataQueue.Count;
+        }
+        
+    }
     public void CheckDinoUp(int dinoType)
     {
         if(dinoType == 5)
@@ -113,7 +138,14 @@ public class RewardManager : MonoBehaviour
             ShowPanel();
         }
     }
-
+    public void EarnGifts(int gifts)
+    {
+        rewardDataQueue.Enqueue(new RewardData(7, gifts));
+        if (!panelIsOpen)
+        {
+            ShowPanel();
+        }
+    }
     public void EarnHardCoin(int amount)
     {
         rewardDataQueue.Enqueue(new RewardData(1, amount));
@@ -143,6 +175,15 @@ public class RewardManager : MonoBehaviour
         //FUNCION DINOEARNINGS
     }
 
+    public void EarnCustomizeItem(int productIndex, int category)
+    {
+        rewardDataQueue.Enqueue(new RewardData(8, productIndex, category));
+        if (!panelIsOpen)
+        {
+            ShowPanel();
+        }
+    }
+
     IEnumerator WaitToClose(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -154,7 +195,9 @@ public class RewardManager : MonoBehaviour
         public int _rewardType;
         public GameCurrency _softCoinsAmount;
         public int _amount;
-
+        public int _category;
+        public int _productIndex;
+        
         public RewardData(int rewardType, int amount)
         {
             _rewardType = rewardType;
@@ -165,10 +208,18 @@ public class RewardManager : MonoBehaviour
             _rewardType = rewardType;
             _softCoinsAmount = coinsAmount;
         }
+        public RewardData(int rewardType,int productIndex, int category)
+        {
+            _rewardType = rewardType;
+            _productIndex = productIndex;
+            _category = category;
+        }
     }
 
     public void RefreshInfo(RewardData r)
     {
+        _rewardData = r;
+        _rewardImage.rectTransform.sizeDelta = new Vector3(300, 300, 1);
         switch (r._rewardType)
         {
             case 0:
@@ -199,8 +250,35 @@ public class RewardManager : MonoBehaviour
                 _rewardImage.sprite = _rewardSprites[r._rewardType];
                 break;
             case 6:
-                _txReward.text = LocalizationController.GetValueByKey("UNLOCK_UPGRADES");
+                _txReward.text = LocalizationController.GetValueByKey("UNLOCK_CUSTOMIZE");
                 _rewardImage.sprite = _rewardSprites[r._rewardType];
+                break;
+            case 7:
+                _txReward.text = LocalizationController.GetValueByKey("NEST");
+                _rewardImage.sprite = _rewardSprites[r._rewardType];
+                FindObjectOfType<BoxManager>().RewardBox(r._amount);
+                break;
+            case 8:
+                switch (r._category)
+                {
+                    case 0:
+                        _rewardImage.sprite = Resources.Load<Sprite>("Sprites/Cells/" + r._productIndex);
+                        _txReward.text = LocalizationController.GetValueByKey("UNLOCK_CELL");
+                        break;
+                    case 1:
+                        _rewardImage.sprite = Resources.Load<Sprite>("Sprites/Expositors/" + r._productIndex);
+                        _txReward.text = LocalizationController.GetValueByKey("UNLOCK_EXPOSITOR");
+                        break;
+                    case 2:
+                        _rewardImage.sprite = Resources.Load<Sprite>("Sprites/Grounds/" + r._productIndex);
+                        _txReward.text = LocalizationController.GetValueByKey("UNLOCK_GROUND");
+                        break;
+                    case 3:
+                        _rewardImage.sprite = Resources.Load<Sprite>("Sprites/Frames/" + r._productIndex);
+                        _txReward.text = LocalizationController.GetValueByKey("UNLOCK_FRAME");
+                        break;
+                }
+                _rewardImage.rectTransform.sizeDelta = new Vector3(500, 500, 1);
                 break;
         }
     }
@@ -230,5 +308,4 @@ public class RewardManager : MonoBehaviour
         }
     }
 }
-
 

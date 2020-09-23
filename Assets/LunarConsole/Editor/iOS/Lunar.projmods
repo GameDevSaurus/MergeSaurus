@@ -27,6 +27,8 @@
     "Common/Console/Log/LUConsoleLogMenuController.xib",
     "Common/Console/Log/LUConsoleLogTypeButton.h",
     "Common/Console/Log/LUConsoleLogTypeButton.m",
+    "Common/Console/Log/LULogMessage.h",
+    "Common/Console/Log/LULogMessage.m",
     "Common/Console/LUConsole.h",
     "Common/Console/LUConsole.m",
     "Common/Console/LUConsoleController.h",

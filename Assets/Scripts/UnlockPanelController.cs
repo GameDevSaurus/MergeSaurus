@@ -14,48 +14,60 @@ public class UnlockPanelController : MonoBehaviour
     
     void UnlockButtons(int biggestDino)
     {
-        if(biggestDino < 8) //PONER A 8
+        print(biggestDino);
+        if (biggestDino == 0)
         {
-            int unlockIndex = 7;
-            switch (biggestDino)
-            {
-                case 0:
-                case 1:
-                case 2:
-                    unlockIndex = 0;
-                    break;
-                case 3:
-                case 4:
-                    unlockIndex = 2;
-                    break;
-                case 5:
-                    unlockIndex = 4;
-                    break;
-                case 6:
-                    unlockIndex = 6;
-                    break;
-                case 7:
-                    unlockIndex = 7;
-                    break;
-            }
             for (int i = 0; i < buttons.Count; i++)
             {
-                if (i < unlockIndex)
-                {
-                    buttons[i].SetActive(true);
-                }
-                else
-                {
-                    buttons[i].SetActive(false);
-                }
+                buttons[i].SetActive(false);
             }
         }
         else
         {
-            for (int i = 0; i < buttons.Count; i++)
+            if (biggestDino < 6)
             {
-                buttons[i].SetActive(true);
+                int unlockIndex = 0;
+                switch (biggestDino)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        unlockIndex = 2;
+                        break;
+                    case 2:
+                        unlockIndex = 4;
+                        break;
+                    case 3:
+                    case 4:
+                        unlockIndex = 5;
+                        break;
+                    case 5:
+                        unlockIndex = 6;
+                        break;
+                }
+                for (int i = 0; i < buttons.Count; i++)
+                {
+                    if (i < unlockIndex)
+                    {
+                        buttons[i].SetActive(true);
+                    }
+                    else
+                    {
+                        buttons[i].SetActive(false);
+                    }
+                }
             }
+            else
+            {
+                for (int i = 0; i < buttons.Count; i++)
+                {
+                    buttons[i].SetActive(true);
+                }
+            }
+        }
+        if (UserDataController.IsVipUser())
+        {
+            buttons[3].SetActive(false); //CAMBIAR SEGUN ORDEN
         }
     }
 }

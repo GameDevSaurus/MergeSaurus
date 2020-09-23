@@ -16,12 +16,24 @@ public class UserData
     public int _unlockedExpositors;
     public string _username;
     public int[] _dinosaurs;
+    public bool[] _skins;
+    public bool[] _specialCards;
     public int[] _workingCellsByExpositor;
     public bool[] _tutorialCompleted;
     public int[] _purchasedTimes;
     public int[] _obtainedTimes;
     public bool[] _claimedAchievements;
+    public bool[] _achievementsToClaim;
+    public bool[] _galleryImagesToOpen;
     public int _discountLevel;
+    public int _currentCell;
+    public bool[] _cellSkins;
+    public bool[] _groundSkins;
+    public bool[] _framesSkins;
+    public int _currentExpositor;
+    public int _currentGround;
+    public int _currentFrame;
+    public bool[] _expositorSkins;
     public int _extraEarningsLevel;
     public int _extraTouristSpeedLevel;
     public int _extraPasiveEarningsLevel;
@@ -35,13 +47,17 @@ public class UserData
     public int _playedDays;
     public int _dailyMerges;
     public int _dailyMergeLevel;
-    public int _dailyAds;
-    public int _dailyAdLevel;
+    public int _dailySkinLevel;
     public int _dailyPurchases;
     public int _dailyPurchaseLevel;
     public int _playerAvatar;
     public int _currentRewardVideos;
-
+    public int _freeSpinTries;
+    public bool _missionWarning;
+    public bool _specialOffer;
+    public bool _vipUser;
+    public bool _haswatchedGalleryTutorial;
+    public bool _haswatchedGalleryTutorial2;
     public UserData()
     {
         _lastUpdatedTime = System.DateTime.Now.ToBinary().ToString();
@@ -49,14 +65,29 @@ public class UserData
         _experience = 0;
         _level = 1;
         _softCoins = new int[31];
-        _softCoins[0] = 20000;
+        _softCoins[0] = 7500;
         _totalSoftCoins = new int[31];
         _totalSoftCoins[0] = 20000;
-        _hardCoins = 1000; //CAMBIAR
+        _hardCoins = 0; 
         _unlockedCells = 4;
         _unlockedExpositors = 4;
-        _username = "Mechanic";
-        _dinosaurs = new int[21];
+        _currentCell = 0;
+        _currentExpositor = 0;
+        _currentGround = 0;
+        _currentFrame = 0;
+        _cellSkins = new bool[5];
+        _cellSkins[0] = true;
+        _expositorSkins = new bool[5];
+        _expositorSkins[0] = true;
+        _groundSkins = new bool[5];
+        _groundSkins[0] = true;
+        _framesSkins = new bool[5];
+        _framesSkins[0] = true;
+        _username = "Player";
+        _dinosaurs = new int[18];
+        _skins = new bool[_dinosaurs.Length * 2];
+        _skins[0] = true;
+        _specialCards = new bool[_skins.Length];
         _workingCellsByExpositor = new int[10];
         _discountLevel = 0;
         _extraEarningsLevel = 0;
@@ -71,6 +102,10 @@ public class UserData
         _biggestDino = 0;
         _playedDays = 0;
         _currentRewardVideos = 0;
+        _freeSpinTries = 1;
+        _missionWarning = false;
+        _specialOffer = false;
+        _vipUser = false;
 
         for (int i = 0; i<_dinosaurs.Length; i++)
         {
@@ -84,8 +119,12 @@ public class UserData
         _obtainedTimes = new int[40]; //Numero de indices igual al de tipos de dinosaurio #x
         _tutorialCompleted = new bool[10];
         _claimedAchievements = new bool[10];
+        _achievementsToClaim = new bool[_claimedAchievements.Length];
+        _galleryImagesToOpen = new bool[_dinosaurs.Length*2];
+        _galleryImagesToOpen[0] = true;
+        _galleryImagesToOpen[1] = true;
         _dailyMerges = 0;
-        _dailyAds = 0;
+        _dailySkinLevel = 0;
         _dailyPurchases = 0;
         _playerAvatar = 0;
     }

@@ -13,36 +13,27 @@ public class NestManager : MonoBehaviour
     [SerializeField]
     EconomyManager _economyManager;
     PanelManager _panelManager;
+    RewardManager _rewardManager;
 
     private void Awake()
     {
         _panelManager = FindObjectOfType<PanelManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
     }
     public void OpenNest()
     {
         _panelManager.RequestShowPanel(_mainPanel);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            OpenNest();
-        }
-    }
     public void CloseNest()
     {
         _panelManager.ClosePanel();
-    }
-    public void ShowVideo()
-    {
-        GameEvents.PlayAd.Invoke("SpecialBox");
-        CloseNest();
     }
     public void HardCoinPurchase()
     {
         if (_economyManager.SpendHardCoins(3))
         {
-            _boxManager.RewardBox(4);
+            _rewardManager.EarnGifts(4);
+            //_boxManager.RewardBox(4);
         }
         CloseNest();
     }

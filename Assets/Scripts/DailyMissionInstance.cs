@@ -8,7 +8,7 @@ public class DailyMissionInstance : MonoBehaviour
 {
     [SerializeField]
     int _missionType;
-
+    bool state = false;
     [SerializeField]
     TextMeshProUGUI _titleTx;
     [SerializeField]
@@ -22,11 +22,13 @@ public class DailyMissionInstance : MonoBehaviour
     [SerializeField]
     GameObject _claimButton;
     [SerializeField]
+    RewardManager _rewardManager;
+    [SerializeField]
     EconomyManager _economyManager;
+    [SerializeField]
+    MissionsManager _missionManager;
 
     int level = 0;
-    int target = 0;
-    int currentProgress = 0;
 
     void OnEnable()
     {
@@ -35,32 +37,41 @@ public class DailyMissionInstance : MonoBehaviour
 
     public void ClaimMergeReward()
     {
-        GameCurrency baseRewardPSec;
-        baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
-        baseRewardPSec.MultiplyCurrency(300 * (level + 1));
-        _economyManager.EarnSoftCoins(baseRewardPSec);
+        _rewardManager.EarnSoftCoin(100 * (level + 1));
         UserDataController.AddDailyMergeLevel();
+        state = false;
         Refresh();
+        _missionManager.CheckWarningState();
     }
     public void ClaimAdReward()
     {
-        _economyManager.EarnHardCoins(3*level);
-        UserDataController.AddDailyAdLevel();
+        _rewardManager.EarnHardCoin(3*level);
+        UserDataController.AddDailySkinLevel();
+        state = false;
         Refresh();
+        _missionManager.CheckWarningState();
     }
     public void ClaimPurchaseReward()
     {
-        GameCurrency bigBaseRewardPSec;
-        bigBaseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
-        bigBaseRewardPSec.MultiplyCurrency(600 * (level + 1));
-        _economyManager.EarnSoftCoins(bigBaseRewardPSec);
+        _rewardManager.EarnSoftCoin(200 * (level + 1));
         UserDataController.AddDailyPurchaseLevel();
+        state = false;
         Refresh();
+        _missionManager.CheckWarningState();
+    }
+
+    public bool GetState()
+    {
+        Refresh();
+        return state;
     }
 
     public void Refresh()
     {
         string title = "";
+        int currentProgress = 0;
+        int target = 0;
+
         switch (_missionType)
         {
             case 0://merge
@@ -70,15 +81,14 @@ public class DailyMissionInstance : MonoBehaviour
                 currentProgress = UserDataController.GetDailyMerges();
                 GameCurrency baseRewardPSec;
                 baseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
-                baseRewardPSec.MultiplyCurrency(300 * (level + 1));
-                
-                _rewardAmountTx.text = "x " + baseRewardPSec.GetCurrentMoney();
+                baseRewardPSec.MultiplyCurrency(300 * (level + 1));           
+                _rewardAmountTx.text = "x " + baseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
                 break;
             case 1://AD
-                level = UserDataController.GetDailyAdLevel();
+                level = UserDataController.GetDailySkinLevel();
                 target = 5 + (5 * level);
-                title = string.Format(LocalizationController.GetValueByKey("DAILYMISSION_AD"), target);
-                currentProgress = UserDataController.GetDailyAds();
+                title = string.Format(LocalizationController.GetValueByKey("DAILYMISSION_MERGE"), target);
+                currentProgress = UserDataController.GetUnlockedSkinsNumber();
                 break;
             case 2://Purchase
                 level = UserDataController.GetDailyPurchaseLevel();
@@ -88,17 +98,19 @@ public class DailyMissionInstance : MonoBehaviour
                 GameCurrency bigBaseRewardPSec;
                 bigBaseRewardPSec = new GameCurrency(_economyManager.GetTotalEarningsPerSecond().GetIntList());
                 bigBaseRewardPSec.MultiplyCurrency(600 * (level +1));
-                _rewardAmountTx.text = "x "+ bigBaseRewardPSec.GetCurrentMoney();
+                _rewardAmountTx.text = "x "+ bigBaseRewardPSec.GetCurrentMoneyConvertedTo3Chars();
                 break;
         }
         if (currentProgress >= target)
         {
             currentProgress = target;
             _claimButton.SetActive(true);
+            state = true;
         }
         else
         {
             _claimButton.SetActive(false);
+            state = false;
         }
         _titleTx.text = title;
         _progressFill.fillAmount = currentProgress / (float)target;

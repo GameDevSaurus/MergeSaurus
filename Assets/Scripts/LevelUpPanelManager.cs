@@ -15,16 +15,19 @@ public class LevelUpPanelManager : MonoBehaviour
     [SerializeField]
     Transform _rewardsPanel;
     [SerializeField]
-    Sprite[] _rewardsIcons;
+    Sprite _gemIcon;
     [SerializeField]
     AnimationCurve animationCurve;
     [SerializeField]
     GameObject _rewardsPrefab;
     PanelManager _panelManager;
+    VFXManager _vFXManager;
+    
     private void Start()
     {
         _experienceManager = FindObjectOfType<ExperienceManager>();
         _panelManager = FindObjectOfType<PanelManager>();
+        _vFXManager = FindObjectOfType<VFXManager>();
     }
     public void LevelUp()
     {
@@ -36,11 +39,20 @@ public class LevelUpPanelManager : MonoBehaviour
     {
         yield return null;
         _panelManager.RequestShowPanel(_levelUpPanel);
+        StartCoroutine(WaitingForRequest());
         canDisable = false;
         int level = UserDataController.GetLevel();
         _levelUpTx.text = level.ToString();
         yield return new WaitForSeconds(0.5f);
         canDisable = true;
+    }
+    IEnumerator WaitingForRequest()
+    {
+        while (!_levelUpPanel.activeSelf)
+        {
+            yield return null;
+        }
+        _vFXManager.Explode();
     }
     public void DisableMainPanel()
     {
@@ -94,21 +106,21 @@ public class LevelUpPanelManager : MonoBehaviour
         if (cells > 0)
         {
             GameObject nReward = Instantiate(_rewardsPrefab, _rewardsPanel.position, Quaternion.identity);
-            nReward.GetComponent<RewardInstance>().SetRewards(_rewardsIcons[0], cells);
+            nReward.GetComponent<RewardInstance>().SetRewards(Resources.Load<Sprite>("Sprites/Cells/" + UserDataController.GetCurrentCell()), cells);
             nReward.transform.SetParent(_rewardsPanel);
             nReward.transform.localScale = Vector3.one;
         }
         if (expositors > 0)
         {
             GameObject nReward = Instantiate(_rewardsPrefab, _rewardsPanel.position, Quaternion.identity);
-            nReward.GetComponent<RewardInstance>().SetRewards(_rewardsIcons[1], expositors);
+            nReward.GetComponent<RewardInstance>().SetRewards(Resources.Load<Sprite>("Sprites/Expositors/" + UserDataController.GetCurrentExpositor()), expositors);
             nReward.transform.SetParent(_rewardsPanel);
             nReward.transform.localScale = Vector3.one;
         }
         if (gems > 0)
         {
             GameObject nReward = Instantiate(_rewardsPrefab, _rewardsPanel.position, Quaternion.identity);
-            nReward.GetComponent<RewardInstance>().SetRewards(_rewardsIcons[2], gems);
+            nReward.GetComponent<RewardInstance>().SetRewards(_gemIcon, gems);
             nReward.transform.SetParent(_rewardsPanel);
             nReward.transform.localScale = Vector3.one;
             UserDataController.AddHardCoins(gems);

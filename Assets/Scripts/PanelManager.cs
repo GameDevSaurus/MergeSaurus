@@ -10,6 +10,7 @@ public class PanelManager : MonoBehaviour
     bool _isAnyPanelOpen = false;
     [SerializeField]
     Image _blackBackground;
+    VFXManager _vfxManager;
     public void RequestShowPanel(GameObject panel)
     {
         if (_panelsToOpen == null)
@@ -22,10 +23,13 @@ public class PanelManager : MonoBehaviour
             ShowPanel();
         }
     }
-
+    private void Awake()
+    {
+        _vfxManager = FindObjectOfType<VFXManager>();
+    }
     public void ShowPanel()
     {
-        CrShowPanel();
+        StartCoroutine(CrShowPanel());
     }
 
     public void ClosePanel()
@@ -42,12 +46,15 @@ public class PanelManager : MonoBehaviour
         }
     }
 
+
     public bool GetPanelState()
     {
         return _isAnyPanelOpen;
     }
-    void CrShowPanel()
+    IEnumerator CrShowPanel()
     {
+        yield return null;
+        GameEvents.PlaySFX.Invoke("Click");
         GameObject panelToShow = _panelsToOpen.Dequeue();
         Color transparentBlack = new Color(0, 0, 0, 0f);
         panelToShow.SetActive(true);

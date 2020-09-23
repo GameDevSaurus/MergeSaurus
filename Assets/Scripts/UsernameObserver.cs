@@ -22,4 +22,8 @@ public class UsernameObserver : MonoBehaviour
             }
         }
     }
+    public void Refresh()
+    {
+        _updated = false;
+    }
 }

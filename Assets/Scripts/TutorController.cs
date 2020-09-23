@@ -53,6 +53,12 @@ public class TutorController : MonoBehaviour
         sixthConversation.Add("CONV_5_0");
         _conversations.Add(sixthConversation);
 
+        List<string> seventhConversation = new List<string>();
+        seventhConversation.Add("CONV_GALLERY_0");
+        seventhConversation.Add("CONV_GALLERY_1");
+        seventhConversation.Add("CONV_GALLERY_2");
+        _conversations.Add(seventhConversation);
+
         fadeImage = _rectTrFade.GetComponent<Image>();
         transparentWhite = new Color(1, 1, 1, 0);
         fadeImage.color = transparentWhite;
@@ -126,7 +132,7 @@ public class TutorController : MonoBehaviour
 
     IEnumerator GrowTextChange()
     {
-        _textConversation.text = LocalizationController._localizedData["CONV_0_1"];
+        _textConversation.text = LocalizationController._localizedData[_conversations[_speakIndex][_currentSpeakIndex]];
         float bouncedAnimationTime = 0.15f;
         for (float i = 0; i < bouncedAnimationTime; i += Time.deltaTime)
         {

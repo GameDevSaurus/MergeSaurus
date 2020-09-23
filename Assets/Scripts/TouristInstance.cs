@@ -8,10 +8,14 @@ public class TouristInstance : MonoBehaviour
     StreetManager _streetManager;
     float moveDuration = 3f;
     [SerializeField]
+    GameObject[] _characters;
     Animator _animator;
 
     public void SetRoute(List<int> route, StreetManager sManager)
     {
+        int random = Random.Range(0, _characters.Length);
+        _characters[random].SetActive(true);
+        _animator = _characters[random].GetComponent<Animator>();
         _touristRoute = route;
         _streetManager = sManager;
         StartCoroutine(Move());
@@ -66,6 +70,7 @@ public class TouristInstance : MonoBehaviour
 
         Vector3 startLerpPos = initialPos;
         Vector3 targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[0], 0);
+        targetLerpPos += Vector3.right * Random.Range(-0.75f, 0.75f);
         float lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
         float lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
         float globalSpeed = CurrentSceneManager.GetGlobalSpeed();
@@ -74,7 +79,6 @@ public class TouristInstance : MonoBehaviour
             if(startLerpPos.y < targetLerpPos.y)
             {
                 _animator.SetTrigger("Up");
-
             }
             else
             {
@@ -121,7 +125,7 @@ public class TouristInstance : MonoBehaviour
             int targetPoint = _touristRoute[i + 1];
             int initialSide = Random.Range(3,5);
 
-            startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i], 0);
+            startLerpPos = transform.position;
             targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i],initialSide);
             lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
             lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
@@ -238,6 +242,8 @@ public class TouristInstance : MonoBehaviour
 
             startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], initialSide);
             targetLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
+            targetLerpPos += Vector3.right * Random.Range(-0.75f, 0.75f);
+
             lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
             lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
             if (startLerpPos.x == targetLerpPos.x)
@@ -279,7 +285,7 @@ public class TouristInstance : MonoBehaviour
                 transform.position = Vector3.Lerp(startLerpPos, targetLerpPos, (k / lerpTime));
                 yield return null;
             }
-            transform.position = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[i + 1], 0);
+            transform.position = targetLerpPos;
             _animator.SetTrigger("Idle");
             waitingTime = Random.Range(0.5f, 1.5f);
             yield return new WaitForSeconds(waitingTime / 2f);
@@ -325,8 +331,7 @@ public class TouristInstance : MonoBehaviour
                 }
                 break;
         }
-
-        startLerpPos = _streetManager.GetExpositorTransformPosByCoords(_touristRoute[_touristRoute.Count - 1], 0);
+        startLerpPos = transform.position;
         lerpDistance = Mathf.Abs((targetLerpPos - startLerpPos).magnitude);
         lerpTime = lerpDistance / ((speed) * CurrentSceneManager.GetGlobalSpeed());
         if (startLerpPos.x == targetLerpPos.x)
@@ -341,7 +346,6 @@ public class TouristInstance : MonoBehaviour
                 if (startLerpPos.y > targetLerpPos.y)
                 {
                     _animator.SetTrigger("Down");
-
                 }
             }
         }

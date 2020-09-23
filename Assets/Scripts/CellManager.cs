@@ -28,6 +28,8 @@ public class CellManager : MonoBehaviour
     float expoPanelHeight;
     [SerializeField]
     SpriteRenderer backgroundTile;
+    [SerializeField]
+    Transform bgGradient;
     List<GameObject> _cells;
     List<ExpositorInstance> _expositors;
 
@@ -36,11 +38,11 @@ public class CellManager : MonoBehaviour
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         GameEvents.LevelUp.AddListener(LevelUpCallBack);
 
-        string cellPath = Application.productName + "/Environment/Cell";
-        string expositorPath = Application.productName + "/Environment/Expositor";
-        string bgPath = Application.productName + "/Environment/Background";
+        string cellPath = "Environment/Cell";
+        string expositorPath = "Environment/Expositor";
         cellPrefab = Resources.Load<GameObject>(cellPath);
         expoPrefab = Resources.Load<GameObject>(expositorPath);
+        string bgPath = "Sprites/Grounds/" + UserDataController.GetCurrentGround();
         backgroundTile.sprite = Resources.Load<Sprite>(bgPath);
 
         panelWidth = 3 + (4f * horizontalDist);
@@ -61,8 +63,18 @@ public class CellManager : MonoBehaviour
         }
         c.orthographicSize += 0.5f;
        
-        float backGroundSize = c.orthographicSize * 2f;
-        backgroundTile.gameObject.transform.localScale = new Vector3(backGroundSize * (c.aspect*(16/9f)), backGroundSize, 1);
+
+        //Backgrounds --> 1080 * 1920 // 100 pixels per unity --> 10.8 de ancho, 19.2 unidades de alto
+        //Queremos que tenga c.ortographicSize *2 de alto
+        float targetSizeHeight = c.orthographicSize * 2f;
+        //El ancho es igual a targetSizeHeight * Camera.aspect
+        float targetSizeWidth = targetSizeHeight * c.aspect;
+        //Si 19.2 de alto son 1 de escala, targetSize es x --> x  = targetSize/19.2f
+
+
+        backgroundTile.transform.localScale =new Vector3(targetSizeWidth/10.8f, targetSizeHeight / 19.2f ,1);
+        bgGradient.localScale = new Vector3(targetSizeWidth / 10.8f, targetSizeHeight / 19.2f, 1);
+        bgGradient.localPosition = new Vector3(0, 0.3f, 0);
         backgroundTile.gameObject.transform.position = new Vector3(0, 0.3f, 0);
 
 
@@ -72,13 +84,13 @@ public class CellManager : MonoBehaviour
         _cellPositionList.Add(new List<int>() { 2, 2, 2 });
         _cellPositionList.Add(new List<int>() { 2, 2, 2, 1 });
         _cellPositionList.Add(new List<int>() { 2, 2, 2, 2 });
-        _cellPositionList.Add(new List<int>() { 2, 2, 2, 2, 1 });
-        _cellPositionList.Add(new List<int>() { 2, 2, 2, 2, 2 });
-        _cellPositionList.Add(new List<int>() { 3, 2, 2, 2, 2 });
-        _cellPositionList.Add(new List<int>() { 3, 3, 2, 2, 2 });
-        _cellPositionList.Add(new List<int>() { 3, 3, 3, 2, 2 });
-        _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 2 });
-        _cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
+        _cellPositionList.Add(new List<int>() { 3, 2, 2, 2 });
+        _cellPositionList.Add(new List<int>() { 3, 3, 2, 2 });
+        _cellPositionList.Add(new List<int>() { 3, 3, 3, 2 });
+        _cellPositionList.Add(new List<int>() { 3, 3, 3, 3 });
+        //_cellPositionList.Add(new List<int>() { 3, 3, 3, 2, 2 });
+        //_cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 2 });
+        //_cellPositionList.Add(new List<int>() { 3, 3, 3, 3, 3 });
 
         SetCellNumber(UserDataController._currentUserData._unlockedCells);
     }
@@ -93,22 +105,87 @@ public class CellManager : MonoBehaviour
                 AddCell();
                 AddExpositor();
                 break;
-            case 4:
-            case 5:
+            case 4:            
             case 7:
             case 9:
             case 11:
-            case 15:
-            case 20:
+            case 13:
                 AddCell();
                 break;
             case 8:
             case 10:
-               // AddExpositor();
+                AddExpositor();
                 break;
         }
     }
 
+    public int GetDinoLayerByCellIndex(int cellIndex)
+    {
+        int numberOfCells = _cells.Count;
+        int dinoLayer = 0;
+        float _cellYPosition = _cells[cellIndex].transform.position.y;
+
+        if (numberOfCells == 4)
+        {
+            if (_cellYPosition > 0) //2 filas horizontales
+            {
+                dinoLayer = 0;
+            }
+            else 
+            {
+                dinoLayer = 1;
+            }
+        }
+        else
+        {
+
+            if (numberOfCells < 7)//3 filas horizontales
+            {
+                if (_cellYPosition > 1)
+                {
+                    dinoLayer = 0;
+                }
+                else
+                {
+                    if (_cellYPosition < -1)
+                    {
+                        dinoLayer = 1;
+                    }
+                    else
+                    {
+                        dinoLayer = 2;
+                    }
+
+                }
+            }
+            else//4 filas horizontales
+            {
+                if (_cellYPosition > 2f)
+                {
+                    dinoLayer = 0;
+                }
+                else
+                {
+                    if(_cellYPosition > 0f)
+                    {
+                        dinoLayer = 1;
+                    }
+                    else
+                    {
+                        if(_cellYPosition> -2f)
+                        {
+                            dinoLayer = 2;
+                        }
+                        else
+                        {
+                            dinoLayer = 3;
+                        }
+                    }
+                }
+            }           
+        }
+        return dinoLayer;
+    }
     public void SetCellNumber(int nCells)
     {
         _cells = new List<GameObject>();
@@ -283,5 +360,19 @@ public class CellManager : MonoBehaviour
     public List<GameObject> GetCellInstances()
     {
         return _cells;
+    }
+
+    public void RefreshSprites()
+    {
+        for (int i = 0; i < _cells.Count; i++)
+        {
+            _cells[i].GetComponent<CellInstance>().RefreshCellSprite();
+        }
+        for (int i = 0; i < _expositors.Count; i++)
+        {
+            _expositors[i].RefreshExpositorSprite();
+        }
+        string bgPath = "Sprites/Grounds/" + UserDataController.GetCurrentGround();
+        backgroundTile.sprite = Resources.Load<Sprite>(bgPath);
     }
 }

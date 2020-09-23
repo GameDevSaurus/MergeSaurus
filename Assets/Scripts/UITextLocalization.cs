@@ -7,8 +7,15 @@ public class UITextLocalization : MonoBehaviour
 {
     [SerializeField]
     string key;
+    [SerializeField]
+    bool _caps;
     void Start()
     {
-        GetComponent<TextMeshProUGUI>().text = LocalizationController._localizedData[key];
+        string text = LocalizationController._localizedData[key];
+        if (_caps)
+        {
+            text.ToUpper();
+        }
+        GetComponent<TextMeshProUGUI>().text = text;
     }
 }

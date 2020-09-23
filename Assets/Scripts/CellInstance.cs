@@ -15,13 +15,17 @@ public class CellInstance : MonoBehaviour
     int _boxNumber;
     GameObject _currentBox;
     BoxManager.BoxType _currentBoxType;
+    [SerializeField]
+    SpriteRenderer _cellSprite;
+
     private void Awake()
     {
         _boxNumber = -1;
     }
     private void Start()
     {
-        _mainSceneController = FindObjectOfType<MainGameSceneController>();    
+        _mainSceneController = FindObjectOfType<MainGameSceneController>();
+        RefreshCellSprite();
     }
     public void SetDinosaur(DinosaurInstance dinosaur)
     {
@@ -41,6 +45,11 @@ public class CellInstance : MonoBehaviour
     public void SetCell(int cellNumber)
     {
         _cellNumber = cellNumber;
+    }
+
+    public void RefreshCellSprite()
+    {
+        _cellSprite.sprite = Resources.Load<Sprite>("Sprites/Cells/" + UserDataController.GetCurrentCell());
     }
 
     public void SetExpositor(ExpositorInstance expositor)
@@ -128,7 +137,10 @@ public class CellInstance : MonoBehaviour
                     if (_nClicks == 2)
                     {
                         _nClicks = 0;
-                        _mainSceneController.ShowDinosaurInFirstExpo(_cellNumber);
+                        if (CurrentSceneManager._canShowDinosaurByTouch)
+                        {
+                            _mainSceneController.ShowDinosaurInFirstExpo(_cellNumber);
+                        }
                     }
                 }
             }

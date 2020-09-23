@@ -5,7 +5,7 @@ using UnityEngine;
 public class EconomyManager : MonoBehaviour
 {
     List<DinosaurInstance> _dinosInGame;
-    List<GameCurrency> _earningsByType = new List<GameCurrency>() { new GameCurrency(4), new GameCurrency(9), new GameCurrency(19), new GameCurrency(40), new GameCurrency(85), new GameCurrency(180), new GameCurrency(380), new GameCurrency(803), new GameCurrency(1697), new GameCurrency(3586), new GameCurrency(7578), new GameCurrency(16014), new GameCurrency(33841), new GameCurrency(71513), new GameCurrency(151121), new GameCurrency(319349), new GameCurrency(674848), new GameCurrency(1426677), new GameCurrency(3013439), new GameCurrency(6370677), new GameCurrency(13455677) };
+    List<GameCurrency> _earningsByType = new List<GameCurrency>() { new GameCurrency(2), new GameCurrency(4), new GameCurrency(10), new GameCurrency(20), new GameCurrency(42), new GameCurrency(90), new GameCurrency(190), new GameCurrency(403), new GameCurrency(851), new GameCurrency(1756), new GameCurrency(3245), new GameCurrency(8007), new GameCurrency(16432), new GameCurrency(35411), new GameCurrency(75687), new GameCurrency(159543), new GameCurrency(314514), new GameCurrency(674848), new GameCurrency(1426677), new GameCurrency(3013439), new GameCurrency(6370677) };
     List<int> _initialCostList; 
     float _initialCostIncrementRatio = 3.092f;
     float _firstDinoIncrementRatio = 1.07f;
@@ -58,12 +58,10 @@ public class EconomyManager : MonoBehaviour
     {
         bool canSpend = false;
         GameCurrency g = UserDataController.GetSoftCoins();
-        g.SubstractCurrency(amount);
-        int checkCurrency = int.Parse(g.GetIntAndCurrency()[0]);
-        if (checkCurrency > 0)
+        if (g.SubstractCurrency(amount))
         {
-            canSpend = true;
             UserDataController.SpendSoftCoins(amount);
+            canSpend = true;
         }
         else
         {

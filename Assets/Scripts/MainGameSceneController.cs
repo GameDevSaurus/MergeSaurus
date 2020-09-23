@@ -30,7 +30,7 @@ public class MainGameSceneController : MonoBehaviour
         _trashBin = FindObjectOfType<TrashBin>();
         for(int i = 0; i<UserDataController.GetDinoAmount(); i++)
         {
-            string path = Application.productName + "/Prefabs/" + i;       
+            string path = "Prefabs/" + i;       
             _dinoPrefabs.Add(Resources.Load<GameObject>(path));
         }
     }
@@ -47,6 +47,7 @@ public class MainGameSceneController : MonoBehaviour
             {
                 if (UserDataController._currentUserData._dinosaurs[i] == -1)
                 {
+                    GameEvents.PlaySFX.Invoke("ChibiAppear");
                     GameObject dino = Instantiate(_dinoPrefabs[dinosaurIndex], _cellManager.GetCellPosition(i), Quaternion.identity);
                     DinosaurInstance dinoInst = dino.GetComponent<DinosaurInstance>();
                     dinoInst.SetCell(i);
@@ -148,6 +149,12 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void Merge(DinosaurInstance dinoInstance1, int targetCellIndex)
     {
+        if (dinoInstance1.GetDinosaur() == 17)
+        {
+            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("MORE_GIRLS_ADVICE"));
+            return;
+        }
+        
         //Creamos al nuevo dinosaurio en la posición del mergeo
         GameObject dino = Instantiate(_dinoPrefabs[dinoInstance1.GetDinosaur()+1], _cellManager.GetCellPosition(targetCellIndex), Quaternion.identity);
         //Obtenemos la dinoInstance del dinosaurio sobre el que soltamos
@@ -172,8 +179,19 @@ public class MainGameSceneController : MonoBehaviour
         Destroy(dinoInstance1.gameObject);
         Destroy(dinoInstance2.gameObject);
         //Se termina el mergeo, conque llamamos al evento.
-        GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
-        UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur());
+        GameEvents.PlaySFX.Invoke("Merge");
+
+        if(UserDataController.MergeDinosaurs(dinoInstance1.GetCellNumber(), dinoInstance2.GetCellNumber(), dinoInstance1.GetDinosaur()))
+        {
+            FindObjectOfType<VFXManager>().Stop();
+            GameEvents.DinoUp.Invoke(dinoInstance1.GetDinosaur() + 1);
+        }
+        else
+        {
+            GameEvents.MergeDino.Invoke(dinoInstance1.GetDinosaur() + 1);
+        }
+
+
     }
     public void Swap(DinosaurInstance dino1, DinosaurInstance dino2)
     {
@@ -237,18 +255,22 @@ public class MainGameSceneController : MonoBehaviour
         Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (_isPicking)
         {
+            _pickedDinosaur.SetDinoLayer("PickedDino");
             _pickedDinosaur.transform.position = new Vector3(mousePos.x, mousePos.y, _pickedDinosaur.transform.position.z);
             if (Input.GetMouseButtonUp(0))
             {
                 _isPicking = false;
-
                 if (_currentCell == null)
                 {
                     if (_currentExpositor != null)
                     {
                         if(_currentExpositor.GetDinoInstance() == null)
                         {
-                            ShowDinosaur(_pickedDinosaur.GetCellNumber(), _currentExpositor.GetExpositorNumber());
+                            if (CurrentSceneManager._canShowDinosaurByDrag)
+                            {
+                                ShowDinosaur(_pickedDinosaur.GetCellNumber(), _currentExpositor.GetExpositorNumber());
+                                _pickedDinosaur.RefreshLayer();
+                            }
                         }
                     }
                     else
@@ -257,6 +279,10 @@ public class MainGameSceneController : MonoBehaviour
                         {
                             _economyManager.EarnSoftCoins(_economyManager.GetInitialCost(_pickedDinosaur.GetDinosaur()));
                             DestroyDinosaur(_pickedDinosaur);
+                        }
+                        else
+                        {
+                            _pickedDinosaur.RefreshLayer();
                         }
                     }
                 }
@@ -338,17 +364,19 @@ public class MainGameSceneController : MonoBehaviour
     }
     public void ShowDinosaur(int cell, int expo)
     {
-        if (_cellManager.GetExpoInstanceByIndex(expo).IsLocked())
-        {
-            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("LOCKED_EXPOSITOR"));
-        }
-        else
-        {
-            _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
-            _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
-            UserDataController.ShowCell(cell, expo);
-        }
+
+            if (_cellManager.GetExpoInstanceByIndex(expo).IsLocked())
+            {
+                GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("LOCKED_EXPOSITOR"));
+            }
+            else
+            {
+                _cellManager.GetCellInstanceByIndex(cell).ExposeDinosaur(_cellManager.GetExpoInstanceByIndex(expo));
+                _cellManager.GetCellInstanceByIndex(cell).GetDinoInstance().StartWorking();
+                UserDataController.ShowCell(cell, expo);
+            }
         
+ 
     }
     public void ShowDinosaurInFirstExpo(int cell)
     {

@@ -19,7 +19,15 @@ public class GameCurrency
         _currencyUnits = new int[31];
         for (int i = 0; i<_currencyUnits.Length; i++)
         {
-            _currencyUnits[i] = currencyEntry[i];
+            if(currencyEntry.Length >= i +1)
+            {
+                _currencyUnits[i] = currencyEntry[i];
+            }
+            else
+            {
+                _currencyUnits[i] = 0;
+            }
+            
         }
     }
     public GameCurrency(int units)
@@ -44,10 +52,11 @@ public class GameCurrency
         }
         ConvertUnits();
     }
-    public void SubstractCurrency(GameCurrency currency)
+    public bool SubstractCurrency(GameCurrency currency)
     {
+        bool canSubstract = CompareCurrencies(currency);
         //Paso 1: Comprobar si el último número es negativo
-        if (CompareCurrencies(currency))
+        if (canSubstract)
         {
             //Paso 2: Resta normal
             for (int i = 0; i < _currencyUnits.Length; i++)
@@ -72,6 +81,7 @@ public class GameCurrency
             } while (hasNegative);
             ConvertUnits();
         }
+        return canSubstract;
     }
 
 

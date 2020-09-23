@@ -93,6 +93,7 @@ public class BoxManager : MonoBehaviour
         }
         
         GameObject box = Instantiate(boxToInstantiate, _cellManager.GetCellPosition(cellIndex), Quaternion.identity);
+        GameEvents.PlaySFX.Invoke("Pop");
         box.GetComponent<BoxInstance>().Init(_cellManager.GetCellInstanceByIndex(cellIndex), remainingTime);
         _cellManager.GetCellInstanceByIndex(cellIndex).SetBox(boxType, dinoType, box);
         UserDataController.CreateBox(boxType, cellIndex, dinoType);

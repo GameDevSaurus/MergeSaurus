@@ -17,13 +17,9 @@ public class PurchaseDinoPanel : MonoBehaviour
     [SerializeField]
     Image _dinoImage;
     [SerializeField]
-    Sprite[] currencyImages;
-    [SerializeField]
     Image _currencyImage;
     [SerializeField]
     Button _dinoButton;
-    [SerializeField]
-    Button _videoButton;
     [SerializeField]
     Button _lockButton;
     [SerializeField]
@@ -71,10 +67,6 @@ public class PurchaseDinoPanel : MonoBehaviour
         {
             ShowGemButton();
         }
-        if (unlockType == 2)
-        {
-            ShowVideoButton();
-        }
         _dinoImage.color = Color.white;
         _textName.enabled = true;
     }
@@ -91,10 +83,6 @@ public class PurchaseDinoPanel : MonoBehaviour
     {
         return _gemButton;
     }
-    public Button GetVideoButton()
-    {
-        return _videoButton;
-    }
 
     public int GetGemCost()
     {
@@ -103,34 +91,44 @@ public class PurchaseDinoPanel : MonoBehaviour
 
     public void SetPurchaseState(bool haveMoney)
     {
-        _dinoButton.interactable = haveMoney;
+        if (haveMoney)
+        {
+            _dinoButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _dinoButton.GetComponent<Image>().color = Color.grey;
+        }
     }
-    public void ShowDefaultButton()
+
+    public void SetGemState(bool haveGems)
     {
-        _dinoButton.gameObject.SetActive(true);
-        _lockButton.gameObject.SetActive(false);
-        _videoButton.gameObject.SetActive(false);
-        _gemButton.gameObject.SetActive(false);
+        if (haveGems)
+        {
+            _gemButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _gemButton.GetComponent<Image>().color = Color.grey;
+        }
     }
+
     public void ShowLockButton()
     {
         _lockButton.gameObject.SetActive(true);
         _dinoButton.gameObject.SetActive(false);
-        _videoButton.gameObject.SetActive(false);
+        _gemButton.gameObject.SetActive(false);
+    }
+    public void ShowDefaultButton()
+    {
+        _lockButton.gameObject.SetActive(false);
+        _dinoButton.gameObject.SetActive(true);
         _gemButton.gameObject.SetActive(false);
     }
     public void ShowGemButton()
     {
+        _lockButton.gameObject.SetActive(false);
+        _dinoButton.gameObject.SetActive(false);
         _gemButton.gameObject.SetActive(true);
-        _lockButton.gameObject.SetActive(false);
-        _dinoButton.gameObject.SetActive(false);
-        _videoButton.gameObject.SetActive(false);
-    }
-    public void ShowVideoButton()
-    {
-        _videoButton.gameObject.SetActive(true);
-        _lockButton.gameObject.SetActive(false);
-        _dinoButton.gameObject.SetActive(false);
-        _gemButton.gameObject.SetActive(false);
     }
 }

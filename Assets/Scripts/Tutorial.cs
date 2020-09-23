@@ -30,7 +30,8 @@ public class Tutorial : MonoBehaviour
     BoxManager _boxManager;
     [SerializeField]
     PanelManager _panelManager;
-
+    [SerializeField]
+    GameObject _skinRewardPanel;
     bool waitingPurchaseTutorial0 = false;
     bool waitingPurchaseTutorial1 = false;
     bool waitingMergeTutorial2 = false;
@@ -215,7 +216,7 @@ public class Tutorial : MonoBehaviour
         CurrentSceneManager.LockEverything();
         _circlePanelObject.SetActive(true);
         _circlePanelTr.position = middlePosition;
-        yield return StartCoroutine(ZoomIn(1.75f));
+        yield return StartCoroutine(ZoomIn(2f));
         _handController.gameObject.SetActive(true);
         waitingMergeTutorial2 = true;
         _handController.StartDragMode(dino1PositionUI, dino2PositionUI);
@@ -522,7 +523,69 @@ public class Tutorial : MonoBehaviour
         }
         _adviceCr = StartCoroutine(CrShowAdvice(advice));
     }
+    public void PlayGalleryTutorial()
+    {
+        StartCoroutine(CrGalleryTutorial());
+    }
+    public void PlaySecondGalleryTutorial()
+    {
+        StartCoroutine(CrSecondGalleryTutorial());
+    }
+    IEnumerator CrGalleryTutorial()
+    {
+        gameObject.transform.SetAsLastSibling();
+        _tutorController.Speak(6);
+        CurrentSceneManager.LockEverything();
+        waitingSpeak = true;
+        while (waitingSpeak)
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = FindObjectOfType<GalleryManager>().GetGalleryImageSoftCoinsButton(1).position;
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.GetComponent<RectTransform>().position = FindObjectOfType<GalleryManager>().GetGalleryImageSoftCoinsButton(1).position;
+        _handController.gameObject.SetActive(true);
+        _handController.StopTouchCoroutines();
+        _handController.StartTouchMode();
+        while (!UserDataController.IsSkinUnlocked(1))
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(false);
+        _handController.StopTouchCoroutines();
+        _handController.gameObject.SetActive(false);
+        UserDataController.WatchGalleryTutorial();
 
+        transform.SetSiblingIndex(5);
+
+    }
+    IEnumerator CrSecondGalleryTutorial()
+    {
+        
+        gameObject.transform.SetAsLastSibling();
+        CurrentSceneManager.LockEverything();
+        _circlePanelObject.SetActive(true);
+        _circlePanelTr.position = FindObjectOfType<GalleryManager>().GetGalleryImageSoftCoinsButton(3).position;
+        yield return StartCoroutine(ZoomIn(1f));
+        _handController.GetComponent<RectTransform>().position = FindObjectOfType<GalleryManager>().GetGalleryImageSoftCoinsButton(3).position;
+        _handController.gameObject.SetActive(true);
+        _handController.StopTouchCoroutines();
+        _handController.StartTouchMode();
+        while (!UserDataController.IsSkinUnlocked(3))
+        {
+            yield return null;
+        }
+        _circlePanelObject.SetActive(false);
+        _handController.StopTouchCoroutines();
+        _handController.gameObject.SetActive(false);
+        CurrentSceneManager.UnlockEverything();
+
+        UserDataController.WatchSecondGalleryTutorial();
+
+        transform.SetSiblingIndex(5);
+
+    }
     IEnumerator CrShowAdvice(GameEvents.AdviceEventData adviceKey)
     {
         _adviceController.gameObject.SetActive(true);

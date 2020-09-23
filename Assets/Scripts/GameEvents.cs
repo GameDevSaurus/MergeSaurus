@@ -58,6 +58,7 @@ public static class GameEvents
     public static IntEvent Purchase = new IntEvent();
     public static IntEvent LevelUp = new IntEvent();
     public static IntEvent DinoUp = new IntEvent();
+    public static UnlockSkinEvent GetSkin = new UnlockSkinEvent();
     public static IntEvent TouristWatchDino = new IntEvent();
     public static IntEvent MergeDino = new IntEvent();
     public static UnityEvent WorkDino = new UnityEvent();
@@ -70,13 +71,25 @@ public static class GameEvents
     public static MoneyEvent EarnMoney = new MoneyEvent();
     public static StringEvent LoadScene = new StringEvent();
     public static StringEvent PlaySFX = new StringEvent();
-    public static StringEvent PlayAd = new StringEvent();
+    public static IntEvent RewardMergeUp = new IntEvent();
 
     public class StringEvent : UnityEvent<string> { };
     public class AdviceEvent : UnityEvent<AdviceEventData> { };
     public class IntEvent : UnityEvent<int> { };
     public class MoneyEvent : UnityEvent<MoneyEventData> { };
+    
+    public class UnlockSkinEvent : UnityEvent<UnlockSkinEventData> { };
 
+    public class UnlockSkinEventData
+    {
+        public int _skinIndex;
+        public int _purchaseType;
+        public UnlockSkinEventData(int skinIndex, int purchaseType)
+        {
+            _skinIndex = skinIndex;
+            _purchaseType = purchaseType;
+        }
+    }
 
     public class MoneyEventData
     {

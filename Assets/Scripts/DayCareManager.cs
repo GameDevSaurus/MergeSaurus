@@ -24,16 +24,18 @@ public class DayCareManager : MonoBehaviour
     [SerializeField]
     GameObject _purchaseDinoPanelPrefab;
     [SerializeField]
+    GameObject _comingSoonPanelPrefab;
+    [SerializeField]
     Transform _panelParent;
     List<PurchaseDinoPanel> _dinoPanelManagers;
     bool watchedVideo = false;
-    int[] gemCost = new int[] {4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 86, 94, 102, 110, 120, 130, 140, 150, 165, 180, 197, 214, 231, 250 };
+    int[] gemCost = {4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 86, 94, 102, 110, 120, 130, 140, 150, 165, 180, 197, 214, 231, 250 };
     PanelManager _panelManager;
     int smallGemCost, bigGemCost;
 
     public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
 
-    public static string[] dinoNames = new string[] { "Pidgey","Caterpie","Magikarp","Abra","Bulbasaur","Squirtle", "Charmander", "Growlithe", "Farfetch'd", "Gastly", "Geodude", "Machop", "Lickitung", "Cubone", "Metapod", "Pikachu", "Psyduck", "Ponyta", "Vulpix", "Slowpoke", "Tangela", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    string[] dinoNames = { "Takoyaki", "Catara", "Cuticorn", "Suky", "Shiva", "Danny", "Mica", "Meku", "Eri"};
 
     int _fastPurchaseDinoType = 0;
     private void Awake()
@@ -58,18 +60,39 @@ public class DayCareManager : MonoBehaviour
             nPanel.transform.SetParent(_panelParent);
             nPanel.transform.localScale = Vector3.one;
             PurchaseDinoPanel p = nPanel.GetComponent<PurchaseDinoPanel>();
-            p.SetDinoImage(Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i));
-            p.SetDinoName(dinoNames[i]);
-
+            p.SetDinoImage(Resources.Load<Sprite>("Sprites/FaceSprites/" + i));
+            p.SetDinoName(GetChibiName(i));
             int index = i;
             p.GetDinoButton().onClick.AddListener(()=>SoftCoinPurchase(index));
             p.GetGemsButton().onClick.AddListener(()=>HardCoinsPurcharse(index));
-            p.GetVideoButton().onClick.AddListener(()=>WatchVideo(index));
 
             _dinoPanelManagers.Add(p);
         }
         RefreshButtons(null);
+        GameObject comingSooonPanel = Instantiate(_comingSoonPanelPrefab, transform.position, Quaternion.identity);
+        comingSooonPanel.transform.SetParent(_panelParent);
+        comingSooonPanel.transform.localScale = Vector3.one;
     }
+
+    public string GetChibiName(int index)
+    {
+        string chibiname = "";
+        if (index > 0 && index % 2 != 0)
+        {
+            chibiname = dinoNames[(index - 1) / 2] + " (nude)";
+        }
+        else
+        {
+            chibiname = dinoNames[index / 2];
+        }
+        return chibiname;
+    }
+
+    public string[] GetNamesList()
+    {
+        return dinoNames;
+    }
+
     public void Close()
     {
         _shopPanel.SetActive(false);
@@ -88,11 +111,11 @@ public class DayCareManager : MonoBehaviour
         {
             if (i == fastPurchaseIndex)
             {
-                _fastPurchase.interactable = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+                //_fastPurchase.interactable = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
                 _fastPurchaseCost.text = _economyManager.GetDinoCost(i).GetCurrentMoneyConvertedTo3Chars();
-                _fastPurchaseFace.sprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
-                _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>(Application.productName + "/Sprites/FaceSprites/" + i);
-                _fastPurchaseName.text = dinoNames[i];
+                _fastPurchaseFace.sprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + i);
+                _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + i);
+                _fastPurchaseName.text = GetChibiName(i);
                 _fastPurchaseDinoType = i;
                 
             }
@@ -112,6 +135,10 @@ public class DayCareManager : MonoBehaviour
                     _dinoPanelManagers[3].LockPurcharse();
                     smallGemCost = 2;
                     bigGemCost = 3;
+                    if(biggestDino == 3)
+                    {
+                        _dinoPanelManagers[i].UnlockPanel(2);
+                    }
                 }
                 else
                 {
@@ -121,6 +148,7 @@ public class DayCareManager : MonoBehaviour
                         if (i > biggestDino -2)
                         {
                             _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
+                            _dinoPanelManagers[i].UnlockPanel(2);
                         }
                         else
                         {
@@ -182,6 +210,7 @@ public class DayCareManager : MonoBehaviour
                                     }
                                     if (i == biggestDino || i == biggestDino - 1)
                                     {
+                                        _dinoPanelManagers[i].UnlockPanel(2);
                                         _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
                                     }
                                 }
@@ -191,9 +220,11 @@ public class DayCareManager : MonoBehaviour
                 }
             }
             bool canPurchase = UserDataController.HaveMoney(_economyManager.GetDinoCost(i));
+            bool canGemPurchase = UserDataController.HaveGems(gemCost[i]);
             _dinoPanelManagers[i].SetProfits(_economyManager.GetEarningsByType(i).GetCurrentMoneyConvertedTo3Chars());
             _dinoPanelManagers[i].SetPurchaseCost(_economyManager.GetDinoCost(i).GetCurrentMoneyConvertedTo3Chars());
             _dinoPanelManagers[i].SetPurchaseState(canPurchase);
+            _dinoPanelManagers[i].SetGemState(canGemPurchase);
         }
     }
 
@@ -285,17 +316,6 @@ public class DayCareManager : MonoBehaviour
                 _mainGameSceneController.PurchaseDino(dinoType);
                 RefreshButtons(null);
             }
-        }
-        else
-        {
-            GameEvents.ShowAdvice.Invoke(new GameEvents.AdviceEventData("ADVICE_NOEMPTYCELLS"));
-        }
-    }
-    public void WatchVideo(int dinoType)
-    {
-        if (UserDataController.GetEmptyCells() > 0)
-        {
-            GameEvents.PlayAd.Invoke("DayCareAdPurchase");
         }
         else
         {

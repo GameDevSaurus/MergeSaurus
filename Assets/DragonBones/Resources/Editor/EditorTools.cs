@@ -7,11 +7,7 @@ using System.IO;
 
 public class EditorTools : MonoBehaviour
 {
-    [MenuItem("Scenes/Splash")]
-    public static void OpenSplash()
-    {
-        LoadScene("Splash");
-    }
+
 
     [MenuItem("Scenes/Configuration")]
     public static void OpenConfiguration()

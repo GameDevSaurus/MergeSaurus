@@ -15,8 +15,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - BackVFX
-  - FrontVFX
+  - 
+  - 
   - 
   - 
   - 
@@ -47,4 +47,19 @@ TagManager:
     locked: 0
   - name: Dino
     uniqueID: 368488995
+    locked: 0
+  - name: Row0
+    uniqueID: 2794916381
+    locked: 0
+  - name: Row1
+    uniqueID: 3409989633
+    locked: 0
+  - name: Row2
+    uniqueID: 2458342797
+    locked: 0
+  - name: Row3
+    uniqueID: 1820610551
+    locked: 0
+  - name: PickedDino
+    uniqueID: 767826953
     locked: 0

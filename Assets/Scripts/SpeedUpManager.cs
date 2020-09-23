@@ -12,7 +12,7 @@ public class SpeedUpManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _remainingTimeTx;
     [SerializeField]
-    Transform _speedUpButton;
+    RectTransform _speedUpButton;
     [SerializeField]
     Button _hardCoinsPurchaseButton;
     [SerializeField]
@@ -37,8 +37,6 @@ public class SpeedUpManager : MonoBehaviour
     int _speedHardCoinsCost = 3;
     EconomyManager _economyManager;
     RewardManager _rewardManager;
-    [SerializeField]
-    VideoFillBarController _videoFillBarController;
     private void Start()
     {
         _panelManager = FindObjectOfType<PanelManager>();
@@ -62,7 +60,6 @@ public class SpeedUpManager : MonoBehaviour
     {
         CheckHardCoinsButton();
         _panelManager.RequestShowPanel(_speedUpMain);
-        _videoFillBarController.RefreshInfo();
         _panelIsOpen = true;
     }
     public Vector3 GetHardCoinsButtonPosition()
@@ -86,12 +83,6 @@ public class SpeedUpManager : MonoBehaviour
         CurrentSceneManager.SetGlobalSpeed(2);
         _VFXFireworksPool.StartTheParty();
         UserDataController.UpdateSpeedUpData((int)_speedUpTime);
-        _videoFillBarController.RefreshInfo();
-    }
-
-    public void SpeedUpShowVideo()
-    {
-        GameEvents.PlayAd.Invoke("SpeedUp");
     }
 
     public void HardcoinsPurchase()
@@ -115,17 +106,17 @@ public class SpeedUpManager : MonoBehaviour
     }
     private void Update()
     {
-        if (_panelIsOpen) 
+        if (_panelIsOpen)
         {
             _remainingTimeTx.text = GetRemainingTime();
             _timeFillBar.fillAmount = _speedUpTime / 1800f;
         }
-        if(_speedingUp)
+        if (_speedingUp)
         {
             _activeFeedbackPanel.gameObject.SetActive(true);
             _activeTime.text = GetRemainingTime();
             _speedUpTime -= Time.deltaTime;
-            if(_speedUpTime < 0)
+            if (_speedUpTime < 0)
             {
                 _speedingUp = false;
                 _speedUpTime = 0;
@@ -138,8 +129,8 @@ public class SpeedUpManager : MonoBehaviour
         {
             _activeFeedbackPanel.gameObject.SetActive(false);
         }
-    }
 
+    }
     public string GetRemainingTime()
     {
         int initialUnits = Mathf.FloorToInt(_speedUpTime);

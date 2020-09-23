@@ -18,8 +18,8 @@ public class AchievementInstance : MonoBehaviour
     TextMeshProUGUI _rewardAmountTx;
     [SerializeField]
     GameObject _claimButton;
-    [SerializeField]
-    EconomyManager _economyManager;
+    RewardManager _rewardManager;
+    MissionsManager _missionManager;
 
     int hardCoinsAmount = 0;
     int dinoLevel = 0;
@@ -28,19 +28,12 @@ public class AchievementInstance : MonoBehaviour
 
     private void Start()
     {
-        _economyManager = FindObjectOfType<EconomyManager>();
+        _rewardManager = FindObjectOfType<RewardManager>();
     }
-    public void SetMissionInstance(int id, string title, int currentProgress, int targetProgress, Sprite rewardIcon, int rewardAmount, int dinoLvl)
+    public void SetMissionInstance(int id, string title, int currentProgress, int targetProgress, Sprite rewardIcon, int rewardAmount, int dinoLvl, MissionsManager m)
     {
-        if (currentProgress >= targetProgress)
-        {
-            currentProgress = targetProgress;
-            _claimButton.SetActive(true);
-        }
-        else
-        {
-            _claimButton.SetActive(false);
-        }
+        _missionManager = m;
+        Refresh();
         _rewardAmountTx.text = "x" + rewardAmount;
         _titleTx.text = title;
         _progressTx.text = currentProgress + "/" + targetProgress;
@@ -55,24 +48,37 @@ public class AchievementInstance : MonoBehaviour
 
     private void OnEnable()
     {
+        Refresh();
+    }
+    public void Refresh()
+    {
         int currentProgress = UserDataController.GetObtainedDinosByDinotype(dinoLevel);
-        if (currentProgress >= _targetProgress)
+        if(_targetProgress > 0)
         {
-            currentProgress = _targetProgress;
-            _claimButton.SetActive(true);
+            if (!UserDataController.GetClaimedAchievement(achievementID))
+            {
+                if (currentProgress >= _targetProgress)
+                {
+                    currentProgress = _targetProgress;
+                    _claimButton.SetActive(true);
+                    UserDataController.SetchievementToClaim(achievementID, true);
+                }
+                else
+                {
+                    _claimButton.SetActive(false);
+                }
+            }
         }
-        else
-        {
-            _claimButton.SetActive(false);
-        }
+
         _progressTx.text = currentProgress + "/" + _targetProgress;
         _progressFill.fillAmount = currentProgress / (float)_targetProgress;
     }
 
     public void ClaimReward()
     {
-        _economyManager.EarnHardCoins(hardCoinsAmount);
+        _rewardManager.EarnHardCoin(hardCoinsAmount);
         UserDataController.ClaimAchievement(achievementID);
-        Destroy(gameObject);
+        _missionManager.CheckWarningState();
+        gameObject.SetActive(false);
     }
 }

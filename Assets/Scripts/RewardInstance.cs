@@ -14,6 +14,7 @@ public class RewardInstance : MonoBehaviour
     public void SetRewards(Sprite rewardType, int numberOfThisReward)
     {
         _rewardImage.sprite = rewardType;
+        _rewardImage.overrideSprite = rewardType;
         _numberOfReward.text = "+ " + numberOfThisReward.ToString();
     }
 }

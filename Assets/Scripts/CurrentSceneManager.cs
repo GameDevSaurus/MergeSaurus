@@ -15,7 +15,8 @@ public class CurrentSceneManager : MonoBehaviour
     public static bool _canTakeBackByCell;
     public static bool _canTakeBackByExpositor;
     public static float _currentGlobalSpeed;
-
+    public static bool _canOpenShop;
+    public static bool _canChangeName;
     private void Start()
     {
         _currentGlobalSpeed = 1f;
@@ -84,6 +85,8 @@ public class CurrentSceneManager : MonoBehaviour
         _canOpenBox = true;
         _canTakeBackByCell = true;
         _canTakeBackByExpositor = true;
+        _canChangeName = true;
+        _canOpenShop = true;
     }
     public static void LockEverything()
     {
@@ -97,5 +100,7 @@ public class CurrentSceneManager : MonoBehaviour
         _canOpenBox = false;
         _canTakeBackByCell = false;
         _canTakeBackByExpositor = false;
+        _canOpenShop = false;
+        _canChangeName = false;
     }
 }

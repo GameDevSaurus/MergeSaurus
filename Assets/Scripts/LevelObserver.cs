@@ -10,22 +10,18 @@ public class LevelObserver : MonoBehaviour
     TextMeshProUGUI _levelText;
     [SerializeField]
     Image _expBar;
-    private void Start()
+    private void Awake()
     {
         _levelText = GetComponent<TextMeshProUGUI>();
-        UpdateBar();
     }
     void Update()
     {
-        if (UserDataController._checked)
-        {
-            _levelText.text = UserDataController.GetLevel().ToString();
-            UpdateBar();
-        }
+        UpdateBar();
     }
 
     public void UpdateBar()
     {
+        _levelText.text = UserDataController.GetLevel().ToString();
         _expBar.fillAmount = UserDataController.GetExperienceAmount();
     }
 }
