@@ -158,6 +158,8 @@ public class MergeUpManager : MonoBehaviour
         _mainFillBar.SetActive(false);
         _panelManager.ClosePanel();
         GameEvents.CloseDinoUpPanel.Invoke();
-        GameEvents.GetSkin.Invoke(new GameEvents.UnlockSkinEventData(_currentDinoType * 2, 0));
+        GameEvents.MergeDino.Invoke(_currentDinoType);
+        GameEvents.RewardMergeUp.Invoke(_currentDinoType);
+        //GameEvents.GetSkin.Invoke(new GameEvents.UnlockSkinEventData(_currentDinoType * 2, 0));
     }
 }

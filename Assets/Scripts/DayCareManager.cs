@@ -29,17 +29,18 @@ public class DayCareManager : MonoBehaviour
     Transform _panelParent;
     List<PurchaseDinoPanel> _dinoPanelManagers;
     bool watchedVideo = false;
-    int[] gemCost = {4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 86, 94, 102, 110, 120, 130, 140, 150, 165, 180, 197, 214, 231, 250 };
+    int[] gemCost = { 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 86, 94, 102, 110, 120, 130, 140, 150, 165, 180, 197, 214, 231, 250 };
     PanelManager _panelManager;
     int smallGemCost, bigGemCost;
 
-    public enum PurchaseButtonType {SoftCoins, Hardcoins, Ad};
+    public enum PurchaseButtonType { SoftCoins, Hardcoins, Ad };
 
-    string[] dinoNames = { "Takoyaki", "Catara", "Cuticorn", "Suky", "Shiva", "Danny", "Mica", "Meku", "Eri"};
+    string[] dinoNames;
 
     int _fastPurchaseDinoType = 0;
     private void Awake()
     {
+        dinoNames = new string[] { "Parasaurolophus", "Corythosaurus", "Styrcosaurus", "Nanuqsaurus", "Triceratops", "dino5", "dino6", "dino7", "dino8", "dino9", "dino10", "dino11", "dino12", "dino13", "dino14", "dino15", "dino16", "dino17", "dino18", "dino19", "dino20" };
         _economyManager = FindObjectOfType<EconomyManager>();
         _mainGameSceneController = FindObjectOfType<MainGameSceneController>();
         _shopPanel.SetActive(false);
@@ -63,8 +64,8 @@ public class DayCareManager : MonoBehaviour
             p.SetDinoImage(Resources.Load<Sprite>("Sprites/FaceSprites/" + i));
             p.SetDinoName(GetChibiName(i));
             int index = i;
-            p.GetDinoButton().onClick.AddListener(()=>SoftCoinPurchase(index));
-            p.GetGemsButton().onClick.AddListener(()=>HardCoinsPurcharse(index));
+            p.GetDinoButton().onClick.AddListener(() => SoftCoinPurchase(index));
+            p.GetGemsButton().onClick.AddListener(() => HardCoinsPurcharse(index));
 
             _dinoPanelManagers.Add(p);
         }
@@ -77,14 +78,7 @@ public class DayCareManager : MonoBehaviour
     public string GetChibiName(int index)
     {
         string chibiname = "";
-        if (index > 0 && index % 2 != 0)
-        {
-            chibiname = dinoNames[(index - 1) / 2] + " (nude)";
-        }
-        else
-        {
-            chibiname = dinoNames[index / 2];
-        }
+        chibiname = dinoNames[index];
         return chibiname;
     }
 
@@ -117,7 +111,7 @@ public class DayCareManager : MonoBehaviour
                 _fastPurchaseFace.overrideSprite = Resources.Load<Sprite>("Sprites/FaceSprites/" + i);
                 _fastPurchaseName.text = GetChibiName(i);
                 _fastPurchaseDinoType = i;
-                
+
             }
             if (i > biggestDino)
             {
@@ -135,7 +129,7 @@ public class DayCareManager : MonoBehaviour
                     _dinoPanelManagers[3].LockPurcharse();
                     smallGemCost = 2;
                     bigGemCost = 3;
-                    if(biggestDino == 3)
+                    if (biggestDino == 3)
                     {
                         _dinoPanelManagers[i].UnlockPanel(2);
                     }
@@ -145,14 +139,14 @@ public class DayCareManager : MonoBehaviour
                     //Desbloqueo Corriente
                     if (biggestDino >= 4 && biggestDino < 8)
                     {
-                        if (i > biggestDino -2)
+                        if (i > biggestDino - 2)
                         {
                             _dinoPanelManagers[i].LockPurcharse(); //2 primeros bloqueados
                             _dinoPanelManagers[i].UnlockPanel(2);
                         }
                         else
                         {
-                            if(i > biggestDino - 4)
+                            if (i > biggestDino - 4)
                             {
                                 if (i == biggestDino - 2)
                                 {
@@ -169,7 +163,7 @@ public class DayCareManager : MonoBehaviour
                             }
                             else
                             {
-                                    _dinoPanelManagers[i].UnlockPanel(0);
+                                _dinoPanelManagers[i].UnlockPanel(0);
                             }
                         }
                     }
@@ -199,7 +193,7 @@ public class DayCareManager : MonoBehaviour
                                     if (i == biggestDino - 2)
                                     {
                                         _dinoPanelManagers[i].UnlockPanel(1); //Hardcoins
-                                        _dinoPanelManagers[i].SetGemsCost(gemCost[biggestDino -7]);
+                                        _dinoPanelManagers[i].SetGemsCost(gemCost[biggestDino - 7]);
                                         smallGemCost = gemCost[biggestDino - 7];
                                     }
                                     if (i == biggestDino - 3)
@@ -246,9 +240,9 @@ public class DayCareManager : MonoBehaviour
         int result = -1;
         if (biggestDino > 8)
         {
-            if(index == biggestDino - 2)
+            if (index == biggestDino - 2)
             {
-                result =  bigGemCost;
+                result = bigGemCost;
             }
             else
             {
@@ -270,7 +264,7 @@ public class DayCareManager : MonoBehaviour
         }
         else
         {
-            if(biggestDino < 9)
+            if (biggestDino < 9)
             {
                 fastPurchaseIndex = biggestDino - 5;
             }

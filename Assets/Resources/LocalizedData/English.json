@@ -21,19 +21,19 @@
   },
   {
     "key": "CONV_0_2",
-    "value": "We need new girls. Try to hire our new employee!"
+    "value": "We need new dinos. Get one from the breed center!"
   },
   {
     "key": "CONV_1_0",
-    "value": "Put her to work on any available table"
+    "value": "To get money, show the new dino to our visitors."
   },
   {
     "key": "CONV_2_0",
-    "value": "Touch on her to bring her back"
+    "value": "Touch on him to bring him back"
   },
   {
     "key": "CONV_3_0",
-    "value": "You can also put her on the table touching twice on the screen, try it!"
+    "value": "You can also put him on the expositor touching twice on the screen, try it!"
   },
   {
     "key": "CONV_4_0",
@@ -41,15 +41,15 @@
   },
   {
     "key": "CONV_5_0",
-    "value": "Customers love beer, start the \"happy hour\" to liven them up"
+    "value": "Visitors love fireworks, start a live show to liven them up!"
   },
   {
     "key": "ADVICE_NOEMPTYCELLS",
-    "value": "You don't have seats available"
+    "value": "You don't have slots available"
   },
   {
     "key": "ADVICE_NOEXPOSITORS",
-    "value": "You don't have tables available"
+    "value": "You don't have expositors available"
   },
   {
     "key": "LEVEL_UP_PANEL",
@@ -65,7 +65,7 @@
   },
   {
     "key": "UNLOCK_DINO_QUALITY",
-    "value": "Hotness"
+    "value": "Coolness"
   },
   {
     "key": "SHOP",
@@ -73,7 +73,7 @@
   },
   {
     "key": "SPEEDUP",
-    "value": "HAPPY HOUR"
+    "value": "Fireworks"
   },
   {
     "key": "ADDSECONDS",
@@ -81,7 +81,7 @@
   },
   {
     "key": "DAYCARE",
-    "value": "HIRE"
+    "value": "BREED"
   },
   {
     "key": "SPIN",
@@ -121,7 +121,7 @@
   },
   {
     "key": "UPGRADES_INFO",
-    "value": "Exchange girld for upgrades"
+    "value": "Exchange dinos for upgrades"
   },
   {
     "key": "UPGRADES_BUTTON",
@@ -141,7 +141,7 @@
   },
   {
     "key": "NEST",
-    "value": "GIFTS"
+    "value": "NEST"
   },
   {
     "key": "RESTORE",
@@ -257,7 +257,7 @@
   },
   {
     "key": "ADVICE_NOT_UNLOCKED",
-    "value": "This girl is not available"
+    "value": "This dino is not available"
   },
   {
     "key": "ADVICE_NOHARDCOINS",
@@ -285,15 +285,15 @@
   },
   {
     "key": "SPIN_REWARD_BOXES",
-    "value": "You earned {0} gifts"
+    "value": "You earned {0} eggs"
   },
   {
     "key": "UPGRADES_INFO_PANEL_1",
-    "value": "Girls' earnings"
+    "value": "Dinos' earnings"
   },
   {
     "key": "UPGRADES_INFO_PANEL_2",
-    "value": "Clients' speed"
+    "value": "Visitors' speed"
   },
   {
     "key": "UPGRADES_INFO_PANEL_3",
@@ -305,7 +305,7 @@
   },
   {
     "key": "SPIN_REWARD_SOFTCOINS_MINS",
-    "value": "You earned 0 minutes of earnigs"
+    "value": "You earned {0} minutes of earnigs"
   },
   {
     "key": "REWARD_HARDCOINS",
@@ -325,15 +325,15 @@
   },
   {
     "key": "ACHIEVEMENT_TITLE",
-    "value": "Get 5 girls of level {0}"
+    "value": "Get 5 dinos of level {0}"
   },
   {
     "key": "DAILYMISSION_MERGE",
-    "value": "Combine {0} girls"
+    "value": "Combine {0} dinos"
   },
   {
     "key": "DAILYMISSION_PURCHASE",
-    "value": "Hire {0} girls"
+    "value": "Breed {0} dinos"
   },
   {
     "key": "UNLOCK_SPIN",
@@ -353,11 +353,11 @@
   },
   {
     "key": "PROFILE_EXTRAS_2",
-    "value": "{0}% of discount in contracts"
+    "value": "{0}% of discount when breeding"
   },
   {
     "key": "PROFILE_EXTRAS_3",
-    "value": "{0}% client speed"
+    "value": "{0}% visitors speed"
   },
   {
     "key": "PROFILE_EXTRAS_4",
@@ -365,7 +365,7 @@
   },
   {
     "key": "LOCKED_EXPOSITOR",
-    "value": "You have not unlocked this table yet"
+    "value": "You have not unlocked this expositor yet"
   },
   {
     "key": "SAVE",
@@ -385,11 +385,11 @@
   },
   {
     "key": "TABLES",
-    "value": "TABLES"
+    "value": "Expositors"
   },
   {
     "key": "SEATS",
-    "value": "SEATS"
+    "value": "Slots"
   },
   {
     "key": "FRAMES",
@@ -409,11 +409,11 @@
   },
   {
     "key": "UNLOCK_CELL",
-    "value": "New Seats!"
+    "value": "New Slots!"
   },
   {
     "key": "UNLOCK_EXPOSITOR",
-    "value": "New Tables!"
+    "value": "New Expositors!"
   },
   {
     "key": "UNLOCK_GROUND",
@@ -461,7 +461,7 @@
   },
   {
     "key": "GIFTS",
-    "value": "GET 4 GIFTS NOW!"
+    "value": "GET 4 EGGS NOW!"
   },
   {
     "key": "OBTAIN_REWARD",
@@ -480,7 +480,7 @@
     "value": "The price of the girls increases with the amount of contracts you have made of each one."
   },
   {
-    "key": "CONV_GALLERY_0",
+    "key": null,
     "value": "This is the gallery, where you can see our girls' private photos."
   },
   {
@@ -493,7 +493,7 @@
   },
   {
     "key": "MORE_GIRLS_ADVICE",
-    "value": "MORE GIRLS COMING SOON"
+    "value": "MORE DINOS COMING SOON"
   },
   {
     "key": "SELECT",
