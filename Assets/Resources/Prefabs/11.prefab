@@ -325,10 +325,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _spriteRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8719342422597374234}
+  - {fileID: 3451968558827564394}
+  - {fileID: 3604576119585359437}
 --- !u!1 &6740083498906337209
 GameObject:
   m_ObjectHideFlags: 0
