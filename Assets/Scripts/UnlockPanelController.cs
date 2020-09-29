@@ -8,13 +8,12 @@ public class UnlockPanelController : MonoBehaviour
     List<GameObject> buttons;
     private void Awake()
     {
-        GameEvents.DinoUp.AddListener(UnlockButtons);
         UnlockButtons(UserDataController.GetBiggestDino());
+        GameEvents.DinoUp.AddListener(UnlockButtons);
     }
     
     void UnlockButtons(int biggestDino)
     {
-        print(biggestDino);
         if (biggestDino == 0)
         {
             for (int i = 0; i < buttons.Count; i++)
@@ -24,25 +23,29 @@ public class UnlockPanelController : MonoBehaviour
         }
         else
         {
-            if (biggestDino < 6)
+            if (biggestDino < 7)
             {
                 int unlockIndex = 0;
                 switch (biggestDino)
                 {
                     case 0:
-                        break;
                     case 1:
-                        unlockIndex = 2;
                         break;
                     case 2:
-                        unlockIndex = 4;
+                        unlockIndex = 1;
                         break;
                     case 3:
+                        unlockIndex = 2;
+                        break;
                     case 4:
-                        unlockIndex = 5;
+                        unlockIndex = 4;
                         break;
                     case 5:
+                    case 6:
                         unlockIndex = 6;
+                        break;
+                    case 7:
+                        unlockIndex = 7;
                         break;
                 }
                 for (int i = 0; i < buttons.Count; i++)
