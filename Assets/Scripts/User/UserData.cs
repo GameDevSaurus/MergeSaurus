@@ -71,12 +71,12 @@ public class UserData
         _hardCoins = 0; 
         _unlockedCells = 4;
         _unlockedExpositors = 4;
-        _currentCell = 0;
+        _currentCell = 2;
         _currentExpositor = 0;
         _currentGround = 0;
         _currentFrame = 0;
         _cellSkins = new bool[5];
-        _cellSkins[0] = true;
+        _cellSkins[2] = true;
         _expositorSkins = new bool[5];
         _expositorSkins[0] = true;
         _groundSkins = new bool[5];
