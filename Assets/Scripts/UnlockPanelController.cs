@@ -21,6 +21,7 @@ public class UnlockPanelController : MonoBehaviour
                 buttons[i].SetActive(false);
             }
         }
+
         else
         {
             if (biggestDino < 7)
