@@ -42821,7 +42821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 139.7, y: -203.4}
+  m_AnchoredPosition: {x: 0, y: -46}
   m_SizeDelta: {x: 67.483246, y: 70.24826}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1090933419
@@ -77712,8 +77712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1961608132}
-        m_MethodName: CloseGallery
+      - m_Target: {fileID: 1214833335}
+        m_MethodName: CloseCustomize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
